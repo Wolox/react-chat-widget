@@ -1,0 +1,13 @@
+# Package manager files
+node_modules
+npm-debug.log
+yarn-error.log
+
+# OSX
+.DS_Store
+
+# Build files
+lib
+
+# Test files
+coverage

@@ -1,0 +1,39 @@
+{
+  "name": "react-chat-widget",
+  "version": "1.0.0",
+  "description": "Chat web widget for React apps",
+  "main": "index.js",
+  "repository": "git@github.com:Wolox/react-chat-widget.git",
+  "author": "Martín Callegari <martin.callegari@wolox.com.ar>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel index.js -d lib && babel src -d lib/src",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.2",
+    "babel-jest": "^19.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-prettier": "^1.6.0",
+    "eslint-plugin-flowtype": "^2.30.4",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-prettier": "^2.0.1",
+    "eslint-plugin-react": "^6.10.3",
+    "husky": "^0.13.3",
+    "jest": "^19.0.2",
+    "prettier": "^1.1.0",
+    "prettier-eslint": "^5.1.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  }
+}
