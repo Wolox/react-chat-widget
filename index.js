@@ -1,3 +1,3 @@
-import Widget from './src/components/WidgetContainer';
+import Widget from './src/WidgetContainer';
 
 export { Widget };
