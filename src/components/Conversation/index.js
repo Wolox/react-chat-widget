@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Presentation from './components/Presentation';
 import Messages from './components/Messages';
 import Sender from './components/Sender';
 
@@ -24,14 +25,14 @@ class Conversation extends Component {
   }
 
   sendMessage = (event) => {
-    if (event.keyCode === 13 && event.target.value) {
-      // handle new message
-    }
+    // handle new message
+    event.preventDefault();
   }
 
   render() {
     return (
       <div>
+        <Presentation />
         <Messages
           messages={this.state.messages}
         />
