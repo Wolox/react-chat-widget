@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Presentation from './components/Presentation';
-import Messages from './components/Messages';
-import Sender from './components/Sender';
+import ConversationScreen from './screen';
 
 const MESSAGES_TYPE = {
   CLIENT: 'client',
@@ -31,22 +29,21 @@ class Conversation extends Component {
 
   render() {
     return (
-      <div>
-        <Presentation />
-        <Messages
-          messages={this.state.messages}
-        />
-        <Sender
-          handleMessageChange={this.updateMessage}
-          sendMessage={this.sendMessage}
-        />
-      </div>
+      <ConversationScreen
+        title={this.props.title}
+        subtitle={this.props.subtitle}
+        messages={this.state.messages}
+        updateMessage={this.updateMessage}
+        sendMessage={this.sendMessage}
+      />
     );
   }
 }
 
 Conversation.propTypes = {
-  show: PropTypes.bool.isRequired
+  show: PropTypes.bool,
+  title: PropTypes.string,
+  subtitle: PropTypes.string
 };
 
 export default Conversation;

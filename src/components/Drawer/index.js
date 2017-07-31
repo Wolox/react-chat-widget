@@ -5,7 +5,8 @@ const Drawer = props =>
   <button type="button" onClick={props.toggle}>Toggle Chat</button>;
 
 Drawer.propTypes = {
-  toggle: PropTypes.func
+  toggle: PropTypes.func,
+  chatOpened: PropTypes.bool
 };
 
 export default Drawer;

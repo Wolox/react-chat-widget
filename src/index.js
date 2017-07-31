@@ -16,8 +16,13 @@ class Widget extends Component {
   render() {
     return (
       <div>
-        <Conversation show={this.state.showChat} />
-        <Drawer toggle={this.toggleConversation} />
+        <Conversation
+          show={this.state.showChat}
+        />
+        <Drawer
+          toggle={this.toggleConversation}
+          chatOpened={this.state.showChat}
+        />
       </div>
     );
   }
