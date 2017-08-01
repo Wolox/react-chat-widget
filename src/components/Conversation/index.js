@@ -41,7 +41,6 @@ export default class Conversation extends Component {
 }
 
 Conversation.propTypes = {
-  show: PropTypes.bool,
   title: PropTypes.string,
   subtitle: PropTypes.string
 };

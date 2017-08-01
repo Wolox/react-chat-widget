@@ -6,11 +6,12 @@ import './style.scss';
 
 const WidgetScreen = props =>
   <div className="widget-container">
-    <Conversation
-      title={props.title}
-      subtitle={props.subtitle}
-      show={props.showChat}
-    />
+    {props.showChat ?
+      <Conversation
+        title={props.title}
+        subtitle={props.subtitle}
+      /> : null
+    }
     <Launcher
       toggle={props.toggleConversation}
       chatOpened={props.showChat}
