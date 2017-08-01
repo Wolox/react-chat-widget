@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.scss';
 
 const Sender = props =>
-  <form onSubmit={props.sendMessage}>
-    <input
-      type="text"
-      onChange={props.handleMessageChange}
-    />
-    <button type="submit">Enviar</button>
+  <form className="sender" onSubmit={props.sendMessage}>
+    <input type="text" className="new-message" onChange={props.handleMessageChange} />
+    <button type="submit" className="send">Enviar</button>
   </form>;
 
 Sender.propTypes = {

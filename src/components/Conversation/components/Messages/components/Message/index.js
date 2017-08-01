@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 
 const Message = props =>
   <div>
-    {props.profileImage ?
-      <img src={props.profileImage} alt="profile" /> :
-      null
-    }
+    <img src={props.profileImage} alt="profile" />
     <span style={props.messageType}>
       {props.message}
     </span>

@@ -7,7 +7,7 @@ const MESSAGES_TYPE = {
   RESPONSE: 'response'
 };
 
-class Conversation extends Component {
+export default class Conversation extends Component {
   state = {
     message: {
       messageType: MESSAGES_TYPE.CLIENT,
@@ -45,5 +45,3 @@ Conversation.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string
 };
-
-export default Conversation;

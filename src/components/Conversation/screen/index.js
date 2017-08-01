@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import Presentation from '../components/Presentation';
 import Messages from '../components/Messages';
 import Sender from '../components/Sender';
+import './style.scss';
 
 const ConversationScreen = props =>
-  <div>
+  <div className="conversation-container">
     <Presentation
       title={props.title}
       subtitle={props.subtitle}
@@ -23,7 +24,7 @@ const ConversationScreen = props =>
 ConversationScreen.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  styling: PropTypes.object,
+  styling: PropTypes.string,
   messages: PropTypes.arrayOf(PropTypes.object),
   updateMessage: PropTypes.func,
   sendMessage: PropTypes.func

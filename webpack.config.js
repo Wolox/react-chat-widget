@@ -1,22 +1,38 @@
 const path = require('path');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './index.js',
   output: {
     path: path.join(__dirname, '/lib'),
-    filename: 'index.js'
+    filename: 'index.js',
+    library: 'react-chat-widget',
+    libraryTarget: 'umd'
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
+    rules: [{
+      test: /\.js$/,
       loader: 'babel-loader',
       query: {
         presets: ['es2015', 'react'],
         plugins: ['transform-class-properties']
       }
+    }, {
+      test: /\.scss$/,
+      use: [
+        { loader: 'style-loader' },
+        { loader: 'css-loader' },
+        { loader: 'sass-loader' }
+      ]
     }]
   }
+  // ,
+  // plugins: [
+  //   new ExtractTextPlugin('styles/style.css', {
+  //     allChunks: true
+  //   })
+  // ]
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Conversation from './components/Conversation';
-import Drawer from './components/Drawer';
+import PropTypes from 'prop-types';
+import WidgetScreen from './screen';
 
 class Widget extends Component {
   state = {
@@ -15,17 +15,19 @@ class Widget extends Component {
 
   render() {
     return (
-      <div>
-        <Conversation
-          show={this.state.showChat}
-        />
-        <Drawer
-          toggle={this.toggleConversation}
-          chatOpened={this.state.showChat}
-        />
-      </div>
+      <WidgetScreen
+        title={this.props.title}
+        subtitle={this.props.subtitle}
+        showChat={this.state.showChat}
+        toggleConversation={this.toggleConversation}
+      />
     );
   }
 }
+
+Widget.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string
+};
 
 export default Widget;

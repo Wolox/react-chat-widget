@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Message from './components/Message';
+import './styles.scss';
 
 const Messages = props =>
-  <div>
+  <div className="messages-container">
     {props.messages.map(message =>
       <Message
         messageType={message.type}

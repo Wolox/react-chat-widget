@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.scss';
 
 const Presentation = props =>
-  <div>
+  <div className="presentation">
     <h4>{props.title}</h4>
     <span>{props.subtitle}</span>
   </div>;
