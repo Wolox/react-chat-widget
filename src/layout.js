@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Conversation from '../components/Conversation';
-import Launcher from '../components/Launcher';
+import Conversation from './components/Conversation';
+import Launcher from './components/Launcher';
 import './style.scss';
 
 const WidgetScreen = props =>
@@ -10,6 +10,9 @@ const WidgetScreen = props =>
       <Conversation
         title={props.title}
         subtitle={props.subtitle}
+        sendMessage={props.sendMessage}
+        messages={props.messages}
+        pushNewMessage={props.pushNewMessage}
       /> : null
     }
     <Launcher
@@ -22,7 +25,10 @@ WidgetScreen.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   showChat: PropTypes.bool,
-  toggleConversation: PropTypes.func
+  toggleConversation: PropTypes.func,
+  sendMessage: PropTypes.func,
+  messages: PropTypes.arrayOf(PropTypes.object),
+  pushNewMessage: PropTypes.func
 };
 
 export default WidgetScreen;

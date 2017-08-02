@@ -1,40 +1,46 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ConversationScreen from './screen';
+import ConversationLayout from './layout';
+import { MESSAGES_TYPE } from '../../constants';
 
-const MESSAGES_TYPE = {
-  CLIENT: 'client',
-  RESPONSE: 'response'
-};
-
-export default class Conversation extends Component {
+class Conversation extends Component {
   state = {
     message: {
-      messageType: MESSAGES_TYPE.CLIENT,
-      message: ''
+      text: '',
+      messageType: MESSAGES_TYPE.CLIENT
     },
     messages: []
   };
 
-  updateMessage = (event) => {
+  pushNewMessage = ({ text, messageType = MESSAGES_TYPE.RESPONSE }, callback) => {
     this.setState({
-      message: event.target.value
-    });
+      messages: this.state.messages.concat([{ text, messageType }])
+    }, callback());
   }
 
-  sendMessage = (event) => {
-    // handle new message
+  handleMessageSubmit = (event) => {
+    // todo: quye llegue el message
+    // todo: manejar el state de la lista de mensaje aca. gacer setState
+    // todo: llamar a la prop que viene de afuera
+      // this.props.onMessageCreated(message).then((response) => {
+      //   this.setState({ messages: this.state.messages.concat(response) })
+      // })
+    const newMessage = {
+      text: event.target[0].value,
+      messageType: MESSAGES_TYPE.CLIENT
+    };
+    debugger
     event.preventDefault();
+    this.pushNewMessage(newMessage, this.props.sendMessage(event.target.message.value));
   }
 
   render() {
     return (
-      <ConversationScreen
+      <ConversationLayout
         title={this.props.title}
         subtitle={this.props.subtitle}
         messages={this.state.messages}
-        updateMessage={this.updateMessage}
-        sendMessage={this.sendMessage}
+        handleMessageSubmit={this.handleMessageSubmit}
       />
     );
   }
@@ -42,5 +48,8 @@ export default class Conversation extends Component {
 
 Conversation.propTypes = {
   title: PropTypes.string,
-  subtitle: PropTypes.string
+  subtitle: PropTypes.string,
+  sendMessage: PropTypes.func
 };
+
+export default Conversation;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import WidgetScreen from './screen';
+import WidgetLayout from './layout';
 
 class Widget extends Component {
   state = {
@@ -15,9 +15,10 @@ class Widget extends Component {
 
   render() {
     return (
-      <WidgetScreen
+      <WidgetLayout
         title={this.props.title}
         subtitle={this.props.subtitle}
+        sendMessage={this.props.sendMessage}
         showChat={this.state.showChat}
         toggleConversation={this.toggleConversation}
       />
@@ -27,7 +28,9 @@ class Widget extends Component {
 
 Widget.propTypes = {
   title: PropTypes.string,
-  subtitle: PropTypes.string
+  subtitle: PropTypes.string,
+  sendMessage: PropTypes.func,
+  onMessageCreated: PropTypes.func // onMessageCreated. esta es la prop que va a usar el dev de afuera.
 };
 
 export default Widget;
