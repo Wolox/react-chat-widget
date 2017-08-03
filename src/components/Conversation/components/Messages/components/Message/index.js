@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 
 const Message = props =>
   <div>
-    <img src={props.profileImage} alt="profile" />
-    <span style={props.messageType}>
-      {props.message}
+    {props.profileImage ?
+      <img src={props.profileImage} alt="profile" /> :
+      null
+    }
+    <span>
+      {props.text}
     </span>
   </div>;
 
 Message.propTypes = {
-  message: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   messageType: PropTypes.string.isRequired,
   profileImage: PropTypes.string
 };

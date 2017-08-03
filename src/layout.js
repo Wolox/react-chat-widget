@@ -11,8 +11,6 @@ const WidgetScreen = props =>
         title={props.title}
         subtitle={props.subtitle}
         sendMessage={props.sendMessage}
-        messages={props.messages}
-        pushNewMessage={props.pushNewMessage}
       /> : null
     }
     <Launcher
@@ -26,9 +24,7 @@ WidgetScreen.propTypes = {
   subtitle: PropTypes.string,
   showChat: PropTypes.bool,
   toggleConversation: PropTypes.func,
-  sendMessage: PropTypes.func,
-  messages: PropTypes.arrayOf(PropTypes.object),
-  pushNewMessage: PropTypes.func
+  sendMessage: PropTypes.func
 };
 
 export default WidgetScreen;

@@ -7,8 +7,8 @@ const Messages = props =>
   <div className="messages-container">
     {props.messages.map(message =>
       <Message
-        messageType={message.type}
-        message={message.message}
+        messageType={message.messageType}
+        text={message.text}
       />
     )}
   </div>;

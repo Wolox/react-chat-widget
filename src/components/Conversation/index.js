@@ -12,10 +12,18 @@ class Conversation extends Component {
     messages: []
   };
 
-  pushNewMessage = ({ text, messageType = MESSAGES_TYPE.RESPONSE }, callback) => {
+  componentDidUpdate() {
+    const lastMessageIndex = this.state.messages.length - 1;
+    const lastMessage = this.state.messages[lastMessageIndex];
+    if (lastMessage.messageType === MESSAGES_TYPE.CLIENT) {
+      this.props.sendMessage(lastMessage.text);
+    }
+  }
+
+  pushNewMessage = ({ text, messageType = MESSAGES_TYPE.RESPONSE }) => {
     this.setState({
       messages: this.state.messages.concat([{ text, messageType }])
-    }, callback());
+    });
   }
 
   handleMessageSubmit = (event) => {
@@ -26,12 +34,12 @@ class Conversation extends Component {
       //   this.setState({ messages: this.state.messages.concat(response) })
       // })
     const newMessage = {
-      text: event.target[0].value,
+      text: event.target.message.value,
       messageType: MESSAGES_TYPE.CLIENT
     };
-    debugger
     event.preventDefault();
-    this.pushNewMessage(newMessage, this.props.sendMessage(event.target.message.value));
+    this.pushNewMessage(newMessage);
+    event.target.message.value = '';
   }
 
   render() {
