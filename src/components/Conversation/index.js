@@ -17,6 +17,9 @@ class Conversation extends Component {
     const lastMessage = this.state.messages[lastMessageIndex];
     if (lastMessage.messageType === MESSAGES_TYPE.CLIENT) {
       this.props.sendMessage(lastMessage.text);
+      this.props.newResponseMessage().then((message) => {
+        this.pushNewMessage({ text: message });
+      });
     }
   }
 
@@ -27,12 +30,6 @@ class Conversation extends Component {
   }
 
   handleMessageSubmit = (event) => {
-    // todo: quye llegue el message
-    // todo: manejar el state de la lista de mensaje aca. gacer setState
-    // todo: llamar a la prop que viene de afuera
-      // this.props.onMessageCreated(message).then((response) => {
-      //   this.setState({ messages: this.state.messages.concat(response) })
-      // })
     const newMessage = {
       text: event.target.message.value,
       messageType: MESSAGES_TYPE.CLIENT
@@ -57,7 +54,8 @@ class Conversation extends Component {
 Conversation.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  sendMessage: PropTypes.func
+  sendMessage: PropTypes.func,
+  newResponseMessage: PropTypes.func
 };
 
 export default Conversation;

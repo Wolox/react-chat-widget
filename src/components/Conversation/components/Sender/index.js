@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
-import send from '../../../../../assets/send.png';
+import send from '../../../../../assets/send_button.svg';
 
 const Sender = props =>
   <form className="sender" onSubmit={props.sendMessage}>
-    <input type="text" className="new-message" name="message" />
+    <input type="text" className="new-message" name="message" placeholder="Escriba un mensaje..." />
     <button type="submit" className="send">
       <img src={send} className="send-icon" alt="send" />
     </button>

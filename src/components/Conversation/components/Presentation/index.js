@@ -4,7 +4,7 @@ import './style.scss';
 
 const Presentation = props =>
   <div className="presentation">
-    <h4>{props.title}</h4>
+    <h4 className="title">{props.title}</h4>
     <span>{props.subtitle}</span>
   </div>;
 

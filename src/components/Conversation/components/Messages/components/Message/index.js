@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 const Message = props =>
-  <div>
-    {props.profileImage ?
-      <img src={props.profileImage} alt="profile" /> :
-      null
-    }
-    <span>
-      {props.text}
-    </span>
+  <div className="message">
+    <div className={`${props.messageType}`}>
+      {props.profileImage ?
+        <img src={props.profileImage} alt="profile" /> :
+        null
+      }
+      <span className="message-text">
+        {props.text}
+      </span>
+    </div>
   </div>;
 
 Message.propTypes = {

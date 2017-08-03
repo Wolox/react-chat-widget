@@ -1,4 +1,12 @@
 .presentation {
-  border-bottom: 1px solid #000;
-  margin-bottom: 20px;
+  background-color: #1e3f7b;
+  border-radius: 10px 10px 0 0;
+  color: #FFF;
+  padding: 15px 0;
+
+  .title {
+    font-size: 24px;
+    margin: 0;
+    padding: 15px;
+  }
 }

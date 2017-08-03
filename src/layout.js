@@ -4,13 +4,14 @@ import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
 import './style.scss';
 
-const WidgetScreen = props =>
+const WidgetLayout = props =>
   <div className="widget-container">
     {props.showChat ?
       <Conversation
         title={props.title}
         subtitle={props.subtitle}
         sendMessage={props.sendMessage}
+        newResponseMessage={props.newResponseMessage}
       /> : null
     }
     <Launcher
@@ -19,12 +20,13 @@ const WidgetScreen = props =>
     />
   </div>;
 
-WidgetScreen.propTypes = {
+WidgetLayout.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  sendMessage: PropTypes.func,
+  newResponseMessage: PropTypes.func,
   showChat: PropTypes.bool,
-  toggleConversation: PropTypes.func,
-  sendMessage: PropTypes.func
+  toggleConversation: PropTypes.func
 };
 
-export default WidgetScreen;
+export default WidgetLayout;

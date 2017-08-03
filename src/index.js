@@ -19,6 +19,7 @@ class Widget extends Component {
         title={this.props.title}
         subtitle={this.props.subtitle}
         sendMessage={this.props.sendMessage}
+        newResponseMessage={this.props.newResponseMessage}
         showChat={this.state.showChat}
         toggleConversation={this.toggleConversation}
       />
@@ -30,7 +31,7 @@ Widget.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   sendMessage: PropTypes.func,
-  onMessageCreated: PropTypes.func // onMessageCreated. esta es la prop que va a usar el dev de afuera.
+  newResponseMessage: PropTypes.func
 };
 
 export default Widget;
