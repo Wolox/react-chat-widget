@@ -1,6 +1,16 @@
-const MESSAGES_TYPE = {
+const MESSAGE_SENDER = {
   CLIENT: 'client',
   RESPONSE: 'response'
 };
 
-export { MESSAGES_TYPE };
+const MESSAGES_TYPES = {
+  TEXT: 'texto',
+  SNIPPET: {
+    LINK: 'link'
+  }
+}
+
+export { 
+  MESSAGE_SENDER,
+  MESSAGES_TYPES
+};

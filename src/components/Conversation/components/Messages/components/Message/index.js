@@ -2,23 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-const Message = props =>
+const Message = ({ message }) =>
   <div className="message">
-    <div className={`${props.messageType}`}>
-      {props.profileImage ?
-        <img src={props.profileImage} alt="profile" /> :
+    <div className={`${message.messageSender}`}>
+      {message.profileImage ?
+        <img src={message.profileImage} alt="profile" /> :
         null
       }
       <span className="message-text">
-        {props.text}
+        {message.text}
       </span>
     </div>
   </div>;
 
 Message.propTypes = {
-  text: PropTypes.string.isRequired,
-  messageType: PropTypes.string.isRequired,
-  profileImage: PropTypes.string
+  message: PropTypes.shape({
+    messageType: PropTypes.oneOf([
+      MESSAGES_TYPES.TEXT,
+      MESSAGES_TYPES.SNIPPET.LINK
+    ]),
+    text: PropTypes.string,
+    timestamp: PropTypes.string
+  })
 };
 
 export default Message;

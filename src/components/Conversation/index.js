@@ -1,61 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Header from './components/Header';
+import Messages from './components/Messages';
+import Sender from './components/Sender';
 import PropTypes from 'prop-types';
-import ConversationLayout from './layout';
-import { MESSAGES_TYPE } from '../../constants';
 
-class Conversation extends Component {
-  state = {
-    message: {
-      text: '',
-      messageType: MESSAGES_TYPE.CLIENT
-    },
-    messages: []
-  };
-
-  componentDidUpdate() {
-    const lastMessageIndex = this.state.messages.length - 1;
-    const lastMessage = this.state.messages[lastMessageIndex];
-    if (lastMessage.messageType === MESSAGES_TYPE.CLIENT) {
-      this.props.sendMessage(lastMessage.text);
-      this.props.newResponseMessage().then((message) => {
-        this.pushNewMessage({ text: message });
-      });
-    }
-  }
-
-  pushNewMessage = ({ text, messageType = MESSAGES_TYPE.RESPONSE }) => {
-    this.setState({
-      messages: this.state.messages.concat([{ text, messageType }])
-    });
-  }
-
-  handleMessageSubmit = (event) => {
-    const newMessage = {
-      text: event.target.message.value,
-      messageType: MESSAGES_TYPE.CLIENT
-    };
-    event.preventDefault();
-    this.pushNewMessage(newMessage);
-    event.target.message.value = '';
-  }
-
-  render() {
-    return (
-      <ConversationLayout
-        title={this.props.title}
-        subtitle={this.props.subtitle}
-        messages={this.state.messages}
-        handleMessageSubmit={this.handleMessageSubmit}
-      />
-    );
-  }
-}
+const Conversation = props =>
+  <div className="conversation-container">
+    <Header
+      title={props.title}
+      subtitle={props.subtitle}
+    />
+    <Messages
+      messages={props.messages}
+    />
+    <Sender
+      sendMessage={props.sendMessage}
+    />
+  </div>;
 
 Conversation.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  sendMessage: PropTypes.func,
-  newResponseMessage: PropTypes.func
+  messages: PropTypes.arrayOf(PropTypes.object),
+  sendMessage: PropTypes.func
 };
 
 export default Conversation;
