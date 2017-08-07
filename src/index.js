@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
+import moment from 'moment';
 import WidgetLayout from './layout';
-import { MESSAGE_SENDER } from './constants';
+import { MESSAGES_TYPES, MESSAGE_SENDER } from './constants';
 
 class Widget extends Component {
   state = {
     showChat: false,
-    messages: [],
-    userMessages: []
+    messages: []
   };
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.responseMessages.length > this.props.responseMessages.length) {
+      this.mergeMessages(nextProps.responseMessages);
+    }
+  }
 
   toggleConversation = () => {
     this.setState({
@@ -16,14 +23,22 @@ class Widget extends Component {
     });
   }
 
+  mergeMessages = (responses) => {
+    this.setState({
+      messages: _.union(this.state.messages, responses)
+    });
+  }
+
   pushNewUserMessage = (text) => {
     const newMessage = {
+      type: MESSAGES_TYPES.TEXT,
       text,
-      messageType: MESSAGE_SENDER.CLIENT
+      sender: MESSAGE_SENDER.CLIENT,
+      timestamp: moment().format()
     };
     this.setState({
-      userMessages: this.state.messages.concat([{ text, messageType }])
-    });
+      messages: this.state.messages.concat([newMessage])
+    }, this.props.handleNewUserMessage(text));
   }
 
   handleMessageSubmit = (event) => {
@@ -38,6 +53,7 @@ class Widget extends Component {
         showChat={this.state.showChat}
         messages={this.state.messages}
         toggleConversation={this.toggleConversation}
+        sendMessage={this.handleMessageSubmit}
         title={this.props.title}
         subtitle={this.props.subtitle}
       />

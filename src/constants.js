@@ -4,13 +4,13 @@ const MESSAGE_SENDER = {
 };
 
 const MESSAGES_TYPES = {
-  TEXT: 'texto',
+  TEXT: 'text',
   SNIPPET: {
     LINK: 'link'
   }
-}
+};
 
-export { 
+export {
   MESSAGE_SENDER,
   MESSAGES_TYPES
 };

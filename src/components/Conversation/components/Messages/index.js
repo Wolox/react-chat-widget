@@ -5,16 +5,16 @@ import Snippet from './components/Snippet';
 import { MESSAGES_TYPES } from '../../../../constants';
 import './styles.scss';
 
-const Messages = props =>
+const Messages = ({ messages }) =>
   <div className="messages-container">
-    {props.messages.map(message =>
+    {messages.map(message =>
       message.type === MESSAGES_TYPES.TEXT ?
         <Message
+          key={message.timestamp}
           message={message}
         /> :
         <Snippet />
-      )
-    }
+    )}
   </div>;
 
 Messages.propTypes = {
