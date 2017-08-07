@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { MESSAGE_SENDER, MESSAGES_TYPES } from '../../../../../../constants';
 import './styles.scss';
 
-const Message = ({ message }) =>
-  <div className="message">
-    <div className={`${message.sender}`}>
-      {message.profileImage ?
-        <img src={message.profileImage} alt="profile" /> :
-        null
-      }
-      <span className="message-text">
-        {message.text}
-      </span>
-    </div>
-  </div>;
+class Message extends PureComponent {
+  render() {
+    return (
+      <div className="message">
+        <div className={`${this.props.message.sender}`}>
+          {this.props.profileImage ?
+            <img src={this.props.profileImage} alt="profile" /> :
+            null
+          }
+          <span className="message-text">
+            {this.props.message.text}
+          </span>
+        </div>
+      </div>
+    );
+  }
+}
 
 Message.propTypes = {
   message: PropTypes.shape({
@@ -28,7 +33,8 @@ Message.propTypes = {
       MESSAGE_SENDER.CLIENT,
       MESSAGE_SENDER.RESPONSE
     ])
-  })
+  }),
+  profileImage: PropTypes.string
 };
 
 export default Message;

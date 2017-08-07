@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const Header = props =>
-  <div className="presentation">
+  <div className="header">
     <h4 className="title">{props.title}</h4>
     <span>{props.subtitle}</span>
   </div>;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 import moment from 'moment';
 import WidgetLayout from './layout';
 import { MESSAGES_TYPES, MESSAGE_SENDER } from './constants';
@@ -25,7 +24,7 @@ class Widget extends Component {
 
   mergeMessages = (responses) => {
     this.setState({
-      messages: _.union(this.state.messages, responses)
+      messages: this.state.messages.concat(responses)
     });
   }
 
@@ -43,8 +42,11 @@ class Widget extends Component {
 
   handleMessageSubmit = (event) => {
     event.preventDefault();
-    this.pushNewUserMessage(event.target.message.value);
-    event.target.message.value = '';
+    const userInput = event.target.message.value;
+    if (userInput) {
+      this.pushNewUserMessage();
+      event.target.message.value = '';
+    }
   }
 
   render() {

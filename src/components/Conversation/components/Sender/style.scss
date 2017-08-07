@@ -12,6 +12,10 @@
     background-color: #f4f7f9;
     height: 30px;
     padding-left: 15px;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .send {

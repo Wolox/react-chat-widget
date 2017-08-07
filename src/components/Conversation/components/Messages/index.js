@@ -7,10 +7,10 @@ import './styles.scss';
 
 const Messages = ({ messages }) =>
   <div className="messages-container">
-    {messages.map(message =>
+    {messages.map((message, index) =>
       message.type === MESSAGES_TYPES.TEXT ?
         <Message
-          key={message.timestamp}
+          key={index}
           message={message}
         /> :
         <Snippet />
