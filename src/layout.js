@@ -13,15 +13,15 @@ const WidgetLayout = props =>
         messages={props.messages}
         sendMessage={props.sendMessage}
         senderPlaceHolder={props.senderPlaceHolder}
-        headerStyles={props.stylesInyected.header}
-        messageStyles={props.stylesInyected.message}
-        snippetStyles={props.stylesInyected.snippet}
+        headerStyles={props.stylesInjected.header}
+        messageStyles={props.stylesInjected.message}
+        snippetStyles={props.stylesInjected.snippet}
       /> : null
     }
     <Launcher
       toggle={props.toggleConversation}
       chatOpened={props.showChat}
-      styles={props.stylesInyected.launcher}
+      styles={props.stylesInjected.launcher}
     />
   </div>;
 
@@ -33,7 +33,7 @@ WidgetLayout.propTypes = {
   toggleConversation: PropTypes.func,
   showChat: PropTypes.bool,
   senderPlaceHolder: PropTypes.string,
-  stylesInyected: PropTypes.object // eslint-disable-line
+  stylesInjected: PropTypes.object // eslint-disable-line
 };
 
 export default WidgetLayout;

@@ -60,7 +60,7 @@ class Widget extends Component {
         title={this.props.title}
         subtitle={this.props.subtitle}
         senderPlaceHolder={this.props.senderPlaceHolder}
-        stylesInyected={this.props.stylesInyected || {}}
+        stylesInjected={this.props.stylesInjected || {}}
       />
     );
   }
@@ -72,7 +72,7 @@ Widget.propTypes = {
   responseMessages: PropTypes.arrayOf(PropTypes.object),
   handleNewUserMessage: PropTypes.func,
   senderPlaceHolder: PropTypes.string,
-  stylesInyected: PropTypes.shape({
+  stylesInjected: PropTypes.shape({
     header: PropTypes.object,
     launcher: PropTypes.object,
     message: PropTypes.object,
