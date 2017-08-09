@@ -1,21 +1,40 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { MESSAGE_SENDER, MESSAGES_TYPES } from '../../../../../../constants';
+import './styles.scss';
 
-const Snippet = props =>
-  <div>
-    <div className="snipet-title">
-      {props.title}
-    </div>
-    <div className="snippet-details">
-      <a href={props.link}>
-        {props.link}
-      </a>
-    </div>
-  </div>;
+class Snippet extends PureComponent {
+  render() {
+    return (
+      <div className="snippet">
+        <h5 className="snippet-title">
+          {this.props.snippet.title}
+        </h5>
+        <div className="snippet-details" style={this.props.styles ? this.props.styles.info : {}}>
+          <a href={this.props.snippet.link} className="link">
+            {this.props.snippet.link}
+          </a>
+        </div>
+      </div>
+    );
+  }
+}
 
 Snippet.propTypes = {
-  title: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired
+  snippet: PropTypes.shape({
+    type: PropTypes.oneOf([
+      MESSAGES_TYPES.TEXT,
+      MESSAGES_TYPES.SNIPPET.LINK
+    ]),
+    title: PropTypes.string,
+    link: PropTypes.string,
+    timestamp: PropTypes.string,
+    sender: PropTypes.oneOf([
+      MESSAGE_SENDER.CLIENT,
+      MESSAGE_SENDER.RESPONSE
+    ])
+  }),
+  styles: PropTypes.object // eslint-disable-line
 };
 
 export default Snippet;

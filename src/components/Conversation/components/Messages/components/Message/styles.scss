@@ -1,22 +1,17 @@
-@mixin message-bubble($color) {
-  background-color: $color;
-  border-radius: 10px;
-  padding: 15px;
-  max-width: 215px;
-  text-align: left;
-}
+@import "../../../../../../styles/variables.scss";
+@import "../../../../../../styles/common.scss";
 
 .message {
   margin: 10px;
   display: flex;
 
   .client {
-    @include message-bubble(#cdd8ec);
+    @include message-bubble($turqois-2);
     margin-left: auto;
   }
 
   .response {
-    @include message-bubble(#f4f7f9);
+    @include message-bubble($grey-2);
   }
 }
 

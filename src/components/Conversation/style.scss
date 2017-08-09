@@ -1,4 +1,6 @@
+@import "../../styles/variables.scss";
+
 .conversation-container {
   border-radius: 10px;
-  box-shadow: 0px 2px 10px 1px #b5b5b5;
+  box-shadow: 0px 2px 10px 1px $grey-3;
 }

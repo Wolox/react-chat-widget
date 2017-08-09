@@ -1,7 +1,10 @@
+@import "../../../../styles/variables.scss";
+
 .header {
-  background-color: #1e3f7b;
+  text-align: center;
+  background-color: $turqois-1;
   border-radius: 10px 10px 0 0;
-  color: #FFF;
+  color: $white;
   padding: 15px 0 25px;
 
   .title {

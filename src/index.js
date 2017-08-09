@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import moment from 'moment';
 import WidgetLayout from './layout';
 import { MESSAGES_TYPES, MESSAGE_SENDER } from './constants';
@@ -24,7 +25,7 @@ class Widget extends Component {
 
   mergeMessages = (responses) => {
     this.setState({
-      messages: this.state.messages.concat(responses)
+      messages: _.union(this.state.messages, responses)
     });
   }
 
@@ -44,7 +45,7 @@ class Widget extends Component {
     event.preventDefault();
     const userInput = event.target.message.value;
     if (userInput) {
-      this.pushNewUserMessage();
+      this.pushNewUserMessage(userInput);
       event.target.message.value = '';
     }
   }
@@ -58,6 +59,8 @@ class Widget extends Component {
         sendMessage={this.handleMessageSubmit}
         title={this.props.title}
         subtitle={this.props.subtitle}
+        senderPlaceHolder={this.props.senderPlaceHolder}
+        stylesInyected={this.props.stylesInyected || {}}
       />
     );
   }
@@ -67,7 +70,16 @@ Widget.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   responseMessages: PropTypes.arrayOf(PropTypes.object),
-  handleNewUserMessage: PropTypes.func
+  handleNewUserMessage: PropTypes.func,
+  senderPlaceHolder: PropTypes.string,
+  stylesInyected: PropTypes.shape({
+    header: PropTypes.object,
+    launcher: PropTypes.object,
+    message: PropTypes.object,
+    snippet: PropTypes.shape({
+      info: PropTypes.object
+    })
+  })
 };
 
 export default Widget;

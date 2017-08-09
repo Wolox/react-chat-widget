@@ -7,7 +7,7 @@ class Message extends PureComponent {
   render() {
     return (
       <div className="message">
-        <div className={`${this.props.message.sender}`}>
+        <div className={`${this.props.message.sender}`} style={this.props.styles}>
           {this.props.profileImage ?
             <img src={this.props.profileImage} alt="profile" /> :
             null
@@ -34,7 +34,8 @@ Message.propTypes = {
       MESSAGE_SENDER.RESPONSE
     ])
   }),
-  profileImage: PropTypes.string
+  profileImage: PropTypes.string,
+  styles: PropTypes.object // eslint-disable-line
 };
 
 export default Message;
