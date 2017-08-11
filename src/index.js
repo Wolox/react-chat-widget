@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+import union from 'lodash/union';
 import moment from 'moment';
 import WidgetLayout from './layout';
-import { MESSAGES_TYPES, MESSAGE_SENDER } from './constants';
+import { MESSAGES_TYPES, MESSAGE_SENDER, PROP_TYPES } from './constants';
 
 class Widget extends Component {
   state = {
@@ -24,8 +24,11 @@ class Widget extends Component {
   }
 
   mergeMessages = (responses) => {
+    responses.map(response =>
+      response.sender = MESSAGE_SENDER.RESPONSE
+    );
     this.setState({
-      messages: _.union(this.state.messages, responses)
+      messages: union(this.state.messages, responses)
     });
   }
 
@@ -36,9 +39,9 @@ class Widget extends Component {
       sender: MESSAGE_SENDER.CLIENT,
       timestamp: moment().format()
     };
-    this.setState({
-      messages: this.state.messages.concat([newMessage])
-    }, this.props.handleNewUserMessage(text));
+    this.setState(prevState => ({
+      messages: prevState.messages.concat([newMessage])
+    }), this.props.handleNewUserMessage(text));
   }
 
   handleMessageSubmit = (event) => {
@@ -60,7 +63,7 @@ class Widget extends Component {
         title={this.props.title}
         subtitle={this.props.subtitle}
         senderPlaceHolder={this.props.senderPlaceHolder}
-        stylesInjected={this.props.stylesInjected || {}}
+        stylesInjected={this.props.stylesInjected}
       />
     );
   }
@@ -69,17 +72,17 @@ class Widget extends Component {
 Widget.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  responseMessages: PropTypes.arrayOf(PropTypes.object),
-  handleNewUserMessage: PropTypes.func,
+  responseMessages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleNewUserMessage: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,
-  stylesInjected: PropTypes.shape({
-    header: PropTypes.object,
-    launcher: PropTypes.object,
-    message: PropTypes.object,
-    snippet: PropTypes.shape({
-      info: PropTypes.object
-    })
-  })
+  stylesInjected: PROP_TYPES.STYLES
+};
+
+Widget.defaultProps = {
+  title: 'Welcome',
+  subtitle: 'This is your chat subtitle',
+  senderPlaceHolder: 'Type a message...',
+  stylesInjected: {}
 };
 
 export default Widget;
