@@ -7,8 +7,8 @@ import './styles.scss';
 
 class Messages extends Component {
   componentDidUpdate() {
-    const objDiv = document.getElementById('messages');
-    objDiv.scrollTop = objDiv.scrollHeight;
+    const messagesDiv = document.getElementById('messages');
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
 
   render() {
