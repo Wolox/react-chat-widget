@@ -10,6 +10,12 @@
     "build": "webpack",
     "test": "jest"
   },
+  "keywords": [
+    "react",
+    "chat",
+    "widget",
+    "javascript"
+  ],
   "dependencies": {
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
