@@ -16,11 +16,11 @@
   }
 
   .open-launcher {
-    @include animation(0s, 0.5s, rotation-rl);
+    @include animation(0, 0.5s, rotation-rl);
   }
 
   .close-launcher {
     width: 20px;
-    @include animation(0s, 0.5s, rotation-lr);
+    @include animation(0, 0.5s, rotation-lr);
   }
 }
