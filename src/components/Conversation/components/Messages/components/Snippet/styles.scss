@@ -3,7 +3,6 @@
 
 .snippet {
   @include message-bubble($grey-2);
-  margin: 10px;
 
   .snippet-title {
     margin: 0;

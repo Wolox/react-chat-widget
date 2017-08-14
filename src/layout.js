@@ -15,7 +15,9 @@ const WidgetLayout = props =>
         senderPlaceHolder={props.senderPlaceHolder}
         headerStyles={props.stylesInjected.header}
         messageStyles={props.stylesInjected.message}
+        responsesStyles={props.stylesInjected.responses}
         snippetStyles={props.stylesInjected.snippet}
+        profileAvatar={props.profileAvatar}
       />
     }
     <Launcher
@@ -33,6 +35,7 @@ WidgetLayout.propTypes = {
   toggleConversation: PropTypes.func,
   showChat: PropTypes.bool,
   senderPlaceHolder: PropTypes.string,
+  profileAvatar: PropTypes.string,
   stylesInjected: PropTypes.object // eslint-disable-line
 };
 

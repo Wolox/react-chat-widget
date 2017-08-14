@@ -64,6 +64,7 @@ class Widget extends Component {
         subtitle={this.props.subtitle}
         senderPlaceHolder={this.props.senderPlaceHolder}
         stylesInjected={this.props.stylesInjected}
+        profileAvatar={this.props.profileAvatar}
       />
     );
   }
@@ -75,7 +76,8 @@ Widget.propTypes = {
   responseMessages: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleNewUserMessage: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,
-  stylesInjected: PROP_TYPES.STYLES
+  stylesInjected: PROP_TYPES.STYLES,
+  profileAvatar: PropTypes.string.isRequired
 };
 
 Widget.defaultProps = {
