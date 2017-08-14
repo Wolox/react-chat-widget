@@ -6,7 +6,7 @@ import './style.scss';
 
 const WidgetLayout = props =>
   <div className="widget-container">
-    {props.showChat ?
+    {props.showChat &&
       <Conversation
         title={props.title}
         subtitle={props.subtitle}
@@ -16,7 +16,7 @@ const WidgetLayout = props =>
         headerStyles={props.stylesInjected.header}
         messageStyles={props.stylesInjected.message}
         snippetStyles={props.stylesInjected.snippet}
-      /> : null
+      />
     }
     <Launcher
       toggle={props.toggleConversation}
