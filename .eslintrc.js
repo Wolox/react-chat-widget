@@ -2,7 +2,8 @@ module.exports = {
   "env": {
     "es6": true,
     "node": true,
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "parser": "babel-eslint",
   "parserOptions": {
@@ -43,5 +44,10 @@ module.exports = {
     "import/default": "error",
     "import/namespace": "error",
     "import/no-absolute-path": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
   }
 };
