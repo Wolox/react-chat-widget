@@ -6,7 +6,7 @@ import './styles.scss';
 class Message extends PureComponent {
   render() {
     return (
-      <div className={`${this.props.message.sender}`} style={this.props.styles}>
+      <div className={this.props.message.sender} style={this.props.styles}>
         <span className="message-text">
           {this.props.message.text}
         </span>
