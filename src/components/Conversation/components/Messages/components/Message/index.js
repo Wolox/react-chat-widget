@@ -6,15 +6,10 @@ import './styles.scss';
 class Message extends PureComponent {
   render() {
     return (
-      <div className="message">
-        <div className={`${this.props.message.sender}`} style={this.props.styles}>
-          {this.props.profileImage &&
-            <img src={this.props.profileImage} alt="profile" />
-          }
-          <span className="message-text">
-            {this.props.message.text}
-          </span>
-        </div>
+      <div className={this.props.message.sender} style={this.props.styles}>
+        <span className="message-text">
+          {this.props.message.text}
+        </span>
       </div>
     );
   }
@@ -22,7 +17,6 @@ class Message extends PureComponent {
 
 Message.propTypes = {
   message: PROP_TYPES.MESSAGE,
-  profileImage: PropTypes.string,
   styles: PropTypes.object // eslint-disable-line
 };
 
