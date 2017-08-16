@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "prepublish": "yarn run test && yarn run build"
   },
   "keywords": [
     "react",
