@@ -1,7 +1,5 @@
 # react-chat-widget
 
-==================
-
 ## Features
 
 - Plain text message UI
@@ -10,8 +8,6 @@
 - Easy to use
 
 ![demonstration] (https://github.com/Wolox/react-chat-widget/assets/chat-demonstration.gif)
-
-==================
 
 ## Installation
 
