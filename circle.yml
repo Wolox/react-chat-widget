@@ -1,0 +1,6 @@
+dependencies:
+  override:
+    - yarn
+test:
+  override:
+    - yarn run test
