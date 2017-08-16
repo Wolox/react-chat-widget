@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import send from 'assets/send_button.svg';
 import './style.scss';
-import send from '../../../../../assets/send_button.svg';
 
 const Sender = ({ sendMessage, placeholder }) =>
   <form className="sender" onSubmit={sendMessage}>

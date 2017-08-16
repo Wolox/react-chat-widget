@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import openLauncher from '../../../assets/launcher_button.svg';
-import close from '../../../assets/clear-button.svg';
+import openLauncher from 'assets/launcher_button.svg';
+import close from 'assets/clear-button.svg';
 import './style.scss';
 
 const Launcher = ({ toggle, chatOpened, styles }) =>

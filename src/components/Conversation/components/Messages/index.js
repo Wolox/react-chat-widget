@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { MESSAGES_TYPES, MESSAGE_SENDER } from 'constants';
 import Message from './components/Message';
 import Snippet from './components/Snippet';
-import { MESSAGES_TYPES, MESSAGE_SENDER } from '../../../../constants';
 import './styles.scss';
 
 const isResponse = sender => sender === MESSAGE_SENDER.RESPONSE;

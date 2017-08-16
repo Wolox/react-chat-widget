@@ -4,6 +4,14 @@
     "react" 
   ],
   "plugins": [
-    "transform-class-properties"
+    "transform-class-properties",
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "constants": "./src/constants.js",
+        "assets": "./assets",
+        "tests-mocks": "./mocks"
+      }
+    }]
   ]
 }
