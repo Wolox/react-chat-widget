@@ -13,7 +13,7 @@
 
 #### npm
 ```bash
-npm install --save-dev react-chat-widget
+npm install --save react-chat-widget
 ```
 
 #### yarn
@@ -27,8 +27,7 @@ yarn add react-chat-widget
 
 ```js
 import React, { Component } from 'react';
-import { Widget } from 'react-chat-widget';
-import './App.css';
+import Widget from 'react-chat-widget';
 
 class App extends Component {
   render() {
@@ -47,8 +46,7 @@ export default App;
 
 ```js
 import React, { Component } from 'react';
-import { Widget } from 'react-chat-widget';
-import './App.css';
+import Widget from 'react-chat-widget';
 
 class App extends Component {
   state = {
@@ -79,9 +77,8 @@ export default App;
 
 ```js
 import React, { Component } from 'react';
-import { Widget } from 'react-chat-widget';
+import Widget from 'react-chat-widget';
 import logo from './logo.svg';
-import './App.css';
 
 const widgetStyles = {
   header: {
@@ -133,13 +130,13 @@ export default App;
 
 #### Props
 
-- ** title:** (PropTypes.string) Title of the widget
-- ** subtitle: ** (PropTypes.string) Subtitle of the widget
-- ** senderPlaceHolder: ** (PropTypes.string) The placeholder of the message input
-- ** profileAvatar: ** (PropTypes.string.isRequired) The profile image that will be set on the responses
-- ** stylesInjected: ** (Proptypes.object) The styles to be injected, see [styles](#Styles)
-- ** responseMessages: ** (PropTypes.arrayOf(PropTypes.object).isRequired) Array of responses, see [messages](#Messages)
-- ** handleNewUserMessage: ** (PropTypes.func.isRequired) Function to handle the user input, will receive the full text message when submitted
+- **title:** (PropTypes.string) Title of the widget
+- **subtitle:** (PropTypes.string) Subtitle of the widget
+- **senderPlaceHolder:** (PropTypes.string) The placeholder of the message input
+- **profileAvatar:** (PropTypes.string.isRequired) The profile image that will be set on the responses
+- **stylesInjected:** (Proptypes.object) The styles to be injected, see [styles](#Styles)
+- **responseMessages:** (PropTypes.arrayOf(PropTypes.object).isRequired) Array of responses, see [messages](#Messages)
+- **handleNewUserMessage:** (PropTypes.func.isRequired) Function to handle the user input, will receive the full text message when submitted
 
 #### Styles
 
@@ -195,3 +192,27 @@ Have in mind that the messages will have the same order as you add them into the
 This project is maintained by [Martín Callegari](https://github.com/mcallegari10) and it was written by [Wolox](http://www.wolox.com.ar).
 
 ![Wolox](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)
+
+## License
+
+**react-chat-widget** is available under the MIT [license](LICENSE).
+
+    Copyright (c) 2017 Martín Callegari <martin.callegari@wolox.com.ar>
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
