@@ -6,6 +6,7 @@ import assetMock from 'tests-mocks/fileMock';
 import Widget from '../index';
 import WidgetLayout from '../layout';
 
+
 describe('<Widget />', () => {
   const profile = assetMock;
   const handleUserMessage = jest.fn();
@@ -34,6 +35,12 @@ describe('<Widget />', () => {
     />
   );
 
+  afterEach(() => {
+    widgetComponent.setState({
+      messages: []
+    });
+  });
+
   it('should render WidgetLayout', () => {
     expect(widgetComponent.find(WidgetLayout)).toHaveLength(1);
   });
@@ -49,30 +56,21 @@ describe('<Widget />', () => {
     expect(spyPreventDefault).toHaveBeenCalled();
   });
 
-  // TODO: doesn't call mock method
-  // it('should call pushNewUserMessage when handleMessage is called with no empty value', () => {
-  //   widgetComponent.instance().pushNewUserMessage = jest.fn();
-  //   widgetComponent.instance().handleMessageSubmit(newMessageEvent);
-  //   expect(widgetComponent.instance().pushNewUserMessage).toBeCalled();
-  // });
-
-  it('should change component state and call prop when calling newMessageEvent', () => {
+  it('should call prop when calling newMessageEvent', () => {
     widgetComponent.instance().handleMessageSubmit(newMessageEvent);
-    expect(widgetComponent.state('messages').length).toBe(1);
     expect(handleUserMessage).toBeCalled();
   });
 
-  it('should not add a new message to the state and not call the prop when message is empty', () => {
-    newMessageEvent.target.message.value = '';
-    widgetComponent.instance().handleMessageSubmit(newMessageEvent);
-    expect(widgetComponent.state('messages').length).toBe(1);
-    expect(newMessageEvent.target.message.value).toBeFalsy();
-    expect(handleUserMessage).not.toBeCalled();
+  it('should not add a new message to the state when message is empty', () => {
+    const anotherMessageEvent = newMessageEvent;
+    anotherMessageEvent.target.message.value = '';
+    widgetComponent.instance().handleMessageSubmit(anotherMessageEvent);
+    expect(widgetComponent.state('messages').length).toBe(0);
   });
 
   it('should call mergeMessages when component will receive props', () => {
-    widgetComponent.instance().componentWillReceiveProps(newResponseMessage);
-    const spyMergeMessages = jest.spyOn(widgetComponent.instance(), 'mergeMessages');
-    expect(spyMergeMessages).toBeCalled();
+    widgetComponent.instance().mergeMessages = jest.fn();
+    widgetComponent.instance().componentWillReceiveProps({ responseMessages: newResponseMessage });
+    expect(widgetComponent.instance().mergeMessages).toBeCalled();
   });
 });
