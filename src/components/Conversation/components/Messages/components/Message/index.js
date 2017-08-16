@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { PROP_TYPES } from '../../../../../../constants';
+import { PROP_TYPES } from 'constants';
 import './styles.scss';
 
 class Message extends PureComponent {

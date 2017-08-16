@@ -2,3 +2,5 @@
 index.js
 yarn.lock
 assets
+mocks
+coverage
