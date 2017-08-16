@@ -7,7 +7,7 @@
 - Fully customizable
 - Easy to use
 
-![demonstration] (https://github.com/Wolox/react-chat-widget/assets/chat-demonstration.gif)
+![demonstration](./assets/chat-demonstration.gif)
 
 ## Installation
 
