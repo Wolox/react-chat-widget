@@ -5,7 +5,7 @@ import send from '../../../../../assets/send_button.svg';
 
 const Sender = ({ sendMessage, placeholder }) =>
   <form className="sender" onSubmit={sendMessage}>
-    <input type="text" className="new-message" name="message" placeholder={placeholder} autoFocus />
+    <input type="text" className="new-message" name="message" placeholder={placeholder} autoFocus autoComplete="off" />
     <button type="submit" className="send">
       <img src={send} className="send-icon" alt="send" />
     </button>
