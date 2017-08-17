@@ -1,4 +1,6 @@
 # react-chat-widget
+![circle-ci](https://img.shields.io/circleci/project/github/Wolox/react-chat-widget.svg)
+![npm](https://img.shields.io/npm/v/react-chat-widget.svg)
 
 ## Features
 
