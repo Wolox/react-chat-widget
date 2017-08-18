@@ -135,20 +135,22 @@ export default App;
 - **subtitle:** (PropTypes.string) Subtitle of the widget
 - **senderPlaceHolder:** (PropTypes.string) The placeholder of the message input
 - **profileAvatar:** (PropTypes.string.isRequired) The profile image that will be set on the responses
-- **stylesInjected:** (Proptypes.object) The styles to be injected, see [styles](#Styles)
-- **responseMessages:** (PropTypes.arrayOf(PropTypes.object).isRequired) Array of responses, see [messages](#Messages)
+- **stylesInjected:** (Proptypes.object) The styles to be injected, see [styles](#styles)
+- **responseMessages:** (PropTypes.arrayOf(PropTypes.object).isRequired) Array of responses, see [messages](#messages)
 - **handleNewUserMessage:** (PropTypes.func.isRequired) Function to handle the user input, will receive the full text message when submitted
 
 #### Styles
 
-To inject styles you need to use the prop ** stylesInjected **, and send an object with the following options:
+To inject styles you need to use the prop **stylesInjected**, and send an object with the following options:
 
 ```js
 {
   header: PropTypes.object, // Styles for the header section
   launcher: PropTypes.object, // Styles for the launcher
   message: PropTypes.object, // Styles for the user messages
-  responses: PropTypes.object, // Styles for the response messages
+  avatar: PropTypes.object, // Styles for the avatar picture
+  messagesContainer: PropTypes.object, // Styles for the messages container - where you can see the messages
+  responses: PropTypes.object, // Styles for the response messages, this will also affect the snippets
   snippet: PropTypes.shape({ //Styles for the snippet message. You can only change the styles of the info section (where the actual link is)
     info: PropTypes.object 
   })
