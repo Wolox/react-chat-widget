@@ -41,7 +41,7 @@ class Widget extends Component {
     };
     this.setState(prevState => ({
       messages: prevState.messages.concat([newMessage])
-    }), this.props.handleNewUserMessage(text));
+    }), () => this.props.handleNewUserMessage(text));
   }
 
   handleMessageSubmit = (event) => {
