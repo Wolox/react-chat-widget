@@ -14,10 +14,12 @@ const Conversation = props =>
     />
     <Messages
       messages={props.messages}
+      profileAvatar={props.profileAvatar}
+      containerStyles={props.containerStyles}
+      avatarStyles={props.avatarStyles}
       messageStyles={props.messageStyles}
       responsesStyles={props.responsesStyles}
       snippetStyles={props.snippetStyles}
-      profileAvatar={props.profileAvatar}
     />
     <Sender
       sendMessage={props.sendMessage}
@@ -32,7 +34,9 @@ Conversation.propTypes = {
   sendMessage: PropTypes.func,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,
+  avatarStyles: PropTypes.object, // eslint-disable-line
   headerStyles: PropTypes.object, // eslint-disable-line
+  containerStyles: PropTypes.object, // eslint-disable-line
   messageStyles: PropTypes.object, // eslint-disable-line
   responsesStyles: PropTypes.object, // eslint-disable-line
   snippetStyles: PropTypes.object // eslint-disable-line

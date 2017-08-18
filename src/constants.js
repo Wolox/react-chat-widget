@@ -16,6 +16,8 @@ const PROP_TYPES = {
   STYLES: PropTypes.shape({
     header: PropTypes.object,
     launcher: PropTypes.object,
+    avatar: PropTypes.object,
+    messagesContainer: PropTypes.object,
     message: PropTypes.object,
     responses: PropTypes.object,
     snippet: PropTypes.shape({
