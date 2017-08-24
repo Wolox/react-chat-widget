@@ -18,6 +18,7 @@
     "javascript"
   ],
   "dependencies": {
+    "immutable": "^3.8.1",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
@@ -54,6 +55,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
+    "redux-logger": "^3.0.6",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
