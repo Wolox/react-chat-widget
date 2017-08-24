@@ -2,6 +2,7 @@
 @import "../../sass/animation.scss";
 
 .launcher {
+  @include animation(0, 0.5s, slide-in);
   align-self: flex-end;
   background-color: $turqois-1;
   border: 0;

@@ -13,6 +13,8 @@ const WidgetLayout = props =>
         messages={props.messages}
         sendMessage={props.sendMessage}
         senderPlaceHolder={props.senderPlaceHolder}
+        containerStyles={props.stylesInjected.messagesContainer}
+        avatarStyles={props.stylesInjected.avatar}
         headerStyles={props.stylesInjected.header}
         messageStyles={props.stylesInjected.message}
         responsesStyles={props.stylesInjected.responses}

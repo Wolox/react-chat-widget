@@ -6,7 +6,6 @@ import assetMock from 'tests-mocks/fileMock';
 import Widget from '../index';
 import WidgetLayout from '../layout';
 
-
 describe('<Widget />', () => {
   const profile = assetMock;
   const handleUserMessage = jest.fn();
@@ -66,6 +65,11 @@ describe('<Widget />', () => {
     anotherMessageEvent.target.message.value = '';
     widgetComponent.instance().handleMessageSubmit(anotherMessageEvent);
     expect(widgetComponent.state('messages').length).toBe(0);
+  });
+
+  it('should set the attribute sender with value response to each new response in the array', () => {
+    widgetComponent.instance().mergeMessages(newResponseMessage);
+    expect(newResponseMessage[0].sender).toBe('response');
   });
 
   it('should call mergeMessages when component will receive props', () => {

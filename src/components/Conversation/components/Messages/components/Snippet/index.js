@@ -6,7 +6,7 @@ import './styles.scss';
 class Snippet extends PureComponent {
   render() {
     return (
-      <div className="snippet">
+      <div className="snippet" style={this.props.messageStyle}>
         <h5 className="snippet-title">
           {this.props.snippet.title}
         </h5>
@@ -22,7 +22,8 @@ class Snippet extends PureComponent {
 
 Snippet.propTypes = {
   snippet: PROP_TYPES.SNIPPET,
-  styles: PropTypes.object // eslint-disable-line
+  styles: PropTypes.object, // eslint-disable-line
+  messageStyle: PropTypes.object // eslint-disable-line
 };
 
 export default Snippet;

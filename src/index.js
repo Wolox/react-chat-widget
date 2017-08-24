@@ -41,7 +41,7 @@ class Widget extends Component {
     };
     this.setState(prevState => ({
       messages: prevState.messages.concat([newMessage])
-    }), this.props.handleNewUserMessage(text));
+    }), () => this.props.handleNewUserMessage(text));
   }
 
   handleMessageSubmit = (event) => {
@@ -77,7 +77,7 @@ Widget.propTypes = {
   handleNewUserMessage: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,
   stylesInjected: PROP_TYPES.STYLES,
-  profileAvatar: PropTypes.string.isRequired
+  profileAvatar: PropTypes.string
 };
 
 Widget.defaultProps = {

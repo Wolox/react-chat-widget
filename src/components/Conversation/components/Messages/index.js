@@ -7,19 +7,27 @@ import './styles.scss';
 
 const isResponse = sender => sender === MESSAGE_SENDER.RESPONSE;
 
+const scrollToBottom = () => {
+  const messagesDiv = document.getElementById('messages');
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+};
+
 class Messages extends Component {
+  componentDidMount() {
+    scrollToBottom();
+  }
+
   componentDidUpdate() {
-    const messagesDiv = document.getElementById('messages');
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    scrollToBottom();
   }
 
   render() {
     return (
-      <div id="messages" className="messages-container">
+      <div id="messages" className="messages-container" style={this.props.containerStyles}>
         {this.props.messages.map((message, index) =>
           <div className="message" key={index}>
             {isResponse(message.sender) &&
-              <img src={this.props.profileAvatar} className="avatar" alt="profile" />
+              <img src={this.props.profileAvatar} className="avatar" alt="profile" style={this.props.avatarStyles} />
             }
             {message.type === MESSAGES_TYPES.TEXT ?
               <Message
@@ -33,6 +41,7 @@ class Messages extends Component {
               <Snippet
                 snippet={message}
                 styles={this.props.snippetStyles}
+                messageStyle={this.props.responsesStyles}
               />
             }
           </div>
@@ -45,7 +54,9 @@ class Messages extends Component {
 Messages.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.object),
   profileAvatar: PropTypes.string,
+  avatarStyles: PropTypes.object, // eslint-disable-line
   messageStyles: PropTypes.object, // eslint-disable-line
+  containerStyles: PropTypes.object, // eslint-disable-line
   responsesStyles: PropTypes.object, // eslint-disable-line
   snippetStyles: PropTypes.object // eslint-disable-line
 };
