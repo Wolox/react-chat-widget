@@ -77,7 +77,7 @@ Widget.propTypes = {
   handleNewUserMessage: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,
   stylesInjected: PROP_TYPES.STYLES,
-  profileAvatar: PropTypes.string.isRequired
+  profileAvatar: PropTypes.string
 };
 
 Widget.defaultProps = {

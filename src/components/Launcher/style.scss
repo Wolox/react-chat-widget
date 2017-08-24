@@ -10,6 +10,7 @@
   height: 60px;
   margin-top: 10px;
   width: 60px;
+  @include animation(0, 0.5s, slide-in);
 
   &:focus {
     outline: none;
