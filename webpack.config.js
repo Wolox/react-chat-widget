@@ -14,11 +14,7 @@ module.exports = {
   module: {
     rules: [{
       test: /\.js$/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015', 'react'],
-        plugins: ['transform-class-properties']
-      }
+      loader: 'babel-loader'
     }, {
       test: /\.scss$/,
       use: [

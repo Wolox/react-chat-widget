@@ -5,6 +5,7 @@
   ],
   "plugins": [
     "transform-class-properties",
+    "transform-decorators-legacy",
     ["module-resolver", {
       "root": ["./src"],
       "alias": {
