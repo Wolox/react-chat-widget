@@ -1,11 +1,12 @@
-const TOGGLE_CHAT = 'TOGGLE_CHAT';
+import { Map } from 'immutable';
 
-export default function reducer(state = {
-  showChat: false
-}, action) {
+const TOGGLE_CHAT = 'TOGGLE_CHAT';
+const initialState = Map({ showChat: false });
+
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_CHAT: {
-      return { ...state, showChat: true };
+      return state.update('showChat', showChat => !showChat);
     }
     default:
       return state;

@@ -1,10 +1,7 @@
 const TOGGLE_CHAT = 'TOGGLE_CHAT';
 
-export function toggleChat(showChat) {
+export function toggleChat() {
   return {
-    type: TOGGLE_CHAT,
-    payload: {
-      showChat
-    }
+    type: TOGGLE_CHAT
   };
 }

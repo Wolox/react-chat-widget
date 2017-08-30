@@ -1,5 +1,14 @@
-import { createStore } from 'redux';
+import { applyMiddleware, createStore, combineReducers } from 'redux';
+import { createLogger } from 'redux-logger';
 
-import reducer from './reducers';
+import chatBehavior from './reducers/chatBehaviorReducer';
+import messages from './reducers/messagesReducer';
 
-export default createStore(reducer);
+const reducer = combineReducers({
+  chatBehavior,
+  messages
+});
+
+const middleware = applyMiddleware(createLogger());
+
+export default createStore(reducer, middleware);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
@@ -41,4 +42,8 @@ WidgetLayout.propTypes = {
   stylesInjected: PropTypes.object // eslint-disable-line
 };
 
-export default WidgetLayout;
+const mapStateToProps = store => ({
+  showChat: store.chatBehavior.get('showChat')
+});
+
+export default connect(mapStateToProps)(WidgetLayout);

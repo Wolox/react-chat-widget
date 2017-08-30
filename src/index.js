@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import union from 'lodash/union';
 import moment from 'moment';
+
 import WidgetLayout from './layout';
 import { MESSAGES_TYPES, MESSAGE_SENDER, PROP_TYPES } from './constants';
+import { toggleChat } from './store/actions/behavoirsActions';
 
 class Widget extends Component {
   state = {
-    showChat: false,
     messages: []
   };
 
@@ -18,9 +20,7 @@ class Widget extends Component {
   }
 
   toggleConversation = () => {
-    this.setState({
-      showChat: !this.state.showChat
-    });
+    this.props.dispatch(toggleChat());
   }
 
   mergeMessages = (responses) => {
@@ -56,7 +56,6 @@ class Widget extends Component {
   render() {
     return (
       <WidgetLayout
-        showChat={this.state.showChat}
         messages={this.state.messages}
         toggleConversation={this.toggleConversation}
         sendMessage={this.handleMessageSubmit}
@@ -87,4 +86,4 @@ Widget.defaultProps = {
   stylesInjected: {}
 };
 
-export default Widget;
+export default connect()(Widget);
