@@ -1,4 +1,4 @@
-const TOGGLE_CHAT = 'TOGGLE_CHAT';
+import { TOGGLE_CHAT } from 'constants';
 
 export function toggleChat() {
   return {

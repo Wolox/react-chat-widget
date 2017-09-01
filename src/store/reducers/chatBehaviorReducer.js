@@ -1,6 +1,6 @@
 import { Map } from 'immutable';
+import { TOGGLE_CHAT } from 'constants';
 
-const TOGGLE_CHAT = 'TOGGLE_CHAT';
 const initialState = Map({ showChat: false });
 
 export default function reducer(state = initialState, action) {

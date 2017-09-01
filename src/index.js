@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import union from 'lodash/union';
 import moment from 'moment';
+import { toggleChat } from 'actions/behavoirsActions';
 
 import WidgetLayout from './layout';
 import { MESSAGES_TYPES, MESSAGE_SENDER, PROP_TYPES } from './constants';
-import { toggleChat } from './store/actions/behavoirsActions';
 
 class Widget extends Component {
   state = {

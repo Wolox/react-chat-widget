@@ -25,7 +25,6 @@ const WidgetLayout = props =>
     }
     <Launcher
       toggle={props.toggleConversation}
-      chatOpened={props.showChat}
       styles={props.stylesInjected.launcher}
     />
   </div>;

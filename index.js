@@ -10,12 +10,14 @@ const FullWidget = props =>
     <Widget
       responseMessages={props.responseMessages}
       handleNewUserMessage={props.handleNewUserMessage}
+      profileAvatar={props.profileAvatar}
     />
   </Provider>;
 
 FullWidget.propTypes = {
   responseMessages: PropTypes.arrayOf(PropTypes.object).isRequired,
-  handleNewUserMessage: PropTypes.func.isRequired
+  handleNewUserMessage: PropTypes.func.isRequired,
+  profileAvatar: PropTypes.string
 };
 
 export default FullWidget;

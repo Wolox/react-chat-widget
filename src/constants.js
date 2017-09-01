@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 
-const MESSAGE_SENDER = {
+export const MESSAGE_SENDER = {
   CLIENT: 'client',
   RESPONSE: 'response'
 };
 
-const MESSAGES_TYPES = {
+export const MESSAGES_TYPES = {
   TEXT: 'text',
   SNIPPET: {
     LINK: 'link'
   }
 };
 
-const PROP_TYPES = {
+export const PROP_TYPES = {
   STYLES: PropTypes.shape({
     header: PropTypes.object,
     launcher: PropTypes.object,
@@ -53,8 +53,5 @@ const PROP_TYPES = {
   })
 };
 
-export {
-  MESSAGE_SENDER,
-  MESSAGES_TYPES,
-  PROP_TYPES
-};
+export const TOGGLE_CHAT = 'TOGGLE_CHAT';
+export const ADD_NEW_USER_MESSAGE = 'ADD_NEW_USER_MESSAGE';

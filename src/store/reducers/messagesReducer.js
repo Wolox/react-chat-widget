@@ -1,12 +1,12 @@
 import { List, Map } from 'immutable';
+import { ADD_NEW_USER_MESSAGE } from 'constants';
 
-const ADD_NEW_MESSAGE = 'ADD_NEW_MESSAGE';
-const initialState = List([]);
+const initialState = Map({ messages: List([]) });
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_NEW_MESSAGE: {
-      return state.push(Map(action.payload));
+    case ADD_NEW_USER_MESSAGE: {
+      return state.get('messages').push(Map(action.payload));
     }
     default:
       return state;
