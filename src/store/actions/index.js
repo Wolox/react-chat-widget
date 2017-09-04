@@ -1,7 +1,21 @@
-import { TOGGLE_CHAT } from './actionTypes';
+import * as actions from './actionTypes';
 
 export function toggleChat() {
   return {
-    type: TOGGLE_CHAT
+    type: actions.TOGGLE_CHAT
+  };
+}
+
+export function addUserMessage(text) {
+  return {
+    type: actions.ADD_NEW_USER_MESSAGE,
+    text
+  };
+}
+
+export function addLinkSnippet(link) {
+  return {
+    type: actions.ADD_NEW_LINK_SNIPPET,
+    link
   };
 }

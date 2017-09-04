@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import union from 'lodash/union';
-import moment from 'moment';
-import { toggleChat } from 'actions';
+import { toggleChat, addUserMessage } from 'actions';
 
 import WidgetLayout from './layout';
-import { MESSAGES_TYPES, MESSAGE_SENDER, PROP_TYPES } from './constants';
+import { MESSAGE_SENDER, PROP_TYPES } from './constants';
 
 class Widget extends Component {
   componentWillReceiveProps(nextProps) {
@@ -29,15 +28,8 @@ class Widget extends Component {
   }
 
   pushNewUserMessage = (text) => {
-    const newMessage = {
-      type: MESSAGES_TYPES.TEXT,
-      text,
-      sender: MESSAGE_SENDER.CLIENT,
-      timestamp: moment().format()
-    };
-    this.setState(prevState => ({
-      messages: prevState.messages.concat([newMessage])
-    }), () => this.props.handleNewUserMessage(text));
+    this.props.dispatch(addUserMessage(text));
+    this.props.handleNewUserMessage(text);
   }
 
   handleMessageSubmit = (event) => {
