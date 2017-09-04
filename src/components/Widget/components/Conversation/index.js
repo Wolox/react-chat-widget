@@ -13,7 +13,6 @@ const Conversation = props =>
       styles={props.headerStyles}
     />
     <Messages
-      messages={props.messages}
       profileAvatar={props.profileAvatar}
       containerStyles={props.containerStyles}
       avatarStyles={props.avatarStyles}
@@ -30,7 +29,6 @@ const Conversation = props =>
 Conversation.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  messages: PropTypes.arrayOf(PropTypes.object),
   sendMessage: PropTypes.func,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,

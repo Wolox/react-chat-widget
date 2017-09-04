@@ -20,8 +20,6 @@ Launcher.propTypes = {
   styles: PropTypes.object // eslint-disable-line
 };
 
-const mapStateToProps = store => ({
-  chatOpened: store.chatBehavior.get('showChat')
-});
-
-export default connect(mapStateToProps)(Launcher);
+export default connect(store => ({
+  chatOpened: store.behavior.get('showChat')
+}))(Launcher);

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import { connect } from 'react-redux';
 import { MESSAGES_TYPES, MESSAGE_SENDER } from 'constants';
+
 import Message from './components/Message';
 import Snippet from './components/Snippet';
 import './styles.scss';
@@ -52,7 +55,7 @@ class Messages extends Component {
 }
 
 Messages.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.object),
+  messages: ImmutablePropTypes.listOf(ImmutablePropTypes.map),
   profileAvatar: PropTypes.string,
   avatarStyles: PropTypes.object, // eslint-disable-line
   messageStyles: PropTypes.object, // eslint-disable-line
@@ -61,4 +64,6 @@ Messages.propTypes = {
   snippetStyles: PropTypes.object // eslint-disable-line
 };
 
-export default Messages;
+export default connect(store => ({
+  messages: store.messages.get('messages')
+}))(Messages);

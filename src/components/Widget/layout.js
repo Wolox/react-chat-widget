@@ -11,7 +11,6 @@ const WidgetLayout = props =>
       <Conversation
         title={props.title}
         subtitle={props.subtitle}
-        messages={props.messages}
         sendMessage={props.sendMessage}
         senderPlaceHolder={props.senderPlaceHolder}
         containerStyles={props.stylesInjected.messagesContainer}
@@ -32,7 +31,6 @@ const WidgetLayout = props =>
 WidgetLayout.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  messages: PropTypes.arrayOf(PropTypes.object),
   sendMessage: PropTypes.func,
   toggleConversation: PropTypes.func,
   showChat: PropTypes.bool,
@@ -42,5 +40,5 @@ WidgetLayout.propTypes = {
 };
 
 export default connect(store => ({
-  showChat: store.chatBehavior.get('showChat')
+  showChat: store.behavior.get('showChat')
 }))(WidgetLayout);

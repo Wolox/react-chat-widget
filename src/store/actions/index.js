@@ -13,6 +13,13 @@ export function addUserMessage(text) {
   };
 }
 
+export function addResponseMessage(text) {
+  return {
+    type: actions.ADD_NEW_RESPONSE_MESSAGE,
+    text
+  };
+}
+
 export function addLinkSnippet(link) {
   return {
     type: actions.ADD_NEW_LINK_SNIPPET,

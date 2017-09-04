@@ -1,80 +1,21 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import PropTypes from 'prop-types';
-import union from 'lodash/union';
-import { toggleChat, addUserMessage } from 'actions';
+import { Provider } from 'react-redux';
 
-import WidgetLayout from './layout';
-import { MESSAGE_SENDER, PROP_TYPES } from './constants';
+import Widget from './components/Widget';
+import store from '../src/store/store';
 
-class Widget extends Component {
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.responseMessages.length > this.props.responseMessages.length) {
-      this.mergeMessages(nextProps.responseMessages);
-    }
-  }
+const FullWidget = props =>
+  <Provider store={store}>
+    <Widget
+      handleNewUserMessage={props.handleNewUserMessage}
+      profileAvatar={props.profileAvatar}
+    />
+  </Provider>;
 
-  toggleConversation = () => {
-    this.props.dispatch(toggleChat());
-  }
-
-  mergeMessages = (responses) => {
-    responses.map(response =>
-      response.sender = MESSAGE_SENDER.RESPONSE
-    );
-    this.setState({
-      messages: union(this.state.messages, responses)
-    });
-  }
-
-  pushNewUserMessage = (text) => {
-    this.props.dispatch(addUserMessage(text));
-    this.props.handleNewUserMessage(text);
-  }
-
-  handleMessageSubmit = (event) => {
-    event.preventDefault();
-    const userInput = event.target.message.value;
-    if (userInput) {
-      this.pushNewUserMessage(userInput);
-      event.target.message.value = '';
-    }
-  }
-
-  render() {
-    return (
-      <WidgetLayout
-        messages={this.props.messages}
-        toggleConversation={this.toggleConversation}
-        sendMessage={this.handleMessageSubmit}
-        title={this.props.title}
-        subtitle={this.props.subtitle}
-        senderPlaceHolder={this.props.senderPlaceHolder}
-        stylesInjected={this.props.stylesInjected}
-        profileAvatar={this.props.profileAvatar}
-      />
-    );
-  }
-}
-
-Widget.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  responseMessages: PropTypes.arrayOf(PropTypes.object).isRequired,
+FullWidget.propTypes = {
   handleNewUserMessage: PropTypes.func.isRequired,
-  senderPlaceHolder: PropTypes.string,
-  stylesInjected: PROP_TYPES.STYLES,
   profileAvatar: PropTypes.string
 };
 
-Widget.defaultProps = {
-  title: 'Welcome',
-  subtitle: 'This is your chat subtitle',
-  senderPlaceHolder: 'Type a message...',
-  stylesInjected: {}
-};
-
-export default connect(store => ({
-  messages: store.messages.get('messages')
-}))(Widget);
+export default FullWidget;
