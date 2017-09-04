@@ -1,4 +1,4 @@
-import { TOGGLE_CHAT } from 'constants';
+import { TOGGLE_CHAT } from './actionTypes';
 
 export function toggleChat() {
   return {

@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import { TOGGLE_CHAT } from 'constants';
+import { TOGGLE_CHAT } from '../actions/actionTypes';
 
 const initialState = Map({ showChat: false });
 

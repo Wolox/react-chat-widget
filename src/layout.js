@@ -41,8 +41,6 @@ WidgetLayout.propTypes = {
   stylesInjected: PropTypes.object // eslint-disable-line
 };
 
-const mapStateToProps = store => ({
+export default connect(store => ({
   showChat: store.chatBehavior.get('showChat')
-});
-
-export default connect(mapStateToProps)(WidgetLayout);
+}))(WidgetLayout);

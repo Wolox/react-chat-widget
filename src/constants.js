@@ -52,6 +52,3 @@ export const PROP_TYPES = {
     ])
   })
 };
-
-export const TOGGLE_CHAT = 'TOGGLE_CHAT';
-export const ADD_NEW_USER_MESSAGE = 'ADD_NEW_USER_MESSAGE';

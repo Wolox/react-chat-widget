@@ -3,16 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import union from 'lodash/union';
 import moment from 'moment';
-import { toggleChat } from 'actions/behavoirsActions';
+import { toggleChat } from 'actions';
 
 import WidgetLayout from './layout';
 import { MESSAGES_TYPES, MESSAGE_SENDER, PROP_TYPES } from './constants';
 
 class Widget extends Component {
-  state = {
-    messages: []
-  };
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.responseMessages.length > this.props.responseMessages.length) {
       this.mergeMessages(nextProps.responseMessages);
@@ -56,7 +52,7 @@ class Widget extends Component {
   render() {
     return (
       <WidgetLayout
-        messages={this.state.messages}
+        messages={this.props.messages}
         toggleConversation={this.toggleConversation}
         sendMessage={this.handleMessageSubmit}
         title={this.props.title}
@@ -70,6 +66,7 @@ class Widget extends Component {
 }
 
 Widget.propTypes = {
+  messages: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
   subtitle: PropTypes.string,
   responseMessages: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -86,4 +83,6 @@ Widget.defaultProps = {
   stylesInjected: {}
 };
 
-export default connect()(Widget);
+export default connect(store => ({
+  messages: store.messages.get('messages')
+}))(Widget);
