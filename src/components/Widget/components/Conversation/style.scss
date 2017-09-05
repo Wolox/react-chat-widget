@@ -2,9 +2,9 @@
 @import "../../../../sass/animation.scss";
 
 .conversation-container {
+  @include animation(0, 0.5s, slide-in);
   border-radius: 10px;
   box-shadow: 0px 2px 10px 1px $grey-3;
-  @include animation(0, 0.5s, slide-in);
 }
 
 .slide-out {
