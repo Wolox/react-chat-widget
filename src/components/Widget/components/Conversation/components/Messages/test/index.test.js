@@ -1,28 +1,21 @@
 import React from 'react';
-import moment from 'moment';
+import { List } from 'immutable';
 import { shallow } from 'enzyme';
 
 import Messages from '../index';
 import Message from '../components/Message';
 import Snippet from '../components/Snippet';
+import { createNewMessage, createLinkSnippet } from '../../../../../../../store/reducers/helper';
 
 describe('<Messages />', () => {
-  const responseMessages = [
-    {
-      text: 'Response message 1',
-      type: 'text',
-      timestamp: moment().format(),
-      sender: 'response'
-    }, {
-      title: 'Link title',
-      link: 'link',
-      type: 'link',
-      timestamp: moment().format()
-    }
-  ];
+  const message = createNewMessage('Response message 1');
+  const link = { title: 'link', link: 'link' };
+  const linkSnippet = createLinkSnippet(link);
+
+  const responseMessages = List([message, linkSnippet]);
 
   const messagesComponent = shallow(
-    <Messages
+    <Messages.WrappedComponent
       messages={responseMessages}
     />
   );

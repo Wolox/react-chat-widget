@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import { shallow } from 'enzyme';
 
 import assetMock from 'tests-mocks/fileMock';
@@ -9,7 +8,6 @@ import WidgetLayout from '../layout';
 describe('<Widget />', () => {
   const profile = assetMock;
   const handleUserMessage = jest.fn();
-  const responseMessages = [];
   const newMessageEvent = {
     target: {
       message: {
@@ -18,35 +16,18 @@ describe('<Widget />', () => {
     },
     preventDefault() {}
   };
-  const newResponseMessage = [
-    {
-      text: 'Response message',
-      type: 'text',
-      timestamp: moment().format()
-    }
-  ];
+  const dispatch = jest.fn();
 
   const widgetComponent = shallow(
-    <Widget
-      responseMessages={responseMessages}
+    <Widget.WrappedComponent
       handleNewUserMessage={handleUserMessage}
       profileAvatar={profile}
+      dispatch={dispatch}
     />
   );
 
-  afterEach(() => {
-    widgetComponent.setState({
-      messages: []
-    });
-  });
-
   it('should render WidgetLayout', () => {
     expect(widgetComponent.find(WidgetLayout)).toHaveLength(1);
-  });
-
-  it('should toggle chat to show the conversation', () => {
-    widgetComponent.instance().toggleConversation();
-    expect(widgetComponent.state('showChat')).toEqual(true);
   });
 
   it('should prevent events default behavior', () => {
@@ -58,23 +39,5 @@ describe('<Widget />', () => {
   it('should call prop when calling newMessageEvent', () => {
     widgetComponent.instance().handleMessageSubmit(newMessageEvent);
     expect(handleUserMessage).toBeCalled();
-  });
-
-  it('should not add a new message to the state when message is empty', () => {
-    const anotherMessageEvent = newMessageEvent;
-    anotherMessageEvent.target.message.value = '';
-    widgetComponent.instance().handleMessageSubmit(anotherMessageEvent);
-    expect(widgetComponent.state('messages').length).toBe(0);
-  });
-
-  it('should set the attribute sender with value response to each new response in the array', () => {
-    widgetComponent.instance().mergeMessages(newResponseMessage);
-    expect(newResponseMessage[0].sender).toBe('response');
-  });
-
-  it('should call mergeMessages when component will receive props', () => {
-    widgetComponent.instance().mergeMessages = jest.fn();
-    widgetComponent.instance().componentWillReceiveProps({ responseMessages: newResponseMessage });
-    expect(widgetComponent.instance().mergeMessages).toBeCalled();
   });
 });

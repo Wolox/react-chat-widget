@@ -1,12 +1,12 @@
-import FullWidget from './src';
+import ConnectedWidget from './src';
 import {
   addUserMessage,
   addResponseMessage,
   addLinkSnippet
-} from './src/store/actions/dispatching';
+} from './src/store/actions/dispatcher';
 
 export {
-  FullWidget,
+  ConnectedWidget,
   addUserMessage,
   addResponseMessage,
   addLinkSnippet

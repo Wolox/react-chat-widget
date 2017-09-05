@@ -8,11 +8,11 @@ class Snippet extends PureComponent {
     return (
       <div className="snippet" style={this.props.messageStyle}>
         <h5 className="snippet-title">
-          {this.props.snippet.title}
+          {this.props.snippet.get('title')}
         </h5>
         <div className="snippet-details" style={this.props.styles.info}>
-          <a href={this.props.snippet.link} className="link">
-            {this.props.snippet.link}
+          <a href={this.props.snippet.get('link')} className="link">
+            {this.props.snippet.get('link')}
           </a>
         </div>
       </div>

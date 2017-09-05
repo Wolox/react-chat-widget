@@ -29,14 +29,14 @@ class Messages extends Component {
       <div id="messages" className="messages-container" style={this.props.containerStyles}>
         {this.props.messages.map((message, index) =>
           <div className="message" key={index}>
-            {isResponse(message.sender) &&
+            {isResponse(message.get('sender')) &&
               <img src={this.props.profileAvatar} className="avatar" alt="profile" style={this.props.avatarStyles} />
             }
-            {message.type === MESSAGES_TYPES.TEXT ?
+            {message.get('type') === MESSAGES_TYPES.TEXT ?
               <Message
                 message={message}
                 styles={
-                  isResponse(message.sender) ?
+                  isResponse(message.get('sender')) ?
                   this.props.responsesStyles : this.props.messageStyles
                 }
                 profileAvatar={this.props.profileAvatar}
@@ -65,5 +65,5 @@ Messages.propTypes = {
 };
 
 export default connect(store => ({
-  messages: store.messages.get('messages')
+  messages: store.messages
 }))(Messages);

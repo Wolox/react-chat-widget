@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 export const MESSAGE_SENDER = {
   CLIENT: 'client',
@@ -25,7 +26,7 @@ export const PROP_TYPES = {
     })
   }),
 
-  MESSAGE: PropTypes.shape({
+  MESSAGE: ImmutablePropTypes.contains({
     type: PropTypes.oneOf([
       MESSAGES_TYPES.TEXT,
       MESSAGES_TYPES.SNIPPET.LINK
@@ -38,7 +39,7 @@ export const PROP_TYPES = {
     ])
   }),
 
-  SNIPPET: PropTypes.shape({
+  SNIPPET: ImmutablePropTypes.contains({
     type: PropTypes.oneOf([
       MESSAGES_TYPES.TEXT,
       MESSAGES_TYPES.SNIPPET.LINK

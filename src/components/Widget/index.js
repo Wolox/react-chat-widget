@@ -11,17 +11,12 @@ class Widget extends Component {
     this.props.dispatch(toggleChat());
   }
 
-  pushNewUserMessage = (text) => {
-    this.props.dispatch(addUserMessage(text));
-    this.props.handleNewUserMessage(text);
-  }
-
   handleMessageSubmit = (event) => {
     event.preventDefault();
     const userInput = event.target.message.value;
     if (userInput) {
-      this.pushNewUserMessage(userInput);
-      event.target.message.value = '';
+      this.props.dispatch(addUserMessage(userInput));
+      this.props.handleNewUserMessage(userInput);
     }
   }
 

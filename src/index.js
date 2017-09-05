@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import Widget from './components/Widget';
 import store from '../src/store/store';
 
-const FullWidget = props =>
+const ConnectedWidget = props =>
   <Provider store={store}>
     <Widget
       handleNewUserMessage={props.handleNewUserMessage}
@@ -13,9 +13,9 @@ const FullWidget = props =>
     />
   </Provider>;
 
-FullWidget.propTypes = {
+ConnectedWidget.propTypes = {
   handleNewUserMessage: PropTypes.func.isRequired,
   profileAvatar: PropTypes.string
 };
 
-export default FullWidget;
+export default ConnectedWidget;
