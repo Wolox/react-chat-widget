@@ -6,7 +6,7 @@ import {
 } from './src/store/actions/dispatcher';
 
 export {
-  ConnectedWidget,
+  ConnectedWidget as Widget,
   addUserMessage,
   addResponseMessage,
   addLinkSnippet
