@@ -23,8 +23,8 @@ class Widget extends Component {
   render() {
     return (
       <WidgetLayout
-        toggleConversation={this.toggleConversation}
-        sendMessage={this.handleMessageSubmit}
+        onToggleConversation={this.toggleConversation}
+        onSendMessage={this.handleMessageSubmit}
         title={this.props.title}
         subtitle={this.props.subtitle}
         senderPlaceHolder={this.props.senderPlaceHolder}

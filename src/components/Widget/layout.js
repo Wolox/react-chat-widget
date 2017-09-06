@@ -11,7 +11,7 @@ const WidgetLayout = props =>
       <Conversation
         title={props.title}
         subtitle={props.subtitle}
-        sendMessage={props.sendMessage}
+        sendMessage={props.onSendMessage}
         senderPlaceHolder={props.senderPlaceHolder}
         containerStyles={props.stylesInjected.messagesContainer}
         avatarStyles={props.stylesInjected.avatar}
@@ -23,7 +23,7 @@ const WidgetLayout = props =>
       />
     }
     <Launcher
-      toggle={props.toggleConversation}
+      toggle={props.onToggleConversation}
       styles={props.stylesInjected.launcher}
     />
   </div>;
@@ -31,8 +31,8 @@ const WidgetLayout = props =>
 WidgetLayout.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  sendMessage: PropTypes.func,
-  toggleConversation: PropTypes.func,
+  onSendMessage: PropTypes.func,
+  onToggleConversation: PropTypes.func,
   showChat: PropTypes.bool,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,

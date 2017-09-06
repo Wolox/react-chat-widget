@@ -90,7 +90,7 @@ class App extends Component {
     return (
       <div className="App">
         <Widget
-          handleNewUserMessage={this.sendMessage}
+          handleNewUserMessage={this.handleNewUserMessage}
         />
       </div>
     );
@@ -138,7 +138,7 @@ class App extends Component {
     return (
       <div className="App">
         <Widget
-          handleNewUserMessage={this.sendMessage}
+          handleNewUserMessage={this.handleNewUserMessage}
           stylesInjected={widgetStyles}
           profileAvatar={logo}
           title="My new awesome title"
