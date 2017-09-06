@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack",
     "test": "jest --coverage",
-    "prepublish": "yarn run test && yarn run build"
+    "prepublish": "npm run test && npm run build"
   },
   "keywords": [
     "react",
