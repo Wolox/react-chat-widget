@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack",
     "test": "jest --coverage",
-    "prepublish": "yarn run test && yarn run build"
+    "prepublish": "npm run test && npm run build"
   },
   "keywords": [
     "react",
@@ -18,9 +18,13 @@
     "javascript"
   ],
   "dependencies": {
-    "lodash": "^4.17.4",
+    "immutable": "^3.8.1",
     "moment": "^2.18.1",
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.5.10",
+    "react-immutable-proptypes": "^2.1.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

@@ -1,0 +1,20 @@
+@import "../../../../../../../../sass/variables.scss";
+@import "../../../../../../../../sass/common.scss";
+
+.snippet {
+  @include message-bubble($grey-2);
+
+  .snippet-title {
+    margin: 0;
+  }
+
+  .snippet-details {
+    border-left: 2px solid $green-1;
+    margin-top: 5px;
+    padding-left: 10px;
+
+    .link {
+      font-size: 12px;
+    }
+  }
+}

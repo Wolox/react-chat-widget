@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
-const MESSAGE_SENDER = {
+export const MESSAGE_SENDER = {
   CLIENT: 'client',
   RESPONSE: 'response'
 };
 
-const MESSAGES_TYPES = {
+export const MESSAGES_TYPES = {
   TEXT: 'text',
   SNIPPET: {
     LINK: 'link'
   }
 };
 
-const PROP_TYPES = {
+export const PROP_TYPES = {
   STYLES: PropTypes.shape({
     header: PropTypes.object,
     launcher: PropTypes.object,
@@ -25,7 +26,7 @@ const PROP_TYPES = {
     })
   }),
 
-  MESSAGE: PropTypes.shape({
+  MESSAGE: ImmutablePropTypes.contains({
     type: PropTypes.oneOf([
       MESSAGES_TYPES.TEXT,
       MESSAGES_TYPES.SNIPPET.LINK
@@ -38,7 +39,7 @@ const PROP_TYPES = {
     ])
   }),
 
-  SNIPPET: PropTypes.shape({
+  SNIPPET: ImmutablePropTypes.contains({
     type: PropTypes.oneOf([
       MESSAGES_TYPES.TEXT,
       MESSAGES_TYPES.SNIPPET.LINK
@@ -51,10 +52,4 @@ const PROP_TYPES = {
       MESSAGE_SENDER.RESPONSE
     ])
   })
-};
-
-export {
-  MESSAGE_SENDER,
-  MESSAGES_TYPES,
-  PROP_TYPES
 };

@@ -10,7 +10,8 @@
       "alias": {
         "constants": "./src/constants.js",
         "assets": "./assets",
-        "tests-mocks": "./mocks"
+        "tests-mocks": "./mocks",
+        "actions": "./src/store/actions"
       }
     }]
   ]

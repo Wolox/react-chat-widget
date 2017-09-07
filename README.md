@@ -28,7 +28,7 @@ yarn add react-chat-widget
 
 ```js
 import React, { Component } from 'react';
-import Widget from 'react-chat-widget';
+import { Widget } from 'react-chat-widget';
 
 class App extends Component {
   render() {
@@ -43,17 +43,13 @@ class App extends Component {
 export default App;
 ```
 
-2- Add the required props to your component and pass them to the Widget component. Those are a responses array and the method that will be receiving the user's new messages.
+2- The only required prop you need to use is the `handleNewUserMessage`, which will receive the input from the user.
 
 ```js
 import React, { Component } from 'react';
-import Widget from 'react-chat-widget';
+import { Widget } from 'react-chat-widget';
 
 class App extends Component {
-  state = {
-    responses: []
-  }
-
   handleNewUserMessage = (newMessage) => {
     console.log(`New message incomig! ${newMessage}`);
     // Now send the message throught the backend API
@@ -63,7 +59,6 @@ class App extends Component {
     return (
       <div className="App">
         <Widget
-          responseMessages={this.state.responses}
           handleNewUserMessage={this.handleNewUserMessage}
         />
       </div>
@@ -74,11 +69,42 @@ class App extends Component {
 export default App;
 ```
 
-3- Customize the widget to match your app! You can add both props to manage the title of the widget, the avatar it will use and of course the styles it will have.
+3- Import the methods for you to add messages in the Widget. (See [messages](#messages))
 
 ```js
 import React, { Component } from 'react';
-import Widget from 'react-chat-widget';
+import { Widget, addResponseMessage } from 'react-chat-widget';
+
+class App extends Component {
+  componentDidMount() {
+    addResponseMessage("Welcome to this awesome chat!");
+  }
+
+  handleNewUserMessage = (newMessage) => {
+    console.log(`New message incomig! ${newMessage}`);
+    // Now send the message throught the backend API
+    addResponseMessage(response);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Widget
+          handleNewUserMessage={this.handleNewUserMessage}
+        />
+      </div>
+    );
+  } 
+}
+
+export default App;
+```
+
+4- Customize the widget to match your app design! You can add both props to manage the title of the widget, the avatar it will use and of course the styles it will have.
+
+```js
+import React, { Component } from 'react';
+import { Widget, addResponseMessage, addLinkSnippet, addUserMessage } from 'react-chat-widget';
 import logo from './logo.svg';
 
 const widgetStyles = {
@@ -99,8 +125,8 @@ const widgetStyles = {
 }
 
 class App extends Component {
-  state = {
-    responses: []
+  componentDidMount() {
+    addResponseMessage("Welcome to this awesome chat!");
   }
 
   handleNewUserMessage = (newMessage) => {
@@ -112,8 +138,7 @@ class App extends Component {
     return (
       <div className="App">
         <Widget
-          responseMessages={this.state.responses}
-          handleNewUserMessage={this.sendMessage}
+          handleNewUserMessage={this.handleNewUserMessage}
           stylesInjected={widgetStyles}
           profileAvatar={logo}
           title="My new awesome title"
@@ -136,7 +161,6 @@ export default App;
 - **senderPlaceHolder:** (PropTypes.string) The placeholder of the message input
 - **profileAvatar:** (PropTypes.string.isRequired) The profile image that will be set on the responses
 - **stylesInjected:** (Proptypes.object) The styles to be injected, see [styles](#styles)
-- **responseMessages:** (PropTypes.arrayOf(PropTypes.object).isRequired) Array of responses, see [messages](#messages)
 - **handleNewUserMessage:** (PropTypes.func.isRequired) Function to handle the user input, will receive the full text message when submitted
 
 #### Styles
@@ -159,28 +183,29 @@ To inject styles you need to use the prop **stylesInjected**, and send an object
 
 #### Messages
 
-In order to add new messages, you will need to add objects to your responses array, which is the one that you send via props. You can add new  text messages by adding an object with the shape:
+In order to add new messages, you are provided with the methods:
 
 ```js
-{
-  type: 'text',
-  text: 'My response message',
-  timestamp: 'The time this response was created'
-}
+// This method will add a message written as a user. Keep in mind it will not trigger the prop handleNewUserMessage()
+addUserMessage(text);
+
+// This method will add a message written as a response
+addResponseMessage(text);
+
+// This method will add a link snippet
+addLinkSnippet(link);
 ```
 
-And if you need to add a new link snippet, you have to add an object with the shape:
+The parammeter `text` is the plain string you want to add as a response/user message.
+
+For the method `addLinkSnippet(link)`, the link object has to be like:
 
 ```js
 {
-  type: 'link',
   title: 'My awesome link',
-  link: 'https://github.com/Wolox/react-chat-widget',
-  timestamp: 'The time this response was created',
+  link: 'https://github.com/Wolox/react-chat-widget'
 }
 ```
-
-Have in mind that the messages will have the same order as you add them into the array, won't be neccesary the order by timestamp.
 
 ## Contributing
 
