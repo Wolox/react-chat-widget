@@ -1,5 +1,5 @@
-@import "../../../../sass/variables.scss";
-@import "../../../../sass/animation.scss";
+@import "variables.scss";
+@import "animation.scss";
 
 .launcher {
   @include animation(0, 0.5s, slide-in);
