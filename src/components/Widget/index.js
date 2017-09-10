@@ -18,6 +18,7 @@ class Widget extends Component {
       this.props.dispatch(addUserMessage(userInput));
       this.props.handleNewUserMessage(userInput);
     }
+    event.target.message.value = '';
   }
 
   render() {
