@@ -23,8 +23,7 @@
     "prop-types": "^15.5.10",
     "react-immutable-proptypes": "^2.1.0",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "redux-logger": "^3.0.6"
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
