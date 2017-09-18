@@ -11,7 +11,8 @@
         "constants": "./src/constants.js",
         "assets": "./assets",
         "tests-mocks": "./mocks",
-        "actions": "./src/store/actions"
+        "actions": "./src/store/actions",
+        "messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components"
       }
     }]
   ]

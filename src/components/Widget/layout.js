@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
 import './style.scss';
@@ -13,18 +14,11 @@ const WidgetLayout = props =>
         subtitle={props.subtitle}
         sendMessage={props.onSendMessage}
         senderPlaceHolder={props.senderPlaceHolder}
-        containerStyles={props.stylesInjected.messagesContainer}
-        avatarStyles={props.stylesInjected.avatar}
-        headerStyles={props.stylesInjected.header}
-        messageStyles={props.stylesInjected.message}
-        responsesStyles={props.stylesInjected.responses}
-        snippetStyles={props.stylesInjected.snippet}
         profileAvatar={props.profileAvatar}
       />
     }
     <Launcher
       toggle={props.onToggleConversation}
-      styles={props.stylesInjected.launcher}
     />
   </div>;
 
@@ -35,8 +29,7 @@ WidgetLayout.propTypes = {
   onToggleConversation: PropTypes.func,
   showChat: PropTypes.bool,
   senderPlaceHolder: PropTypes.string,
-  profileAvatar: PropTypes.string,
-  stylesInjected: PropTypes.object // eslint-disable-line
+  profileAvatar: PropTypes.string
 };
 
 export default connect(store => ({

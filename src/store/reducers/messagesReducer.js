@@ -1,7 +1,11 @@
 import { List } from 'immutable';
 import { MESSAGE_SENDER } from 'constants';
 
-import { createNewMessage, createLinkSnippet } from './helper';
+import {
+  createNewMessage,
+  createLinkSnippet,
+  createComponentMessage
+} from './helper';
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = List([]);
@@ -16,6 +20,9 @@ export default function reducer(state = initialState, action) {
     }
     case actionTypes.ADD_NEW_LINK_SNIPPET: {
       return state.push(createLinkSnippet(action.link, MESSAGE_SENDER.RESPONSE));
+    }
+    case actionTypes.ADD_COMPONENT_MESSAGE: {
+      return state.push(createComponentMessage(action.component, action.props));
     }
     default:
       return state;

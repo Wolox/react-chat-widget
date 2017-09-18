@@ -6,26 +6,26 @@
   height: 45px;
   padding: 5px;
   border-radius: 0 0 10px 10px;
+}
 
-  .new-message {
-    width: 100%;
-    border: 0;
-    align-self: center;
-    background-color: $grey-2;
-    height: 30px;
-    padding-left: 15px;
+.new-message {
+  width: 100%;
+  border: 0;
+  align-self: center;
+  background-color: $grey-2;
+  height: 30px;
+  padding-left: 15px;
 
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
   }
+}
 
-  .send {
-    background: $grey-2;
-    border: 0;
+.send {
+  background: $grey-2;
+  border: 0;
 
-    .send-icon {
-      height: 25px;
-    }
+  .send-icon {
+    height: 25px;
   }
 }

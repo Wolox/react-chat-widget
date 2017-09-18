@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { PROP_TYPES } from 'constants';
 import { toggleChat, addUserMessage } from 'actions';
 
 import WidgetLayout from './layout';
@@ -29,7 +28,6 @@ class Widget extends Component {
         title={this.props.title}
         subtitle={this.props.subtitle}
         senderPlaceHolder={this.props.senderPlaceHolder}
-        stylesInjected={this.props.stylesInjected}
         profileAvatar={this.props.profileAvatar}
       />
     );
@@ -41,15 +39,13 @@ Widget.propTypes = {
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,
-  stylesInjected: PROP_TYPES.STYLES,
   profileAvatar: PropTypes.string
 };
 
 Widget.defaultProps = {
   title: 'Welcome',
   subtitle: 'This is your chat subtitle',
-  senderPlaceHolder: 'Type a message...',
-  stylesInjected: {}
+  senderPlaceHolder: 'Type a message...'
 };
 
 export default connect()(Widget);

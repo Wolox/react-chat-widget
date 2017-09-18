@@ -9,30 +9,18 @@ export const MESSAGE_SENDER = {
 export const MESSAGES_TYPES = {
   TEXT: 'text',
   SNIPPET: {
-    LINK: 'link'
-  }
+    LINK: 'snippet'
+  },
+  CUSTOM_COMPONENT: 'component'
 };
 
 export const PROP_TYPES = {
-  STYLES: PropTypes.shape({
-    header: PropTypes.object,
-    launcher: PropTypes.object,
-    avatar: PropTypes.object,
-    messagesContainer: PropTypes.object,
-    message: PropTypes.object,
-    responses: PropTypes.object,
-    snippet: PropTypes.shape({
-      info: PropTypes.object
-    })
-  }),
-
   MESSAGE: ImmutablePropTypes.contains({
     type: PropTypes.oneOf([
       MESSAGES_TYPES.TEXT,
       MESSAGES_TYPES.SNIPPET.LINK
     ]),
     text: PropTypes.string,
-    timestamp: PropTypes.string,
     sender: PropTypes.oneOf([
       MESSAGE_SENDER.CLIENT,
       MESSAGE_SENDER.RESPONSE
@@ -46,7 +34,6 @@ export const PROP_TYPES = {
     ]),
     title: PropTypes.string,
     link: PropTypes.string,
-    timestamp: PropTypes.string,
     sender: PropTypes.oneOf([
       MESSAGE_SENDER.CLIENT,
       MESSAGE_SENDER.RESPONSE

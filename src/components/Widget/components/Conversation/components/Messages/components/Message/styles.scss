@@ -4,21 +4,22 @@
 .message {
   margin: 10px;
   display: flex;
+}
 
-  .client {
-    @include message-bubble($turqois-2);
-    margin-left: auto;
-  }
+.client {
+  @include message-bubble($turqois-2);
+  margin-left: auto;
+}
 
-  .response {
-    @include message-bubble($grey-2);
-  }
+.response {
+  @include message-bubble($grey-2);
 }
 
 .message {
   font-size: 14px;
 }
 
+/* For markdown elements created with default styles */
 .message-text {
 
   p {

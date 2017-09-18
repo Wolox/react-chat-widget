@@ -15,13 +15,13 @@
   &:focus {
     outline: none;
   }
+}
 
-  .open-launcher {
-    @include animation(0, 0.5s, rotation-rl);
-  }
+.open-launcher {
+  @include animation(0, 0.5s, rotation-rl);
+}
 
-  .close-launcher {
-    width: 20px;
-    @include animation(0, 0.5s, rotation-lr);
-  }
+.close-launcher {
+  width: 20px;
+  @include animation(0, 0.5s, rotation-lr);
 }
