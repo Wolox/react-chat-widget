@@ -102,7 +102,7 @@ class App extends Component {
 export default App;
 ```
 
-4- Customize the widget to match your app design! You can add both props to manage the title of the widget, the avatar it will use and of course the styles it will have.
+4- Customize the widget to match your app design! You can add both props to manage the title of the widget, the avatar it will use and of course, you can change, from the CSS, the styles the widget will have.
 
 ```js
 import React, { Component } from 'react';
@@ -167,7 +167,7 @@ That way, you can leave the JS clean and keep the styles within the CSS.
 
 #### Messages
 
-In order to add new messages, you are provided with the methods:
+In order to add new messages, you are provided with the following methods:
 
 - **addResponseMessage**
   - params:
@@ -192,12 +192,11 @@ In order to add new messages, you are provided with the methods:
 - **renderCustomComponent**
   - params: 
     - component: Component to be render,
-    - props: props the component needs
+    - props: props the component needs,
+    - showAvatar: boolean, default value: false; the component will be rendered with the avatar like the messages
   - Method to render a custom component inse the messages container. With this method, you can add whatever component you need the widget to have.
 
-Markdown is supported for this type of messages.
-
-For the method `addLinkSnippet(link)`, the link object has to be like:
+**Markdown is supported for the responses and user messages.**
 
 ## About
 

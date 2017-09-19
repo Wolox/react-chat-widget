@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Message /> should reder a <em> element 1`] = `
+"<p>New message with <em>Markdown</em>!</p>
+"
+`;
+
+exports[`<Message /> should render a <strong> element 1`] = `
+"<p>New message with <strong>Markdown</strong>!</p>
+"
+`;

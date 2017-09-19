@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
-import { MESSAGE_SENDER } from 'constants';
 
 import './styles.scss';
-
-const isResponse = sender => sender === MESSAGE_SENDER.RESPONSE;
 
 const scrollToBottom = () => {
   const messagesDiv = document.getElementById('messages');
@@ -36,8 +33,7 @@ class Messages extends Component {
       <div id="messages" className="messages-container">
         {this.props.messages.map((message, index) =>
           <div className="message" key={index}>
-            {isResponse(message.get('sender')) &&
-              !(message.get('type') === 'component') &&
+            {message.get('showAvatar') &&
               <img src={this.props.profileAvatar} className="avatar" alt="profile" />
             }
             { this.getComponentToRender(message) }

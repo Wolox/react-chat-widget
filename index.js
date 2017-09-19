@@ -3,7 +3,8 @@ import {
   addUserMessage,
   addResponseMessage,
   addLinkSnippet,
-  renderCustomComponent
+  renderCustomComponent,
+  toggleWidget
 } from './src/store/actions/dispatcher';
 
 export {
@@ -11,5 +12,6 @@ export {
   addUserMessage,
   addResponseMessage,
   addLinkSnippet,
-  renderCustomComponent
+  renderCustomComponent,
+  toggleWidget
 };
