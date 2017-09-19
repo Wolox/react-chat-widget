@@ -29,3 +29,9 @@
     height: 25px;
   }
 }
+
+@media screen and (max-width: 1024px)  {
+  .sender {
+    border-radius: 0;
+  }
+}

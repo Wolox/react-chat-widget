@@ -7,3 +7,10 @@
   overflow-y: scroll;
   padding-top: 10px;
 }
+
+@media screen and (max-width: 1024px)  {
+  .messages-container {
+    height: 100%;
+    max-height: 75vh;
+  }
+}

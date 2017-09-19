@@ -6,10 +6,16 @@
   border-radius: 10px 10px 0 0;
   color: $white;
   padding: 15px 0 25px;
+}
 
-  .title {
-    font-size: 24px;
-    margin: 0;
-    padding: 15px;
+.title {
+  font-size: 24px;
+  margin: 0;
+  padding: 15px;
+}
+
+@media screen and (max-width: 1024px)  {
+  .header {
+    border-radius: 0;
   }
 }
