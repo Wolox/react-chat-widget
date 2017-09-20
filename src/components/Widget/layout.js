@@ -15,6 +15,8 @@ const WidgetLayout = props =>
         sendMessage={props.onSendMessage}
         senderPlaceHolder={props.senderPlaceHolder}
         profileAvatar={props.profileAvatar}
+        toggleChat={props.onToggleConversation}
+        showChat={props.showChat}
       />
     }
     <Launcher

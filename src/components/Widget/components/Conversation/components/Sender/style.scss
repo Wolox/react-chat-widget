@@ -1,6 +1,7 @@
 @import "variables.scss";
 
 .sender {
+  align-items: center;
   display: flex;
   background-color: $grey-2;
   height: 45px;
@@ -11,7 +12,6 @@
 .new-message {
   width: 100%;
   border: 0;
-  align-self: center;
   background-color: $grey-2;
   height: 30px;
   padding-left: 15px;
@@ -30,8 +30,9 @@
   }
 }
 
-@media screen and (max-width: 1024px)  {
+@media screen and (max-width: 500px)  {
   .sender {
     border-radius: 0;
+    flex-shrink: 0;
   }
 }

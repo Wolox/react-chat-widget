@@ -8,9 +8,9 @@
   padding-top: 10px;
 }
 
-@media screen and (max-width: 1024px)  {
+@media screen and (max-width: 500px)  {
   .messages-container {
     height: 100%;
-    max-height: 75vh;
+    max-height: none;
   }
 }
