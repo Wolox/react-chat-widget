@@ -26,7 +26,7 @@
   @include animation(0, 0.5s, rotation-lr);
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 800px){
   .launcher {
     bottom: 0;
     margin: 20px;
