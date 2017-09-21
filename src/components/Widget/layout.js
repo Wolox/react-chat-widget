@@ -8,13 +8,18 @@ import './style.scss';
 
 const WidgetLayout = props =>
   <div className="widget-container">
-    {props.showChat &&
+    {
+      props.showChat &&
       <Conversation
         title={props.title}
         subtitle={props.subtitle}
         sendMessage={props.onSendMessage}
         senderPlaceHolder={props.senderPlaceHolder}
         profileAvatar={props.profileAvatar}
+        toggleChat={props.onToggleConversation}
+        showChat={props.showChat}
+        showCloseButton={props.showCloseButton}
+        disabledInput={props.disabledInput}
       />
     }
     <Launcher
@@ -29,9 +34,12 @@ WidgetLayout.propTypes = {
   onToggleConversation: PropTypes.func,
   showChat: PropTypes.bool,
   senderPlaceHolder: PropTypes.string,
-  profileAvatar: PropTypes.string
+  profileAvatar: PropTypes.string,
+  showCloseButton: PropTypes.bool,
+  disabledInput: PropTypes.bool
 };
 
 export default connect(store => ({
-  showChat: store.behavior.get('showChat')
+  showChat: store.behavior.get('showChat'),
+  disabledInput: store.behavior.get('disabledInput')
 }))(WidgetLayout);

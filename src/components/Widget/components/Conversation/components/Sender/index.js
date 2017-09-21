@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import send from 'assets/send_button.svg';
 import './style.scss';
 
-const Sender = ({ sendMessage, placeholder }) =>
+const Sender = ({ sendMessage, placeholder, disabledInput }) =>
   <form className="sender" onSubmit={sendMessage}>
-    <input type="text" className="new-message" name="message" placeholder={placeholder} autoFocus autoComplete="off" />
+    <input type="text" className="new-message" name="message" placeholder={placeholder} disabled={disabledInput} autoFocus autoComplete="off" />
     <button type="submit" className="send">
       <img src={send} className="send-icon" alt="send" />
     </button>
@@ -13,7 +14,8 @@ const Sender = ({ sendMessage, placeholder }) =>
 
 Sender.propTypes = {
   sendMessage: PropTypes.func,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  disabledInput: PropTypes.bool
 };
 
 export default Sender;

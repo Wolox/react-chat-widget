@@ -25,3 +25,16 @@
   width: 20px;
   @include animation(0, 0.5s, rotation-lr);
 }
+
+@media screen and (max-width: 800px){
+  .launcher {
+    bottom: 0;
+    margin: 20px;
+    position: fixed;
+    right: 0;
+  }
+
+  .hide-sm {
+    display: none;
+  }
+}

@@ -29,23 +29,26 @@ class Widget extends Component {
         subtitle={this.props.subtitle}
         senderPlaceHolder={this.props.senderPlaceHolder}
         profileAvatar={this.props.profileAvatar}
+        showCloseButton={this.props.showCloseButton}
       />
     );
   }
 }
 
 Widget.propTypes = {
+  handleNewUserMessage: PropTypes.func.isRequired,
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  handleNewUserMessage: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,
-  profileAvatar: PropTypes.string
+  profileAvatar: PropTypes.string,
+  showCloseButton: PropTypes.bool
 };
 
 Widget.defaultProps = {
   title: 'Welcome',
   subtitle: 'This is your chat subtitle',
-  senderPlaceHolder: 'Type a message...'
+  senderPlaceHolder: 'Type a message...',
+  showCloseButton: true
 };
 
 export default connect()(Widget);

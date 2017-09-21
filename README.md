@@ -102,7 +102,7 @@ class App extends Component {
 export default App;
 ```
 
-4- Customize the widget to match your app design! You can add both props to manage the title of the widget, the avatar it will use and of course, you can change, from the CSS, the styles the widget will have.
+4- Customize the widget to match your app design! You can add both props to manage the title of the widget and the avatar it will use. Of course, feel free to change the styles the widget will have in the CSS
 
 ```js
 import React, { Component } from 'react';
@@ -141,11 +141,12 @@ export default App;
 
 #### Props
 
+- **handleNewUserMessage:** (PropTypes.func.isRequired) Function to handle the user input, will receive the full text message when submitted
 - **title:** (PropTypes.string) Title of the widget
 - **subtitle:** (PropTypes.string) Subtitle of the widget
 - **senderPlaceHolder:** (PropTypes.string) The placeholder of the message input
-- **profileAvatar:** (PropTypes.string.isRequired) The profile image that will be set on the responses
-- **handleNewUserMessage:** (PropTypes.func.isRequired) Function to handle the user input, will receive the full text message when submitted
+- **profileAvatar:** (PropTypes.string) The profile image that will be set on the responses
+- **showCloseButton:** (PropTypes.bool) Show or hide the close button in full screen mode
 
 #### Styles
 
@@ -197,6 +198,18 @@ In order to add new messages, you are provided with the following methods:
   - Method to render a custom component inse the messages container. With this method, you can add whatever component you need the widget to have.
 
 **Markdown is supported for the responses and user messages.**
+
+#### Widget behavior
+
+You can also control certain actions of the widget:
+
+- **toggleWidget**
+  - params: No params expected
+  - This method is to toggle the widget at will without the need to trigger the click event on the launcher
+
+- **toggleInputDisabled**
+  - params: No params expected
+  - Method to toggle the availability of the message input for the user to write on
 
 ## About
 

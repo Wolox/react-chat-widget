@@ -20,3 +20,7 @@ export function renderCustomComponent(component, props) {
 export function toggleWidget() {
   store.dispatch(actions.toggleChat());
 }
+
+export function toggleInputDisabled() {
+  store.dispatch(actions.toggleInputDisabled());
+}

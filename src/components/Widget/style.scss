@@ -11,3 +11,12 @@
   width: 90vw;
   z-index: 9999;
 }
+
+@media screen and (max-width: 800px)  {
+  .widget-container {
+    height: 100%;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+  }
+}

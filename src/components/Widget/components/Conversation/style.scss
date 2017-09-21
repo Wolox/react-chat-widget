@@ -10,3 +10,11 @@
 .slide-out {
   @include animation(0, 0.5s, slide-out);
 }
+
+@media screen and (max-width: 800px) {
+  .conversation-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
