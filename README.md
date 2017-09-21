@@ -150,7 +150,7 @@ export default App;
 
 #### Styles
 
-To change the styles you need the widget to have, simply override the CSS classes wrapping them within the containers and add your own style tothem!
+To change the styles you need the widget to have, simply override the CSS classes wrapping them within the containers and add your own style to them!
 For expample:
 
 ```css

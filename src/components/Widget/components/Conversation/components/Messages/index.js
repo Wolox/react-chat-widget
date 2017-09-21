@@ -24,8 +24,7 @@ class Messages extends Component {
     if (message.get('type') === 'component') {
       return <ComponentToRender {...message.get('props')} />;
     }
-    const props = { message };
-    return <ComponentToRender {...props} />;
+    return <ComponentToRender message={message} />;
   };
 
   render() {
