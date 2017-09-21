@@ -11,7 +11,9 @@
         "constants": "./src/constants.js",
         "assets": "./assets",
         "tests-mocks": "./mocks",
-        "actions": "./src/store/actions"
+        "actions": "./src/store/actions",
+        "helper": "./src/store/reducers/helper.js",
+        "messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components"
       }
     }]
   ]

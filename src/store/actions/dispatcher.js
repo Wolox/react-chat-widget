@@ -12,3 +12,11 @@ export function addResponseMessage(text) {
 export function addLinkSnippet(link) {
   store.dispatch(actions.addLinkSnippet(link));
 }
+
+export function renderCustomComponent(component, props) {
+  store.dispatch(actions.renderCustomComponent(component, props));
+}
+
+export function toggleWidget() {
+  store.dispatch(actions.toggleChat());
+}

@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import marked from 'marked';
-
 import { PROP_TYPES } from 'constants';
+
 import './styles.scss';
 
 class Message extends PureComponent {
@@ -10,7 +9,7 @@ class Message extends PureComponent {
     const sanitizedHTML = marked.parse(this.props.message.get('text'), { sanitize: true });
 
     return (
-      <div className={this.props.message.get('sender')} style={this.props.styles}>
+      <div className={this.props.message.get('sender')}>
         <div className="message-text" dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
       </div>
     );
@@ -18,8 +17,7 @@ class Message extends PureComponent {
 }
 
 Message.propTypes = {
-  message: PROP_TYPES.MESSAGE,
-  styles: PropTypes.object // eslint-disable-line
+  message: PROP_TYPES.MESSAGE
 };
 
 export default Message;

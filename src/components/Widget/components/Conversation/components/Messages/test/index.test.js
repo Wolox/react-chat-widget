@@ -2,17 +2,20 @@ import React from 'react';
 import { List } from 'immutable';
 import { shallow } from 'enzyme';
 
+import { createNewMessage, createLinkSnippet, createComponentMessage } from 'helper';
 import Messages from '../index';
 import Message from '../components/Message';
 import Snippet from '../components/Snippet';
-import { createNewMessage, createLinkSnippet } from '../../../../../../../store/reducers/helper';
 
 describe('<Messages />', () => {
   const message = createNewMessage('Response message 1');
-  const link = { title: 'link', link: 'link' };
-  const linkSnippet = createLinkSnippet(link);
+  const linkSnippet = createLinkSnippet({ title: 'link', link: 'link' });
+  /* eslint-disable react/prop-types */
+  const Dummy = ({ text }) => <div>{text}</div>;
+  /* eslint-enable */
+  const customComp = createComponentMessage(Dummy, { text: 'This is a Dummy Component!' });
 
-  const responseMessages = List([message, linkSnippet]);
+  const responseMessages = List([message, linkSnippet, customComp]);
 
   const messagesComponent = shallow(
     <Messages.WrappedComponent
@@ -26,5 +29,9 @@ describe('<Messages />', () => {
 
   it('should render a Snippet component', () => {
     expect(messagesComponent.find(Snippet)).toHaveLength(1);
+  });
+
+  it('should reder a custom component', () => {
+    expect(messagesComponent.find(Dummy)).toHaveLength(1);
   });
 });

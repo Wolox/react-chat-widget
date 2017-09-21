@@ -26,3 +26,11 @@ export function addLinkSnippet(link) {
     link
   };
 }
+
+export function renderCustomComponent(component, props) {
+  return {
+    type: actions.ADD_COMPONENT_MESSAGE,
+    component,
+    props
+  };
+}
