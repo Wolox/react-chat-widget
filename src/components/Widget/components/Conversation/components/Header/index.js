@@ -8,7 +8,7 @@ const Header = ({ title, subtitle, toggleChat, showCloseButton }) =>
   <div className="header">
     {showCloseButton &&
       <button className="close-button" onClick={toggleChat}>
-        <img src={close} className="close" alt="" />
+        <img src={close} className="close" alt="close" />
       </button>
     }
     <h4 className="title">{title}</h4>

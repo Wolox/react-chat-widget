@@ -102,7 +102,7 @@ class App extends Component {
 export default App;
 ```
 
-4- Customize the widget to match your app design! You can add both props to manage the title of the widget, the avatar it will use and of course, you can change, from the CSS, the styles the widget will have.
+4- Customize the widget to match your app design! You can add both props to manage the title of the widget and the avatar it will use. Of course, feel free to change the styles the widget will have in the CSS
 
 ```js
 import React, { Component } from 'react';
@@ -146,7 +146,7 @@ export default App;
 - **subtitle:** (PropTypes.string) Subtitle of the widget
 - **senderPlaceHolder:** (PropTypes.string) The placeholder of the message input
 - **profileAvatar:** (PropTypes.string) The profile image that will be set on the responses
-- **showCloseButton:** (PropTypes.bool) Show or not the close button in full screen mode
+- **showCloseButton:** (PropTypes.bool) Show or hide the close button in full screen mode
 
 #### Styles
 
