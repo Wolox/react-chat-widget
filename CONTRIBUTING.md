@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for thinking in contributing with this project! Now, to start contributing:
+First off, thank you for considering contributing to this project! Now, to start contributing:
 
 ## Issues and suggestions
 
