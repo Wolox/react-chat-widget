@@ -6,6 +6,12 @@ export function toggleChat() {
   };
 }
 
+export function toggleInputDisabled() {
+  return {
+    type: actions.TOGGLE_INPUT_DISABLED
+  };
+}
+
 export function addUserMessage(text) {
   return {
     type: actions.ADD_NEW_USER_MESSAGE,

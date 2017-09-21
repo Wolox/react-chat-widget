@@ -4,7 +4,8 @@ import {
   addResponseMessage,
   addLinkSnippet,
   renderCustomComponent,
-  toggleWidget
+  toggleWidget,
+  toggleInputDisabled
 } from './src/store/actions/dispatcher';
 
 export {
@@ -13,5 +14,6 @@ export {
   addResponseMessage,
   addLinkSnippet,
   renderCustomComponent,
-  toggleWidget
+  toggleWidget,
+  toggleInputDisabled
 };

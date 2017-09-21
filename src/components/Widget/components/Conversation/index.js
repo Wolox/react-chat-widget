@@ -12,6 +12,7 @@ const Conversation = props =>
       title={props.title}
       subtitle={props.subtitle}
       toggleChat={props.toggleChat}
+      showCloseButton={props.showCloseButton}
     />
     <Messages
       profileAvatar={props.profileAvatar}
@@ -19,6 +20,7 @@ const Conversation = props =>
     <Sender
       sendMessage={props.sendMessage}
       placeholder={props.senderPlaceHolder}
+      disabledInput={props.disabledInput}
     />
   </div>;
 
@@ -28,14 +30,9 @@ Conversation.propTypes = {
   sendMessage: PropTypes.func,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,
-  toggleChat: PropTypes.func
-};
-
-Conversation.defaultProps = {
-  headerStyles: {},
-  messageStyles: {},
-  responsesStyles: {},
-  snippetStyles: {}
+  toggleChat: PropTypes.func,
+  showCloseButton: PropTypes.bool,
+  disabledInput: PropTypes.bool
 };
 
 export default Conversation;
