@@ -30,14 +30,19 @@ class Messages extends Component {
   render() {
     return (
       <div id="messages" className="messages-container">
-        {this.props.messages.map((message, index) =>
-          <div className="message" key={index}>
-            {message.get('showAvatar') &&
-              <img src={this.props.profileAvatar} className="avatar" alt="profile" />
-            }
-            { this.getComponentToRender(message) }
-          </div>
-        )}
+        {
+          this.props.messages.map((message, index) =>
+            <div className="message" key={index}>
+              {
+                message.get('showAvatar') &&
+                <img src={this.props.profileAvatar} className="avatar" alt="profile" />
+              }
+              {
+                this.getComponentToRender(message)
+              }
+            </div>
+          )
+        }
       </div>
     );
   }

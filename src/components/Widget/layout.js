@@ -8,7 +8,8 @@ import './style.scss';
 
 const WidgetLayout = props =>
   <div className="widget-container">
-    {props.showChat &&
+    {
+      props.showChat &&
       <Conversation
         title={props.title}
         subtitle={props.subtitle}

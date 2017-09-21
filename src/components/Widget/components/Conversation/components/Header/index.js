@@ -6,7 +6,8 @@ import './style.scss';
 
 const Header = ({ title, subtitle, toggleChat, showCloseButton }) =>
   <div className="header">
-    {showCloseButton &&
+    {
+      showCloseButton &&
       <button className="close-button" onClick={toggleChat}>
         <img src={close} className="close" alt="close" />
       </button>
