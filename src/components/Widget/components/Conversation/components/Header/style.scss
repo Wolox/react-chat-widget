@@ -1,4 +1,5 @@
 @import "variables.scss";
+@import "common.scss";
 
 .header {
   background-color: $turqois-1;
@@ -20,29 +21,40 @@
   display: none;
 }
 
+
+.full-screen {
+
+  .header {
+    @include header-fs;
+  }
+  
+  .title {
+    @include title-fs;
+  }
+  
+  .close-button {
+    @include close-button-fs;
+  }
+  
+  .close {
+    @include close-fs;
+  }
+}
+  
 @media screen and (max-width: 800px) {
   .header {
-    border-radius: 0;
-    flex-shrink: 0;
-    position: relative;
+    @include header-fs;
   }
 
   .title {
-    padding: 0 0 15px 0;
+    @include title-fs;
   }
 
   .close-button {
-    background-color: $turqois-1;
-    border: 0;
-    display: block;
-    position: absolute;
-    right: 10px;
-    top: 20px;
-    width: 40px;
+    @include close-button-fs;
   }
 
   .close {
-    width: 20px;
-    height: 20px;
+    @include close-fs;
   }
 }

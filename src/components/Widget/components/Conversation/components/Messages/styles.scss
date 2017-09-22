@@ -1,4 +1,5 @@
 @import "variables.scss";
+@import "common.scss";
 
 .messages-container {
   background-color: $white;
@@ -8,9 +9,15 @@
   padding-top: 10px;
 }
 
+.full-screen {
+
+  .messages-container {
+    @include messages-container-fs;
+  }
+}
+
 @media screen and (max-width: 800px)  {
   .messages-container {
-    height: 100%;
-    max-height: none;
+    @include messages-container-fs;
   }
 }

@@ -6,6 +6,12 @@ import { toggleChat, addUserMessage } from 'actions';
 import WidgetLayout from './layout';
 
 class Widget extends Component {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.fullScreenMode) {
+      this.props.dispatch(toggleChat());
+    }
+  }
+
   toggleConversation = () => {
     this.props.dispatch(toggleChat());
   }
@@ -30,25 +36,20 @@ class Widget extends Component {
         senderPlaceHolder={this.props.senderPlaceHolder}
         profileAvatar={this.props.profileAvatar}
         showCloseButton={this.props.showCloseButton}
+        fullScreenMode={this.props.fullScreenMode}
       />
     );
   }
 }
 
 Widget.propTypes = {
-  handleNewUserMessage: PropTypes.func.isRequired,
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  handleNewUserMessage: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,
-  showCloseButton: PropTypes.bool
-};
-
-Widget.defaultProps = {
-  title: 'Welcome',
-  subtitle: 'This is your chat subtitle',
-  senderPlaceHolder: 'Type a message...',
-  showCloseButton: true
+  showCloseButton: PropTypes.bool,
+  fullScreenMode: PropTypes.bool
 };
 
 export default connect()(Widget);

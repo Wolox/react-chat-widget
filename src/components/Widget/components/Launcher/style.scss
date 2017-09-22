@@ -1,3 +1,4 @@
+@import "common.scss";
 @import "variables.scss";
 @import "animation.scss";
 
@@ -28,10 +29,7 @@
 
 @media screen and (max-width: 800px){
   .launcher {
-    bottom: 0;
-    margin: 20px;
-    position: fixed;
-    right: 0;
+    @include launcher-fs;
   }
 
   .hide-sm {

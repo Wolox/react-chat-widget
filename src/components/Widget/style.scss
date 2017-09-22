@@ -1,4 +1,5 @@
 @import "animation.scss";
+@import "common.scss";
 
 .widget-container {
   bottom: 0;
@@ -10,13 +11,14 @@
   right: 0;
   width: 90vw;
   z-index: 9999;
+
+  &.full-screen {
+    @include widget-container-fs;
+  }
 }
 
-@media screen and (max-width: 800px)  {
+@media screen and (max-width: 800px) {
   .widget-container {
-    height: 100%;
-    margin: 0;
-    max-width: none;
-    width: 100%;
+    @include widget-container-fs;
   }
 }
