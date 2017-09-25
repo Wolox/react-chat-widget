@@ -1,3 +1,4 @@
+@import "common.scss";
 @import "variables.scss";
 @import "animation.scss";
 
@@ -11,10 +12,15 @@
   @include animation(0, 0.5s, slide-out);
 }
 
+.full-screen {
+
+  .conversation-container {
+    @include conversation-container-fs;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .conversation-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    @include conversation-container-fs;
   }
 }

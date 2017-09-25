@@ -7,7 +7,7 @@ import Launcher from './components/Launcher';
 import './style.scss';
 
 const WidgetLayout = props =>
-  <div className="widget-container">
+  <div className={props.fullScreenMode ? 'widget-container full-screen' : 'widget-container'}>
     {
       props.showChat &&
       <Conversation
@@ -22,9 +22,12 @@ const WidgetLayout = props =>
         disabledInput={props.disabledInput}
       />
     }
-    <Launcher
-      toggle={props.onToggleConversation}
-    />
+    {
+      !props.fullScreenMode &&
+      <Launcher
+        toggle={props.onToggleConversation}
+      />
+    }
   </div>;
 
 WidgetLayout.propTypes = {
@@ -36,7 +39,8 @@ WidgetLayout.propTypes = {
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,
-  disabledInput: PropTypes.bool
+  disabledInput: PropTypes.bool,
+  fullScreenMode: PropTypes.bool
 };
 
 export default connect(store => ({

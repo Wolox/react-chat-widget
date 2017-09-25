@@ -141,12 +141,15 @@ export default App;
 
 #### Props
 
-- **handleNewUserMessage:** (PropTypes.func.isRequired) Function to handle the user input, will receive the full text message when submitted
-- **title:** (PropTypes.string) Title of the widget
-- **subtitle:** (PropTypes.string) Subtitle of the widget
-- **senderPlaceHolder:** (PropTypes.string) The placeholder of the message input
-- **profileAvatar:** (PropTypes.string) The profile image that will be set on the responses
-- **showCloseButton:** (PropTypes.bool) Show or hide the close button in full screen mode
+|   |type|required|default value|description|
+|---|--- |---     |---          |---        |
+|**handleNewUserMessage**|PropTypes.func|YES| |Function to handle the user input, will receive the full text message when submitted|
+|**title**|PropTypes.string|NO|'Welcome'|Title of the widget|
+|**subtitle**|PropTypes.string|NO|'This is your chat subtitle'|Subtitle of the widget|
+|**senderPlaceHolder**|PropTypes.string|NO|'Type a message...'|The placeholder of the message input|
+|**profileAvatar**|PropTypes.string|NO| |The profile image that will be set on the responses|
+|**showCloseButton**|PropTypes.bool|NO|false|Show or hide the close button in full screen mode|
+|**fullScreenMode**|PropTypes.bool|NO|false|Allow the use of full screen in full desktop mode|
 
 #### Styles
 

@@ -34,6 +34,7 @@ class Messages extends Component {
           this.props.messages.map((message, index) =>
             <div className="message" key={index}>
               {
+                this.props.profileAvatar &&
                 message.get('showAvatar') &&
                 <img src={this.props.profileAvatar} className="avatar" alt="profile" />
               }
