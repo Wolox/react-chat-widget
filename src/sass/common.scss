@@ -7,10 +7,8 @@
 }
 
 @mixin widget-container-fs {
-  height: 100%;
   margin: 0;
   max-width: none;
-  width: 100%;
 }
 
 @mixin header-fs {
@@ -39,7 +37,9 @@
 }
 
 @mixin messages-container-fs {
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
+  margin-bottom: 0;
   max-height: none;
 }
 
