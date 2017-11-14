@@ -20,6 +20,7 @@ export function createLinkSnippet(link) {
     component: Snippet,
     title: link.title,
     link: link.link,
+    target: link.target || '_blank',
     sender: MESSAGE_SENDER.RESPONSE,
     showAvatar: true
   });
