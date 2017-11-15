@@ -25,7 +25,7 @@ export function createLinkSnippet(link) {
   });
 }
 
-export function createComponentMessage(component, props, showAvatar = false) {
+export function createComponentMessage(component, props, showAvatar) {
   return Map({
     type: MESSAGES_TYPES.CUSTOM_COMPONENT,
     component,

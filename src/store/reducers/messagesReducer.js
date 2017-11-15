@@ -22,7 +22,7 @@ export default function reducer(state = initialState, action) {
       return state.push(createLinkSnippet(action.link, MESSAGE_SENDER.RESPONSE));
     }
     case actionTypes.ADD_COMPONENT_MESSAGE: {
-      return state.push(createComponentMessage(action.component, action.props));
+      return state.push(createComponentMessage(action.component, action.props, action.showAvatar));
     }
     default:
       return state;
