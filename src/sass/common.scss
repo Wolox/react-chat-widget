@@ -37,16 +37,17 @@
 }
 
 @mixin messages-container-fs {
-  height: 100vh;
-  width: 100vw;
-  margin-bottom: 0;
+  height: 100%;
+  width: 100%;
   max-height: none;
 }
 
 @mixin conversation-container-fs {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
+  margin-bottom: 0;
 }
 
 @mixin launcher-fs {
