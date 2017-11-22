@@ -190,9 +190,11 @@ In order to add new messages, you are provided with the following methods:
     ```js
     {
       title: 'My awesome link',
-      link: 'https://github.com/Wolox/react-chat-widget'
+      link: 'https://github.com/Wolox/react-chat-widget',
+      target: '_blank'
     }
     ```
+  - By default, `target` value is `_blank` which will open the link in a new window.
 - **renderCustomComponent**
   - params: 
     - component: Component to be render,
