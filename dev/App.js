@@ -1,12 +1,13 @@
 import React from 'react';
-import { Widget } from '../src';
+import { Widget, addResponseMessage } from '../src';
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      test: 'foo'
-    };
+  componentDidMount() {
+    addResponseMessage("Welcome to this awesome chat!");
+  }
+
+  handleNewUserMessage = (newMessage) => {
+    addResponseMessage(newMessage);
   }
 
   render() {
@@ -15,6 +16,7 @@ export default class App extends React.Component {
         title="Bienvenido"
         subtitle="Asistente virtual"
         senderPlaceHolder="Escribe aquí ..."
+        handleNewUserMessage={this.handleNewUserMessage}
       />
     );
   }
