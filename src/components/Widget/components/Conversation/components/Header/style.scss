@@ -1,60 +1,63 @@
 @import "variables.scss";
 @import "common.scss";
 
-.header {
-  background-color: $turqois-1;
-  border-radius: 10px 10px 0 0;
-  color: $white;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding: 15px 0 25px;
-}
+.conversation-container {
+  .header {
+    background-color: $turqois-1;
+    border-radius: 10px 10px 0 0;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 0 25px;
+  }
 
-.title {
-  font-size: 24px;
-  margin: 0;
-  padding: 15px 0;
-}
+  .title {
+    font-size: 24px;
+    margin: 0;
+    padding: 15px 0;
+  }
 
-.close-button {
-  display: none;
+  .close-button {
+    display: none;
+  }
 }
-
 
 .full-screen {
 
   .header {
     @include header-fs;
   }
-  
+
   .title {
     @include title-fs;
   }
-  
+
   .close-button {
     @include close-button-fs;
   }
-  
+
   .close {
     @include close-fs;
   }
 }
-  
+
 @media screen and (max-width: 800px) {
-  .header {
-    @include header-fs;
-  }
+  .conversation-container {
+    .header {
+      @include header-fs;
+    }
 
-  .title {
-    @include title-fs;
-  }
+    .title {
+      @include title-fs;
+    }
 
-  .close-button {
-    @include close-button-fs;
-  }
+    .close-button {
+      @include close-button-fs;
+    }
 
-  .close {
-    @include close-fs;
+    .close {
+      @include close-fs;
+    }
   }
 }
