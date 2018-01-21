@@ -24,3 +24,7 @@ export function toggleWidget() {
 export function toggleInputDisabled() {
   store.dispatch(actions.toggleInputDisabled());
 }
+
+export function dropMessages() {
+  store.dispatch(actions.dropMessages());
+}
