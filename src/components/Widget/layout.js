@@ -26,6 +26,7 @@ const WidgetLayout = props =>
       !props.fullScreenMode &&
       <Launcher
         toggle={props.onToggleConversation}
+        badge={props.badge}
       />
     }
   </div>;
@@ -40,7 +41,8 @@ WidgetLayout.propTypes = {
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,
   disabledInput: PropTypes.bool,
-  fullScreenMode: PropTypes.bool
+  fullScreenMode: PropTypes.bool,
+  badge: PropTypes.number
 };
 
 export default connect(store => ({
