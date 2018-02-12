@@ -41,3 +41,9 @@ export function renderCustomComponent(component, props, showAvatar) {
     showAvatar
   };
 }
+
+export function dropMessages() {
+  return {
+    type: actions.DROP_MESSAGES
+  };
+}

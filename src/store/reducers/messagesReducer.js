@@ -24,6 +24,9 @@ export default function reducer(state = initialState, action) {
     case actionTypes.ADD_COMPONENT_MESSAGE: {
       return state.push(createComponentMessage(action.component, action.props, action.showAvatar));
     }
+    case actionTypes.DROP_MESSAGES: {
+      return List([]);
+    }
     default:
       return state;
   }
