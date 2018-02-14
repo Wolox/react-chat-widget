@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Badge from './components/Badge'
+import Badge from './components/Badge';
 
 import openLauncher from 'assets/launcher_button.svg';
 import close from 'assets/clear-button.svg';

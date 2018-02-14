@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-const Badge = ({badge}) => {
-    if (badge > 0) {
-        return <span className="badge">{badge}</span>;
-    }
-    return (null);
-};
+const Badge = ({ badge }) =>
+  badge > 0 &&
+<span className="badge">{badge}</span>;
 
 Badge.propTypes = {
-    badge: PropTypes.number
+  badge: PropTypes.number
 };
 
 export default Badge;
