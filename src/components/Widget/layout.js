@@ -20,6 +20,7 @@ const WidgetLayout = props =>
         showChat={props.showChat}
         showCloseButton={props.showCloseButton}
         disabledInput={props.disabledInput}
+        autofocus={props.autofocus}
       />
     }
     {
@@ -40,7 +41,8 @@ WidgetLayout.propTypes = {
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,
   disabledInput: PropTypes.bool,
-  fullScreenMode: PropTypes.bool
+  fullScreenMode: PropTypes.bool,
+  autofocus: PropTypes.bool,
 };
 
 export default connect(store => ({
