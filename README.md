@@ -150,6 +150,7 @@ export default App;
 |**profileAvatar**|PropTypes.string|NO| |The profile image that will be set on the responses|
 |**showCloseButton**|PropTypes.bool|NO|false|Show or hide the close button in full screen mode|
 |**fullScreenMode**|PropTypes.bool|NO|false|Allow the use of full screen in full desktop mode|
+|**autofocus**|PropTypes.bool|NO|true|Autofocus or not the user input|
 
 #### Styles
 
