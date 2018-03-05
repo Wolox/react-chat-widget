@@ -151,6 +151,7 @@ export default App;
 |**showCloseButton**|PropTypes.bool|NO|false|Show or hide the close button in full screen mode|
 |**fullScreenMode**|PropTypes.bool|NO|false|Allow the use of full screen in full desktop mode|
 |**badge**|PropTypes.number|NO|0|Display a notification badge on the launcher if the value is greater than 0|
+|**handleQuickButtonClicked**|PropTypes.func|NO| |Function to handle the user clicking a quick button, will receive the 'value' when clicked.|
 
 #### Styles
 
@@ -202,6 +203,9 @@ In order to add new messages, you are provided with the following methods:
     - props: props the component needs,
     - showAvatar: boolean, default value: false; the component will be rendered with the avatar like the messages
   - Method to render a custom component inse the messages container. With this method, you can add whatever component you need the widget to have.
+- **setQuickButtons**
+  - params:
+    - buttons: An array of objects with the keys `label` and `value`
 
 **Markdown is supported for the responses and user messages.**
 
