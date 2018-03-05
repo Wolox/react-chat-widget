@@ -2,8 +2,9 @@ import { createStore, combineReducers } from 'redux';
 
 import behavior from './reducers/behaviorReducer';
 import messages from './reducers/messagesReducer';
+import quickButtons from './reducers/quickButtonsReducer';
 
-const reducer = combineReducers({ behavior, messages });
+const reducer = combineReducers({ behavior, messages, quickButtons });
 
 /* eslint-disable no-underscore-dangle */
 export default createStore(

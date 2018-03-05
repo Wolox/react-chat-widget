@@ -28,3 +28,7 @@ export function toggleInputDisabled() {
 export function dropMessages() {
   store.dispatch(actions.dropMessages());
 }
+
+export function setQuickButtons(buttons) {
+  store.dispatch(actions.setQuickButtons(buttons));
+}

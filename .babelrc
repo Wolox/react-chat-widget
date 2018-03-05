@@ -13,7 +13,8 @@
         "tests-mocks": "./mocks",
         "actions": "./src/store/actions",
         "helper": "./src/store/reducers/helper.js",
-        "messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components"
+        "messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components",
+        "quickButtonsComponents": "./src/components/Widget/components/Conversation/components/QuickButtons/components"
       }
     }]
   ]

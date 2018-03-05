@@ -3,6 +3,7 @@ import { MESSAGES_TYPES, MESSAGE_SENDER } from 'constants';
 
 import Message from 'messagesComponents/Message';
 import Snippet from 'messagesComponents/Snippet';
+import QuickButton from 'quickButtonsComponents/QuickButton';
 
 export function createNewMessage(text, sender) {
   return Map({
@@ -33,5 +34,13 @@ export function createComponentMessage(component, props, showAvatar) {
     props,
     sender: MESSAGE_SENDER.RESPONSE,
     showAvatar
+  });
+}
+
+export function createQuickButton(button) {
+  return Map({
+    component: QuickButton,
+    label: button.label,
+    value: button.value
   });
 }

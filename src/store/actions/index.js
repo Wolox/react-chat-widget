@@ -47,3 +47,10 @@ export function dropMessages() {
     type: actions.DROP_MESSAGES
   };
 }
+
+export function setQuickButtons(buttons) {
+  return {
+    type: actions.SET_QUICK_BUTTONS,
+    buttons
+  }
+}
