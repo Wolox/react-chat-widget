@@ -7,4 +7,10 @@
   font-weight: bold;
   padding: 5px 10px;
   cursor: pointer;
+  outline: 0;
+
+  &:active {
+    background: $turqois-1;
+    color: $white;
+  }
 }
