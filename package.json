@@ -7,9 +7,14 @@
   "author": "Martín Callegari <martin.callegari@wolox.com.ar>",
   "license": "MIT",
   "scripts": {
+<<<<<<< master
     "start": "nodemon server.js",
     "build-dev": "webpack",
     "build": "webpack --mode=production",
+=======
+    "start": "node server.js",
+    "build": "webpack",
+>>>>>>> fix build and rm nodemon
     "test": "jest --coverage",
     "prepublishOnly": "npm run test && npm run build"
   },
