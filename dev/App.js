@@ -17,6 +17,7 @@ export default class App extends React.Component {
         subtitle="Asistente virtual"
         senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}
+        badge={1}
       />
     );
   }

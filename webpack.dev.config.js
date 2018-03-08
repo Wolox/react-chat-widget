@@ -13,6 +13,9 @@ module.exports = {
     filename: '[name].js',
     publicPath: '/'
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'dev/index.tpl.html',
@@ -28,18 +31,9 @@ module.exports = {
   ],
   module: {
     loaders: [{
-      test: /\.jsx?$/,
+      test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        'presets': ['react', 'es2015', 'stage-0', 'react-hmre']
-      }
-    }, {
-      test: /\.json?$/,
-      loader: 'json'
-    }, {
-      test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      loader: 'babel-loader'
     }, {
       test: /\.scss$/,
       use: [
