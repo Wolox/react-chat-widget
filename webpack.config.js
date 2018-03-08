@@ -4,34 +4,21 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  devtool: 'eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, 'dev/main.js')
-  ],
+  entry: './src/index.js',
   output: {
-    path: path.join(__dirname, '/dist/'),
-    filename: '[name].js',
-    publicPath: '/'
+    path: path.join(__dirname, '/lib'),
+    filename: 'index.js',
+    library: 'react-chat-widget',
+    libraryTarget: 'umd'
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
   mode: 'development',
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        'presets': ['react', 'es2015', 'stage-0', 'react-hmre']
-      }
-    }, {
-      test: /\.json?$/,
-      loader: 'json'
-    }, {
-      test: /\.css$/,
-      loader: 'style-loader!css-loader'
+    rules: [{
+      test: /\.js$/,
+      loader: 'babel-loader'
     }, {
       test: /\.scss$/,
       use: ExtractTextPlugin.extract({

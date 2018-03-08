@@ -4,14 +4,6 @@ import { Provider } from 'react-redux';
 
 import Widget from './components/Widget';
 import store from '../src/store/store';
-import {
-  addUserMessage,
-  addResponseMessage,
-  addLinkSnippet,
-  renderCustomComponent,
-  toggleWidget,
-  toggleInputDisabled
-} from './store/actions/dispatcher';
 
 const ConnectedWidget = props =>
   <Provider store={store}>
@@ -52,12 +44,4 @@ ConnectedWidget.defaultProps = {
   autofocus: true
 };
 
-export {
-  ConnectedWidget as Widget,
-  addUserMessage,
-  addResponseMessage,
-  addLinkSnippet,
-  renderCustomComponent,
-  toggleWidget,
-  toggleInputDisabled
-};
+export default ConnectedWidget;
