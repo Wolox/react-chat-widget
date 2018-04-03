@@ -1,4 +1,7 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
   entry: './index.js',
@@ -17,23 +20,32 @@ module.exports = {
       loader: 'babel-loader'
     }, {
       test: /\.scss$/,
-      use: [
-        { loader: 'style-loader' },
-        { loader: 'css-loader' },
-        {
-          loader: 'sass-loader',
-          options: {
-            includePaths: [
-              path.resolve(__dirname, 'src/sass/')
-            ]
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          { loader: 'css-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [
+                path.resolve(__dirname, 'src/sass/')
+              ]
+            }
           }
-        }
-      ]
+        ]
+      })
     }, {
       test: /\.(jpg|png|gif|svg)$/,
       use: {
         loader: 'url-loader'
       }
     }]
-  }
+  },
+  plugins: [
+    new CleanWebpackPlugin(['lib']),
+    new ExtractTextPlugin({
+      filename: 'styles.css'
+    }),
+    new DashboardPlugin()
+  ]
 };
