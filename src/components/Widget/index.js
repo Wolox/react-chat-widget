@@ -26,11 +26,20 @@ class Widget extends Component {
     event.target.message.value = '';
   }
 
+  handleMessageSubmitVoice = (input) => {
+    const userInput = input;
+    if (userInput) {
+      this.props.dispatch(addUserMessage(userInput));
+      this.props.handleNewUserMessage(userInput);
+    }
+  }
+
   render() {
     return (
       <WidgetLayout
         onToggleConversation={this.toggleConversation}
         onSendMessage={this.handleMessageSubmit}
+        onSendMessageVoice={this.handleMessageSubmitVoice}
         title={this.props.title}
         subtitle={this.props.subtitle}
         senderPlaceHolder={this.props.senderPlaceHolder}
