@@ -1,11 +1,14 @@
 import React from 'react';
 import { List } from 'immutable';
-import { shallow } from 'enzyme';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import { createNewMessage, createLinkSnippet, createComponentMessage } from 'helper';
 import Messages from '../index';
 import Message from '../components/Message';
 import Snippet from '../components/Snippet';
+
+configure({ adapter: new Adapter() });
 
 describe('<Messages />', () => {
   const message = createNewMessage('Response message 1');
