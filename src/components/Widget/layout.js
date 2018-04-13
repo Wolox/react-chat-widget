@@ -7,7 +7,11 @@ import Launcher from './components/Launcher';
 import './style.scss';
 
 const WidgetLayout = props =>
-  <div className={props.fullScreenMode ? 'widget-container full-screen' : 'widget-container'}>
+  <div
+    className={
+      `widget-container ${props.fullScreenMode ? 'full-screen' : ''} ${props.showChat ? 'opened' : ''}`
+    }
+  >
     {
       props.showChat &&
       <Conversation

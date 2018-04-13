@@ -7,7 +7,7 @@ import './styles.scss';
 
 const scrollToBottom = () => {
   const messagesDiv = document.getElementById('messages');
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  if (messagesDiv) messagesDiv.scrollTop = messagesDiv.scrollHeight;
 };
 
 class Messages extends Component {

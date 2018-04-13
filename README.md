@@ -32,6 +32,8 @@ yarn add react-chat-widget
 import React, { Component } from 'react';
 import { Widget } from 'react-chat-widget';
 
+import 'react-chat-widget/lib/styles.css';
+
 class App extends Component {
   render() {
     return (
@@ -50,6 +52,8 @@ export default App;
 ```js
 import React, { Component } from 'react';
 import { Widget } from 'react-chat-widget';
+
+import 'react-chat-widget/lib/styles.css';
 
 class App extends Component {
   handleNewUserMessage = (newMessage) => {
@@ -76,6 +80,8 @@ export default App;
 ```js
 import React, { Component } from 'react';
 import { Widget, addResponseMessage } from 'react-chat-widget';
+
+import 'react-chat-widget/lib/styles.css';
 
 class App extends Component {
   componentDidMount() {
@@ -107,6 +113,8 @@ export default App;
 ```js
 import React, { Component } from 'react';
 import { Widget, addResponseMessage, addLinkSnippet, addUserMessage } from 'react-chat-widget';
+
+import 'react-chat-widget/lib/styles.css';
 
 import logo from './logo.svg';
 
