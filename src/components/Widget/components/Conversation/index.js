@@ -19,12 +19,18 @@ const Conversation = props =>
     />
     <Sender
       sendMessage={props.sendMessage}
+      onSendMessageVoice={props.onSendMessageVoice}
       placeholder={props.senderPlaceHolder}
       disabledInput={props.disabledInput}
+      audio={props.audio}
+      isRecording={props.isRecording}
     />
   </div>;
 
 Conversation.propTypes = {
+  audio: PropTypes.func,
+  onSendMessageVoice: PropTypes.func,
+  isRecording: PropTypes.bool,
   title: PropTypes.string,
   subtitle: PropTypes.string,
   sendMessage: PropTypes.func,
