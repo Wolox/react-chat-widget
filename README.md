@@ -159,6 +159,7 @@ export default App;
 |**showCloseButton**|PropTypes.bool|NO|false|Show or hide the close button in full screen mode|
 |**fullScreenMode**|PropTypes.bool|NO|false|Allow the use of full screen in full desktop mode|
 |**badge**|PropTypes.number|NO|0|Display a notification badge on the launcher if the value is greater than 0|
+|**autofocus**|PropTypes.bool|NO|true|Autofocus or not the user input|
 
 #### Styles
 

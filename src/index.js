@@ -16,6 +16,7 @@ const ConnectedWidget = props =>
       showCloseButton={props.showCloseButton}
       fullScreenMode={props.fullScreenMode}
       badge={props.badge}
+      autofocus={props.autofocus}
     />
   </Provider>;
 
@@ -27,7 +28,8 @@ ConnectedWidget.propTypes = {
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,
   fullScreenMode: PropTypes.bool,
-  badge: PropTypes.number
+  badge: PropTypes.number,
+  autofocus: PropTypes.bool
 };
 
 ConnectedWidget.defaultProps = {
@@ -36,7 +38,8 @@ ConnectedWidget.defaultProps = {
   senderPlaceHolder: 'Type a message...',
   showCloseButton: true,
   fullScreenMode: false,
-  badge: 0
+  badge: 0,
+  autofocus: true
 };
 
 export default ConnectedWidget;
