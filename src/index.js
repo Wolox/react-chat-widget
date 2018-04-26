@@ -17,7 +17,9 @@ const ConnectedWidget = props =>
       fullScreenMode={props.fullScreenMode}
       badge={props.badge}
       autofocus={props.autofocus}
-    />
+    >
+      {props.children}
+    </Widget>
   </Provider>;
 
 ConnectedWidget.propTypes = {

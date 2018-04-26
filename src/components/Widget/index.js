@@ -28,18 +28,22 @@ class Widget extends Component {
 
   render() {
     return (
-      <WidgetLayout
-        onToggleConversation={this.toggleConversation}
-        onSendMessage={this.handleMessageSubmit}
-        title={this.props.title}
-        subtitle={this.props.subtitle}
-        senderPlaceHolder={this.props.senderPlaceHolder}
-        profileAvatar={this.props.profileAvatar}
-        showCloseButton={this.props.showCloseButton}
-        fullScreenMode={this.props.fullScreenMode}
-        badge={this.props.badge}
-        autofocus={this.props.autofocus}
-      />
+      <div>
+        <WidgetLayout
+          onToggleConversation={this.toggleConversation}
+          onSendMessage={this.handleMessageSubmit}
+          title={this.props.title}
+          subtitle={this.props.subtitle}
+          senderPlaceHolder={this.props.senderPlaceHolder}
+          profileAvatar={this.props.profileAvatar}
+          showCloseButton={this.props.showCloseButton}
+          fullScreenMode={this.props.fullScreenMode}
+          badge={this.props.badge}
+          autofocus={this.props.autofocus}
+        >
+          { this.props.children }
+        </WidgetLayout>
+      </div>
     );
   }
 }

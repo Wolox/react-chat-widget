@@ -28,11 +28,13 @@ const WidgetLayout = props =>
       />
     }
     {
-      !props.fullScreenMode &&
-      <Launcher
-        toggle={props.onToggleConversation}
-        badge={props.badge}
-      />
+      !props.children ?
+        !props.fullScreenMode &&
+        <Launcher
+          toggle={props.onToggleConversation}
+          badge={props.badge}
+        /> :
+        props.children
     }
   </div>;
 
