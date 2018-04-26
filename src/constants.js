@@ -40,3 +40,12 @@ export const PROP_TYPES = {
     ])
   })
 };
+
+export const CHAT_ERRORS = {
+  UPGRADE: 'Web Speech API is not supported by this browser. Upgrade to Chrome version 25 or later.',
+  NO_SPEECH: 'No speech was detected. You may need to adjust your microphone settings',
+  AUDIO_CAPTURE: 'No microphone was found. Ensure that a microphone is installed and that microphone settings are configured correctly.',
+  NOT_ALLOWED_LESS_100: 'Permission to use microphone is blocked. To change, go to chrome://settings/contentExceptions#media-stream',
+  NOT_ALLOWED: 'Permission to use microphone was denied.',
+  ALLOW: 'Click the "Allow" button above to enable your microphone.'
+};
