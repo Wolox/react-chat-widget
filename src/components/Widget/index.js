@@ -34,12 +34,17 @@ class Widget extends Component {
     }
   }
 
+  handleSpeechNotification = (error) => {
+    this.props.handleSpeechNotifications(error);
+  }
+
   render() {
     return (
       <WidgetLayout
         onToggleConversation={this.toggleConversation}
         onSendMessage={this.handleMessageSubmit}
         onSendMessageVoice={this.handleMessageSubmitVoice}
+        onSpeechError={this.handleSpeechNotification}
         title={this.props.title}
         subtitle={this.props.subtitle}
         senderPlaceHolder={this.props.senderPlaceHolder}
@@ -56,6 +61,7 @@ Widget.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
+  handleSpeechNotifications: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,

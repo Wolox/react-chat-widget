@@ -13,16 +13,15 @@ const WidgetLayout = props =>
       <Conversation
         title={props.title}
         subtitle={props.subtitle}
-        onSendMessageVoice={props.onSendMessageVoice}
         sendMessage={props.onSendMessage}
+        onSendMessageVoice={props.onSendMessageVoice}
+        onSpeechError={props.onSpeechError}
         senderPlaceHolder={props.senderPlaceHolder}
         profileAvatar={props.profileAvatar}
         toggleChat={props.onToggleConversation}
         showChat={props.showChat}
         showCloseButton={props.showCloseButton}
         disabledInput={props.disabledInput}
-        audio={props.audio}
-        isRecording={props.isRecording}
       />
     }
     {
@@ -35,12 +34,11 @@ const WidgetLayout = props =>
   </div>;
 
 WidgetLayout.propTypes = {
-  audio: PropTypes.func,
-  isRecording: PropTypes.bool,
-  onSendMessageVoice: PropTypes.func,
   title: PropTypes.string,
   subtitle: PropTypes.string,
   onSendMessage: PropTypes.func,
+  onSpeechError: PropTypes.func,
+  onSendMessageVoice: PropTypes.func,
   onToggleConversation: PropTypes.func,
   showChat: PropTypes.bool,
   senderPlaceHolder: PropTypes.string,

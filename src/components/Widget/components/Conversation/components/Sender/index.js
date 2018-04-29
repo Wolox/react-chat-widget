@@ -19,13 +19,14 @@ export default class Sender extends React.Component {
   };
 
   componentDidMount() {
+    const { onSpeechError } = this.props;
     const firstChar = /\S/;
     function capitalize(s) {
       return s.replace(firstChar, m => m.toUpperCase());
     }
 
     function upgrade() {
-      console.log(CHAT_ERRORS.UPGRADE);
+      onSpeechError(CHAT_ERRORS.UPGRADE);
     }
 
 
@@ -40,22 +41,28 @@ export default class Sender extends React.Component {
         this.setState({
           recognizing: true
         });
-        console.log('Speak now.');
       };
 
       this.recognition.onerror = (event) => {
         if (event.error === 'no-speech') {
-          console.error(CHAT_ERRORS.NO_SPEECH);
+          onSpeechError(CHAT_ERRORS.NO_SPEECH);
+          if (this.state.recognizing) {
+            this.setState({
+              recognizing: false,
+              icon: micOn
+            });
+            this.recognition.stop();
+            return;
+          }
         }
         if (event.error === 'audio-capture') {
-          console.error(CHAT_ERRORS.AUDIO_CAPTURE);
+          onSpeechError(CHAT_ERRORS.AUDIO_CAPTURE);
         }
         if (event.error === 'not-allowed') {
           if (event.timeStamp - this.state.start_timestamp < 100) {
-            console.log(event.timeStamp - this.state.start_timestamp);
-            console.error(CHAT_ERRORS.NOT_ALLOWED_LESS_100);
+            onSpeechError(CHAT_ERRORS.NOT_ALLOWED_LESS_100);
           } else {
-            console.error(CHAT_ERRORS.NOT_ALLOWED);
+            onSpeechError(CHAT_ERRORS.NOT_ALLOWED);
           }
         }
         if (event.error) this.setState({ ignore_onend: true });
@@ -66,12 +73,6 @@ export default class Sender extends React.Component {
           recognizing: false,
           icon: micOn
         });
-        if (this.state.ignore_onend) {
-          return;
-        }
-        if (!this.state.final_transcript) {
-          console.log('Click on the microphone icon and begin speaking for as long as you like.');
-        }
       };
 
       this.recognition.onresult = (event) => {
@@ -95,32 +96,32 @@ export default class Sender extends React.Component {
         const finalTranscriptOutput = capitalize(this.state.final_transcript);
 
         this.props.onSendMessageVoice(finalTranscriptOutput);
-
-        console.log(finalTranscriptOutput);
       };
     }
   }
   startButton = (event) => {
-    if (this.state.recognizing) {
+    const { onSpeechError } = this.props;
+    if (!('webkitSpeechRecognition' in window) && !this.state.recognizing) {
+      onSpeechError(CHAT_ERRORS.UPGRADE);
+    } else {
+      if (this.state.recognizing) {
+        this.setState({
+          recognizing: false,
+          icon: micOn
+        });
+        this.recognition.stop();
+        return;
+      }
       this.setState({
-        recognizing: false,
-        icon: micOn
+        final_transcript: '',
+        ignore_onend: false,
+        start_timestamp: event.timeStamp,
+        recognizing: true,
+        icon: micOff
       });
-      this.recognition.stop();
-      return;
+      this.recognition.lang = 'en-US';
+      this.recognition.start();
     }
-    this.setState({
-      final_transcript: '',
-      ignore_onend: false,
-      start_timestamp: event.timeStamp,
-      recognizing: true,
-      icon: micOff
-    });
-    this.recognition.lang = 'en-US';
-    this.recognition.start();
-
-    console.log(CHAT_ERRORS.ALLOW);
-    console.log(event.timeStamp);
   };
 
   render() {
@@ -141,8 +142,9 @@ export default class Sender extends React.Component {
 
 
 Sender.propTypes = {
-  onSendMessageVoice: PropTypes.func,
   sendMessage: PropTypes.func,
+  onSendMessageVoice: PropTypes.func,
+  onSpeechError: PropTypes.func,
   placeholder: PropTypes.string,
   disabledInput: PropTypes.bool
 };
