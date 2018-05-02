@@ -6,7 +6,7 @@ import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
 import './style.scss';
 
-const WidgetLayout = props =>
+const WidgetLayout = props => (
   <div
     className={
       `widget-container ${props.fullScreenMode ? 'full-screen' : ''} ${props.showChat ? 'opened' : ''}`
@@ -28,15 +28,17 @@ const WidgetLayout = props =>
       />
     }
     {
-      !props.children ?
+       props.customLauncher ?
+        props.customLauncher :
         !props.fullScreenMode &&
         <Launcher
           toggle={props.onToggleConversation}
           badge={props.badge}
-        /> :
-        props.children
+        />
     }
-  </div>;
+  </div>
+);
+
 
 WidgetLayout.propTypes = {
   title: PropTypes.string,
@@ -50,7 +52,8 @@ WidgetLayout.propTypes = {
   disabledInput: PropTypes.bool,
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
-  autofocus: PropTypes.bool
+  autofocus: PropTypes.bool,
+  customLauncher: PropTypes.element
 };
 
 export default connect(store => ({

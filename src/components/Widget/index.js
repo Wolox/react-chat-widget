@@ -26,24 +26,38 @@ class Widget extends Component {
     event.target.message.value = '';
   }
 
+  getCustomLauncher = () => {
+    if (React.Children.count(this.props.children) > 1) {
+      if (React.Children.map(this.props.children, child => child.type.name).includes('Launcher')) {
+        return (
+          React.createElement(
+            this.props.children[React.Children.map(this.props.children, child => child.type.name).indexOf('Launcher')].type,
+            this.props.children[React.Children.map(this.props.children, child => child.type.name).indexOf('Launcher')].props
+          )
+        );
+      }
+    }
+    if (this.props.children.type.name === 'Launcher') {
+      return React.createElement(this.props.children.type, this.props.children.props);
+    }
+    return null;
+  }
+
   render() {
     return (
-      <div>
-        <WidgetLayout
-          onToggleConversation={this.toggleConversation}
-          onSendMessage={this.handleMessageSubmit}
-          title={this.props.title}
-          subtitle={this.props.subtitle}
-          senderPlaceHolder={this.props.senderPlaceHolder}
-          profileAvatar={this.props.profileAvatar}
-          showCloseButton={this.props.showCloseButton}
-          fullScreenMode={this.props.fullScreenMode}
-          badge={this.props.badge}
-          autofocus={this.props.autofocus}
-        >
-          { this.props.children }
-        </WidgetLayout>
-      </div>
+      <WidgetLayout
+        onToggleConversation={this.toggleConversation}
+        onSendMessage={this.handleMessageSubmit}
+        title={this.props.title}
+        subtitle={this.props.subtitle}
+        senderPlaceHolder={this.props.senderPlaceHolder}
+        profileAvatar={this.props.profileAvatar}
+        showCloseButton={this.props.showCloseButton}
+        fullScreenMode={this.props.fullScreenMode}
+        badge={this.props.badge}
+        autofocus={this.props.autofocus}
+        customLauncher={this.getCustomLauncher()}
+      />
     );
   }
 }
