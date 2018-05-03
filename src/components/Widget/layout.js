@@ -6,7 +6,7 @@ import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
 import './style.scss';
 
-const WidgetLayout = props => (
+const WidgetLayout = props =>
   <div
     className={
       `widget-container ${props.fullScreenMode ? 'full-screen' : ''} ${props.showChat ? 'opened' : ''}`
@@ -36,9 +36,7 @@ const WidgetLayout = props => (
           badge={props.badge}
         />
     }
-  </div>
-);
-
+  </div>;
 
 WidgetLayout.propTypes = {
   title: PropTypes.string,
