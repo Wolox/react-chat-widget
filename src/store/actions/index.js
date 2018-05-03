@@ -47,3 +47,10 @@ export function dropMessages() {
     type: actions.DROP_MESSAGES
   };
 }
+
+export function removeMessage(text) {
+  return {
+    type: actions.REMOVE_MESSAGE,
+    text
+  };
+}

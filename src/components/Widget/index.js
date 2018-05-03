@@ -12,10 +12,6 @@ class Widget extends Component {
     }
   }
 
-  toggleConversation = () => {
-    this.props.dispatch(toggleChat());
-  }
-
   handleMessageSubmit = (event) => {
     event.preventDefault();
     const userInput = event.target.message.value;
@@ -24,6 +20,10 @@ class Widget extends Component {
       this.props.handleNewUserMessage(userInput);
     }
     event.target.message.value = '';
+  }
+
+  toggleConversation = () => {
+    this.props.dispatch(toggleChat());
   }
 
   render() {
