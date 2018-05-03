@@ -29,10 +29,11 @@ class Widget extends Component {
   getCustomLauncher = () => {
     if (React.Children.count(this.props.children) > 1) {
       if (React.Children.map(this.props.children, child => child.type.name).includes('Launcher')) {
+        const index = React.Children.map(this.props.children, child => child.type.name).indexOf('Launcher');
         return (
           React.createElement(
-            this.props.children[React.Children.map(this.props.children, child => child.type.name).indexOf('Launcher')].type,
-            this.props.children[React.Children.map(this.props.children, child => child.type.name).indexOf('Launcher')].props
+            this.props.children[index].type,
+            this.props.children[index].props
           )
         );
       }
