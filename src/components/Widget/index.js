@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { toggleChat, addUserMessage } from 'actions';
+import { LAUNCHER_NAME } from 'constants';
 
 import WidgetLayout from './layout';
 
@@ -29,17 +30,12 @@ class Widget extends Component {
   getCustomLauncher = () => {
     if (this.props.children) {
       if (React.Children.count(this.props.children) > 1) {
-        if (React.Children.map(this.props.children, child => child.type.name).includes('Launcher')) {
-          const index = React.Children.map(this.props.children, child => child.type.name).indexOf('Launcher');
-          return (
-            React.createElement(
-              this.props.children[index].type,
-              this.props.children[index].props
-            )
-          );
+        if (React.Children.map(this.props.children, child => child.type.name).includes(LAUNCHER_NAME)) {
+          const launcherComponent = React.Children.map(this.props.children, child => child.type.name).indexOf(LAUNCHER_NAME);
+          return React.createElement(this.props.children[launcherComponent].type, this.props.children[launcherComponent].props);
         }
       }
-      if (this.props.children.type.name === 'Launcher') {
+      if (this.props.children.type.name === LAUNCHER_NAME) {
         return React.createElement(this.props.children.type, this.props.children.props);
       }
     }

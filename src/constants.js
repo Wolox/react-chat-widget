@@ -40,3 +40,5 @@ export const PROP_TYPES = {
     ])
   })
 };
+
+export const LAUNCHER_NAME = 'Launcher';
