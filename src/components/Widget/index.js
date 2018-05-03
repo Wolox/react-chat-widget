@@ -27,19 +27,21 @@ class Widget extends Component {
   }
 
   getCustomLauncher = () => {
-    if (React.Children.count(this.props.children) > 1) {
-      if (React.Children.map(this.props.children, child => child.type.name).includes('Launcher')) {
-        const index = React.Children.map(this.props.children, child => child.type.name).indexOf('Launcher');
-        return (
-          React.createElement(
-            this.props.children[index].type,
-            this.props.children[index].props
-          )
-        );
+    if (this.props.children) {
+      if (React.Children.count(this.props.children) > 1) {
+        if (React.Children.map(this.props.children, child => child.type.name).includes('Launcher')) {
+          const index = React.Children.map(this.props.children, child => child.type.name).indexOf('Launcher');
+          return (
+            React.createElement(
+              this.props.children[index].type,
+              this.props.children[index].props
+            )
+          );
+        }
       }
-    }
-    if (this.props.children.type.name === 'Launcher') {
-      return React.createElement(this.props.children.type, this.props.children.props);
+      if (this.props.children.type.name === 'Launcher') {
+        return React.createElement(this.props.children.type, this.props.children.props);
+      }
     }
     return null;
   }
