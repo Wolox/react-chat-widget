@@ -17,9 +17,8 @@ const ConnectedWidget = props =>
       fullScreenMode={props.fullScreenMode}
       badge={props.badge}
       autofocus={props.autofocus}
-    >
-      {props.children}
-    </Widget>
+      customLauncher={props.launcher}
+    />
   </Provider>;
 
 ConnectedWidget.propTypes = {
@@ -31,7 +30,8 @@ ConnectedWidget.propTypes = {
   showCloseButton: PropTypes.bool,
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
-  autofocus: PropTypes.bool
+  autofocus: PropTypes.bool,
+  launcher: PropTypes.func
 };
 
 ConnectedWidget.defaultProps = {

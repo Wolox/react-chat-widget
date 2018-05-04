@@ -29,7 +29,7 @@ const WidgetLayout = props =>
     }
     {
        props.customLauncher ?
-        props.customLauncher :
+        props.customLauncher(props.onToggleConversation) :
         !props.fullScreenMode &&
         <Launcher
           toggle={props.onToggleConversation}
@@ -51,7 +51,7 @@ WidgetLayout.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  customLauncher: PropTypes.element
+  customLauncher: PropTypes.func
 };
 
 export default connect(store => ({
