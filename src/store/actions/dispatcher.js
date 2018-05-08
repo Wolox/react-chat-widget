@@ -29,6 +29,10 @@ export function dropMessages() {
   store.dispatch(actions.dropMessages());
 }
 
-export function removeMessage(text) {
-  store.dispatch(actions.removeMessage(text));
+export function isWidgetShowed() {
+  return store.getState().behavior.toJS();
+}
+
+export function notifyChange(handleChange) {
+  return store.subscribe(handleChange);
 }

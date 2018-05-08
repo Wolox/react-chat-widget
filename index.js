@@ -7,7 +7,8 @@ import {
   toggleWidget,
   toggleInputDisabled,
   dropMessages,
-  removeMessage
+  isWidgetShowed,
+  notifyChange
 } from './src/store/actions/dispatcher';
 
 export {
@@ -19,5 +20,6 @@ export {
   toggleWidget,
   toggleInputDisabled,
   dropMessages,
-  removeMessage
+  isWidgetShowed,
+  notifyChange
 };

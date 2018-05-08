@@ -27,13 +27,6 @@ export default function reducer(state = initialState, action) {
     case actionTypes.DROP_MESSAGES: {
       return List([]);
     }
-    case actionTypes.REMOVE_MESSAGE: {
-      const index = state.findLastIndex(
-        message =>
-          message.type === actionTypes.ADD_COMPONENT_MESSAGE && message.text === action.text
-        );
-      return state.delete(index);
-    }
     default:
       return state;
   }
