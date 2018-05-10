@@ -6,7 +6,7 @@ import './styles.scss';
 
 class Message extends PureComponent {
   render() {
-    const sanitizedHTML = marked.parse(this.props.message.get('text'), { sanitize: true });
+    const sanitizedHTML = marked.parse(this.props.message.get('text'), { sanitize: true, gfm: true, breaks: true });
 
     return (
       <div className={this.props.message.get('sender')}>
