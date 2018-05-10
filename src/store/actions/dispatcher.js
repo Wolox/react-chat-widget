@@ -29,10 +29,6 @@ export function dropMessages() {
   store.dispatch(actions.dropMessages());
 }
 
-export function isWidgetShowed() {
-  return store.getState().behavior.toJS();
-}
-
-export function notifyChange(handleChange) {
-  return store.subscribe(handleChange);
+export function isWidgetOpened() {
+  return store.getState().behavior.get('showChat');
 }
