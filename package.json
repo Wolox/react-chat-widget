@@ -7,14 +7,9 @@
   "author": "Martín Callegari <martin.callegari@wolox.com.ar>",
   "license": "MIT",
   "scripts": {
-<<<<<<< master
-    "start": "nodemon server.js",
+    "start": "webpack-dev-server --config webpack.dev.config.js --open",
     "build-dev": "webpack",
     "build": "webpack --mode=production",
-=======
-    "start": "node server.js",
-    "build": "webpack",
->>>>>>> fix build and rm nodemon
     "test": "jest --coverage",
     "prepublishOnly": "npm run test && npm run build"
   },
@@ -25,6 +20,7 @@
     "javascript"
   ],
   "dependencies": {
+    "babel-preset-react-hmre": "^1.1.1",
     "immutable": "^3.8.1",
     "marked": "^0.3.19",
     "prop-types": "^15.5.10",
@@ -42,6 +38,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -68,7 +65,8 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.4.1"
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.9.4"
   },
   "peerDependencies": {
     "react": "^15.6.1"

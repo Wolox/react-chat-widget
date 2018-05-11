@@ -1,30 +1,29 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   devtool: 'eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, 'dev/main.js')
-  ],
+  devServer: {
+    contentBase: './dist'
+  },
+  entry: {
+    app: path.join(__dirname, 'dev/main.js')
+  },
   output: {
     path: path.join(__dirname, '/dist/'),
-    filename: '[name].js',
+    filename: '[name].bundle.js',
     publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      template: 'dev/index.tpl.html',
-      inject: 'body',
-      filename: 'index.html'
+      title: 'Output Management'
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
     })

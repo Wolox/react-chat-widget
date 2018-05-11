@@ -1,8 +1,7 @@
 {
   "presets": [
     "es2015",
-    "react",
-    "react-hmre"
+    "react"
   ],
   "plugins": [
     "transform-class-properties",
