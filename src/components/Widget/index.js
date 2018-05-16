@@ -26,6 +26,7 @@ class Widget extends Component {
     event.target.message.value = '';
   }
 
+
   render() {
     return (
       <WidgetLayout

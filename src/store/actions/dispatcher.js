@@ -28,3 +28,7 @@ export function toggleInputDisabled() {
 export function dropMessages() {
   store.dispatch(actions.dropMessages());
 }
+
+export function isWidgetOpened() {
+  return store.getState().behavior.get('showChat');
+}
