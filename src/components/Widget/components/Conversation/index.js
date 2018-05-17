@@ -13,6 +13,7 @@ const Conversation = props =>
       subtitle={props.subtitle}
       toggleChat={props.toggleChat}
       showCloseButton={props.showCloseButton}
+      profileAvatar={props.profileAvatar}
     />
     <Messages
       profileAvatar={props.profileAvatar}
