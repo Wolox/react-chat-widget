@@ -20,6 +20,10 @@
   ],
   "dependencies": {
     "immutable": "^3.8.1",
+    "markdown-it": "^8.4.1",
+    "markdown-it-link-attributes": "^2.1.0",
+    "markdown-it-sanitizer": "^0.4.3",
+    "markdown-it-sup": "^1.0.0",
     "marked": "^0.3.19",
     "prop-types": "^15.5.10",
     "react-immutable-proptypes": "^2.1.0",
