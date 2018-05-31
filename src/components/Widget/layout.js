@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Delayed from 'react-delayed';
 
 import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
@@ -12,8 +13,7 @@ const WidgetLayout = props =>
       `widget-container ${props.fullScreenMode ? 'full-screen' : ''} ${props.showChat ? 'opened' : ''}`
     }
   >
-    {
-      props.showChat &&
+    <Delayed mounted={props.showChat} unmountAfter={500} >
       <Conversation
         title={props.title}
         subtitle={props.subtitle}
@@ -27,7 +27,7 @@ const WidgetLayout = props =>
         autofocus={props.autofocus}
         titleAvatar={props.titleAvatar}
       />
-    }
+    </Delayed>
     {
       !props.fullScreenMode &&
       <Launcher

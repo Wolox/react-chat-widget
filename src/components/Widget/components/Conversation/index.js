@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Delayed from 'react-delayed';
+
 
 import Header from './components/Header';
 import Messages from './components/Messages';
@@ -7,7 +10,7 @@ import Sender from './components/Sender';
 import './style.scss';
 
 const Conversation = props =>
-  <div className="conversation-container">
+  <div className={props.chatOpened ? 'conversation-container' : 'conversation-container slide-out'}>
     <Header
       title={props.title}
       subtitle={props.subtitle}
@@ -36,7 +39,10 @@ Conversation.propTypes = {
   toggleChat: PropTypes.func,
   showCloseButton: PropTypes.bool,
   disabledInput: PropTypes.bool,
-  autofocus: PropTypes.bool
+  autofocus: PropTypes.bool,
+  chatOpened: PropTypes.bool
 };
 
-export default Conversation;
+export default connect(store => ({
+  chatOpened: store.behavior.get('showChat')
+}))(Conversation);
