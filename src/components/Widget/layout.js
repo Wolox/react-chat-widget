@@ -6,14 +6,13 @@ import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
 import './style.scss';
 
-const WidgetLayout = props =>
+const WidgetLayout = props => (
   <div
     className={
       `widget-container ${props.fullScreenMode ? 'full-screen' : ''} ${props.showChat ? 'opened' : ''}`
     }
   >
-    {
-      props.showChat &&
+    {props.showChat &&
       <Conversation
         title={props.title}
         subtitle={props.subtitle}
@@ -28,16 +27,16 @@ const WidgetLayout = props =>
         titleAvatar={props.titleAvatar}
       />
     }
-    {
-       props.customLauncher ?
-        props.customLauncher(props.onToggleConversation) :
-        !props.fullScreenMode &&
-        <Launcher
-          toggle={props.onToggleConversation}
-          badge={props.badge}
-        />
+    {props.customLauncher ?
+      props.customLauncher(props.onToggleConversation) :
+      !props.fullScreenMode &&
+      <Launcher
+        toggle={props.onToggleConversation}
+        badge={props.badge}
+      />
     }
-  </div>;
+  </div>
+);
 
 WidgetLayout.propTypes = {
   title: PropTypes.string,

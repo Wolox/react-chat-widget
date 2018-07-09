@@ -9,3 +9,4 @@ circle.yml
 .eslintrc.js
 .eslintignore
 webpack.config.js
+package-lock.json

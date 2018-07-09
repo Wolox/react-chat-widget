@@ -1,6 +1,10 @@
 {
   "presets": [
-    "es2015",
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "safari >= 7"]
+      }
+    }],
     "react" 
   ],
   "plugins": [

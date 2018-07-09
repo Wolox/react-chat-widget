@@ -3,14 +3,16 @@ import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Launcher from '../index';
+import Badge from '../components/Badge';
 
 configure({ adapter: new Adapter() });
 
 describe('<Launcher />', () => {
-  const createMessageComponent = ({ toggle, chatOpened }) =>
+  const createMessageComponent = ({ toggle, chatOpened, badge = 0 }) =>
     shallow(<Launcher.WrappedComponent
       toggle={toggle}
       chatOpened={chatOpened}
+      badge={badge}
     />);
 
   it('should call toggle prop when clicked', () => {
@@ -34,4 +36,12 @@ describe('<Launcher />', () => {
     const launcherComponent = createMessageComponent({ toggle, chatOpened });
     expect(launcherComponent.find('.close-launcher')).toHaveLength(1);
   });
+
+  it('should render Badge component when closed and new message is in', () => {
+    const toggle = jest.fn();
+    const chatOpened = false;
+    const badge = 1;
+    const launcherComponent = createMessageComponent({ toggle, chatOpened, badge });
+    expect(launcherComponent.find(Badge).props().badge).toBe(1);
+  })
 });

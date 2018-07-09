@@ -10,10 +10,9 @@ import './style.scss';
 const Launcher = ({ toggle, chatOpened, badge }) =>
   <button type="button" className={chatOpened ? 'launcher hide-sm' : 'launcher'} onClick={toggle}>
     <Badge badge ={badge} />
-    {
-      chatOpened ?
-        <img src={close} className="close-launcher" alt="" /> :
-        <img src={openLauncher} className="open-launcher" alt="" />
+    {chatOpened ?
+      <img src={close} className="close-launcher" alt="" /> :
+      <img src={openLauncher} className="open-launcher" alt="" />
     }
   </button>;
 

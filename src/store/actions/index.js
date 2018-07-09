@@ -47,3 +47,9 @@ export function dropMessages() {
     type: actions.DROP_MESSAGES
   };
 }
+
+export function hideAvatar() {
+  return {
+    type: actions.HIDE_AVATAR
+  };
+}

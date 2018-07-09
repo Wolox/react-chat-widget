@@ -7,18 +7,15 @@ import './style.scss';
 
 const Header = ({ title, subtitle, toggleChat, showCloseButton, titleAvatar }) =>
   <div className="header">
-    {
-      showCloseButton &&
+    {showCloseButton &&
       <button className="close-button" onClick={toggleChat}>
         <img src={close} className="close" alt="close" />
       </button>
     }
     <h4 className="title">
-      {
-        titleAvatar &&
-        <img src={titleAvatar} className="avatar" alt="profile" />
-      }
-      {title}</h4>
+      {titleAvatar && <img src={titleAvatar} className="avatar" alt="profile" />}
+      {title}
+    </h4>
     <span>{subtitle}</span>
   </div>;
 

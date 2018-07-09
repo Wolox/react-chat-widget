@@ -15,53 +15,53 @@ module.exports = {
     libraryTarget: 'umd'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@store': path.resolve(__dirname, 'src/store')
+    }
   },
   mode: 'development',
   module: {
-    rules: [{
-      test: /\.js$/,
-      loader: 'babel-loader'
-    }, {
-      test: /\.scss$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: () => [
-                require('postcss-flexbugs-fixes'), // eslint-disable-line global-require
-                autoprefixer({
-                  browsers: [
-                    '>1%',
-                    'last 4 versions',
-                    'Firefox ESR',
-                    'not ie <9'
-                  ],
-                  flexbox: 'no-2009'
-                })
-              ]
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: () => [
+                  require('postcss-flexbugs-fixes'), // eslint-disable-line
+                  autoprefixer({
+                    browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie <9'],
+                    flexbox: 'no-2009'
+                  })
+                ]
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [path.resolve(__dirname, 'src/sass/')]
+              }
             }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              includePaths: [
-                path.resolve(__dirname, 'src/sass/')
-              ]
-            }
-          }
-        ]
-      })
-    }, {
-      test: /\.(jpg|png|gif|svg)$/,
-      use: {
-        loader: 'url-loader'
+          ]
+        })
+      },
+      {
+        test: /\.(jpg|png|gif|svg)$/,
+        use: {
+          loader: 'url-loader'
+        }
       }
-    }]
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(['lib']),
