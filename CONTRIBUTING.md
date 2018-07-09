@@ -19,6 +19,12 @@ If you have a new feature you want to add or a bug you think you can fix, follow
 
 ## Installation
 
+To dev this project and see changes on the fly
+
+```bash
+npm start
+```
+
 To get this project up and running, you need to build it with
 
 ```bash
