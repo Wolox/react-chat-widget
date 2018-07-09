@@ -1,5 +1,5 @@
-import store from '../store';
-import * as actions from './index';
+import store from './store';
+import * as actions from './actions/index';
 
 export function addUserMessage(text) {
   store.dispatch(actions.addUserMessage(text));

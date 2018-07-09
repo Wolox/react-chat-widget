@@ -19,7 +19,7 @@ class Messages extends Component {
     scrollToBottom();
   }
 
-  getComponentToRender = (message) => {
+  getComponentToRender = message => {
     const ComponentToRender = message.get('component');
     if (message.get('type') === 'component') {
       return <ComponentToRender {...message.get('props')} />;

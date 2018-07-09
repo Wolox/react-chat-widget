@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import marked from 'marked';
-import { PROP_TYPES } from 'constants';
+import { PROP_TYPES } from '@constants';
 
 import './styles.scss';
 

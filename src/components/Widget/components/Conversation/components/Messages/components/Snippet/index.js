@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { PROP_TYPES } from 'constants';
+import { PROP_TYPES } from '@constants';
 
 import './styles.scss';
 
