@@ -6,7 +6,8 @@ import {
   renderCustomComponent,
   toggleWidget,
   toggleInputDisabled,
-  dropMessages
+  dropMessages,
+  isWidgetOpened
 } from './src/store/dispatcher';
 
 export {
@@ -17,5 +18,6 @@ export {
   renderCustomComponent,
   toggleWidget,
   toggleInputDisabled,
-  dropMessages
+  dropMessages,
+  isWidgetOpened
 };
