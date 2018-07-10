@@ -1,4 +1,7 @@
 import { Map } from 'immutable';
+
+import { createReducer } from '@utils/store';
+
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = Map({ showChat: false, disabledInput: false });

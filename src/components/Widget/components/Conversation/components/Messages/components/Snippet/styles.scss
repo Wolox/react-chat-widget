@@ -1,5 +1,5 @@
-@import "variables.scss";
-@import "common.scss";
+@import 'variables.scss';
+@import 'common.scss';
 
 .snippet {
   @include message-bubble($grey-2);
