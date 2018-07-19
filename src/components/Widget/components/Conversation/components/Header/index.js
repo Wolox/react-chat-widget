@@ -5,14 +5,14 @@ import close from 'assets/clear-button.svg';
 import './style.scss';
 
 const Header = ({ title, subtitle, toggleChat, showCloseButton }) =>
-  <div className="header">
+  <div className="wlx-header">
     {
       showCloseButton &&
-      <button className="close-button" onClick={toggleChat}>
-        <img src={close} className="close" alt="close" />
+      <button className="wlx-close-button" onClick={toggleChat}>
+        <img src={close} className="wlx-close" alt="close" />
       </button>
     }
-    <h4 className="title">{title}</h4>
+    <h4 className="wlx-title">{title}</h4>
     <span>{subtitle}</span>
   </div>;
 

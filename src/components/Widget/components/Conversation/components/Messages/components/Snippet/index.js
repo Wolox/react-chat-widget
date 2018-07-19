@@ -6,12 +6,12 @@ import './styles.scss';
 class Snippet extends PureComponent {
   render() {
     return (
-      <div className="snippet">
-        <h5 className="snippet-title">
+      <div className="wlx-snippet">
+        <h5 className="wlx-snippet-title">
           { this.props.message.get('title') }
         </h5>
-        <div className="snippet-details">
-          <a href={this.props.message.get('link')} target={this.props.message.get('target')} className="link">
+        <div className="wlx-snippet-details">
+          <a href={this.props.message.get('link')} target={this.props.message.get('target')} className="wlx-link">
             { this.props.message.get('link') }
           </a>
         </div>

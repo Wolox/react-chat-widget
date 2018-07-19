@@ -1,8 +1,8 @@
 @import "variables.scss";
 @import "common.scss";
 
-.conversation-container {
-  .header {
+.wlx-conversation-container {
+  .wlx-header {
     background-color: $turqois-1;
     border-radius: 10px 10px 0 0;
     color: $white;
@@ -12,51 +12,51 @@
     padding: 15px 0 25px;
   }
 
-  .title {
+  .wlx-title {
     font-size: 24px;
     margin: 0;
     padding: 15px 0;
   }
 
-  .close-button {
+  .wlx-close-button {
     display: none;
   }
 }
 
-.full-screen {
+.wlx-full-screen {
 
-  .header {
+  .wlx-header {
     @include header-fs;
   }
 
-  .title {
+  .wlx-title {
     @include title-fs;
   }
 
-  .close-button {
+  .wlx-close-button {
     @include close-button-fs;
   }
 
-  .close {
+  .wlx-close {
     @include close-fs;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .conversation-container {
-    .header {
+  .wlx-conversation-container {
+    .wlx-header {
       @include header-fs;
     }
 
-    .title {
+    .wlx-title {
       @include title-fs;
     }
 
-    .close-button {
+    .wlx-close-button {
       @include close-button-fs;
     }
 
-    .close {
+    .wlx-close {
       @include close-fs;
     }
   }

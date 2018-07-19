@@ -9,7 +9,7 @@ import './style.scss';
 const WidgetLayout = props =>
   <div
     className={
-      `widget-container ${props.fullScreenMode ? 'full-screen' : ''} ${props.showChat ? 'opened' : ''}`
+      `wlx-widget-container ${props.fullScreenMode ? 'wlx-full-screen' : ''} ${props.showChat ? 'wlx-opened' : ''}`
     }
   >
     {

@@ -1,6 +1,6 @@
 @import "variables.scss";
 
-.sender {
+.wlx-sender {
   align-items: center;
   display: flex;
   background-color: $grey-2;
@@ -9,7 +9,7 @@
   border-radius: 0 0 10px 10px;
 }
 
-.new-message {
+.wlx-new-message {
   width: 100%;
   border: 0;
   background-color: $grey-2;
@@ -21,17 +21,17 @@
   }
 }
 
-.send {
+.wlx-send {
   background: $grey-2;
   border: 0;
 
-  .send-icon {
+  .wlx-send-icon {
     height: 25px;
   }
 }
 
 @media screen and (max-width: 800px)  {
-  .sender {
+  .wlx-sender {
     border-radius: 0;
     flex-shrink: 0;
   }

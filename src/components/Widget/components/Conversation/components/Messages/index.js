@@ -29,14 +29,14 @@ class Messages extends Component {
 
   render() {
     return (
-      <div id="messages" className="messages-container">
+      <div id="messages" className="wlx-messages-container">
         {
           this.props.messages.map((message, index) =>
-            <div className="message" key={index}>
+            <div className="wlx-message" key={index}>
               {
                 this.props.profileAvatar &&
                 message.get('showAvatar') &&
-                <img src={this.props.profileAvatar} className="avatar" alt="profile" />
+                <img src={this.props.profileAvatar} className="wlx-avatar" alt="profile" />
               }
               {
                 this.getComponentToRender(message)

@@ -2,7 +2,7 @@
 @import "variables.scss";
 @import "animation.scss";
 
-.launcher {
+.wlx-launcher {
   @include animation(0, 0.5s, slide-in);
   align-self: flex-end;
   background-color: $turqois-1;
@@ -18,21 +18,21 @@
   }
 }
 
-.open-launcher {
+.wlx-open-launcher {
   @include animation(0, 0.5s, rotation-rl);
 }
 
-.close-launcher {
+.wlx-close-launcher {
   width: 20px;
   @include animation(0, 0.5s, rotation-lr);
 }
 
 @media screen and (max-width: 800px){
-  .launcher {
+  .wlx-launcher {
     @include launcher-fs;
   }
 
-  .hide-sm {
+  .wlx-hide-sm {
     display: none;
   }
 }
