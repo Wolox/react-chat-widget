@@ -8,12 +8,12 @@ import Badge from './components/Badge';
 import './style.scss';
 
 const Launcher = ({ toggle, chatOpened, badge }) =>
-  <button type="button" className={chatOpened ? 'wlx-launcher wlx-hide-sm' : 'wlx-launcher'} onClick={toggle}>
+  <button type="button" className={chatOpened ? 'rcw-launcher rcw-hide-sm' : 'rcw-launcher'} onClick={toggle}>
     <Badge badge={badge} />
     {
       chatOpened ?
-        <img src={close} className="wlx-close-launcher" alt="" /> :
-        <img src={openLauncher} className="wlx-open-launcher" alt="" />
+        <img src={close} className="rcw-close-launcher" alt="" /> :
+        <img src={openLauncher} className="rcw-open-launcher" alt="" />
     }
   </button>;
 

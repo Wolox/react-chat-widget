@@ -1,33 +1,33 @@
 @import "variables.scss";
 @import "common.scss";
 
-.wlx-message {
+.rcw-message {
   margin: 10px;
   display: flex;
 }
 
-.wlx-client {
+.rcw-client {
   @include message-bubble($turqois-2);
   margin-left: auto;
 }
 
-.wlx-response {
+.rcw-response {
   @include message-bubble($grey-2);
 }
 
-.wlx-message {
+.rcw-message {
   font-size: 14px;
 }
 
 /* For markdown elements created with default styles */
-.wlx-message-text {
+.rcw-message-text {
 
   p {
     margin: 0;
   }
 }
 
-.wlx-avatar {
+.rcw-avatar {
   width: 40px;
   height: 40px;
   border-radius: 100%;

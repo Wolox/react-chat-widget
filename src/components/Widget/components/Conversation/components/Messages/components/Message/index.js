@@ -16,8 +16,8 @@ class Message extends PureComponent {
     .render(this.props.message.get('text'));
 
     return (
-      <div className={`wlx-${this.props.message.get('sender')}`}>
-        <div className="wlx-message-text" dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
+      <div className={`rcw-${this.props.message.get('sender')}`}>
+        <div className="rcw-message-text" dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
       </div>
     );
   }

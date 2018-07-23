@@ -1,20 +1,20 @@
 @import "variables.scss";
 @import "common.scss";
 
-.wlx-snippet {
+.rcw-snippet {
   @include message-bubble($grey-2);
 }
 
-.wlx-snippet-title {
+.rcw-snippet-title {
   margin: 0;
 }
 
-.wlx-snippet-details {
+.rcw-snippet-details {
   border-left: 2px solid $green-1;
   margin-top: 5px;
   padding-left: 10px;
 }
 
-.wlx-link {
+.rcw-link {
   font-size: 12px;
 }

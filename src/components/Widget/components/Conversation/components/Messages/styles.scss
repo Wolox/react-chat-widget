@@ -1,7 +1,7 @@
 @import "variables.scss";
 @import "common.scss";
 
-.wlx-messages-container {
+.rcw-messages-container {
   background-color: $white;
   height: 50vh;
   max-height: 410px;
@@ -9,15 +9,15 @@
   padding-top: 10px;
 }
 
-.wlx-full-screen {
+.rcw-full-screen {
 
-  .wlx-messages-container {
+  .rcw-messages-container {
     @include messages-container-fs;
   }
 }
 
 @media screen and (max-width: 800px)  {
-  .wlx-messages-container {
+  .rcw-messages-container {
     @include messages-container-fs;
   }
 }

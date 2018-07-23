@@ -5,7 +5,7 @@ import './style.scss';
 
 const Badge = ({ badge }) =>
   badge > 0 &&
-  <span className="wlx-badge">{badge}</span>;
+  <span className="rcw-badge">{badge}</span>;
 
 Badge.propTypes = {
   badge: PropTypes.number

@@ -5,10 +5,10 @@ import send from 'assets/send_button.svg';
 import './style.scss';
 
 const Sender = ({ sendMessage, placeholder, disabledInput, autofocus }) =>
-  <form className="wlx-sender" onSubmit={sendMessage}>
-    <input type="text" className="wlx-new-message" name="message" placeholder={placeholder} disabled={disabledInput} autoFocus={autofocus} autoComplete="off" />
-    <button type="submit" className="wlx-send">
-      <img src={send} className="wlx-send-icon" alt="send" />
+  <form className="rcw-sender" onSubmit={sendMessage}>
+    <input type="text" className="rcw-new-message" name="message" placeholder={placeholder} disabled={disabledInput} autoFocus={autofocus} autoComplete="off" />
+    <button type="submit" className="rcw-send">
+      <img src={send} className="rcw-send-icon" alt="send" />
     </button>
   </form>;
 
