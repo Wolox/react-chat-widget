@@ -13,6 +13,7 @@ const Conversation = props =>
       subtitle={props.subtitle}
       toggleChat={props.toggleChat}
       showCloseButton={props.showCloseButton}
+      titleAvatar={props.titleAvatar}
     />
     <Messages
       profileAvatar={props.profileAvatar}
@@ -27,6 +28,7 @@ const Conversation = props =>
 
 Conversation.propTypes = {
   title: PropTypes.string,
+  titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
   sendMessage: PropTypes.func,
   senderPlaceHolder: PropTypes.string,

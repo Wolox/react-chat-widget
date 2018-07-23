@@ -33,6 +33,7 @@ class Widget extends Component {
         onToggleConversation={this.toggleConversation}
         onSendMessage={this.handleMessageSubmit}
         title={this.props.title}
+        titleAvatar={this.props.titleAvatar}
         subtitle={this.props.subtitle}
         senderPlaceHolder={this.props.senderPlaceHolder}
         profileAvatar={this.props.profileAvatar}
@@ -48,6 +49,7 @@ class Widget extends Component {
 
 Widget.propTypes = {
   title: PropTypes.string,
+  titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,

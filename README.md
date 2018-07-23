@@ -156,6 +156,7 @@ export default App;
 |**subtitle**|PropTypes.string|NO|'This is your chat subtitle'|Subtitle of the widget|
 |**senderPlaceHolder**|PropTypes.string|NO|'Type a message...'|The placeholder of the message input|
 |**profileAvatar**|PropTypes.string|NO| |The profile image that will be set on the responses|
+|**titleAvatar**|PropTypes.string|NO| |The picture image that will be shown next to the chat title|
 |**showCloseButton**|PropTypes.bool|NO|false|Show or hide the close button in full screen mode|
 |**fullScreenMode**|PropTypes.bool|NO|false|Allow the use of full screen in full desktop mode|
 |**badge**|PropTypes.number|NO|0|Display a notification badge on the launcher if the value is greater than 0|

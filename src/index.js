@@ -9,6 +9,7 @@ const ConnectedWidget = props =>
   <Provider store={store}>
     <Widget
       title={props.title}
+      titleAvatar={props.titleAvatar}
       subtitle={props.subtitle}
       handleNewUserMessage={props.handleNewUserMessage}
       senderPlaceHolder={props.senderPlaceHolder}
@@ -23,6 +24,7 @@ const ConnectedWidget = props =>
 
 ConnectedWidget.propTypes = {
   title: PropTypes.string,
+  titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,

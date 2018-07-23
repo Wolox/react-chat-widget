@@ -25,6 +25,7 @@ const WidgetLayout = props =>
         showCloseButton={props.showCloseButton}
         disabledInput={props.disabledInput}
         autofocus={props.autofocus}
+        titleAvatar={props.titleAvatar}
       />
     }
     {
@@ -40,6 +41,7 @@ const WidgetLayout = props =>
 
 WidgetLayout.propTypes = {
   title: PropTypes.string,
+  titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
   onSendMessage: PropTypes.func,
   onToggleConversation: PropTypes.func,
