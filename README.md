@@ -161,18 +161,19 @@ export default App;
 |**fullScreenMode**|PropTypes.bool|NO|false|Allow the use of full screen in full desktop mode|
 |**badge**|PropTypes.number|NO|0|Display a notification badge on the launcher if the value is greater than 0|
 |**autofocus**|PropTypes.bool|NO|true|Autofocus or not the user input|
+|**customLauncher**|PropTypes.func|NO||Custom Launcher component to use instead of the default|
 
 #### Styles
 
-To change the styles you need the widget to have, simply override the CSS classes wrapping them within the containers and add your own style to them!
-For expample:
+To change the styles you need the widget to have, simply override the CSS classes wrapping them within the containers and add your own style to them! All classes are prefixed with `rcw-` so they don't override your other classes in case you are not hasing them. 
+To verride, you can do, for expample:
 
 ```css
-.conversation-container > .header {
+.rcw-conversation-container > .rcw-header {
   background-color: red;
 }
 
-.message > .response {
+.rcw-message > .rcw-response {
   background-color: black;
   color: white;
 }
@@ -206,6 +207,7 @@ In order to add new messages, you are provided with the following methods:
     }
     ```
   - By default, `target` value is `_blank` which will open the link in a new window.
+
 - **renderCustomComponent**
   - params: 
     - component: Component to be render,
@@ -226,6 +228,18 @@ You can also control certain actions of the widget:
 - **toggleInputDisabled**
   - params: No params expected
   - Method to toggle the availability of the message input for the user to write on
+
+#### Widget components
+
+##### Custom Launcher
+
+You can use a custom component for the Launcher if you need one that's not the default, simply use the **customLauncher** prop like:
+
+```js
+  launcher={handleToggle => this.getCustomLauncher(handleToggle)}
+```
+
+`getCustomLauncher()`is a method that will return the `Launcher`component. By default, the function passed by that prop, will receive the `handleToggle` parammeter that is the method which toggles the widget.
 
 ## About
 
