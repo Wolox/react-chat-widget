@@ -1,7 +1,7 @@
-@import "animation.scss";
-@import "common.scss";
+@import 'animation.scss';
+@import 'common.scss';
 
-.widget-container {
+.rcw-widget-container {
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -12,24 +12,24 @@
   z-index: 9999;
 }
 
-.opened {
+.rcw-opened {
   width: 90vw;
 }
 
-.full-screen {
+.rcw-full-screen {
   @include widget-container-fs;
 
-  &.opened {
+  &.rcw-opened {
     width: 100%;
     height: 100%;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .widget-container {
+  .rcw-widget-container {
     @include widget-container-fs;
 
-    &.opened {
+    &.rcw-opened {
       height: 100%;
     }
   }

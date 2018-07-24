@@ -1,0 +1,6 @@
+{   
+  "extends": "wolox",
+  "rules": {
+    "import/order": "off"
+  }
+}

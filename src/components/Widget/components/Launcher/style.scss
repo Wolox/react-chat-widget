@@ -1,8 +1,8 @@
-@import "common.scss";
-@import "variables.scss";
-@import "animation.scss";
+@import 'common.scss';
+@import 'variables.scss';
+@import 'animation.scss';
 
-.launcher {
+.rcw-launcher {
   @include animation(0, 0.5s, slide-in);
   align-self: flex-end;
   background-color: $turqois-1;
@@ -18,21 +18,21 @@
   }
 }
 
-.open-launcher {
+.rcw-open-launcher {
   @include animation(0, 0.5s, rotation-rl);
 }
 
-.close-launcher {
+.rcw-close-launcher {
   width: 20px;
   @include animation(0, 0.5s, rotation-lr);
 }
 
 @media screen and (max-width: 800px){
-  .launcher {
+  .rcw-launcher {
     @include launcher-fs;
   }
 
-  .hide-sm {
+  .rcw-hide-sm {
     display: none;
   }
 }

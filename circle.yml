@@ -4,7 +4,7 @@ machine:
 
 dependencies:
   override:
-    - yarn
+    - npm i
 test:
   override:
-    - yarn run test
+    - npm run test

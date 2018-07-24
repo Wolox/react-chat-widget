@@ -1,16 +1,24 @@
 import React, { PureComponent } from 'react';
-import marked from 'marked';
-import { PROP_TYPES } from 'constants';
+import markdownIt from 'markdown-it';
+import markdownItSup from 'markdown-it-sup';
+import markdownItSanitizer from 'markdown-it-sanitizer';
+import markdownItLinkAttributes from 'markdown-it-link-attributes';
+
+import { PROP_TYPES } from '@constants';
 
 import './styles.scss';
 
 class Message extends PureComponent {
   render() {
-    const sanitizedHTML = marked.parse(this.props.message.get('text'), { sanitize: true });
+    const sanitizedHTML = markdownIt()
+    .use(markdownItSup)
+    .use(markdownItSanitizer)
+    .use(markdownItLinkAttributes, { attrs: { target: '_blank', rel: 'noopener' } })
+    .render(this.props.message.get('text'));
 
     return (
-      <div className={this.props.message.get('sender')}>
-        <div className="message-text" dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
+      <div className={`rcw-${this.props.message.get('sender')}`}>
+        <div className="rcw-message-text" dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
       </div>
     );
   }

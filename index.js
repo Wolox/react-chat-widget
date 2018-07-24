@@ -6,8 +6,9 @@ import {
   renderCustomComponent,
   toggleWidget,
   toggleInputDisabled,
-  dropMessages
-} from './src/store/actions/dispatcher';
+  dropMessages,
+  isWidgetOpened
+} from './src/store/dispatcher';
 
 export {
   ConnectedWidget as Widget,
@@ -17,5 +18,6 @@ export {
   renderCustomComponent,
   toggleWidget,
   toggleInputDisabled,
-  dropMessages
+  dropMessages,
+  isWidgetOpened
 };

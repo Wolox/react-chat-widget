@@ -19,24 +19,10 @@ If you have a new feature you want to add or a bug you think you can fix, follow
 
 ## Installation
 
-To dev this project and see changes on the fly
+To dev this project and see changes on the fly, simply use the script
 
 ```bash
 npm start
-```
-
-To get this project up and running, you need to build it with
-
-```bash
-npm run build
-```
-
-and then, add it to a dummy project using the file instead of the package. You can use either yarn or npm:
-
-```bash
-npm i <path-to>/react-chat-widget
-
-yarn add file:<path-to>/react-chat-widget
 ```
 
 ##  Testing
@@ -46,5 +32,10 @@ Your new feature **must** be tested with the proper tools. In this project, we u
 ```bash
 npm run test
 ```
+All new tests needs to be pass in order to approve the PR.
 
 If there any view changes, you need to add screenshots for what's been changed for us to see any improvement or your new feature.
+
+## Documentation
+
+If you are adding a new feature, you **must** add the documentation for it, showing how to use it.

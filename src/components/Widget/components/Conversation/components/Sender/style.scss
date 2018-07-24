@@ -1,6 +1,6 @@
-@import "variables.scss";
+@import 'variables.scss';
 
-.sender {
+.rcw-sender {
   align-items: center;
   display: flex;
   background-color: $grey-2;
@@ -9,7 +9,7 @@
   border-radius: 0 0 10px 10px;
 }
 
-.new-message {
+.rcw-new-message {
   width: 100%;
   border: 0;
   background-color: $grey-2;
@@ -21,17 +21,17 @@
   }
 }
 
-.send {
+.rcw-send {
   background: $grey-2;
   border: 0;
 
-  .send-icon {
+  .rcw-send-icon {
     height: 25px;
   }
 }
 
 @media screen and (max-width: 800px)  {
-  .sender {
+  .rcw-sender {
     border-radius: 0;
     flex-shrink: 0;
   }

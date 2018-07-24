@@ -1,19 +1,23 @@
 {
   "presets": [
-    "es2015",
-    "react"
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "safari >= 7"]
+      }
+    }],
+    "react" 
   ],
   "plugins": [
     "transform-class-properties",
     ["module-resolver", {
       "root": ["./src"],
       "alias": {
-        "constants": "./src/constants.js",
-        "assets": "./assets",
-        "tests-mocks": "./mocks",
-        "actions": "./src/store/actions",
-        "helper": "./src/store/reducers/helper.js",
-        "messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components"
+        "@constants": "./src/constants.js",
+        "@assets": "./assets",
+        "@tests-mocks": "./mocks",
+        "@actions": "./src/store/actions",
+        "@utils": "./src/utils",
+        "@messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components"
       }
     }]
   ]

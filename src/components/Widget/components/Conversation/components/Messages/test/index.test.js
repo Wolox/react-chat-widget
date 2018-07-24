@@ -3,7 +3,8 @@ import { List } from 'immutable';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { createNewMessage, createLinkSnippet, createComponentMessage } from 'helper';
+import { createNewMessage, createLinkSnippet, createComponentMessage } from '@utils/messages';
+
 import Messages from '../index';
 import Message from '../components/Message';
 import Snippet from '../components/Snippet';

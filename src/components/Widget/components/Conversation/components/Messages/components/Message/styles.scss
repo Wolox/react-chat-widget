@@ -1,33 +1,33 @@
-@import "variables.scss";
-@import "common.scss";
+@import 'variables.scss';
+@import 'common.scss';
 
-.message {
+.rcw-message {
   margin: 10px;
   display: flex;
 }
 
-.client {
+.rcw-client {
   @include message-bubble($turqois-2);
   margin-left: auto;
 }
 
-.response {
+.rcw-response {
   @include message-bubble($grey-2);
 }
 
-.message {
+.rcw-message {
   font-size: 14px;
 }
 
 /* For markdown elements created with default styles */
-.message-text {
+.rcw-message-text {
 
   p {
     margin: 0;
   }
 }
 
-.avatar {
+.rcw-avatar {
   width: 40px;
   height: 40px;
   border-radius: 100%;
