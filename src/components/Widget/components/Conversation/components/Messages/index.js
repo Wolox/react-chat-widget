@@ -40,12 +40,12 @@ class Messages extends Component {
   render() {
     const { messages, profileAvatar } = this.props;
     return (
-      <div id="messages" className="messages-container">
+      <div id="messages" className="rcw-messages-container">
         {messages.map((message, index) =>
-          <div className="message" key={index}>
+          <div className="rcw-message" key={index}>
             {profileAvatar &&
               this.shouldRenderAvatar(message, index) &&
-              <img src={profileAvatar} className="avatar" alt="profile" />
+              <img src={profileAvatar} className="rcw-avatar" alt="profile" />
             }
             {this.getComponentToRender(message)}
           </div>

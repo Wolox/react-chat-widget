@@ -5,14 +5,15 @@ import close from '@assets/clear-button.svg';
 
 import './style.scss';
 
+
 const Header = ({ title, subtitle, toggleChat, showCloseButton, titleAvatar }) =>
-  <div className="header">
+  <div className="rcw-header">
     {showCloseButton &&
-      <button className="close-button" onClick={toggleChat}>
-        <img src={close} className="close" alt="close" />
+      <button className="rcw-close-button" onClick={toggleChat}>
+        <img src={close} className="rcw-close" alt="close" />
       </button>
     }
-    <h4 className="title">
+    <h4 className="rcw-title">
       {titleAvatar && <img src={titleAvatar} className="avatar" alt="profile" />}
       {title}
     </h4>
