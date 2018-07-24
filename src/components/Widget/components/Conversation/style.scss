@@ -1,6 +1,6 @@
-@import "common.scss";
-@import "variables.scss";
-@import "animation.scss";
+@import 'common.scss';
+@import 'variables.scss';
+@import 'animation.scss';
 
 .rcw-conversation-container {
   @include animation(0, 0.5s, slide-in);

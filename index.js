@@ -8,7 +8,7 @@ import {
   toggleInputDisabled,
   dropMessages,
   isWidgetOpened
-} from './src/store/actions/dispatcher';
+} from './src/store/dispatcher';
 
 export {
   ConnectedWidget as Widget,

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import send from 'assets/send_button.svg';
+import send from '@assets/send_button.svg';
+
 import './style.scss';
 
 const Sender = ({ sendMessage, placeholder, disabledInput, autofocus }) =>

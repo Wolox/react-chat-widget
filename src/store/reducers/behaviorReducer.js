@@ -1,17 +1,17 @@
 import { Map } from 'immutable';
+
+import { createReducer } from '@utils/store';
+
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = Map({ showChat: false, disabledInput: false });
 
-export default function reducer(state = initialState, action) {
-  switch (action.type) {
-    case actionTypes.TOGGLE_CHAT: {
-      return state.update('showChat', showChat => !showChat);
-    }
-    case actionTypes.TOGGLE_INPUT_DISABLED: {
-      return state.update('disabledInput', disabledInput => !disabledInput);
-    }
-    default:
-      return state;
-  }
-}
+const behaviorReducer = {
+  [actionTypes.TOGGLE_CHAT]: state =>
+    state.update('showChat', showChat => !showChat),
+
+  [actionTypes.TOGGLE_INPUT_DISABLED]: state =>
+    state.update('disabledInput', disabledInput => !disabledInput)
+};
+
+export default (state = initialState, action) => createReducer(behaviorReducer, state, action);

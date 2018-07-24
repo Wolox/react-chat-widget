@@ -3,7 +3,8 @@ import markdownIt from 'markdown-it';
 import markdownItSup from 'markdown-it-sup';
 import markdownItSanitizer from 'markdown-it-sanitizer';
 import markdownItLinkAttributes from 'markdown-it-link-attributes';
-import { PROP_TYPES } from 'constants';
+
+import { PROP_TYPES } from '@constants';
 
 import './styles.scss';
 
