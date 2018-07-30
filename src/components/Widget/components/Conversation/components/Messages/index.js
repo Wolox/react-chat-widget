@@ -44,7 +44,7 @@ class Messages extends Component {
         {messages.map((message, index) =>
           <div className="rcw-message" key={index}>
             {profileAvatar &&
-              this.shouldRenderAvatar(message, index) &&
+              message.get('showAvatar') &&
               <img src={profileAvatar} className="rcw-avatar" alt="profile" />
             }
             {this.getComponentToRender(message)}
