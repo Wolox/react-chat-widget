@@ -22,6 +22,7 @@ export default class App extends Component {
         subtitle="Asistente virtual"
         senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}
+        handleOnChangeMessage={this.handleOnChangeMessage}
         badge={1}
       />
     );
