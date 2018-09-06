@@ -10,6 +10,11 @@ export default class App extends Component {
     addResponseMessage(newMessage);
   }
 
+  handleOnChangeMessage = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+  }
+
   render() {
     return (
       <Widget
