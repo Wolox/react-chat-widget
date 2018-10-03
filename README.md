@@ -162,6 +162,7 @@ export default App;
 |**badge**|PropTypes.number|NO|0|Display a notification badge on the launcher if the value is greater than 0|
 |**autofocus**|PropTypes.bool|NO|true|Autofocus or not the user input|
 |**customLauncher**|PropTypes.func|NO||Custom Launcher component to use instead of the default|
+|**addUserMessage**|PropTypes.bool|NO|true|Display a new user message
 
 #### Styles
 
