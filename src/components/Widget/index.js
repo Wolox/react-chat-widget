@@ -21,7 +21,9 @@ class Widget extends Component {
     event.preventDefault();
     const userInput = event.target.message.value;
     if (userInput) {
-      this.props.dispatch(addUserMessage(userInput));
+        if(this.props.addUserMessage) {
+            this.props.dispatch(addUserMessage(userInput));
+        }
       this.props.handleNewUserMessage(userInput);
     }
     event.target.message.value = '';
@@ -53,6 +55,7 @@ Widget.propTypes = {
   titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
+  addUserMessage: PropTypes.bool,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,
