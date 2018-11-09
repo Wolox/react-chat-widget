@@ -57,7 +57,7 @@ import 'react-chat-widget/lib/styles.css';
 
 class App extends Component {
   handleNewUserMessage = (newMessage) => {
-    console.log(`New message incomig! ${newMessage}`);
+    console.log(`New message incoming! ${newMessage}`);
     // Now send the message throught the backend API
   }
 
@@ -89,7 +89,7 @@ class App extends Component {
   }
 
   handleNewUserMessage = (newMessage) => {
-    console.log(`New message incomig! ${newMessage}`);
+    console.log(`New message incoming! ${newMessage}`);
     // Now send the message throught the backend API
     addResponseMessage(response);
   }
@@ -124,7 +124,7 @@ class App extends Component {
   }
 
   handleNewUserMessage = (newMessage) => {
-    console.log(`New message incomig! ${newMessage}`);
+    console.log(`New message incoming! ${newMessage}`);
     // Now send the message throught the backend API
   }
 
