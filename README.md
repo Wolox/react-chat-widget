@@ -233,13 +233,21 @@ You can also control certain actions of the widget:
 
 ##### Custom Launcher
 
-You can use a custom component for the Launcher if you need one that's not the default, simply use the **customLauncher** prop like:
+You can use a custom component for the Launcher if you need one that's not the default, simply use the **launcher** prop like:
 
 ```js
   launcher={handleToggle => this.getCustomLauncher(handleToggle)}
 ```
 
 `getCustomLauncher()`is a method that will return the `Launcher`component. By default, the function passed by that prop, will receive the `handleToggle` parammeter that is the method which toggles the widget.
+
+For example, if you want to use a simple button to toggle the widget:
+
+```js
+  launcher={handleToggle => (
+    <button onClick={handleToggle}>Toggle</button>
+  )}
+```
 
 ## About
 
