@@ -183,7 +183,7 @@ That way, you can leave the JS clean and keep the styles within the CSS.
 
 #### Messages
 
-In order to add new messages, you are provided with the following methods:
+If you want to add new messages, you can use the following methods:
 
 - **addResponseMessage**
   - params:
@@ -239,7 +239,7 @@ You can use a custom component for the Launcher if you need one that's not the d
   launcher={handleToggle => this.getCustomLauncher(handleToggle)}
 ```
 
-`getCustomLauncher()`is a method that will return the `Launcher`component. By default, the function passed by that prop, will receive the `handleToggle` parammeter that is the method which toggles the widget.
+`getCustomLauncher()` is a method that will return the `Launcher` component. By default, the function passed by that prop, will receive the `handleToggle` parameter which is the method that will toggle the widget.
 
 For example, if you want to use a simple button to toggle the widget:
 
