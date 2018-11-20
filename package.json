@@ -7,8 +7,8 @@
   "author": "Martín Callegari <martin.callegari@wolox.com.ar>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.dev.js",
-    "build": "webpack --config ./webpack.config.prod.js",
+    "start": "webpack-dev-server --mode=development --open",
+    "build": "webpack --mode=production",
     "test": "jest --coverage",
     "prepublishOnly": "npm run test && npm run build"
   },

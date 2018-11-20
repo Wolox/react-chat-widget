@@ -1,14 +1,13 @@
-'use strict'
-
 const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-module.exports = {
+const config = {
   entry: './index.js',
   output: {
     path: path.join(__dirname, '/lib'),
@@ -81,4 +80,26 @@ module.exports = {
       new OptimizeCSSAssetsPlugin({})
     ]
   }
+};
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.entry = path.resolve(__dirname, 'dev/main.js'),
+    config.output = {
+      path: path.join(__dirname, 'dist'),
+      filename: 'bundle.js',
+    },
+    config.devtool = 'eval';
+    config.plugins.push(
+      new HtmlWebpackPlugin({
+        template: './dev/index.html'
+      })
+    )
+    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+    config.devServer = {
+      contentBase: path.resolve(__dirname, 'dist'),
+      hot: true
+    }
+  }
+  return config;
 };
