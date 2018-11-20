@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Widget, addResponseMessage } from '../index';
+import { hot } from 'react-hot-loader'
 
-export default class App extends Component {
+class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
   }
@@ -22,3 +23,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default hot(module)(App)

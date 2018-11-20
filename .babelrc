@@ -8,6 +8,7 @@
     "react" 
   ],
   "plugins": [
+    "react-hot-loader/babel",
     "transform-class-properties",
     ["module-resolver", {
       "root": ["./src"],

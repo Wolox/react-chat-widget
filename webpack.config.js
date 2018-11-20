@@ -18,7 +18,6 @@ const config = {
   resolve: {
     extensions: ['.js']
   },
-  mode: 'production',
   module: {
     rules: [
       {
@@ -90,12 +89,40 @@ module.exports = (env, argv) => {
       filename: 'bundle.js',
     },
     config.devtool = 'eval';
-    config.plugins.push(
+    config.module.rules = [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.resolve(__dirname, 'src/scss/')]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(jpg|png|gif|svg)$/,
+        use: {
+          loader: 'url-loader'
+        }
+      }
+    ]
+    config.plugins = [
+      new CleanWebpackPlugin(['dist']),
       new HtmlWebpackPlugin({
         template: './dev/index.html'
-      })
-    )
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+      }),
+      new webpack.HotModuleReplacementPlugin()
+    ]
+    config.optimization = {};
     config.devServer = {
       contentBase: path.resolve(__dirname, 'dist'),
       hot: true
