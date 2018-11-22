@@ -7,7 +7,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-const config = {
+const prod = {
   entry: './index.js',
   output: {
     path: path.join(__dirname, '/lib'),
@@ -81,15 +81,18 @@ const config = {
   }
 };
 
-module.exports = (env, argv) => {
-  if (argv.mode === 'development') {
-    config.entry = path.resolve(__dirname, 'dev/main.js'),
-    config.output = {
-      path: path.join(__dirname, 'dist'),
-      filename: 'bundle.js',
-    },
-    config.devtool = 'eval';
-    config.module.rules = [
+const dev = {
+  entry: path.resolve(__dirname, 'dev/main.js'),
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+  resolve: {
+    extensions: ['.js']
+  },
+  devtool: 'eval',
+  module: {
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -115,18 +118,24 @@ module.exports = (env, argv) => {
         }
       }
     ]
-    config.plugins = [
-      new CleanWebpackPlugin(['dist']),
-      new HtmlWebpackPlugin({
-        template: './dev/index.html'
-      }),
-      new webpack.HotModuleReplacementPlugin()
-    ]
-    config.optimization = {};
-    config.devServer = {
-      contentBase: path.resolve(__dirname, 'dist'),
-      hot: true
-    }
+  },
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      template: './dev/index.html'
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    hot: true
   }
-  return config;
+};
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    return dev
+  } else {
+    return prod;
+  }
 };
