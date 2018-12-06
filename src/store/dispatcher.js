@@ -32,3 +32,7 @@ export function dropMessages() {
 export function isWidgetOpened() {
   return store.getState().behavior.get('showChat');
 }
+
+export function setQuickButtons(buttons) {
+  store.dispatch(actions.setQuickButtons(buttons));
+}

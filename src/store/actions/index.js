@@ -53,3 +53,10 @@ export function hideAvatar() {
     type: actions.HIDE_AVATAR
   };
 }
+
+export function setQuickButtons(buttons) {
+  return {
+    type: actions.SET_QUICK_BUTTONS,
+    buttons
+  }
+}

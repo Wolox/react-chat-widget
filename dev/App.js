@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import { Widget, addResponseMessage } from '../index';
-
+import { Widget, addResponseMessage, setQuickButtons } from '../index';
 export default class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
   }
 
   handleNewUserMessage = (newMessage) => {
-    addResponseMessage(newMessage);
+    if (newMessage === 'opciones') {
+      setQuickButtons([ { label: 'Example', value: 'example' } ]);
+    } else {
+      addResponseMessage(newMessage);
+    }
+  }
+
+  handleQuickButtonClicked = (e) => {
+    console.log(e);
   }
 
   render() {
@@ -17,6 +24,7 @@ export default class App extends Component {
         subtitle="Asistente virtual"
         senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}
+        handleQuickButtonClicked={this.handleQuickButtonClicked}
         badge={1}
       />
     );

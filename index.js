@@ -7,7 +7,8 @@ import {
   toggleWidget,
   toggleInputDisabled,
   dropMessages,
-  isWidgetOpened
+  isWidgetOpened,
+  setQuickButtons
 } from './src/store/dispatcher';
 
 export {
@@ -19,5 +20,6 @@ export {
   toggleWidget,
   toggleInputDisabled,
   dropMessages,
-  isWidgetOpened
+  isWidgetOpened,
+  setQuickButtons
 };
