@@ -21,7 +21,9 @@ class Widget extends Component {
     event.preventDefault();
     const userInput = event.target.message.value;
     if (userInput) {
-      this.props.dispatch(addUserMessage(userInput));
+      if (this.props.autoAddUserMessage) {
+        this.props.dispatch(addUserMessage(userInput));
+      }
       this.props.handleNewUserMessage(userInput);
     }
     event.target.message.value = '';
@@ -59,7 +61,8 @@ Widget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  customLauncher: PropTypes.func
+  customLauncher: PropTypes.func,
+  autoAddUserMessage: PropTypes.bool
 };
 
 export default connect()(Widget);
