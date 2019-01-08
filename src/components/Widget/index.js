@@ -26,7 +26,12 @@ class Widget extends Component {
     }
     event.target.message.value = '';
   }
-
+  startRecording = () => {
+    console.log('rec start');
+  }
+  stopRecording = () => {
+    console.log('rec stop');
+  }
 
   render() {
     return (
@@ -43,6 +48,8 @@ class Widget extends Component {
         badge={this.props.badge}
         autofocus={this.props.autofocus}
         customLauncher={this.props.customLauncher}
+        startRecording={this.startRecording}
+        stopRecording={this.stopRecording}
       />
     );
   }

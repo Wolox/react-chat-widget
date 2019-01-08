@@ -7,7 +7,10 @@
   border-radius: 10px;
   box-shadow: 0px 2px 10px 1px $grey-3;
 }
-
+.rcw-mic-on{
+  height: 20px;
+  width: 20px;
+}
 .rcw-slide-out {
   @include animation(0, 0.5s, slide-out);
 }

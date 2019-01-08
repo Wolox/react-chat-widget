@@ -1,9 +1,9 @@
 {
-  "name": "react-chat-widget",
+  "name": "react-chat-widget-mic",
   "version": "2.1.4-1",
-  "description": "Chat web widget for React apps",
+  "description": "Chat web widget with mic for React apps",
   "main": "lib/index.js",
-  "repository": "git@github.com:Wolox/react-chat-widget.git",
+  "repository": "git@github.com:insidero/react-chat-widget.git",
   "author": "Martín Callegari <martin.callegari@wolox.com.ar>",
   "license": "MIT",
   "scripts": {
@@ -19,6 +19,7 @@
     "javascript"
   ],
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "immutable": "^3.8.1",
     "markdown-it": "^8.4.1",
     "markdown-it-link-attributes": "^2.1.0",
