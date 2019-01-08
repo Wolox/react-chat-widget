@@ -50,8 +50,8 @@ class Widget extends Component {
         badge={this.props.badge}
         autofocus={this.props.autofocus}
         customLauncher={this.props.customLauncher}
-        startRecording={this.props.startRecording}
-        stopRecording={this.props.stopRecording}
+        startRecording={this.startRecording}
+        stopRecording={this.stopRecording}
       />
     );
   }
