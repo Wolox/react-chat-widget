@@ -12,7 +12,7 @@ const Sender = ({ sendMessage, placeholder, disabledInput, autofocus, startRecor
       <img src={send} className="rcw-send-icon" alt="send"  />
     </button>
     <button className="btn" >
-    <img src={micOn} className="rcw-mic-on" alt="speak" onMouseDown={startRecording} onMouseUp={stopRecording}></img>
+    <img src={micOn} className="rcw-mic-on" alt="speak" onMouseDown={cxstartRecording} onMouseUp={stopRecording}></img>
     </button>
   </form>;
 

@@ -28,9 +28,11 @@ class Widget extends Component {
   }
   startRecording = () => {
     console.log('rec start');
+    this.props.startRecording();
   }
   stopRecording = () => {
     console.log('rec stop');
+    this.props.stopRecording();
   }
 
   render() {
