@@ -1,15 +1,14 @@
-@import 'common.scss';
-@import 'variables.scss';
-@import 'animation.scss';
+@import "common.scss";
+@import "variables.scss";
+@import "animation.scss";
 
 .rcw-conversation-container {
   @include animation(0, 0.5s, slide-in);
   border-radius: 10px;
   box-shadow: 0px 2px 10px 1px $grey-3;
 }
-.rcw-mic-on{
-  height: 20px;
-  width: 20px;
+.rcw-mic-icon {
+  height: 25px;
 }
 .rcw-slide-out {
   @include animation(0, 0.5s, slide-out);

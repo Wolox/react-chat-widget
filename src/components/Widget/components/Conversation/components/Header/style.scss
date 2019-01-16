@@ -1,9 +1,9 @@
-@import 'variables.scss';
-@import 'common.scss';
+@import "variables.scss";
+@import "common.scss";
 
 .rcw-conversation-container {
   .rcw-header {
-    background-color: $turqois-1;
+    background-color: $g-red;
     border-radius: 10px 10px 0 0;
     color: $white;
     display: flex;
@@ -32,7 +32,6 @@
 }
 
 .rcw-full-screen {
-
   .rcw-header {
     @include header-fs;
   }

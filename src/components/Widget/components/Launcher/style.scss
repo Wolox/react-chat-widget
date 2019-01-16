@@ -1,11 +1,11 @@
-@import 'common.scss';
-@import 'variables.scss';
-@import 'animation.scss';
+@import "common.scss";
+@import "variables.scss";
+@import "animation.scss";
 
 .rcw-launcher {
   @include animation(0, 0.5s, slide-in);
   align-self: flex-end;
-  background-color: $turqois-1;
+  background-color: $g-red;
   border: 0;
   border-radius: 50%;
   box-shadow: 0px 2px 10px 1px $grey-3;
@@ -27,7 +27,7 @@
   @include animation(0, 0.5s, rotation-lr);
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
   .rcw-launcher {
     @include launcher-fs;
   }

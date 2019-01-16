@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@import "variables.scss";
 
 .rcw-sender {
   align-items: center;
@@ -28,9 +28,13 @@
   .rcw-send-icon {
     height: 25px;
   }
+  .rcw-mic-icon {
+    height: 25px;
+    width: 25px;
+  }
 }
 
-@media screen and (max-width: 800px)  {
+@media screen and (max-width: 800px) {
   .rcw-sender {
     border-radius: 0;
     flex-shrink: 0;

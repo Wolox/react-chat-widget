@@ -1,5 +1,5 @@
-@import 'variables.scss';
-@import 'common.scss';
+@import "variables.scss";
+@import "common.scss";
 
 .rcw-message {
   margin: 10px;
@@ -7,7 +7,7 @@
 }
 
 .rcw-client {
-  @include message-bubble($turqois-2);
+  @include message-bubble($g-red);
   margin-left: auto;
 }
 
@@ -21,10 +21,13 @@
 
 /* For markdown elements created with default styles */
 .rcw-message-text {
-
   p {
     margin: 0;
   }
+}
+
+.rcw-client .rcw-message-text {
+  color: white;
 }
 
 .rcw-avatar {

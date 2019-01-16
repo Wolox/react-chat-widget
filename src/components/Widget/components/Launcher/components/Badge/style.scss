@@ -1,11 +1,11 @@
-@import 'variables.scss';
+@import "variables.scss";
 
 .rcw-launcher {
-  .rcw-badge{
+  .rcw-badge {
     position: fixed;
     top: -10px;
     right: -5px;
-    background-color: $red;
+    background-color: $g-red;
     color: $white;
     width: 25px;
     height: 25px;
