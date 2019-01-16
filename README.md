@@ -8,6 +8,7 @@
 - Plain text message UI
 - Snippet style for links (only as responses for now)
 - Fully customizable
+- Mic button
 - Easy to use
 
 ![demonstration](./assets/chat-demonstration.gif)
@@ -207,6 +208,9 @@ If you want to add new messages, you can use the following methods:
     }
     ```
   - By default, `target` value is `_blank` which will open the link in a new window.
+  - **startRecording**
+   
+  - **stopRecording**
 
 - **renderCustomComponent**
   - params: 
