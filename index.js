@@ -6,6 +6,7 @@ import {
   renderCustomComponent,
   toggleWidget,
   toggleInputDisabled,
+  toggleMsgLoader,
   dropMessages,
   isWidgetOpened
 } from './src/store/dispatcher';
@@ -18,6 +19,7 @@ export {
   renderCustomComponent,
   toggleWidget,
   toggleInputDisabled,
+  toggleMsgLoader,
   dropMessages,
   isWidgetOpened
 };
