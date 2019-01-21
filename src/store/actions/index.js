@@ -26,6 +26,12 @@ export function addResponseMessage(text) {
   };
 }
 
+export function toggleMsgLoader() {
+  return {
+    type: actions.TOGGLE_MSG_LOADER
+  }
+}
+
 export function addLinkSnippet(link) {
   return {
     type: actions.ADD_NEW_LINK_SNIPPET,
