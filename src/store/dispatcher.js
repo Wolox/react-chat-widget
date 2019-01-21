@@ -13,6 +13,10 @@ export function addLinkSnippet(link) {
   store.dispatch(actions.addLinkSnippet(link));
 }
 
+export function toggleMsgLoader() {
+  store.dispatch(actions.toggleMsgLoader());
+}
+
 export function renderCustomComponent(component, props, showAvatar = false) {
   store.dispatch(actions.renderCustomComponent(component, props, showAvatar));
 }
