@@ -1,26 +1,4 @@
 @import 'variables.scss';
-@import 'common.scss';
-
-.rcw-messages-container {
-  background-color: $white;
-  height: 50vh;
-  max-height: 410px;
-  overflow-y: scroll;
-  padding-top: 10px;
-}
-
-.rcw-full-screen {
-
-  .rcw-messages-container {
-    @include messages-container-fs;
-  }
-}
-
-@media screen and (max-width: 800px)  {
-  .rcw-messages-container {
-    @include messages-container-fs;
-  }
-}
 
 .loader {
   margin: 10px;
