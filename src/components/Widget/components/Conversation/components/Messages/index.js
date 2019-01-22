@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { hideAvatar } from '@actions';
 
+import Loader from './components/Loader';
 import './styles.scss';
 
 const scrollToBottom = () => {
@@ -50,13 +51,7 @@ class Messages extends Component {
             {this.getComponentToRender(message)}
           </div>
         )}
-        <div className={`loader ${typping && 'active'}`}>
-          <div className="loader-container">
-            <span className="loader-dots"></span>
-            <span className="loader-dots"></span>
-            <span className="loader-dots"></span>
-          </div>
-        </div>
+        <Loader typping={typping} />
       </div>
     );
   }
