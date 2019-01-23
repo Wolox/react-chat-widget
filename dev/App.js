@@ -6,15 +6,16 @@ export default class App extends Component {
   }
 
   handleNewUserMessage = (newMessage) => {
-    if (newMessage === 'opciones') {
-      setQuickButtons([ { label: 'Example', value: 'example' } ]);
+    if (newMessage === 'fruits') {
+      setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' } ]);
     } else {
       addResponseMessage(newMessage);
     }
   }
 
   handleQuickButtonClicked = (e) => {
-    console.log(e);
+    addResponseMessage('Selected ' + e);
+    setQuickButtons([]);
   }
 
   render() {
