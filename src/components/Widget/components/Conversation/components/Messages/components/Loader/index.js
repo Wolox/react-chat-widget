@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const Loader = props => 
-<div className={`loader ${props.typping && 'active'}`}>
+<div className={`loader ${props.typing && 'active'}`}>
   <div className="loader-container">
     <span className="loader-dots"></span>
     <span className="loader-dots"></span>
@@ -13,7 +13,7 @@ const Loader = props =>
 </div>;
 
 Loader.propTypes = {
-  typping: PropTypes.bool,
+  typing: PropTypes.bool,
 };
 
 export default Loader; 
