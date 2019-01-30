@@ -7,7 +7,7 @@ import Sender from './components/Sender';
 import './style.scss';
 
 const Conversation = props =>
-  <div className="rcw-conversation-container">
+  <div className={`rcw-conversation-container ${props.className}`}>
     <Header
       title={props.title}
       subtitle={props.subtitle}
