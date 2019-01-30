@@ -7,7 +7,7 @@ export default class App extends Component {
 
   handleNewUserMessage = (newMessage) => {
     if (newMessage === 'fruits') {
-      setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' } ]);
+      setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' } ]);
     } else {
       addResponseMessage(newMessage);
     }

@@ -9,6 +9,7 @@ class QuickButtons extends Component {
     super(props)
     this.getComponentToRender = this.getComponentToRender.bind(this);
   }
+
   getComponentToRender(button) {
     const ComponentToRender = button.get('component');
     return (
@@ -18,8 +19,9 @@ class QuickButtons extends Component {
       />
     );
   }
+
   render() {
-    if (this.props.buttons.size === 0) {
+    if (!this.props.buttons.size) {
       return null;
     }
 
@@ -28,7 +30,7 @@ class QuickButtons extends Component {
         <ul className="quick-buttons">
           {
             this.props.buttons.map((button, index) =>
-              <li key={index}>
+              <li className="quick-list-button" key={index}>
                 {this.getComponentToRender(button)}
               </li>
             )
