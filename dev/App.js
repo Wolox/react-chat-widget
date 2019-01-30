@@ -14,6 +14,11 @@ export default class App extends Component {
     }, 2000);
   }
 
+  handleOnChangeMessage = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+  }
+
   render() {
     return (
       <Widget
@@ -21,6 +26,7 @@ export default class App extends Component {
         subtitle="Asistente virtual"
         senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}
+        handleOnChangeMessage={this.handleOnChangeMessage}
         badge={1}
       />
     );
