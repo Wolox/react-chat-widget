@@ -6,6 +6,7 @@ import {
   renderCustomComponent,
   toggleWidget,
   toggleInputDisabled,
+  toggleMsgLoader,
   dropMessages,
   isWidgetOpened,
   setQuickButtons
@@ -19,6 +20,7 @@ export {
   renderCustomComponent,
   toggleWidget,
   toggleInputDisabled,
+  toggleMsgLoader,
   dropMessages,
   isWidgetOpened,
   setQuickButtons
