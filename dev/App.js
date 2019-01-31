@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Widget, addUserMessage, toggleMsgLoader } from '../index';
+import { Widget, addUserMessage } from '../index';
 
 export default class App extends Component {
   componentDidMount() {
@@ -7,11 +7,7 @@ export default class App extends Component {
   }
 
   handleNewUserMessage = (newMessage) => {
-    toggleMsgLoader();
-    setTimeout(() => {
-      toggleMsgLoader();
-      addUserMessage(newMessage);
-    }, 2000);
+    addUserMessage(newMessage);
   }
 
   render() {
