@@ -26,12 +26,20 @@ class Widget extends Component {
     event.target.message.value = '';
   }
 
+  handleQuickButtonClicked = (event, value) => {
+    event.preventDefault();
+
+    if(this.props.handleQuickButtonClicked) {
+      this.props.handleQuickButtonClicked(value);
+    }
+  }
 
   render() {
     return (
       <WidgetLayout
         onToggleConversation={this.toggleConversation}
         onSendMessage={this.handleMessageSubmit}
+        onQuickButtonClicked={this.handleQuickButtonClicked}
         title={this.props.title}
         titleAvatar={this.props.titleAvatar}
         subtitle={this.props.subtitle}
@@ -52,6 +60,7 @@ Widget.propTypes = {
   titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
+  handleQuickButtonClicked: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,

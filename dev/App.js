@@ -6,8 +6,14 @@ export default class App extends Component {
     addResponseMessage('Welcome to this awesome chat!');
   }
 
+
   handleNewUserMessage = (newMessage) => {
     addUserMessage(newMessage);
+  }
+
+  handleQuickButtonClicked = (e) => {
+    addResponseMessage('Selected ' + e);
+    setQuickButtons([]);
   }
 
   render() {
@@ -17,6 +23,7 @@ export default class App extends Component {
         subtitle="Asistente virtual"
         senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}
+        handleQuickButtonClicked={this.handleQuickButtonClicked}
         badge={1}
       />
     );
