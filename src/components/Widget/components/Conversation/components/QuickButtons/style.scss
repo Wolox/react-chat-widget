@@ -1,0 +1,24 @@
+@import "variables.scss";
+
+.quick-buttons-container {
+  background: $white;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
+
+  .quick-buttons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    .quick-list-button {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    padding-bottom: 15px;
+  }
+}
