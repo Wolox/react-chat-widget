@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Widget, addResponseMessage, toggleMsgLoader } from '../index';
+import { Widget, addUserMessage, toggleMsgLoader } from '../index';
 
 export default class App extends Component {
   componentDidMount() {
@@ -10,7 +10,7 @@ export default class App extends Component {
     toggleMsgLoader();
     setTimeout(() => {
       toggleMsgLoader();
-      addResponseMessage(newMessage);
+      addUserMessage(newMessage);
     }, 2000);
   }
 
