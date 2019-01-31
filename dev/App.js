@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader } from '../index';
+import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addUserMessage} from '../index';
 
 export default class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
   }
 
-  handleNewUserMessage = (newMessage) => {    
+  handleNewUserMessage = (newMessage) => { 
+    addUserMessage(newMessage);
     toggleMsgLoader();
     setTimeout(() => {
       toggleMsgLoader();      
@@ -31,6 +32,7 @@ export default class App extends Component {
         senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}
         handleQuickButtonClicked={this.handleQuickButtonClicked}
+        defaultUserMessage={false}
         badge={1}
       />
     );
