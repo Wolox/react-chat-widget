@@ -21,7 +21,6 @@ class Widget extends Component {
     event.preventDefault();
     const userInput = event.target.message.value;
     if (userInput.trim()) {
-      this.props.dispatch(addUserMessage(userInput));
       this.props.handleNewUserMessage(userInput);
     }
     event.target.message.value = '';
