@@ -1,5 +1,5 @@
-@import "variables.scss";
-@import "common.scss";
+@import 'variables.scss';
+@import 'common.scss';
 
 .rcw-conversation-container {
   .rcw-header {
@@ -8,8 +8,8 @@
     color: $white;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    padding: 15px 0 25px;
+    text-align: left;
+    padding: 10px 5px 5px 10px;
   }
 
   .rcw-title {
@@ -23,8 +23,8 @@
   }
 
   .avatar {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     border-radius: 100%;
     margin-right: 10px;
     vertical-align: middle;

@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import 'variables.scss';
 
 .rcw-sender {
   align-items: center;
@@ -33,7 +33,14 @@
     width: 25px;
   }
 }
-
+.rcw-send:focus {
+  outline: none;
+  box-shadow: 0 0 0 0;
+}
+.rcw-send:active img {
+  filter: invert(10%) grayscale(100%) brightness(375%) sepia(100%)
+    hue-rotate(310deg) saturate(302%) contrast(5);
+}
 @media screen and (max-width: 800px) {
   .rcw-sender {
     border-radius: 0;

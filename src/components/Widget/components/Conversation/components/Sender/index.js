@@ -13,29 +13,32 @@ const Sender = ({
   startRecording,
   stopRecording
 }) => (
-  <form className="rcw-sender" onSubmit={sendMessage}>
-    <input
-      type="text"
-      className="rcw-new-message"
-      name="message"
-      placeholder={placeholder}
-      disabled={disabledInput}
-      autoFocus={autofocus}
-      autoComplete="off"
-    />
+    <form className="rcw-sender" onSubmit={sendMessage}>
+      <input
+        type="text"
+        className="rcw-new-message"
+        name="message"
+        placeholder={placeholder}
+        disabled={disabledInput}
+        autoFocus={autofocus}
+        autoComplete="off"
+        onDrop={event.preventDefault}
+        onDropOver={event.preventDefault}
+        onD
+      />
 
-    <button
-      className="rcw-send"
-      onMouseDown={startRecording}
-      onMouseUp={stopRecording}
-    >
-      <img src={micOn} className="rcw-mic-icon" alt="speak" />
-    </button>
-    <button type="submit" className="rcw-send">
-      <img src={send} className="rcw-send-icon" alt="send" />
-    </button>
-  </form>
-);
+      <button
+        className="rcw-send"
+        onMouseDown={startRecording}
+        onMouseUp={stopRecording}
+      >
+        <img src={micOn} className="rcw-mic-icon" alt="speak" />
+      </button>
+      <button type="submit" className="rcw-send">
+        <img src={send} className="rcw-send-icon" alt="send" />
+      </button>
+    </form>
+  );
 
 Sender.propTypes = {
   sendMessage: PropTypes.func,
