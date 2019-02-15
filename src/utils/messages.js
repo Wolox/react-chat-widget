@@ -3,6 +3,7 @@ import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '@co
 
 import Message from '@messagesComponents/Message';
 import Snippet from '@messagesComponents/Snippet';
+import QuickButton from '@quickButtonsComponents/QuickButton';
 
 export function createNewMessage(text, sender) {
   return Map({
@@ -78,4 +79,13 @@ export function scrollToBottom(messagesDiv) {
   const scrollOffset = messagesDiv.scrollHeight - (scrollTop + screenHeight)
 
   scrollOffset && scrollWithSlowMotion(messagesDiv, scrollTop, scrollOffset);
+}
+
+
+export function createQuickButton(button) {
+  return Map({
+    component: QuickButton,
+    label: button.label,
+    value: button.value
+  });
 }

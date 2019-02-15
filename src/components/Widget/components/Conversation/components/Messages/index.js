@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { hideAvatar } from '@actions';
 import { scrollToBottom } from '@utils/messages';
 
+import Loader from './components/Loader';
 import './styles.scss';
 
 class Messages extends Component {
@@ -36,7 +37,7 @@ class Messages extends Component {
   }
 
   render() {
-    const { messages, profileAvatar } = this.props;
+    const { messages, profileAvatar, typing } = this.props;
     return (
       <div id="messages" className="rcw-messages-container" ref={msg => this.$message = msg}>
         {messages.map((message, index) =>
@@ -48,6 +49,7 @@ class Messages extends Component {
             {this.getComponentToRender(message)}
           </div>
         )}
+        <Loader typing={typing} />
       </div>
     );
   }
@@ -59,5 +61,6 @@ Messages.propTypes = {
 };
 
 export default connect(store => ({
-  messages: store.messages
+  messages: store.messages,
+  typing: store.behavior.get('msgLoader')
 }))(Messages);

@@ -1,0 +1,49 @@
+@import 'variables.scss';
+
+.loader {
+  margin: 10px;
+  display: none;
+
+  &.active {
+    display: flex;
+  }
+}
+
+.loader-container {
+  background-color: $grey-2;
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 215px;
+  text-align: left;
+}
+
+.loader-dots {
+  display: inline-block;
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background: $grey-0;
+  margin-right: 2px;
+  animation: bounce 0.5s ease infinite alternate;
+
+  &:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(5px); 
+  }
+}
