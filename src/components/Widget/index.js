@@ -20,11 +20,19 @@ class Widget extends Component {
   handleMessageSubmit = (event) => {
     event.preventDefault();
     const userInput = event.target.message.value;
-    if (userInput) {
+    if (userInput.trim()) {
       this.props.dispatch(addUserMessage(userInput));
       this.props.handleNewUserMessage(userInput);
     }
     event.target.message.value = '';
+  }
+
+  handleQuickButtonClicked = (event, value) => {
+    event.preventDefault();
+
+    if (this.props.handleQuickButtonClicked) {
+      this.props.handleQuickButtonClicked(value);
+    }
   }
   startRecording = () => {
     console.log('rec start');
@@ -40,6 +48,7 @@ class Widget extends Component {
       <WidgetLayout
         onToggleConversation={this.toggleConversation}
         onSendMessage={this.handleMessageSubmit}
+        onQuickButtonClicked={this.handleQuickButtonClicked}
         title={this.props.title}
         titleAvatar={this.props.titleAvatar}
         subtitle={this.props.subtitle}
@@ -62,6 +71,7 @@ Widget.propTypes = {
   titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
+  handleQuickButtonClicked: PropTypes.func.isRequired,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,
