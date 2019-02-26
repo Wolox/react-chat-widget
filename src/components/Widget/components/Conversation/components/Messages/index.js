@@ -4,23 +4,21 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { hideAvatar } from '@actions';
+import { scrollToBottom } from '@utils/messages';
 
 import Loader from './components/Loader';
 import './styles.scss';
 
-const scrollToBottom = () => {
-  const messagesDiv = document.getElementById('messages');
-  if (messagesDiv) messagesDiv.scrollTop = messagesDiv.scrollHeight;
-};
-
 class Messages extends Component {
   componentDidMount() {
-    scrollToBottom();
+    scrollToBottom(this.$message);
   }
 
   componentDidUpdate() {
-    scrollToBottom();
+    scrollToBottom(this.$message);
   }
+
+  $message = null
 
   getComponentToRender = message => {
     const ComponentToRender = message.get('component');
@@ -41,7 +39,7 @@ class Messages extends Component {
   render() {
     const { messages, profileAvatar, typing } = this.props;
     return (
-      <div id="messages" className="rcw-messages-container">
+      <div id="messages" className="rcw-messages-container" ref={msg => this.$message = msg}>
         {messages.map((message, index) =>
           <div className="rcw-message" key={index}>
             {profileAvatar &&
