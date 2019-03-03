@@ -4,6 +4,7 @@
 .rcw-message {
   margin: 10px;
   display: flex;
+  word-wrap: break-word;
 }
 
 .rcw-client {
@@ -13,10 +14,6 @@
 
 .rcw-response {
   @include message-bubble($grey-2);
-}
-
-.rcw-message {
-  font-size: 14px;
 }
 
 /* For markdown elements created with default styles */
