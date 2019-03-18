@@ -40,3 +40,5 @@ export const PROP_TYPES = {
     ])
   })
 };
+
+export const MESSAGE_BOX_SCROLL_DURATION = 400;
