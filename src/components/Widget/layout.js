@@ -1,16 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
 import './style.scss';
-
 const WidgetLayout = props => (
   <div
     className={`rcw-widget-container ${
       props.fullScreenMode ? 'rcw-full-screen' : ''
-    } ${props.showChat ? 'rcw-opened' : ''}`}
+      } ${props.showChat ? 'rcw-opened' : ''}`}
+    style={{ zIndex: '110' }}
   >
     {props.showChat && (
       <Conversation
@@ -33,8 +32,8 @@ const WidgetLayout = props => (
     {props.customLauncher
       ? props.customLauncher(props.onToggleConversation)
       : !props.fullScreenMode && (
-          <Launcher toggle={props.onToggleConversation} badge={props.badge} />
-        )}
+        <Launcher toggle={props.onToggleConversation} badge={props.badge} />
+      )}
   </div>
 );
 

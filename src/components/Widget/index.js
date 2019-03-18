@@ -15,6 +15,7 @@ class Widget extends Component {
 
   toggleConversation = () => {
     this.props.dispatch(toggleChat());
+    this.props.customToggleCallback();
   }
 
   handleMessageSubmit = (event) => {
@@ -61,6 +62,7 @@ class Widget extends Component {
         customLauncher={this.props.customLauncher}
         startRecording={this.startRecording}
         stopRecording={this.stopRecording}
+        customToggleCallback={() => this.props.customToggleCallback()}
       />
     );
   }
@@ -78,7 +80,8 @@ Widget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  customLauncher: PropTypes.func
+  customLauncher: PropTypes.func,
+  customToggleCallback: PropTypes.func,
 };
 
 export default connect()(Widget);

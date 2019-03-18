@@ -2,13 +2,14 @@
 @import 'common.scss';
 
 .rcw-conversation-container {
+  z-index: 110;
   .rcw-header {
     background-color: $g-red;
     border-radius: 10px 10px 0 0;
     color: $white;
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
     padding: 10px 5px 5px 10px;
   }
 
@@ -16,15 +17,17 @@
     font-size: 24px;
     margin: 0;
     padding: 15px 0;
+    color: $white;
   }
 
   .rcw-close-button {
     display: none;
+    z-index: 110;
   }
 
   .avatar {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 24px;
     border-radius: 100%;
     margin-right: 10px;
     vertical-align: middle;

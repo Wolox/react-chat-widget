@@ -38,8 +38,8 @@ ConnectedWidget.propTypes = {
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
   launcher: PropTypes.func,
-  stopRecording:PropTypes.func,
-  startRecording:PropTypes.func
+  stopRecording: PropTypes.func,
+  startRecording: PropTypes.func
 };
 
 ConnectedWidget.defaultProps = {

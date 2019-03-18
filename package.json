@@ -1,6 +1,6 @@
 {
   "name": "react-chat-widget-mic",
-  "version": "2.1.4-15",
+  "version": "2.1.4-25",
   "description": "Chat widget with mic for React apps",
   "main": "lib/index.js",
   "repository": "git@github.com:insidero/react-chat-widget.git",
