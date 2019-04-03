@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader } from '../index';
-=======
 import { Widget, addResponseMessage } from '../index';
 import logo from "@assets/airaLogo.png";
 
->>>>>>> a5e03bea88f0995d564606041e356323c6800c18
 
 export default class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
   }
 
-  handleNewUserMessage = (newMessage) => {    
+  handleNewUserMessage = (newMessage) => {
     toggleMsgLoader();
     setTimeout(() => {
-      toggleMsgLoader();      
+      toggleMsgLoader();
       if (newMessage === 'fruits') {
-        setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' } ]);
+        setQuickButtons([{ label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' }]);
       } else {
         addResponseMessage(newMessage);
       }

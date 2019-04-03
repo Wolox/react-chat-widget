@@ -3,18 +3,6 @@
 @import "animation.scss";
 
 .rcw-launcher {
-<<<<<<< HEAD
-  @include animation(0, 0.5s, slide-in);
-  align-self: flex-end;
-  background-color: $g-red;
-  border: 0;
-  border-radius: 50%;
-  box-shadow: 0px 2px 10px 1px $grey-3;
-  height: 60px;
-  margin-top: 10px;
-  width: 60px;
-  z-index: 110;
-=======
     background: linear-gradient(44deg, #e32c2c, #ea5b3d);
     border: 0px;
     border-radius: 25px;
@@ -34,7 +22,6 @@
     margin-right: 7px;
    }
 
->>>>>>> a5e03bea88f0995d564606041e356323c6800c18
   &:focus {
     outline: none;
   }

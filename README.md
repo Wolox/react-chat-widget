@@ -164,12 +164,8 @@ export default App;
 |**badge**|PropTypes.number|NO|0|Display a notification badge on the launcher if the value is greater than 0|
 |**autofocus**|PropTypes.bool|NO|true|Autofocus or not the user input|
 |**launcher**|PropTypes.func|NO||Custom Launcher component to use instead of the default|
-<<<<<<< HEAD
-|**handleQuickButtonClicked**|PropTypes.func|NO||Function to handle the user clicking a quick button, will receive the 'value' when clicked.|
-=======
 |**startRecording**|PropTypes.func|NO||Initiated when the users presses and holds the mic button|
 |**stopRecording**|PropTypes.func|NO||Initiated when the mic button is released|
->>>>>>> a5e03bea88f0995d564606041e356323c6800c18
 
 #### Styles
 
