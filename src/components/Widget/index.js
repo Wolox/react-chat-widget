@@ -18,6 +18,7 @@ class Widget extends Component {
     this.props.customToggleCallback();
   }
 
+<<<<<<< HEAD
   handleMessageSubmit = (event) => {
     event.preventDefault();
     const userInput = event.target.message.value;
@@ -35,6 +36,26 @@ class Widget extends Component {
       this.props.handleQuickButtonClicked(value);
     }
   }
+=======
+  // handleMessageSubmit = (event) => {
+  //   event.preventDefault();
+  //   const userInput = event.target.message.value;
+  //   if (userInput) {
+  //     this.props.dispatch(addUserMessage(userInput));
+  //     this.props.handleNewUserMessage(userInput);
+  //   }
+  //   event.target.message.value = '';
+  // }
+
+  handleMessageSubmit = (message) => {
+    const { dispatch, handleNewUserMessage } = this.props
+    // console.log('MESSAGE TO SEND IS: ', message)
+    dispatch(addUserMessage(message))
+    handleNewUserMessage(message)
+    
+  }
+
+>>>>>>> a5e03bea88f0995d564606041e356323c6800c18
   startRecording = () => {
     console.log('rec start');
     this.props.startRecording();

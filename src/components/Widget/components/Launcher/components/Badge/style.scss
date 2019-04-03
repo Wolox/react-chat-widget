@@ -2,10 +2,11 @@
 
 .rcw-launcher {
   .rcw-badge {
-    position: fixed;
+    position: absolute;
     top: -10px;
     right: -5px;
-    background-color: $g-red;
+    // background-color: $g-red;
+    background: linear-gradient(71deg, #e32c2c, #ea5b3d);
     color: $white;
     width: 25px;
     height: 25px;
@@ -13,5 +14,10 @@
     line-height: 25px;
     border-radius: 50%;
     z-index: 111;
+  }
+}
+.rcw-opened{
+  .rcw-badge {
+    opacity: 0;
   }
 }

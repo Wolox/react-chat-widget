@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader } from '../index';
+=======
+import { Widget, addResponseMessage } from '../index';
+import logo from "@assets/airaLogo.png";
+
+>>>>>>> a5e03bea88f0995d564606041e356323c6800c18
 
 export default class App extends Component {
   componentDidMount() {
@@ -26,9 +32,9 @@ export default class App extends Component {
   render() {
     return (
       <Widget
-        title="Bienvenido"
-        subtitle="Asistente virtual"
-        senderPlaceHolder="Escribe aquí ..."
+        title="Aira is here to assist you. Feel free to reach out!"
+        titleAvatar={logo}
+        subtitle=""
         handleNewUserMessage={this.handleNewUserMessage}
         handleQuickButtonClicked={this.handleQuickButtonClicked}
         badge={1}

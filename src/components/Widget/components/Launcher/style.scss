@@ -3,6 +3,7 @@
 @import "animation.scss";
 
 .rcw-launcher {
+<<<<<<< HEAD
   @include animation(0, 0.5s, slide-in);
   align-self: flex-end;
   background-color: $g-red;
@@ -13,13 +14,46 @@
   margin-top: 10px;
   width: 60px;
   z-index: 110;
+=======
+    background: linear-gradient(44deg, #e32c2c, #ea5b3d);
+    border: 0px;
+    border-radius: 25px;
+    color: #fff;
+    padding: 9px 30px;
+    box-shadow: 0 3px 9px -3px rgba(0, 0, 0, 0.5);
+
+    span{
+      span{
+          position: relative;
+          top: -7px;
+          font-size: 13px;
+        }
+    }
+   img{
+        width: 25px;
+    margin-right: 7px;
+   }
+
+>>>>>>> a5e03bea88f0995d564606041e356323c6800c18
   &:focus {
     outline: none;
   }
 }
 
+button.rcw-launcher.rcw-hide-sm {
+    width: 60px;
+    display: inline-block;
+    position: relative;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 13px 2px 10px 10px;
+    left: 85%;
+}
+
 .rcw-open-launcher {
   @include animation(0, 0.5s, rotation-rl);
+  
 }
 
 .rcw-close-launcher {
@@ -30,6 +64,7 @@
 @media screen and (max-width: 800px) {
   .rcw-launcher {
     @include launcher-fs;
+
   }
 
   .rcw-hide-sm {
