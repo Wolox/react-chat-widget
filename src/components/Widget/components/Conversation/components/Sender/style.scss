@@ -2,10 +2,11 @@
 
 .rcw-sender {
   align-items: center;
-  display: flex;
-  background-color: $grey-2;
   height: 45px;
+  position: relative;
   padding: 5px;
+  padding-right: 95px;
+  padding-left: 11px;
   border-radius: 0 0 10px 10px;
 }
 
@@ -13,8 +14,10 @@
   width: 100%;
   border: 0;
   background-color: $grey-2;
-  height: 30px;
+  height: 35px;
   padding-left: 15px;
+  border-radius: 35px;
+  border: 1px solid #ddd;
 
   &:focus {
     outline: none;
@@ -29,17 +32,59 @@
     height: 25px;
   }
   .rcw-mic-icon {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
+    filter: brightness(0) invert(1);
   }
 }
 .rcw-send:focus {
   outline: none;
   box-shadow: 0 0 0 0;
 }
+
+.rcw-send .rcw-send-icon {
+    height: 18px;
+    filter: brightness(0) invert(1);
+    margin: auto;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+
 .rcw-send:active img {
-  filter: invert(10%) grayscale(100%) brightness(375%) sepia(100%)
-    hue-rotate(310deg) saturate(302%) contrast(5);
+  // filter: invert(10%) grayscale(100%) brightness(375%) sepia(100%)
+  //   hue-rotate(310deg) saturate(302%) contrast(5);
+  filter: brightness(0) invert(1);
+}
+.rcw-conversation-container .rcw-header {
+    background: linear-gradient(44deg,#e32c2c ,#ea5b3d);
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center;
+    padding: 42px 25px 25px 15px;
+}
+button.rcw-send.sendButtonStyle {
+    background: linear-gradient(18deg ,#00d8d4,#00ef70) !important;
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+    border-radius: 50%;
+    -webkit-transition: 0.4s;
+    transition: 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    display: inline-block;
+    position: absolute;
+    right: 22px;
+    top: 5px;
+    z-index: 1;
+}
+.sendButtonStyle:active{
+  width: 56px !important;
+  height: 56px !important;
+  top: -5px !important;
+  right: 18px !important;
 }
 @media screen and (max-width: 800px) {
   .rcw-sender {

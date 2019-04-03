@@ -17,15 +17,24 @@ class Widget extends Component {
     this.props.dispatch(toggleChat());
   }
 
-  handleMessageSubmit = (event) => {
-    event.preventDefault();
-    const userInput = event.target.message.value;
-    if (userInput) {
-      this.props.dispatch(addUserMessage(userInput));
-      this.props.handleNewUserMessage(userInput);
-    }
-    event.target.message.value = '';
+  // handleMessageSubmit = (event) => {
+  //   event.preventDefault();
+  //   const userInput = event.target.message.value;
+  //   if (userInput) {
+  //     this.props.dispatch(addUserMessage(userInput));
+  //     this.props.handleNewUserMessage(userInput);
+  //   }
+  //   event.target.message.value = '';
+  // }
+
+  handleMessageSubmit = (message) => {
+    const { dispatch, handleNewUserMessage } = this.props
+    // console.log('MESSAGE TO SEND IS: ', message)
+    dispatch(addUserMessage(message))
+    handleNewUserMessage(message)
+    
   }
+
   startRecording = () => {
     console.log('rec start');
     this.props.startRecording();

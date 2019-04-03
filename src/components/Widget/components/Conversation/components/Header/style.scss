@@ -1,6 +1,12 @@
 @import 'variables.scss';
 @import 'common.scss';
 
+$fontName : productsans;
+@font-face {
+  font-family: productsans;
+  src: url('/assets/Product-Sans-Regular.ttf');
+}
+
 .rcw-conversation-container {
   .rcw-header {
     background-color: $g-red;
@@ -8,14 +14,19 @@
     color: $white;
     display: flex;
     flex-direction: column;
-    text-align: left;
-    padding: 10px 5px 5px 10px;
+    text-align: center;
+    padding: 42px 25px 5px 15px !important;
+  
   }
 
   .rcw-title {
-    font-size: 24px;
+    font-size: 20px;
     margin: 0;
-    padding: 15px 0;
+    width: 80%;
+    padding: 11px 0;
+    margin: auto;
+    
+  font-family: GoogleSans, Helvetica, Arial, sans-serif;
   }
 
   .rcw-close-button {
@@ -29,6 +40,13 @@
     margin-right: 10px;
     vertical-align: middle;
   }
+}
+img.avatar {
+    position: absolute;
+    width: 100px !important;
+    height: 100px !important;
+    top: -49px;
+    left: 132px;
 }
 
 .rcw-full-screen {
