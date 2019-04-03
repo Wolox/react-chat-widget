@@ -1,14 +1,21 @@
 @import 'variables.scss';
 @import 'common.scss';
 
+$fontName : productsans;
+@font-face {
+  font-family: $fontName;
+  src: url('/assets/Product-Sans-Regular.ttf');
+}
 .rcw-message {
   margin: 10px;
   display: flex;
   word-break: break-word;
+   font-family: $fontName;
 }
 
 .rcw-client {
   @include message-bubble($g-red);
+  background: -webkit-linear-gradient(-29deg, #00d8d4, #00ef70) !important;
   margin-left: auto;
 }
 
@@ -22,13 +29,17 @@
 
 /* For markdown elements created with default styles */
 .rcw-message-text {
+  font-family: GoogleSans, Helvetica, Arial, sans-serif;
   p {
     margin: 0;
   }
+   
 }
 
 .rcw-client .rcw-message-text {
   color: white;
+  font-family: GoogleSans, Helvetica, Arial, sans-serif;
+
 }
 
 .rcw-avatar {

@@ -1,5 +1,10 @@
 @import 'animation.scss';
 @import 'common.scss';
+$fontName : productsans;
+@font-face {
+  font-family: $fontName;
+  src: url('/assets/Product-Sans-Regular.ttf');
+}
 
 .rcw-widget-container {
   bottom: 0;
@@ -10,6 +15,7 @@
   position: fixed;
   right: 0;
   z-index: 9999 !important;
+    font-family: $fontName;
 }
 
 .rcw-opened {
