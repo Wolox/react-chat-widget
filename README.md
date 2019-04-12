@@ -1,4 +1,4 @@
-# react-chat-widget
+# react-chat-widget-mic
 [![circle-ci](https://img.shields.io/circleci/project/github/Wolox/react-chat-widget.svg)](https://circleci.com/gh/Wolox/react-chat-widget)
 [![npm](https://img.shields.io/npm/v/react-chat-widget.svg)](https://www.npmjs.com/package/react-chat-widget)
 
@@ -8,9 +8,11 @@
 - Plain text message UI
 - Snippet style for links (only as responses for now)
 - Fully customizable
+- Mic button
 - Easy to use
 
 ![demonstration](./assets/chat-demonstration.gif)
+
 
 ## Installation
 
@@ -162,7 +164,8 @@ export default App;
 |**badge**|PropTypes.number|NO|0|Display a notification badge on the launcher if the value is greater than 0|
 |**autofocus**|PropTypes.bool|NO|true|Autofocus or not the user input|
 |**launcher**|PropTypes.func|NO||Custom Launcher component to use instead of the default|
-|**handleQuickButtonClicked**|PropTypes.func|NO||Function to handle the user clicking a quick button, will receive the 'value' when clicked.|
+|**startRecording**|PropTypes.func|NO||Initiated when the users presses and holds the mic button|
+|**stopRecording**|PropTypes.func|NO||Initiated when the mic button is released|
 
 #### Styles
 
@@ -208,6 +211,9 @@ If you want to add new messages, you can use the following methods:
     }
     ```
   - By default, `target` value is `_blank` which will open the link in a new window.
+  - **startRecording**
+   
+  - **stopRecording**
 
 - **renderCustomComponent**
   - params: 

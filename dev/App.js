@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader } from '../index';
+import { Widget, addResponseMessage } from '../index';
+import logo from "@assets/airaLogo.png";
+
 
 export default class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
   }
 
-  handleNewUserMessage = (newMessage) => {    
+  handleNewUserMessage = (newMessage) => {
     toggleMsgLoader();
     setTimeout(() => {
-      toggleMsgLoader();      
+      toggleMsgLoader();
       if (newMessage === 'fruits') {
-        setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' } ]);
+        setQuickButtons([{ label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' }]);
       } else {
         addResponseMessage(newMessage);
       }
@@ -26,9 +28,9 @@ export default class App extends Component {
   render() {
     return (
       <Widget
-        title="Bienvenido"
-        subtitle="Asistente virtual"
-        senderPlaceHolder="Escribe aquí ..."
+        title="Aira is here to assist you. Feel free to reach out!"
+        titleAvatar={logo}
+        subtitle=""
         handleNewUserMessage={this.handleNewUserMessage}
         handleQuickButtonClicked={this.handleQuickButtonClicked}
         badge={1}

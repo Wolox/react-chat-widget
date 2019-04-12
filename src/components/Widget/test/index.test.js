@@ -11,13 +11,14 @@ configure({ adapter: new Adapter() });
 describe('<Widget />', () => {
   const profile = assetMock;
   const handleUserMessage = jest.fn();
+  const handleQuickButtonClicked = jest.fn();
   const newMessageEvent = {
     target: {
       message: {
         value: 'New message'
       }
     },
-    preventDefault() {}
+    preventDefault() { }
   };
   const dispatch = jest.fn();
 
@@ -26,6 +27,7 @@ describe('<Widget />', () => {
       handleNewUserMessage={handleUserMessage}
       profileAvatar={profile}
       dispatch={dispatch}
+      handleQuickButtonClicked={handleQuickButtonClicked}
     />
   );
 
