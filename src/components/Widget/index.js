@@ -17,7 +17,7 @@ class Widget extends Component {
     this.props.dispatch(toggleChat());
   }
 
-  handleMessageSubmit = (event) => {
+  handleMessageSubmit = event => {
     event.preventDefault();
     const userInput = event.target.message.value;
     if (userInput.trim()) {
@@ -30,7 +30,7 @@ class Widget extends Component {
   handleQuickButtonClicked = (event, value) => {
     event.preventDefault();
 
-    if(this.props.handleQuickButtonClicked) {
+    if (this.props.handleQuickButtonClicked) {
       this.props.handleQuickButtonClicked(value);
     }
   }
@@ -41,6 +41,7 @@ class Widget extends Component {
         onToggleConversation={this.toggleConversation}
         onSendMessage={this.handleMessageSubmit}
         onQuickButtonClicked={this.handleQuickButtonClicked}
+        chatId={this.props.chatId}
         title={this.props.title}
         titleAvatar={this.props.titleAvatar}
         subtitle={this.props.subtitle}
@@ -51,12 +52,15 @@ class Widget extends Component {
         badge={this.props.badge}
         autofocus={this.props.autofocus}
         customLauncher={this.props.customLauncher}
+        launcherOpenLabel={this.props.launcherOpenLabel}
+        launcherCloseLabel={this.props.launcherCloseLabel}
       />
     );
   }
 }
 
 Widget.propTypes = {
+  chatId: PropTypes.string,
   title: PropTypes.string,
   titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
@@ -68,7 +72,9 @@ Widget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  customLauncher: PropTypes.func
+  customLauncher: PropTypes.func,
+  launcherOpenLabel: PropTypes.string,
+  launcherCloseLabel: PropTypes.string,
 };
 
 export default connect()(Widget);

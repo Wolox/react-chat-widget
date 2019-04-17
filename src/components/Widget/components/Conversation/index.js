@@ -8,7 +8,9 @@ import QuickButtons from './components/QuickButtons';
 import './style.scss';
 
 const Conversation = props =>
-  <div className="rcw-conversation-container">
+  <div className="rcw-conversation-container"
+       aria-live="polite"
+       id={props.chatId}>
     <Header
       title={props.title}
       subtitle={props.subtitle}
@@ -29,6 +31,7 @@ const Conversation = props =>
   </div>;
 
 Conversation.propTypes = {
+  chatId: PropTypes.string,
   title: PropTypes.string,
   titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,

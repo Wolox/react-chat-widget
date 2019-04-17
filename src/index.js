@@ -8,6 +8,7 @@ import store from '../src/store/store';
 const ConnectedWidget = props =>
   <Provider store={store}>
     <Widget
+      chatId={props.chatId}
       title={props.title}
       titleAvatar={props.titleAvatar}
       subtitle={props.subtitle}
@@ -20,10 +21,13 @@ const ConnectedWidget = props =>
       badge={props.badge}
       autofocus={props.autofocus}
       customLauncher={props.launcher}
+      launcherOpenLabel={props.launcherOpenLabel}
+      launcherCloseLabel={props.launcherCloseLabel}
     />
   </Provider>;
 
 ConnectedWidget.propTypes = {
+  chatId: PropTypes.string,
   title: PropTypes.string,
   titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
@@ -35,17 +39,22 @@ ConnectedWidget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  launcher: PropTypes.func
+  launcher: PropTypes.func,
+  launcherOpenLabel: PropTypes.string,
+  launcherCloseLabel: PropTypes.string,
 };
 
 ConnectedWidget.defaultProps = {
+  chatId: 'rcw-chat-container',
   title: 'Welcome',
   subtitle: 'This is your chat subtitle',
   senderPlaceHolder: 'Type a message...',
   showCloseButton: true,
   fullScreenMode: false,
   badge: 0,
-  autofocus: true
+  autofocus: true,
+  launcherOpenLabel: 'Open chat',
+  launcherCloseLabel: 'Close chat',
 };
 
 export default ConnectedWidget;
