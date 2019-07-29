@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-import openLauncher from '@assets/launcher_button.svg';
-import close from '@assets/clear-button.svg';
-import Badge from './components/Badge';
-import './style.scss';
+import openLauncher from "@assets/launcher_button.svg";
+import close from "@assets/clear-button.svg";
+import Badge from "./components/Badge";
+import "./style.scss";
 
 const Launcher = ({
   chatId,
@@ -13,13 +13,14 @@ const Launcher = ({
   chatOpened,
   badge,
   launcherOpenLabel,
-  launcherCloseLabel,
+  launcherCloseLabel
 }) => (
   <button
     type="button"
-    className={chatOpened ? 'rcw-launcher rcw-hide-sm' : 'rcw-launcher'}
+    className={chatOpened ? "rcw-launcher rcw-hide-sm" : "rcw-launcher"}
     onClick={toggle}
-    aria-controls={chatId}>
+    aria-controls={chatId}
+  >
     <Badge badge={badge} />
     {chatOpened ? (
       <img
@@ -43,9 +44,9 @@ Launcher.propTypes = {
   chatOpened: PropTypes.bool,
   badge: PropTypes.number,
   launcherOpenLabel: PropTypes.string,
-  launcherCloseLabel: PropTypes.string,
+  launcherCloseLabel: PropTypes.string
 };
 
 export default connect(store => ({
-  chatOpened: store.behavior.get('showChat')
+  chatOpened: store.behavior.get("showChat")
 }))(Launcher);

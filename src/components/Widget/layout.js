@@ -1,18 +1,18 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import Conversation from './components/Conversation';
-import Launcher from './components/Launcher';
-import './style.scss';
+import Conversation from "./components/Conversation";
+import Launcher from "./components/Launcher";
+import "./style.scss";
 
 const WidgetLayout = props => (
   <div
-    className={
-      `rcw-widget-container ${props.fullScreenMode ? 'rcw-full-screen' : ''} ${props.showChat ? 'rcw-opened' : ''}`
-    }
+    className={`rcw-widget-container ${
+      props.fullScreenMode ? "rcw-full-screen" : ""
+    } ${props.showChat ? "rcw-opened" : ""}`}
   >
-    {props.showChat &&
+    {props.showChat && (
       <Conversation
         chatId={props.chatId}
         title={props.title}
@@ -27,19 +27,20 @@ const WidgetLayout = props => (
         disabledInput={props.disabledInput}
         autofocus={props.autofocus}
         titleAvatar={props.titleAvatar}
+        sendButtonAlt={props.sendButtonAlt}
       />
-    }
-    {props.customLauncher ?
-      props.customLauncher(props.onToggleConversation) :
-      !props.fullScreenMode &&
-      <Launcher
-        chatId={props.chatId}
-        toggle={props.onToggleConversation}
-        badge={props.badge}
-        launcherOpenLabel={props.launcherOpenLabel}
-        launcherCloseLabel={props.launcherCloseLabel}
-      />
-    }
+    )}
+    {props.customLauncher
+      ? props.customLauncher(props.onToggleConversation)
+      : !props.fullScreenMode && (
+          <Launcher
+            chatId={props.chatId}
+            toggle={props.onToggleConversation}
+            badge={props.badge}
+            launcherOpenLabel={props.launcherOpenLabel}
+            launcherCloseLabel={props.launcherCloseLabel}
+          />
+        )}
   </div>
 );
 
@@ -62,9 +63,10 @@ WidgetLayout.propTypes = {
   customLauncher: PropTypes.func,
   launcherOpenLabel: PropTypes.string,
   launcherCloseLabel: PropTypes.string,
+  sendButtonAlt: PropTypes.string
 };
 
 export default connect(store => ({
-  showChat: store.behavior.get('showChat'),
-  disabledInput: store.behavior.get('disabledInput')
+  showChat: store.behavior.get("showChat"),
+  disabledInput: store.behavior.get("disabledInput")
 }))(WidgetLayout);

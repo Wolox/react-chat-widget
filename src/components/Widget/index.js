@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import { toggleChat, addUserMessage } from '@actions';
+import { toggleChat, addUserMessage } from "@actions";
 
-import WidgetLayout from './layout';
+import WidgetLayout from "./layout";
 
 class Widget extends Component {
   componentWillReceiveProps(nextProps) {
@@ -15,7 +15,7 @@ class Widget extends Component {
 
   toggleConversation = () => {
     this.props.dispatch(toggleChat());
-  }
+  };
 
   handleMessageSubmit = event => {
     event.preventDefault();
@@ -24,8 +24,8 @@ class Widget extends Component {
       this.props.dispatch(addUserMessage(userInput));
       this.props.handleNewUserMessage(userInput);
     }
-    event.target.message.value = '';
-  }
+    event.target.message.value = "";
+  };
 
   handleQuickButtonClicked = (event, value) => {
     event.preventDefault();
@@ -33,9 +33,10 @@ class Widget extends Component {
     if (this.props.handleQuickButtonClicked) {
       this.props.handleQuickButtonClicked(value);
     }
-  }
+  };
 
   render() {
+    console.log(this.props);
     return (
       <WidgetLayout
         onToggleConversation={this.toggleConversation}
@@ -54,6 +55,7 @@ class Widget extends Component {
         customLauncher={this.props.customLauncher}
         launcherOpenLabel={this.props.launcherOpenLabel}
         launcherCloseLabel={this.props.launcherCloseLabel}
+        sendButtonAlt={this.props.sendButtonAlt}
       />
     );
   }
@@ -75,6 +77,7 @@ Widget.propTypes = {
   customLauncher: PropTypes.func,
   launcherOpenLabel: PropTypes.string,
   launcherCloseLabel: PropTypes.string,
+  sendButtonAlt: PropTypes.string
 };
 
 export default connect()(Widget);
