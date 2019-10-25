@@ -54,6 +54,12 @@ export function dropMessages() {
   };
 }
 
+export function deleteMessages() {
+  return {
+    type: actions.DELETE_MESSAGES
+  };
+}
+
 export function hideAvatar() {
   return {
     type: actions.HIDE_AVATAR

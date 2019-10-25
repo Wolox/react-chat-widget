@@ -33,6 +33,10 @@ export function dropMessages() {
   store.dispatch(actions.dropMessages());
 }
 
+export function deleteMessages(count, id) {
+  store.dispatch(actions.deleteMessages(count, id));
+}
+
 export function isWidgetOpened() {
   return store.getState().behavior.get('showChat');
 }
