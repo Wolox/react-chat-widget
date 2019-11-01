@@ -43,7 +43,7 @@
     "css-loader": "^0.28.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^3.19.0",
+    "eslint": "^4.18.2",
     "eslint-config-wolox": "^1.0.0",
     "eslint-import-resolver-babel-module": "^3.0.0",
     "eslint-loader": "^2.0.0",
