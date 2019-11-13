@@ -17,7 +17,7 @@ module.exports = {
     libraryTarget: 'umd',
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx'],
   },
   mode: 'production',
   module: {
