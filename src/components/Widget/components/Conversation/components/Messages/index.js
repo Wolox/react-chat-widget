@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import {connect} from 'react-redux';
 
-import {hideAvatar} from './src/store/actions';
-import {scrollToBottom} from './src/utils/messages';
+import {hideAvatar} from '../../../../../../../src/store/actions';
+import {scrollToBottom} from '../../../../../../../src/utils/messages';
 
 import Loader from './components/Loader';
 import './styles.scss';

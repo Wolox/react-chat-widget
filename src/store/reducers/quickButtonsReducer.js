@@ -1,5 +1,5 @@
 import {List} from 'immutable';
-import {createReducer} from './src/utils/store';
+import {createReducer} from '../../../src/utils/store';
 import {createQuickButton} from '../../utils/messages';
 import * as actionTypes from '../actions/actionTypes';
 

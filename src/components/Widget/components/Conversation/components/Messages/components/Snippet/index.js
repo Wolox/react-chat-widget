@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {PROP_TYPES} from './src/constants.js';
+import {PROP_TYPES} from '../../../../../../../../../src/constants.js';
 
 import './styles.scss';
 

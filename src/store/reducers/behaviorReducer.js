@@ -1,6 +1,6 @@
 import {Map} from 'immutable';
 
-import {createReducer} from './src/utils/store';
+import {createReducer} from '../../../src/utils/store';
 
 import * as actionTypes from '../actions/actionTypes';
 

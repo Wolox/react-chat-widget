@@ -3,11 +3,11 @@ import {
   MESSAGES_TYPES,
   MESSAGE_SENDER,
   MESSAGE_BOX_SCROLL_DURATION,
-} from './src/constants.js';
+} from '../../src/constants.js';
 
-import Message from './src/components/Widget/components/Conversation/components/Messages/components/Message';
-import Snippet from './src/components/Widget/components/Conversation/components/Messages/components/Snippet';
-import QuickButton from './src/components/Widget/components/Conversation/components/QuickButtons/components/QuickButton';
+import Message from '../../src/components/Widget/components/Conversation/components/Messages/components/Message';
+import Snippet from '../../src/components/Widget/components/Conversation/components/Messages/components/Snippet';
+import QuickButton from '../../src/components/Widget/components/Conversation/components/QuickButtons/components/QuickButton';
 
 export function createNewMessage(text, sender) {
   return Map({

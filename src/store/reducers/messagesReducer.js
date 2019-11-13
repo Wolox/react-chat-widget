@@ -1,12 +1,12 @@
 import {List} from 'immutable';
 
-import {createReducer} from './src/utils/store';
+import {createReducer} from '../../../src/utils/store';
 import {
   createNewMessage,
   createLinkSnippet,
   createComponentMessage,
-} from './src/utils/messages';
-import {MESSAGE_SENDER} from './src/constants.js';
+} from '../../../src/utils/messages';
+import {MESSAGE_SENDER} from '../../../src/constants.js';
 
 import * as actionTypes from '../actions/actionTypes';
 
