@@ -17,13 +17,13 @@ module.exports = {
     libraryTarget: 'umd',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js'],
   },
   mode: 'production',
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
