@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
-import { hideAvatar } from '@actions';
-import { scrollToBottom } from '@utils/messages';
+import {hideAvatar} from './src/store/actions';
+import {scrollToBottom} from './src/utils/messages';
 
 import Loader from './components/Loader';
 import './styles.scss';
@@ -18,11 +18,11 @@ class Messages extends Component {
     scrollToBottom(this.$message);
   }
 
-  $message = null
+  $message = null;
 
   getComponentToRender = message => {
     const ComponentToRender = message.get('component');
-    const previousMessage = this.props.messages.get()
+    const previousMessage = this.props.messages.get();
     if (message.get('type') === 'component') {
       return <ComponentToRender {...message.get('props')} />;
     }
@@ -34,21 +34,24 @@ class Messages extends Component {
     if (message.get('showAvatar') && previousMessage.get('showAvatar')) {
       this.props.dispatch(hideAvatar(index));
     }
-  }
+  };
 
   render() {
-    const { messages, profileAvatar, typing } = this.props;
+    const {messages, profileAvatar, typing} = this.props;
     return (
-      <div id="messages" className="rcw-messages-container" ref={msg => this.$message = msg}>
-        {messages.map((message, index) =>
+      <div
+        id="messages"
+        className="rcw-messages-container"
+        ref={msg => (this.$message = msg)}
+      >
+        {messages.map((message, index) => (
           <div className="rcw-message" key={index}>
-            {profileAvatar &&
-              message.get('showAvatar') &&
+            {profileAvatar && message.get('showAvatar') && (
               <img src={profileAvatar} className="rcw-avatar" alt="profile" />
-            }
+            )}
             {this.getComponentToRender(message)}
           </div>
-        )}
+        ))}
         <Loader typing={typing} />
       </div>
     );
@@ -57,10 +60,10 @@ class Messages extends Component {
 
 Messages.propTypes = {
   messages: ImmutablePropTypes.listOf(ImmutablePropTypes.map),
-  profileAvatar: PropTypes.string
+  profileAvatar: PropTypes.string,
 };
 
 export default connect(store => ({
   messages: store.messages,
-  typing: store.behavior.get('msgLoader')
+  typing: store.behavior.get('msgLoader'),
 }))(Messages);
