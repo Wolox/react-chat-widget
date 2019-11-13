@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const webpack = require('webpack');
 const path = require('path');
@@ -14,18 +14,18 @@ module.exports = {
     path: path.join(__dirname, '/lib'),
     filename: 'index.js',
     library: 'react-chat-widget',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
   },
   mode: 'production',
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: ['babel-loader'],
       },
       {
         test: /\.scss$/,
@@ -39,27 +39,32 @@ module.exports = {
               plugins: () => [
                 require('postcss-flexbugs-fixes'), // eslint-disable-line
                 autoprefixer({
-                  browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie <9'],
-                  flexbox: 'no-2009'
-                })
-              ]
-            }
+                  browsers: [
+                    '>1%',
+                    'last 4 versions',
+                    'Firefox ESR',
+                    'not ie <9',
+                  ],
+                  flexbox: 'no-2009',
+                }),
+              ],
+            },
           },
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname, 'src/scss/')]
-            }
-          }
-        ]
+              includePaths: [path.resolve(__dirname, 'src/scss/')],
+            },
+          },
+        ],
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
         use: {
-          loader: 'url-loader'
-        }
-      }
-    ]
+          loader: 'url-loader',
+        },
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(['lib']),
@@ -69,16 +74,16 @@ module.exports = {
      */
     new MiniCssExtractPlugin({
       filename: 'styles.css',
-      chunkFileName: '[id].css'
+      chunkFileName: '[id].css',
     }),
   ],
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
-        parallel: true
+        parallel: true,
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
-  }
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+  },
 };
