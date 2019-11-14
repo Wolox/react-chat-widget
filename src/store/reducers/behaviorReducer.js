@@ -5,7 +5,7 @@ import {createReducer} from '../../../src/utils/store';
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = Map({
-  showChat: false,
+  showChat: true,
   disabledInput: false,
   msgLoader: false,
 });
