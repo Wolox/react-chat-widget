@@ -13,11 +13,9 @@ const Header = ({
   titleAvatar,
 }) => (
   <div className="rcw-header">
-    {showCloseButton && (
-      <button className="rcw-close-button" onClick={toggleChat}>
-        <img src={close} className="rcw-close" alt="close" />
-      </button>
-    )}
+    <button className="rcw-close-button" onClick={toggleChat}>
+      <img src={close} className="rcw-close" alt="close" />
+    </button>
     <h4 className="rcw-title">
       {titleAvatar && (
         <img src={titleAvatar} className="avatar" alt="profile" />

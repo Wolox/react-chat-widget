@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 
 import Widget from './components/Widget';
 import store from '../src/store/store';
 
-const ConnectedWidget = props =>
+const ConnectedWidget = props => (
   <Provider store={store}>
     <Widget
       title={props.title}
@@ -21,7 +21,8 @@ const ConnectedWidget = props =>
       autofocus={props.autofocus}
       customLauncher={props.launcher}
     />
-  </Provider>;
+  </Provider>
+);
 
 ConnectedWidget.propTypes = {
   title: PropTypes.string,
@@ -35,7 +36,7 @@ ConnectedWidget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  launcher: PropTypes.func
+  launcher: PropTypes.func,
 };
 
 ConnectedWidget.defaultProps = {
@@ -45,7 +46,7 @@ ConnectedWidget.defaultProps = {
   showCloseButton: true,
   fullScreenMode: false,
   badge: 0,
-  autofocus: true
+  autofocus: true,
 };
 
 export default ConnectedWidget;
