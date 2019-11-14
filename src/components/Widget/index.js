@@ -51,6 +51,7 @@ class Widget extends Component {
         badge={this.props.badge}
         autofocus={this.props.autofocus}
         customLauncher={this.props.customLauncher}
+        hideLauncher={this.props.hideLauncher}
       />
     );
   }

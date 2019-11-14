@@ -26,13 +26,16 @@ const WidgetLayout = props => (
         disabledInput={props.disabledInput}
         autofocus={props.autofocus}
         titleAvatar={props.titleAvatar}
+        hideLauncher={props.hideLauncher}
       />
     )}
-    {props.customLauncher
-      ? props.customLauncher(props.onToggleConversation)
-      : !props.fullScreenMode && (
-          <Launcher toggle={props.onToggleConversation} badge={props.badge} />
-        )}
+    {!props.hideLauncher
+      ? props.customLauncher
+        ? props.customLauncher(props.onToggleConversation)
+        : !props.fullScreenMode && (
+            <Launcher toggle={props.onToggleConversation} badge={props.badge} />
+          )
+      : true}
   </div>
 );
 
@@ -52,6 +55,7 @@ WidgetLayout.propTypes = {
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
   customLauncher: PropTypes.func,
+  hideLauncher: PropTypes.bool,
 };
 
 export default connect(store => ({
