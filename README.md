@@ -4,19 +4,23 @@
 
 ## Sponsors
 
-<p align="center">
-  <br/>
-  <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">
-    <img src="https://i.imgur.com/oU7XYkk.png">
-  </a>
-  <br>
-  <p align="center">
-    Scalable <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Chat API/Server</a> written in Go
-  </p>
-  <p align="center">
-    <a href="https://getstream.io/chat/get_started/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">API Tour</a> | <a href="https://github.com/getstream/stream-sdks?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">SDKs</a> | <a href="https://getstream.io/chat/docs/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Docs</a>  
-  </p>
-</p>
+<div style="display: flex;">
+    <div>
+        <p align="center">
+            <br/>
+            <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">
+                <img src="https://i.imgur.com/oU7XYkk.png">
+            </a>
+            <br>
+            <p align="center">
+                Scalable <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Chat API/Server</a> written in Go
+            </p>
+            <p align="center">
+                <a href="https://getstream.io/chat/get_started/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">API Tour</a> | <a href="https://github.com/getstream/stream-sdks?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">SDKs</a> | <a href="https://getstream.io/chat/docs/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Docs</a>
+            </p>
+        </p>
+    </div>
+</div>
 
 
 [![FEArmy](./assets/FEA_open_source_sm.png)](https://github.com/orgs/Wolox/teams/front-end-army/members)
