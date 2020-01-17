@@ -4,7 +4,7 @@
 
 ## Sponsors
 
-<div style="max-width: 320px;">
+<div style="width: 320px; max-width: 320px;">
     <br/>
     <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">
         <img src="https://i.imgur.com/oU7XYkk.png">
