@@ -4,20 +4,20 @@
 
 ## Sponsors
 
-<div style="display: flex;">
-    <div>
+<div style="width: 320px;">
+    <br/>
+    <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">
+        <img src="https://i.imgur.com/oU7XYkk.png">
+    </a>
+    <br>
+    <div style="text-align: left;">
         <p align="center">
-            <br/>
-            <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">
-                <img src="https://i.imgur.com/oU7XYkk.png">
-            </a>
-            <br>
-            <p align="center">
-                Scalable <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Chat API/Server</a> written in Go
-            </p>
-            <p align="center">
-                <a href="https://getstream.io/chat/get_started/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">API Tour</a> | <a href="https://github.com/getstream/stream-sdks?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">SDKs</a> | <a href="https://getstream.io/chat/docs/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Docs</a>
-            </p>
+            Scalable <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Chat API/Server</a> written in Go
+        </p>
+    </div>
+    <div style="text-align: left;">
+        <p align="center">
+            <a href="https://getstream.io/chat/get_started/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">API Tour</a> | <a href="https://github.com/getstream/stream-sdks?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">SDKs</a> | <a href="https://getstream.io/chat/docs/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Docs</a>
         </p>
     </div>
 </div>
