@@ -1,30 +1,31 @@
-# react-chat-widget
+# React Chat Widget
 [![circle-ci](https://img.shields.io/circleci/project/github/Wolox/react-chat-widget.svg)](https://circleci.com/gh/Wolox/react-chat-widget)
 [![npm](https://img.shields.io/npm/v/react-chat-widget.svg)](https://www.npmjs.com/package/react-chat-widget)
+
+[![FEArmy](./assets/FEA_open_source_sm.png)](https://github.com/orgs/Wolox/teams/front-end-army/members)
 
 ## Sponsors
 
 <div>
     <br/>
-    <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">
-        <img src="https://i.imgur.com/oU7XYkk.png">
-    </a>
+    <p align="center">
+        <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">
+            <img src="https://i.imgur.com/oU7XYkk.png">
+        </a>
+    </p>
     <br>
     <div>
-        <p align="left">
+        <p align="center">
             A scalable <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Chat API/Server</a> written in Go
         </p>
     </div>
     <div>
-        <p align="left">
-            Have a look at our
+        <p align="center">
             <a href="https://getstream.io/chat/get_started/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">API Tour</a> | <a href="https://github.com/getstream/stream-sdks?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">SDKs</a> | <a href="https://getstream.io/chat/docs/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Docs</a>
         </p>
     </div>
 </div>
 
-
-[![FEArmy](./assets/FEA_open_source_sm.png)](https://github.com/orgs/Wolox/teams/front-end-army/members)
 ## Features
 
 - Plain text message UI
