@@ -1,27 +1,38 @@
-import React, { Component } from 'react';
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader } from '../index';
+import React, {Component} from 'react';
+import {
+  Widget,
+  addResponseMessage,
+  setQuickButtons,
+  toggleMsgLoader,
+} from '../index';
+// import {toggleChat} from '../src/store/actions';
 
 export default class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
   }
 
-  handleNewUserMessage = (newMessage) => {    
+  handleNewUserMessage = newMessage => {
     toggleMsgLoader();
     setTimeout(() => {
-      toggleMsgLoader();      
+      toggleMsgLoader();
       if (newMessage === 'fruits') {
-        setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' } ]);
+        setQuickButtons([
+          {label: 'Apple', value: 'apple'},
+          {label: 'Orange', value: 'orange'},
+          {label: 'Pear', value: 'pear'},
+          {label: 'Banana', value: 'banana'},
+        ]);
       } else {
         addResponseMessage(newMessage);
       }
     }, 2000);
-  }
+  };
 
-  handleQuickButtonClicked = (e) => {
+  handleQuickButtonClicked = e => {
     addResponseMessage('Selected ' + e);
     setQuickButtons([]);
-  }
+  };
 
   render() {
     return (

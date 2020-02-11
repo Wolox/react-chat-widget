@@ -1,9 +1,13 @@
-import { Map } from 'immutable';
-import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '@constants';
+import {Map} from 'immutable';
+import {
+  MESSAGES_TYPES,
+  MESSAGE_SENDER,
+  MESSAGE_BOX_SCROLL_DURATION,
+} from '../../src/constants.js';
 
-import Message from '@messagesComponents/Message';
-import Snippet from '@messagesComponents/Snippet';
-import QuickButton from '@quickButtonsComponents/QuickButton';
+import Message from '../../src/components/Widget/components/Conversation/components/Messages/components/Message';
+import Snippet from '../../src/components/Widget/components/Conversation/components/Messages/components/Snippet';
+import QuickButton from '../../src/components/Widget/components/Conversation/components/QuickButtons/components/QuickButton';
 
 export function createNewMessage(text, sender) {
   return Map({
@@ -11,7 +15,7 @@ export function createNewMessage(text, sender) {
     component: Message,
     text,
     sender,
-    showAvatar: sender === MESSAGE_SENDER.RESPONSE
+    showAvatar: sender === MESSAGE_SENDER.RESPONSE,
   });
 }
 
@@ -23,7 +27,7 @@ export function createLinkSnippet(link) {
     link: link.link,
     target: link.target || '_blank',
     sender: MESSAGE_SENDER.RESPONSE,
-    showAvatar: true
+    showAvatar: true,
   });
 }
 
@@ -33,7 +37,7 @@ export function createComponentMessage(component, props, showAvatar) {
     component,
     props,
     sender: MESSAGE_SENDER.RESPONSE,
-    showAvatar
+    showAvatar,
   });
 }
 
@@ -49,26 +53,32 @@ function sinEaseOut(t, b, c, d) {
 }
 
 /**
- * 
+ *
  * @param {*} target scroll target
  * @param {*} scrollStart
  * @param {*} scroll scroll distance
  */
 function scrollWithSlowMotion(target, scrollStart, scroll) {
-  const raf = window.webkitRequestAnimationFrame || window.requestAnimationFrame
-  let start = null
-  const step = (timestamp) => {
+  const raf =
+    window.webkitRequestAnimationFrame || window.requestAnimationFrame;
+  let start = null;
+  const step = timestamp => {
     if (!start) {
-      start = timestamp
+      start = timestamp;
     }
-    let stepScroll = sinEaseOut(timestamp - start, 0, scroll, MESSAGE_BOX_SCROLL_DURATION)
-    let total = scrollStart + stepScroll
+    let stepScroll = sinEaseOut(
+      timestamp - start,
+      0,
+      scroll,
+      MESSAGE_BOX_SCROLL_DURATION,
+    );
+    let total = scrollStart + stepScroll;
     target.scrollTop = total;
     if (total < scrollStart + scroll) {
-      raf(step)
+      raf(step);
     }
-  }
-  raf(step)
+  };
+  raf(step);
 }
 
 export function scrollToBottom(messagesDiv) {
@@ -76,16 +86,15 @@ export function scrollToBottom(messagesDiv) {
   const screenHeight = messagesDiv.clientHeight;
   const scrollTop = messagesDiv.scrollTop;
 
-  const scrollOffset = messagesDiv.scrollHeight - (scrollTop + screenHeight)
+  const scrollOffset = messagesDiv.scrollHeight - (scrollTop + screenHeight);
 
   scrollOffset && scrollWithSlowMotion(messagesDiv, scrollTop, scrollOffset);
 }
-
 
 export function createQuickButton(button) {
   return Map({
     component: QuickButton,
     label: button.label,
-    value: button.value
+    value: button.value,
   });
 }
