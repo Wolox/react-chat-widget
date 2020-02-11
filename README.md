@@ -175,6 +175,7 @@ export default App;
 |   |type|required|default value|description|
 |---|--- |---     |---          |---        |
 |**handleNewUserMessage**|PropTypes.func|YES| |Function to handle the user input, will receive the full text message when submitted|
+|**id**|PropTypes.string|NO|'rcw-chat-container'|Id of the widget, overridable if you have more than one in DOM|
 |**title**|PropTypes.string|NO|'Welcome'|Title of the widget|
 |**subtitle**|PropTypes.string|NO|'This is your chat subtitle'|Subtitle of the widget|
 |**senderPlaceHolder**|PropTypes.string|NO|'Type a message...'|The placeholder of the message input|
@@ -186,6 +187,8 @@ export default App;
 |**autofocus**|PropTypes.bool|NO|true|Autofocus or not the user input|
 |**launcher**|PropTypes.func|NO||Custom Launcher component to use instead of the default|
 |**handleQuickButtonClicked**|PropTypes.func|NO||Function to handle the user clicking a quick button, will receive the 'value' when clicked.|
+|**launcherOpenLabel**|PropTypes.string|NO|'Open chat'|Text used by screen readers for the button to open chat|
+|**launcherCloseLabel**|PropTypes.string|NO|'Close chat'|Text used by screen readers for the button to close chat|
 
 #### Styles
 
