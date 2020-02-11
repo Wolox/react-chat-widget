@@ -1,25 +1,14 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["last 2 versions", "safari >= 7"]
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"]
+        }
       }
-    }],
-    "react" 
+    ],
+    "react"
   ],
-  "plugins": [
-    "transform-class-properties",
-    ["module-resolver", {
-      "root": ["./src"],
-      "alias": {
-        "@constants": "./src/constants.js",
-        "@assets": "./assets",
-        "@tests-mocks": "./mocks",
-        "@actions": "./src/store/actions",
-        "@utils": "./src/utils",
-        "@messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components",
-        "@quickButtonsComponents": "./src/components/Widget/components/Conversation/components/QuickButtons/components"
-      }
-    }]
-  ]
+  "plugins": ["transform-class-properties"]
 }

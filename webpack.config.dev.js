@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const webpack = require('webpack');
 const path = require('path');
@@ -18,17 +18,17 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'dist'),
     compress: false,
     port: 3000,
-    hot: true
+    hot: true,
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
@@ -36,7 +36,7 @@ module.exports = {
         use: [
           {
             loader: 'style-loader',
-            options: { hmr: true }
+            options: {hmr: true},
           },
           'css-loader',
           {
@@ -46,35 +46,40 @@ module.exports = {
               plugins: () => [
                 require('postcss-flexbugs-fixes'), // eslint-disable-line
                 autoprefixer({
-                  browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie <9'],
-                  flexbox: 'no-2009'
-                })
-              ]
-            }
+                  browsers: [
+                    '>1%',
+                    'last 4 versions',
+                    'Firefox ESR',
+                    'not ie <9',
+                  ],
+                  flexbox: 'no-2009',
+                }),
+              ],
+            },
           },
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname,'src/scss')]
-            }
-          }
-        ]
+              includePaths: [path.resolve(__dirname, 'src/scss')],
+            },
+          },
+        ],
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
-        use: 'url-loader'
-      }
-    ]
+        use: 'url-loader',
+      },
+    ],
   },
   devtool: 'eval',
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './dev/index.html'
-    })
+      template: './dev/index.html',
+    }),
   ],
   performance: {
-    hints: false
-  }
+    hints: false,
+  },
 };

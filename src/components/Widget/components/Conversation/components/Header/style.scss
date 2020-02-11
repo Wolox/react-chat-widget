@@ -1,5 +1,5 @@
-@import 'variables.scss';
-@import 'common.scss';
+@import "variables.scss";
+@import "common.scss";
 
 .rcw-conversation-container {
   .rcw-header {
@@ -15,6 +15,7 @@
   .rcw-title {
     font-size: 24px;
     margin: 0;
+    color: #fff;
     padding: 15px 0;
   }
 
@@ -29,10 +30,24 @@
     margin-right: 10px;
     vertical-align: middle;
   }
+  // .rcw-header {
+  //   @include header-fs;
+  // }
+
+  // .rcw-title {
+  //   @include title-fs;
+  // }
+
+  .rcw-close-button {
+    @include close-button-fs;
+  }
+
+  .rcw-close {
+    @include close-fs;
+  }
 }
 
 .rcw-full-screen {
-
   .rcw-header {
     @include header-fs;
   }

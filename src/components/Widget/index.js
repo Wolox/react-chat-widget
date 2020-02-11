@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { toggleChat, addUserMessage } from '@actions';
+import {toggleChat, addUserMessage} from '../../../src/store/actions';
 
 import WidgetLayout from './layout';
 
@@ -15,9 +15,9 @@ class Widget extends Component {
 
   toggleConversation = () => {
     this.props.dispatch(toggleChat());
-  }
+  };
 
-  handleMessageSubmit = (event) => {
+  handleMessageSubmit = event => {
     event.preventDefault();
     const userInput = event.target.message.value;
     if (userInput.trim()) {
@@ -25,15 +25,15 @@ class Widget extends Component {
       this.props.handleNewUserMessage(userInput);
     }
     event.target.message.value = '';
-  }
+  };
 
   handleQuickButtonClicked = (event, value) => {
     event.preventDefault();
 
-    if(this.props.handleQuickButtonClicked) {
+    if (this.props.handleQuickButtonClicked) {
       this.props.handleQuickButtonClicked(value);
     }
-  }
+  };
 
   render() {
     return (
@@ -51,6 +51,7 @@ class Widget extends Component {
         badge={this.props.badge}
         autofocus={this.props.autofocus}
         customLauncher={this.props.customLauncher}
+        hideLauncher={this.props.hideLauncher}
       />
     );
   }
@@ -68,7 +69,7 @@ Widget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  customLauncher: PropTypes.func
+  customLauncher: PropTypes.func,
 };
 
 export default connect()(Widget);

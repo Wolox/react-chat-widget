@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow, configure } from 'enzyme';
+import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import assetMock from '@tests-mocks/fileMock';
+import assetMock from './mocks/fileMock';
 import Widget from '../index';
 import WidgetLayout from '../layout';
 
-configure({ adapter: new Adapter() });
+configure({adapter: new Adapter()});
 
 describe('<Widget />', () => {
   const profile = assetMock;
@@ -14,10 +14,10 @@ describe('<Widget />', () => {
   const newMessageEvent = {
     target: {
       message: {
-        value: 'New message'
-      }
+        value: 'New message',
+      },
     },
-    preventDefault() {}
+    preventDefault() {},
   };
   const dispatch = jest.fn();
 
@@ -26,7 +26,7 @@ describe('<Widget />', () => {
       handleNewUserMessage={handleUserMessage}
       profileAvatar={profile}
       dispatch={dispatch}
-    />
+    />,
   );
 
   it('should render WidgetLayout', () => {
