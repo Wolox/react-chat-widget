@@ -17,7 +17,8 @@
         "@tests-mocks": "./mocks",
         "@actions": "./src/store/actions",
         "@utils": "./src/utils",
-        "@messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components"
+        "@messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components",
+        "@quickButtonsComponents": "./src/components/Widget/components/Conversation/components/QuickButtons/components"
       }
     }]
   ]

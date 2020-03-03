@@ -45,6 +45,7 @@ WidgetLayout.propTypes = {
   onToggleConversation: PropTypes.func,
   showChat: PropTypes.bool,
   senderPlaceHolder: PropTypes.string,
+  onQuickButtonClicked: PropTypes.func,
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,
   disabledInput: PropTypes.bool,

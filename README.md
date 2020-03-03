@@ -1,8 +1,31 @@
-# react-chat-widget
+# React Chat Widget
 [![circle-ci](https://img.shields.io/circleci/project/github/Wolox/react-chat-widget.svg)](https://circleci.com/gh/Wolox/react-chat-widget)
 [![npm](https://img.shields.io/npm/v/react-chat-widget.svg)](https://www.npmjs.com/package/react-chat-widget)
 
 [![FEArmy](./assets/FEA_open_source_sm.png)](https://github.com/orgs/Wolox/teams/front-end-army/members)
+
+## Sponsors
+
+<div>
+    <br/>
+    <p align="center">
+        <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">
+            <img src="https://i.imgur.com/oU7XYkk.png">
+        </a>
+    </p>
+    <br>
+    <div>
+        <p align="center">
+            A scalable <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Chat API/Server</a> written in Go
+        </p>
+    </div>
+    <div>
+        <p align="center">
+            <a href="https://getstream.io/chat/get_started/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">API Tour</a> | <a href="https://github.com/getstream/stream-sdks?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">SDKs</a> | <a href="https://getstream.io/chat/docs/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Docs</a>
+        </p>
+    </div>
+</div>
+
 ## Features
 
 - Plain text message UI
@@ -162,6 +185,7 @@ export default App;
 |**badge**|PropTypes.number|NO|0|Display a notification badge on the launcher if the value is greater than 0|
 |**autofocus**|PropTypes.bool|NO|true|Autofocus or not the user input|
 |**launcher**|PropTypes.func|NO||Custom Launcher component to use instead of the default|
+|**handleQuickButtonClicked**|PropTypes.func|NO||Function to handle the user clicking a quick button, will receive the 'value' when clicked.|
 
 #### Styles
 
@@ -214,6 +238,9 @@ If you want to add new messages, you can use the following methods:
     - props: props the component needs,
     - showAvatar: boolean, default value: false; the component will be rendered with the avatar like the messages
   - Method to render a custom component inse the messages container. With this method, you can add whatever component you need the widget to have.
+- **setQuickButtons**
+  - params:
+    - buttons: An array of objects with the keys `label` and `value`
 
 **Markdown is supported for the responses and user messages.**
 
