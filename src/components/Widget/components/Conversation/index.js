@@ -7,24 +7,37 @@ import Sender from './components/Sender';
 import QuickButtons from './components/QuickButtons';
 import './style.scss';
 
-const Conversation = props =>
-  <div className={`rcw-conversation-container ${props.className}`}>
+const Conversation = ({
+  title,
+  subtitle,
+  toggleChat,
+  showCloseButton,
+  titleAvatar,
+  className,
+  profileAvatar,
+  onQuickButtonClicked,
+  sendMessage,
+  senderPlaceHolder,
+  disabledInput,
+  autofocus
+}) =>
+  <div className={`rcw-conversation-container ${className}`}>
     <Header
-      title={props.title}
-      subtitle={props.subtitle}
-      toggleChat={props.toggleChat}
-      showCloseButton={props.showCloseButton}
-      titleAvatar={props.titleAvatar}
+      title={title}
+      subtitle={subtitle}
+      toggleChat={toggleChat}
+      showCloseButton={showCloseButton}
+      titleAvatar={titleAvatar}
     />
     <Messages
-      profileAvatar={props.profileAvatar}
+      profileAvatar={profileAvatar}
     />
-    <QuickButtons onQuickButtonClicked={props.onQuickButtonClicked} />
+    <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
     <Sender
-      sendMessage={props.sendMessage}
-      placeholder={props.senderPlaceHolder}
-      disabledInput={props.disabledInput}
-      autofocus={props.autofocus}
+      sendMessage={sendMessage}
+      placeholder={senderPlaceHolder}
+      disabledInput={disabledInput}
+      autofocus={autofocus}
     />
   </div>;
 
@@ -38,7 +51,8 @@ Conversation.propTypes = {
   toggleChat: PropTypes.func,
   showCloseButton: PropTypes.bool,
   disabledInput: PropTypes.bool,
-  autofocus: PropTypes.bool
+  autofocus: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Conversation;
