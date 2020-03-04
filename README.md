@@ -186,6 +186,8 @@ export default App;
 |**autofocus**|PropTypes.bool|NO|true|Autofocus or not the user input|
 |**launcher**|PropTypes.func|NO||Custom Launcher component to use instead of the default|
 |**handleQuickButtonClicked**|PropTypes.func|NO||Function to handle the user clicking a quick button, will receive the 'value' when clicked.|
+|**defaultUserMessage**|PropTypes.bool|NO|true|Default messages Component.|
+
 
 #### Styles
 
