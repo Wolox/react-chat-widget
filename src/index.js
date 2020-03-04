@@ -20,6 +20,7 @@ const ConnectedWidget = props =>
       badge={props.badge}
       autofocus={props.autofocus}
       customLauncher={props.launcher}
+      autoAddUserMessage={props.autoAddUserMessage}
     />
   </Provider>;
 
@@ -35,7 +36,8 @@ ConnectedWidget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  launcher: PropTypes.func
+  launcher: PropTypes.func,
+  autoAddUserMessage: PropTypes.bool
 };
 
 ConnectedWidget.defaultProps = {
@@ -45,7 +47,8 @@ ConnectedWidget.defaultProps = {
   showCloseButton: true,
   fullScreenMode: false,
   badge: 0,
-  autofocus: true
+  autofocus: true,
+  autoAddUserMessage: true
 };
 
 export default ConnectedWidget;
