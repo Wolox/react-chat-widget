@@ -8,7 +8,7 @@ import QuickButtons from './components/QuickButtons';
 import './style.scss';
 
 const Conversation = props =>
-  <div className="rcw-conversation-container">
+  <div className={`rcw-conversation-container ${props.className}`}>
     <Header
       title={props.title}
       subtitle={props.subtitle}
