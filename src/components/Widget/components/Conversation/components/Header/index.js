@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import close from '@assets/clear-button.svg';
+import close from '../../../../../../../assets/clear-button.svg';
 
 import './style.scss';
-
 
 const Header = ({ title, subtitle, toggleChat, showCloseButton, titleAvatar }) =>
   <div className="rcw-header">

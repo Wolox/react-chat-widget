@@ -1,14 +1,16 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "targets": {
         "browsers": ["last 2 versions", "safari >= 7"]
       }
     }],
-    "react" 
+    "@babel/preset-react",
+    "@babel/preset-typescript"
   ],
   "plugins": [
-    "transform-class-properties",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
     ["module-resolver", {
       "root": ["./src"],
       "alias": {

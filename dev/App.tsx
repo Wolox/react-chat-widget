@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+
 import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader } from '../index';
 
-export default class App extends Component {
+export default class App extends React.Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
   }
 
-  handleNewUserMessage = (newMessage) => {    
+  handleNewUserMessage = (newMessage: any) => {
     toggleMsgLoader();
     setTimeout(() => {
-      toggleMsgLoader();      
+      toggleMsgLoader();
       if (newMessage === 'fruits') {
         setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' } ]);
       } else {
@@ -18,7 +19,7 @@ export default class App extends Component {
     }, 2000);
   }
 
-  handleQuickButtonClicked = (e) => {
+  handleQuickButtonClicked = (e: any) => {
     addResponseMessage('Selected ' + e);
     setQuickButtons([]);
   }
