@@ -26,25 +26,23 @@ interface IWidget {
 const WidgetLayout = (props: IWidget) => (
   <div
     className={
-      `rcw-widget-container ${props.fullScreenMode ? 'rcw-full-screen' : ''} ${props.showChat ? 'rcw-opened' : ''}`
+      `rcw-widget-container ${props.fullScreenMode ? 'rcw-full-screen' : ''}`
     }
   >
-    {props.showChat &&
-      <Conversation
-        title={props.title}
-        subtitle={props.subtitle}
-        sendMessage={props.onSendMessage}
-        senderPlaceHolder={props.senderPlaceHolder}
-        onQuickButtonClicked={props.onQuickButtonClicked}
-        profileAvatar={props.profileAvatar}
-        toggleChat={props.onToggleConversation}
-        showChat={props.showChat}
-        showCloseButton={props.showCloseButton}
-        disabledInput={props.disabledInput}
-        autofocus={props.autofocus}
-        titleAvatar={props.titleAvatar}
-      />
-    }
+    <Conversation
+      title={props.title}
+      subtitle={props.subtitle}
+      sendMessage={props.onSendMessage}
+      senderPlaceHolder={props.senderPlaceHolder}
+      profileAvatar={props.profileAvatar}
+      toggleChat={props.onToggleConversation}
+      showChat={props.showChat}
+      showCloseButton={props.showCloseButton}
+      disabledInput={props.disabledInput}
+      autofocus={props.autofocus}
+      titleAvatar={props.titleAvatar}
+      className={props.showChat ? 'active' : 'hidden'}
+    />
     {props.customLauncher ?
       props.customLauncher(props.onToggleConversation) :
       !props.fullScreenMode &&

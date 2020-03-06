@@ -19,10 +19,11 @@ interface IConversation {
   autofocus: boolean;
   onQuickButtonClicked: Function;
   showChat: boolean;
+  className: string;
 };
 
 const Conversation = (props: IConversation) =>
-  <div className="rcw-conversation-container">
+  <div className={`rcw-conversation-container ${props.className}`}>
     <Header
       title={props.title}
       subtitle={props.subtitle}

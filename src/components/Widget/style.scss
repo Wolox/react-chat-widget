@@ -9,11 +9,8 @@
   max-width: 370px;
   position: fixed;
   right: 0;
-  z-index: 9999;
-}
-
-.rcw-opened {
   width: 90vw;
+  z-index: 9999;
 }
 
 .rcw-full-screen {
@@ -27,10 +24,7 @@
 
 @media screen and (max-width: 800px) {
   .rcw-widget-container {
+    height: 100%;
     @include widget-container-fs;
-
-    &.rcw-opened {
-      height: 100%;
-    }
   }
 }
