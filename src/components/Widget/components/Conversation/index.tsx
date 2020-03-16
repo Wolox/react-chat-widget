@@ -1,25 +1,28 @@
-import * as React from 'react';
+import React from 'react';
 
 import Header from './components/Header';
 import Messages from './components/Messages';
 import Sender from './components/Sender';
 import QuickButtons from './components/QuickButtons';
+
+import { AnyFunction } from '../../../../utils/types';
+
 import './style.scss';
 
 interface IConversation {
   title: string;
   titleAvatar: string;
   subtitle: string;
-  sendMessage: Function;
   senderPlaceHolder: string;
   profileAvatar: string;
-  toggleChat: Function;
   showCloseButton: boolean;
   disabledInput: boolean;
   autofocus: boolean;
-  onQuickButtonClicked: Function;
   showChat: boolean;
   className: string;
+  sendMessage: AnyFunction;
+  toggleChat: AnyFunction;
+  onQuickButtonClicked?: AnyFunction;
 };
 
 const Conversation = (props: IConversation) =>

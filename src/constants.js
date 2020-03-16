@@ -16,28 +16,16 @@ export const MESSAGES_TYPES = {
 
 export const PROP_TYPES = {
   MESSAGE: ImmutablePropTypes.contains({
-    type: PropTypes.oneOf([
-      MESSAGES_TYPES.TEXT,
-      MESSAGES_TYPES.SNIPPET.LINK
-    ]),
+    type: PropTypes.oneOf([MESSAGES_TYPES.TEXT, MESSAGES_TYPES.SNIPPET.LINK]),
     text: PropTypes.string,
-    sender: PropTypes.oneOf([
-      MESSAGE_SENDER.CLIENT,
-      MESSAGE_SENDER.RESPONSE
-    ])
+    sender: PropTypes.oneOf([MESSAGE_SENDER.CLIENT, MESSAGE_SENDER.RESPONSE])
   }),
 
   SNIPPET: ImmutablePropTypes.contains({
-    type: PropTypes.oneOf([
-      MESSAGES_TYPES.TEXT,
-      MESSAGES_TYPES.SNIPPET.LINK
-    ]),
+    type: PropTypes.oneOf([MESSAGES_TYPES.TEXT, MESSAGES_TYPES.SNIPPET.LINK]),
     title: PropTypes.string,
     link: PropTypes.string,
-    sender: PropTypes.oneOf([
-      MESSAGE_SENDER.CLIENT,
-      MESSAGE_SENDER.RESPONSE
-    ])
+    sender: PropTypes.oneOf([MESSAGE_SENDER.CLIENT, MESSAGE_SENDER.RESPONSE])
   })
 };
 

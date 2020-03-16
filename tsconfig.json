@@ -1,12 +1,29 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "strict": true,
+    "baseUrl": ".",
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
+    "moduleResolution": "node",
     "target": "es6",
     "jsx": "react",
     "allowJs": true,
-  }
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+  },
+  "extends": "./tsconfig.paths.json",
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

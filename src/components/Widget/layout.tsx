@@ -3,24 +3,27 @@ import { connect } from 'react-redux';
 
 import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
+
+import { AnyFunction } from '../../utils/types';
+
 import './style.scss';
 
 interface IWidget {
   title: string;
   titleAvatar: string;
   subtitle: string;
-  onSendMessage: Function;
-  onToggleConversation: Function;
+  onSendMessage: AnyFunction;
+  onToggleConversation: AnyFunction;
   showChat: boolean;
   senderPlaceHolder: string;
-  onQuickButtonClicked: Function;
+  onQuickButtonClicked: AnyFunction;
   profileAvatar: string;
   showCloseButton: boolean;
   disabledInput: boolean;
   fullScreenMode: boolean;
   badge: number;
   autofocus: boolean;
-  customLauncher: Function;
+  customLauncher: AnyFunction;
 }
 
 const WidgetLayout = (props: IWidget) => (
