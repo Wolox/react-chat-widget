@@ -1,22 +1,25 @@
-import { Map } from 'immutable';
-import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '@constants';
+import { Component } from 'react';
 
-import Message from '@messagesComponents/Message';
-import Snippet from '@messagesComponents/Snippet';
-import QuickButton from '@quickButtonsComponents/QuickButton';
+import { Link } from './types';
 
-export function createNewMessage(text, sender) {
-  return Map({
+import Message from '../components/Widget/components/Conversation/components/Messages/components/Message';
+import Snippet from '../components/Widget/components/Conversation/components/Messages/components/Snippet';
+import QuickButton from '../components/Widget/components/Conversation/components/QuickButtons/components/QuickButton';
+
+import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '../constants';
+
+export function createNewMessage(text: string, sender: string) {
+  return {
     type: MESSAGES_TYPES.TEXT,
     component: Message,
     text,
     sender,
     showAvatar: sender === MESSAGE_SENDER.RESPONSE
-  });
+  };
 }
 
-export function createLinkSnippet(link) {
-  return Map({
+export function createLinkSnippet(link: Link) {
+  return {
     type: MESSAGES_TYPES.SNIPPET.LINK,
     component: Snippet,
     title: link.title,
@@ -24,17 +27,25 @@ export function createLinkSnippet(link) {
     target: link.target || '_blank',
     sender: MESSAGE_SENDER.RESPONSE,
     showAvatar: true
-  });
+  };
 }
 
-export function createComponentMessage(component, props, showAvatar) {
-  return Map({
+export function createComponentMessage(component: Component, props: any, showAvatar: boolean) {
+  return {
     type: MESSAGES_TYPES.CUSTOM_COMPONENT,
     component,
     props,
     sender: MESSAGE_SENDER.RESPONSE,
     showAvatar
-  });
+  };
+}
+
+export function createQuickButton(button: { label: string, value: string | number }) {
+  return {
+    component: QuickButton,
+    label: button.label,
+    value: button.value
+  };
 }
 
 /**
@@ -54,7 +65,7 @@ function sinEaseOut(t, b, c, d) {
  * @param {*} scrollStart
  * @param {*} scroll scroll distance
  */
-function scrollWithSlowMotion(target, scrollStart, scroll) {
+function scrollWithSlowMotion(target, scrollStart, scroll: number) {
   const raf = window.webkitRequestAnimationFrame || window.requestAnimationFrame
   let start = null
   const step = (timestamp) => {
@@ -79,13 +90,4 @@ export function scrollToBottom(messagesDiv) {
   const scrollOffset = messagesDiv.scrollHeight - (scrollTop + screenHeight)
 
   scrollOffset && scrollWithSlowMotion(messagesDiv, scrollTop, scrollOffset);
-}
-
-
-export function createQuickButton(button) {
-  return Map({
-    component: QuickButton,
-    label: button.label,
-    value: button.value
-  });
 }

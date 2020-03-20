@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import Conversation from './components/Conversation';
@@ -17,7 +17,7 @@ interface IWidget {
   showChat: boolean;
   senderPlaceHolder: string;
   onQuickButtonClicked: AnyFunction;
-  profileAvatar: string;
+  profileAvatar?: string;
   showCloseButton: boolean;
   disabledInput: boolean;
   fullScreenMode: boolean;

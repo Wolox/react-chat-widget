@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import { hideAvatar } from '@actions';
-import { scrollToBottom } from '@utils/messages';
+import { hideAvatar } from '../../../../../../store/actions';
+import { scrollToBottom } from '../../../../../../utils/messages';
 
 import Loader from './components/Loader';
 import './styles.scss';
@@ -18,20 +16,19 @@ class Messages extends Component {
     scrollToBottom(this.$message);
   }
 
-  $message = null
+  $message = null;
 
   getComponentToRender = message => {
-    const ComponentToRender = message.get('component');
-    const previousMessage = this.props.messages.get()
-    if (message.get('type') === 'component') {
-      return <ComponentToRender {...message.get('props')} />;
+    const ComponentToRender = message.component;
+    if (message.type === 'component') {
+      return <ComponentToRender {...message.props} />;
     }
     return <ComponentToRender message={message} />;
   };
 
   shouldRenderAvatar = (message, index) => {
-    const previousMessage = this.props.messages.get(index - 1);
-    if (message.get('showAvatar') && previousMessage.get('showAvatar')) {
+    const previousMessage = this.props.messages[index - 1];
+    if (message.showAvatar && previousMessage.showAvatar) {
       this.props.dispatch(hideAvatar(index));
     }
   }
@@ -43,7 +40,7 @@ class Messages extends Component {
         {messages.map((message, index) =>
           <div className="rcw-message" key={index}>
             {profileAvatar &&
-              message.get('showAvatar') &&
+              message.showAvatar &&
               <img src={profileAvatar} className="rcw-avatar" alt="profile" />
             }
             {this.getComponentToRender(message)}
@@ -54,11 +51,6 @@ class Messages extends Component {
     );
   }
 }
-
-Messages.propTypes = {
-  messages: ImmutablePropTypes.listOf(ImmutablePropTypes.map),
-  profileAvatar: PropTypes.string
-};
 
 export default connect(store => ({
   messages: store.messages,

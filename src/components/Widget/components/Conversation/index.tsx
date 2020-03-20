@@ -14,7 +14,7 @@ interface IConversation {
   titleAvatar: string;
   subtitle: string;
   senderPlaceHolder: string;
-  profileAvatar: string;
+  profileAvatar?: string;
   showCloseButton: boolean;
   disabledInput: boolean;
   autofocus: boolean;
@@ -25,23 +25,26 @@ interface IConversation {
   onQuickButtonClicked?: AnyFunction;
 };
 
-const Conversation = (props: IConversation) =>
-  <div className={`rcw-conversation-container ${props.className}`}>
-    <Header
-      title={props.title}
-      subtitle={props.subtitle}
-      toggleChat={props.toggleChat}
-      showCloseButton={props.showCloseButton}
-      titleAvatar={props.titleAvatar}
-    />
-    <Messages profileAvatar={props.profileAvatar} />
-    <QuickButtons onQuickButtonClicked={props.onQuickButtonClicked} />
-    <Sender
-      sendMessage={props.sendMessage}
-      placeholder={props.senderPlaceHolder}
-      disabledInput={props.disabledInput}
-      autofocus={props.autofocus}
-    />
-  </div>;
+function Conversation(props: IConversation) {
+  return (
+    <div className={`rcw-conversation-container ${props.className}`}>
+      <Header
+        title={props.title}
+        subtitle={props.subtitle}
+        toggleChat={props.toggleChat}
+        showCloseButton={props.showCloseButton}
+        titleAvatar={props.titleAvatar}
+      />
+      <Messages profileAvatar={props.profileAvatar} />
+      <QuickButtons onQuickButtonClicked={props.onQuickButtonClicked} />
+      <Sender
+        sendMessage={props.sendMessage}
+        placeholder={props.senderPlaceHolder}
+        disabledInput={props.disabledInput}
+        autofocus={props.autofocus}
+      />
+    </div>
+  );
+}
 
 export default Conversation;

@@ -12,6 +12,7 @@
     "test": "jest --coverage",
     "prepublishOnly": "npm run test && npm run build"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "react",
     "chat",

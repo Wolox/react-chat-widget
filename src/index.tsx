@@ -2,9 +2,27 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 
 import Widget from './components/Widget';
-import store from '../src/store/store';
 
-function ConnectedWidget(props: any) {
+import store from  './store/store';
+
+import { AnyFunction } from './utils/types';
+
+interface WidgetI {
+  title?: string;
+  titleAvatar?: string;
+  subtitle?: string;
+  senderPlaceHolder?: string;
+  showCloseButton?: boolean;
+  fullScreenMode?: boolean;
+  badge?: number;
+  autofocus?: boolean;
+  profileAvatar?: string;
+  launcher?: AnyFunction;
+  handleNewUserMessage: AnyFunction;
+  handleQuickButtonClicked: AnyFunction;
+}
+
+function ConnectedWidget(props: WidgetI) {
   return (
     <Provider store={store}>
       <Widget
