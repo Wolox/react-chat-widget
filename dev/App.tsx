@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 
 import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader } from '../index';
 
-export default class App extends React.Component {
+export default class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
   }
