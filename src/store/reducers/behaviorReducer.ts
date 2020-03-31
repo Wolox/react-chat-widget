@@ -1,20 +1,25 @@
-import { Map } from 'immutable';
-
 import { createReducer } from '../../utils/createReducer';
+import { BehaviorState } from '../types';
 
-import * as actionTypes from '../actions/actionTypes';
+import {
+  BehaviorActions,
+  TOGGLE_CHAT,
+  TOGGLE_INPUT_DISABLED,
+  TOGGLE_MSG_LOADER
+} from '../actions/types';
 
-const initialState = Map({ showChat: false, disabledInput: false, msgLoader: false });
-
-const behaviorReducer = {
-  [actionTypes.TOGGLE_CHAT]: state =>
-    state.update('showChat', showChat => !showChat),
-
-  [actionTypes.TOGGLE_INPUT_DISABLED]: state =>
-    state.update('disabledInput', disabledInput => !disabledInput),
-
-  [actionTypes.TOGGLE_MSG_LOADER]: state =>
-    state.update('msgLoader', msgLoader => !msgLoader)
+const initialState = {
+  showChat: false,
+  disabledInput: false,
+  messageLoader: false
 };
 
-export default (state = initialState, action) => createReducer(behaviorReducer, state, action);
+const behaviorReducer = {
+  [TOGGLE_CHAT]: (state: BehaviorState) => ({ ...state, showChat: !state.showChat}),
+
+  [TOGGLE_INPUT_DISABLED]: (state: BehaviorState) => ({ ...state, disabledInput: !state.disabledInput }),
+
+  [TOGGLE_MSG_LOADER]: (state: BehaviorState) => ({ ...state, messageLoader: !state.messageLoader })
+};
+
+export default (state: BehaviorState = initialState, action: BehaviorActions) => createReducer(behaviorReducer, state, action);

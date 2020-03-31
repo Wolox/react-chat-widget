@@ -57,7 +57,7 @@ const WidgetLayout = (props: IWidget) => (
   </div>
 );
 
-export default connect(store => ({
+export default connect((store: { behavior: any }) => ({
   showChat: store.behavior.get('showChat'),
   disabledInput: store.behavior.get('disabledInput')
 }))(WidgetLayout);

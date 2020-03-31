@@ -1,45 +1,52 @@
-import * as actions from './actionTypes';
+import { ElementType } from 'react';
 
-export function toggleChat() {
+import * as actions from './types';
+import { Link, QuickButton } from '../types';
+
+export function toggleChat(): actions.BehaviorActions {
   return {
     type: actions.TOGGLE_CHAT
   };
 }
 
-export function toggleInputDisabled() {
+export function toggleInputDisabled(): actions.BehaviorActions {
   return {
     type: actions.TOGGLE_INPUT_DISABLED
   };
 }
 
-export function addUserMessage(text) {
+export function addUserMessage(text: string): actions.MessagesActions {
   return {
     type: actions.ADD_NEW_USER_MESSAGE,
     text
   };
 }
 
-export function addResponseMessage(text) {
+export function addResponseMessage(text: string): actions.MessagesActions {
   return {
     type: actions.ADD_NEW_RESPONSE_MESSAGE,
     text
   };
 }
 
-export function toggleMsgLoader() {
+export function toggleMsgLoader(): actions.BehaviorActions {
   return {
     type: actions.TOGGLE_MSG_LOADER
   }
 }
 
-export function addLinkSnippet(link) {
+export function addLinkSnippet(link: Link): actions.MessagesActions {
   return {
     type: actions.ADD_NEW_LINK_SNIPPET,
     link
   };
 }
 
-export function renderCustomComponent(component, props, showAvatar) {
+export function renderCustomComponent(
+  component: ElementType,
+  props: any,
+  showAvatar: boolean
+): actions.MessagesActions {
   return {
     type: actions.ADD_COMPONENT_MESSAGE,
     component,
@@ -48,19 +55,19 @@ export function renderCustomComponent(component, props, showAvatar) {
   };
 }
 
-export function dropMessages() {
+export function dropMessages(): actions.MessagesActions {
   return {
     type: actions.DROP_MESSAGES
   };
 }
 
-export function hideAvatar() {
+export function hideAvatar(): actions.MessagesActions {
   return {
     type: actions.HIDE_AVATAR
   };
 }
 
-export function setQuickButtons(buttons) {
+export function setQuickButtons(buttons: Array<QuickButton>): actions.QuickButtonsActions {
   return {
     type: actions.SET_QUICK_BUTTONS,
     buttons

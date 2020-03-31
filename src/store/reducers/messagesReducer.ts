@@ -1,30 +1,38 @@
-import { List } from 'immutable';
+import { MessagesState } from '../types';
 
 import { createReducer } from '../../utils/createReducer';
 import { createNewMessage, createLinkSnippet, createComponentMessage } from '../../utils/messages';
 import { MESSAGE_SENDER } from '../../constants';
+import {
+  MessagesActions,
+  ADD_NEW_USER_MESSAGE,
+  ADD_NEW_RESPONSE_MESSAGE,
+  ADD_NEW_LINK_SNIPPET,
+  ADD_COMPONENT_MESSAGE,
+  DROP_MESSAGES
+} from '../actions/types';
 
-import * as actionTypes from '../actions/actionTypes';
-
-const initialState = List([]);
+const initialState = {
+  messages: []
+};
 
 const messagesReducer = {
-  [actionTypes.ADD_NEW_USER_MESSAGE]: (state, { text }) =>
-    state.push(createNewMessage(text, MESSAGE_SENDER.CLIENT)),
+  [ADD_NEW_USER_MESSAGE]: (state: MessagesState, { text }) =>
+    state.messages.push(createNewMessage(text, MESSAGE_SENDER.CLIENT)),
 
-  [actionTypes.ADD_NEW_RESPONSE_MESSAGE]: (state, { text }) =>
-    state.push(createNewMessage(text, MESSAGE_SENDER.RESPONSE)),
+  [ADD_NEW_RESPONSE_MESSAGE]: (state: MessagesState, { text }) =>
+    state.messages.push(createNewMessage(text, MESSAGE_SENDER.RESPONSE)),
 
-  [actionTypes.ADD_NEW_LINK_SNIPPET]: (state, { link }) =>
-    state.push(createLinkSnippet(link)),
+  [ADD_NEW_LINK_SNIPPET]: (state: MessagesState, { link }) =>
+    state.messages.push(createLinkSnippet(link)),
 
-  [actionTypes.ADD_COMPONENT_MESSAGE]: (state, { component, props, showAvatar }) =>
-    state.push(createComponentMessage(component, props, showAvatar)),
+  [ADD_COMPONENT_MESSAGE]: (state: MessagesState, { component, props, showAvatar }) =>
+    state.messages.push(createComponentMessage(component, props, showAvatar)),
 
-  [actionTypes.DROP_MESSAGES]: () => List([]),
+  [DROP_MESSAGES]: () => ({ messages: [] })
 
-  [actionTypes.HIDE_AVATAR]: (state, { index }) =>
-    state.update(index, message => message.set('showAvatar', false))
+  // [actionTypes.HIDE_AVATAR]: (state: MessagesState, { index }) =>
+  //   state.messages.update(index, message => message.set('showAvatar', false))
 }
 
-export default (state = initialState, action) => createReducer(messagesReducer, state, action);
+export default (state = initialState, action: MessagesActions) => createReducer(messagesReducer, state, action);

@@ -7,16 +7,16 @@ import { AnyFunction } from '../../utils/types';
 import WidgetLayout from './layout';
 
 export interface WidgetI {
-  title?: string;
-  titleAvatar?: string;
-  subtitle?: string;
-  senderPlaceHolder?: string;
-  profileAvatar?: string;
-  showCloseButton?: boolean;
-  fullScreenMode?: boolean;
-  badge?: number;
-  autofocus?: boolean;
-  customLauncher?: AnyFunction;
+  title: string;
+  titleAvatar: string;
+  subtitle: string;
+  senderPlaceHolder: string;
+  profileAvatar: string;
+  showCloseButton: boolean;
+  fullScreenMode: boolean;
+  badge: number;
+  autofocus: boolean;
+  customLauncher: AnyFunction;
   handleNewUserMessage: AnyFunction;
   handleQuickButtonClicked: AnyFunction;
   dispatch: AnyFunction;

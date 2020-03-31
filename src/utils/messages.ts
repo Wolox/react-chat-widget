@@ -1,6 +1,6 @@
-import { Component } from 'react';
+import { ElementType } from 'react';
 
-import { Link } from './types';
+import { Message as MessageI, Link, CustomCompMessage } from '../store/types';
 
 import Message from '../components/Widget/components/Conversation/components/Messages/components/Message';
 import Snippet from '../components/Widget/components/Conversation/components/Messages/components/Snippet';
@@ -8,7 +8,7 @@ import QuickButton from '../components/Widget/components/Conversation/components
 
 import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '../constants';
 
-export function createNewMessage(text: string, sender: string) {
+export function createNewMessage(text: string, sender: string): MessageI {
   return {
     type: MESSAGES_TYPES.TEXT,
     component: Message,
@@ -18,7 +18,7 @@ export function createNewMessage(text: string, sender: string) {
   };
 }
 
-export function createLinkSnippet(link: Link) {
+export function createLinkSnippet(link: { title: string, link: string, target: string }) : Link {
   return {
     type: MESSAGES_TYPES.SNIPPET.LINK,
     component: Snippet,
@@ -30,7 +30,7 @@ export function createLinkSnippet(link: Link) {
   };
 }
 
-export function createComponentMessage(component: Component, props: any, showAvatar: boolean) {
+export function createComponentMessage(component: ElementType, props: any, showAvatar: boolean): CustomCompMessage {
   return {
     type: MESSAGES_TYPES.CUSTOM_COMPONENT,
     component,

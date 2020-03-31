@@ -3,11 +3,11 @@ import { Provider } from 'react-redux';
 
 import Widget from './components/Widget';
 
-import store from  './store/store';
+import store from  './store';
 
 import { AnyFunction } from './utils/types';
 
-interface WidgetI {
+interface Props {
   title?: string;
   titleAvatar?: string;
   subtitle?: string;
@@ -22,7 +22,7 @@ interface WidgetI {
   handleQuickButtonClicked: AnyFunction;
 }
 
-function ConnectedWidget(props: WidgetI) {
+function ConnectedWidget(props: Props) {
   return (
     <Provider store={store}>
       <Widget
