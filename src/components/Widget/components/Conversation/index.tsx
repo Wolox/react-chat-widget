@@ -9,12 +9,10 @@ import { AnyFunction } from '../../../../utils/types';
 
 import './style.scss';
 
-interface IConversation {
+type Props = {
   title: string;
-  titleAvatar: string;
   subtitle: string;
   senderPlaceHolder: string;
-  profileAvatar?: string;
   showCloseButton: boolean;
   disabledInput: boolean;
   autofocus: boolean;
@@ -22,10 +20,12 @@ interface IConversation {
   className: string;
   sendMessage: AnyFunction;
   toggleChat: AnyFunction;
+  profileAvatar?: string;
+  titleAvatar?: string;
   onQuickButtonClicked?: AnyFunction;
 };
 
-function Conversation(props: IConversation) {
+function Conversation(props: Props) {
   return (
     <div className={`rcw-conversation-container ${props.className}`}>
       <Header

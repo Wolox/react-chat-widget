@@ -7,7 +7,7 @@ import store from  './store';
 
 import { AnyFunction } from './utils/types';
 
-interface Props {
+type Props = {
   title?: string;
   titleAvatar?: string;
   subtitle?: string;
@@ -20,30 +20,43 @@ interface Props {
   launcher?: AnyFunction;
   handleNewUserMessage: AnyFunction;
   handleQuickButtonClicked: AnyFunction;
-}
+} & typeof defaultProps;
 
-function ConnectedWidget(props: Props) {
+function ConnectedWidget({
+  title,
+  titleAvatar,
+  subtitle,
+  senderPlaceHolder,
+  showCloseButton,
+  fullScreenMode,
+  badge,
+  autofocus,
+  profileAvatar,
+  launcher,
+  handleNewUserMessage,
+  handleQuickButtonClicked
+}: Props) {
   return (
     <Provider store={store}>
       <Widget
-        title={props.title}
-        titleAvatar={props.titleAvatar}
-        subtitle={props.subtitle}
-        handleNewUserMessage={props.handleNewUserMessage}
-        handleQuickButtonClicked={props.handleQuickButtonClicked}
-        senderPlaceHolder={props.senderPlaceHolder}
-        profileAvatar={props.profileAvatar}
-        showCloseButton={props.showCloseButton}
-        fullScreenMode={props.fullScreenMode}
-        badge={props.badge}
-        autofocus={props.autofocus}
-        customLauncher={props.launcher}
+        title={title}
+        titleAvatar={titleAvatar}
+        subtitle={subtitle}
+        handleNewUserMessage={handleNewUserMessage}
+        handleQuickButtonClicked={handleQuickButtonClicked}
+        senderPlaceHolder={senderPlaceHolder}
+        profileAvatar={profileAvatar}
+        showCloseButton={showCloseButton}
+        fullScreenMode={fullScreenMode}
+        badge={badge}
+        autofocus={autofocus}
+        customLauncher={launcher}
       />
     </Provider>
   );
 }
 
-ConnectedWidget.defaultProps = {
+const defaultProps = {
   title: 'Welcome',
   subtitle: 'This is your chat subtitle',
   senderPlaceHolder: 'Type a message...',
@@ -52,5 +65,6 @@ ConnectedWidget.defaultProps = {
   badge: 0,
   autofocus: true
 };
+ConnectedWidget.defaultProps = defaultProps;
 
 export default ConnectedWidget;

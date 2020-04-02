@@ -1,0 +1,21 @@
+import React from 'react'; 
+
+import './styles.scss';
+
+type Props = {
+  typing: boolean;
+}
+
+function Loader({ typing }: Props) {
+  return (
+  <div className={`loader ${typing && 'active'}`}>
+    <div className="loader-container">
+      <span className="loader-dots"></span>
+      <span className="loader-dots"></span>
+      <span className="loader-dots"></span>
+    </div>
+  </div>
+  );
+}
+
+export default Loader;

@@ -9,7 +9,8 @@ import {
   ADD_NEW_RESPONSE_MESSAGE,
   ADD_NEW_LINK_SNIPPET,
   ADD_COMPONENT_MESSAGE,
-  DROP_MESSAGES
+  DROP_MESSAGES,
+  HIDE_AVATAR
 } from '../actions/types';
 
 const initialState = {
@@ -18,21 +19,21 @@ const initialState = {
 
 const messagesReducer = {
   [ADD_NEW_USER_MESSAGE]: (state: MessagesState, { text }) =>
-    state.messages.push(createNewMessage(text, MESSAGE_SENDER.CLIENT)),
+    ({ messages: [...state.messages, createNewMessage(text, MESSAGE_SENDER.CLIENT)] }),
 
   [ADD_NEW_RESPONSE_MESSAGE]: (state: MessagesState, { text }) =>
-    state.messages.push(createNewMessage(text, MESSAGE_SENDER.RESPONSE)),
+    ({ messages: [...state.messages, createNewMessage(text, MESSAGE_SENDER.RESPONSE)] }),
 
   [ADD_NEW_LINK_SNIPPET]: (state: MessagesState, { link }) =>
-    state.messages.push(createLinkSnippet(link)),
+    ({ messages: [...state.messages, createLinkSnippet(link)] }),
 
   [ADD_COMPONENT_MESSAGE]: (state: MessagesState, { component, props, showAvatar }) =>
-    state.messages.push(createComponentMessage(component, props, showAvatar)),
+    ({ messages: [...state.messages, createComponentMessage(component, props, showAvatar)] }),
 
-  [DROP_MESSAGES]: () => ({ messages: [] })
+  [DROP_MESSAGES]: () => ({ messages: [] }),
 
-  // [actionTypes.HIDE_AVATAR]: (state: MessagesState, { index }) =>
-  //   state.messages.update(index, message => message.set('showAvatar', false))
+  [HIDE_AVATAR]: (state: MessagesState, { index }) =>
+    state.messages[index].showAvatar = false
 }
 
 export default (state = initialState, action: MessagesActions) => createReducer(messagesReducer, state, action);

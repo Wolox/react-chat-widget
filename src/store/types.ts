@@ -5,11 +5,11 @@ type BaseMessage = {
   component: ElementType;
   sender: string,
   showAvatar: boolean
+  props?: any;
 }
 
 export interface Message extends BaseMessage {
   text: string;
-  props?: any;
 };
 
 export type QuickButton = {
@@ -35,9 +35,15 @@ export interface BehaviorState {
 };
 
 export interface MessagesState {
-  messages: Array<Message | Link | CustomCompMessage | ElementType>;
+  messages: Array<Message | Link | CustomCompMessage>;
 }
 
 export interface QuickButtonsState {
   quickButtons: Array<QuickButton>;
+}
+
+export interface GlobalState {
+  messages: MessagesState;
+  behavior: BehaviorState;
+  quickButtons: QuickButtonsState;
 }

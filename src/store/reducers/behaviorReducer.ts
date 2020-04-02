@@ -5,7 +5,7 @@ import {
   BehaviorActions,
   TOGGLE_CHAT,
   TOGGLE_INPUT_DISABLED,
-  TOGGLE_MSG_LOADER
+  TOGGLE_MESSAGE_LOADER
 } from '../actions/types';
 
 const initialState = {
@@ -19,7 +19,7 @@ const behaviorReducer = {
 
   [TOGGLE_INPUT_DISABLED]: (state: BehaviorState) => ({ ...state, disabledInput: !state.disabledInput }),
 
-  [TOGGLE_MSG_LOADER]: (state: BehaviorState) => ({ ...state, messageLoader: !state.messageLoader })
+  [TOGGLE_MESSAGE_LOADER]: (state: BehaviorState) => ({ ...state, messageLoader: !state.messageLoader })
 };
 
 export default (state: BehaviorState = initialState, action: BehaviorActions) => createReducer(behaviorReducer, state, action);

@@ -31,7 +31,7 @@ export function addResponseMessage(text: string): actions.MessagesActions {
 
 export function toggleMsgLoader(): actions.BehaviorActions {
   return {
-    type: actions.TOGGLE_MSG_LOADER
+    type: actions.TOGGLE_MESSAGE_LOADER
   }
 }
 
@@ -61,9 +61,10 @@ export function dropMessages(): actions.MessagesActions {
   };
 }
 
-export function hideAvatar(): actions.MessagesActions {
+export function hideAvatar(index: number): actions.MessagesActions {
   return {
-    type: actions.HIDE_AVATAR
+    type: actions.HIDE_AVATAR,
+    index
   };
 }
 

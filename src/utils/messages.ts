@@ -48,6 +48,8 @@ export function createQuickButton(button: { label: string, value: string | numbe
   };
 }
 
+// TODO: Clean functions and window use for SSR
+
 /**
  * Easing Functions
  * @param {*} t timestamp
@@ -67,7 +69,7 @@ function sinEaseOut(t, b, c, d) {
  */
 function scrollWithSlowMotion(target, scrollStart, scroll: number) {
   const raf = window.webkitRequestAnimationFrame || window.requestAnimationFrame
-  let start = null
+  let start = 0
   const step = (timestamp) => {
     if (!start) {
       start = timestamp

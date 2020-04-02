@@ -4,18 +4,22 @@ import markdownItSup from 'markdown-it-sup';
 import markdownItSanitizer from 'markdown-it-sanitizer';
 import markdownItLinkAttributes from 'markdown-it-link-attributes';
 
+import { Message } from 'src/store/types';
+
 import './styles.scss';
 
-// TODO: add prop types
-function Message(props: any) {
-  const sanitizedHTML = markdownIt()
-  .use(markdownItSup)
-  .use(markdownItSanitizer)
-  .use(markdownItLinkAttributes, { attrs: { target: '_blank', rel: 'noopener' } })
-  .render(props.message.text);
+type Props = {
+  message: Message;
+}
+
+function Message({ message }: Props) {
+  const sanitizedHTML = markdownIt().use(markdownItSup)
+    .use(markdownItSanitizer)
+    .use(markdownItLinkAttributes, { attrs: { target: '_blank', rel: 'noopener' } })
+    .render(message.text);
 
   return (
-    <div className={`rcw-${props.message.sender}`}>
+    <div className={`rcw-${message.sender}`}>
       <div className="rcw-message-text" dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
     </div>
   );

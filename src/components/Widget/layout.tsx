@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
@@ -7,57 +7,75 @@ import Launcher from './components/Launcher';
 import { AnyFunction } from '../../utils/types';
 
 import './style.scss';
+import { GlobalState } from 'src/store/types';
 
-interface IWidget {
+type Props = {
   title: string;
-  titleAvatar: string;
+  titleAvatar?: string;
   subtitle: string;
   onSendMessage: AnyFunction;
   onToggleConversation: AnyFunction;
-  showChat: boolean;
   senderPlaceHolder: string;
   onQuickButtonClicked: AnyFunction;
   profileAvatar?: string;
   showCloseButton: boolean;
-  disabledInput: boolean;
   fullScreenMode: boolean;
   badge: number;
   autofocus: boolean;
-  customLauncher: AnyFunction;
+  customLauncher?: AnyFunction;
 }
 
-const WidgetLayout = (props: IWidget) => (
-  <div
-    className={
-      `rcw-widget-container ${props.fullScreenMode ? 'rcw-full-screen' : ''}`
-    }
-  >
-    <Conversation
-      title={props.title}
-      subtitle={props.subtitle}
-      sendMessage={props.onSendMessage}
-      senderPlaceHolder={props.senderPlaceHolder}
-      profileAvatar={props.profileAvatar}
-      toggleChat={props.onToggleConversation}
-      showChat={props.showChat}
-      showCloseButton={props.showCloseButton}
-      disabledInput={props.disabledInput}
-      autofocus={props.autofocus}
-      titleAvatar={props.titleAvatar}
-      className={props.showChat ? 'active' : 'hidden'}
-    />
-    {props.customLauncher ?
-      props.customLauncher(props.onToggleConversation) :
-      !props.fullScreenMode &&
-      <Launcher
-        toggle={props.onToggleConversation}
-        badge={props.badge}
-      />
-    }
-  </div>
-);
+function WidgetLayout({
+  title,
+  titleAvatar,
+  subtitle,
+  onSendMessage,
+  onToggleConversation,
+  senderPlaceHolder,
+  onQuickButtonClicked,
+  profileAvatar,
+  showCloseButton,
+  fullScreenMode,
+  badge,
+  autofocus,
+  customLauncher
+}: Props) {
+  const { dissableInput, showChat } = useSelector((state: GlobalState) => ({
+    showChat: state.behavior.showChat,
+    dissableInput: state.behavior.disabledInput
+  }));
 
-export default connect((store: { behavior: any }) => ({
-  showChat: store.behavior.get('showChat'),
-  disabledInput: store.behavior.get('disabledInput')
-}))(WidgetLayout);
+  return (
+    <div
+      className={
+        `rcw-widget-container ${fullScreenMode ? 'rcw-full-screen' : ''}`
+      }
+    >
+      <Conversation
+        title={title}
+        subtitle={subtitle}
+        sendMessage={onSendMessage}
+        senderPlaceHolder={senderPlaceHolder}
+        profileAvatar={profileAvatar}
+        toggleChat={onToggleConversation}
+        showChat={showChat}
+        showCloseButton={showCloseButton}
+        disabledInput={dissableInput}
+        autofocus={autofocus}
+        titleAvatar={titleAvatar}
+        className={showChat ? 'active' : 'hidden'}
+        onQuickButtonClicked={onQuickButtonClicked}
+      />
+      {customLauncher ?
+        customLauncher(onToggleConversation) :
+        !fullScreenMode &&
+        <Launcher
+          toggle={onToggleConversation}
+          badge={badge}
+        />
+      }
+    </div>
+  );
+}
+
+export default WidgetLayout;

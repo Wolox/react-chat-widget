@@ -4,7 +4,7 @@ import { Link, QuickButton } from '../types';
 
 export const TOGGLE_CHAT = 'BEHAVIOR/TOGGLE_CHAT';
 export const TOGGLE_INPUT_DISABLED = 'BEHAVIOR/TOGGLE_INPUT_DISABLED';
-export const TOGGLE_MSG_LOADER = 'BEHAVIOR/TOGGLE_MSG_LOADER';
+export const TOGGLE_MESSAGE_LOADER = 'BEHAVIOR/TOGGLE_MSG_LOADER';
 export const ADD_NEW_USER_MESSAGE = 'MESSAGES/ADD_NEW_USER_MESSAGE';
 export const ADD_NEW_RESPONSE_MESSAGE = 'MESSAGES/ADD_NEW_RESPONSE_MESSAGE';
 export const ADD_NEW_LINK_SNIPPET = 'MESSAGES/ADD_NEW_LINK_SNIPPET';
@@ -32,7 +32,7 @@ export interface AddResponseMessage {
 }
 
 export interface ToggleMsgLoader {
-  type: typeof TOGGLE_MSG_LOADER
+  type: typeof TOGGLE_MESSAGE_LOADER
 }
 
 export interface AddLinkSnippet {
@@ -52,7 +52,8 @@ export interface DropMessages {
 }
 
 export interface HideAvatar {
-  type: typeof HIDE_AVATAR
+  type: typeof HIDE_AVATAR,
+  index: number
 }
 
 export interface SetQuickButtons {

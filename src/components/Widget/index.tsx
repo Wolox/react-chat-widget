@@ -1,25 +1,24 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { toggleChat, addUserMessage } from '../../store/actions';
 import { AnyFunction } from '../../utils/types';
 
 import WidgetLayout from './layout';
 
-export interface WidgetI {
+type Props = {
   title: string;
-  titleAvatar: string;
+  titleAvatar?: string;
   subtitle: string;
   senderPlaceHolder: string;
-  profileAvatar: string;
+  profileAvatar?: string;
   showCloseButton: boolean;
   fullScreenMode: boolean;
   badge: number;
   autofocus: boolean;
-  customLauncher: AnyFunction;
+  customLauncher?: AnyFunction;
   handleNewUserMessage: AnyFunction;
   handleQuickButtonClicked: AnyFunction;
-  dispatch: AnyFunction;
 }
 
 function Widget({
@@ -34,9 +33,9 @@ function Widget({
   autofocus,
   customLauncher,
   handleNewUserMessage,
-  handleQuickButtonClicked,
-  dispatch
-}: WidgetI) {
+  handleQuickButtonClicked
+}: Props) {
+  const dispatch = useDispatch();
 
   const toggleConversation = () => {
     dispatch(toggleChat());
@@ -54,7 +53,8 @@ function Widget({
 
   const onQuickButtonClicked = (event, value) => {
     event.preventDefault();
-    if (handleQuickButtonClicked) handleQuickButtonClicked(value);
+    handleQuickButtonClicked?.(value)
+    // if (handleQuickButtonClicked) handleQuickButtonClicked(value);
   }
 
   return (
@@ -76,4 +76,4 @@ function Widget({
   );
 }
 
-export default connect()(Widget);
+export default Widget;
