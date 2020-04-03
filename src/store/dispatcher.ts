@@ -1,4 +1,4 @@
-import store from './store';
+import store from '.';
 import * as actions from './actions';
 
 export function addUserMessage(text) {
