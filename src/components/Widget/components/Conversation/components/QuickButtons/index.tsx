@@ -23,7 +23,6 @@ function QuickButtons({ onQuickButtonClicked }: Props) {
     );
   }
 
-  console.log(buttons)
   if (!buttons.length) return null;
 
   return (
