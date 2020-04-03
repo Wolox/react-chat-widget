@@ -3,8 +3,9 @@ import { ElementType } from 'react';
 type BaseMessage = {
   type: string;
   component: ElementType;
-  sender: string,
-  showAvatar: boolean
+  sender: string;
+  showAvatar: boolean;
+  timestamp: Date;
   props?: any;
 }
 
@@ -15,7 +16,7 @@ export interface Message extends BaseMessage {
 export type QuickButton = {
   label: string;
   value: string | number;
-  component?: ElementType;
+  component: ElementType;
 };
 
 export interface Link extends BaseMessage {

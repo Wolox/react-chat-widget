@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import cn from 'classnames';
+
+import { GlobalState } from 'src/store/types';
+import { AnyFunction } from 'src/utils/types';
 
 import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
 
-import { AnyFunction } from '../../utils/types';
-
 import './style.scss';
-import { GlobalState } from 'src/store/types';
 
 type Props = {
   title: string;
@@ -46,11 +47,7 @@ function WidgetLayout({
   }));
 
   return (
-    <div
-      className={
-        `rcw-widget-container ${fullScreenMode ? 'rcw-full-screen' : ''}`
-      }
-    >
+    <div className={cn('rcw-widget-container', { 'rcw-full-screen': fullScreenMode })}>
       <Conversation
         title={title}
         subtitle={subtitle}
@@ -58,7 +55,6 @@ function WidgetLayout({
         senderPlaceHolder={senderPlaceHolder}
         profileAvatar={profileAvatar}
         toggleChat={onToggleConversation}
-        showChat={showChat}
         showCloseButton={showCloseButton}
         disabledInput={dissableInput}
         autofocus={autofocus}

@@ -54,7 +54,6 @@ function Widget({
   const onQuickButtonClicked = (event, value) => {
     event.preventDefault();
     handleQuickButtonClicked?.(value)
-    // if (handleQuickButtonClicked) handleQuickButtonClicked(value);
   }
 
   return (

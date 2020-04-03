@@ -1,7 +1,8 @@
-@import 'variables.scss';
-@import 'common.scss';
+@import 'variables';
+@import 'common';
 
 .rcw-conversation-container {
+
   .rcw-header {
     background-color: $turqois-1;
     border-radius: 10px 10px 0 0;
@@ -51,7 +52,9 @@
 }
 
 @media screen and (max-width: 800px) {
+
   .rcw-conversation-container {
+
     .rcw-header {
       @include header-fs;
     }

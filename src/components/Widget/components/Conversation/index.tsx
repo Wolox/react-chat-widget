@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 
 import Header from './components/Header';
 import Messages from './components/Messages';
@@ -16,7 +17,6 @@ type Props = {
   showCloseButton: boolean;
   disabledInput: boolean;
   autofocus: boolean;
-  showChat: boolean;
   className: string;
   sendMessage: AnyFunction;
   toggleChat: AnyFunction;
@@ -25,23 +25,36 @@ type Props = {
   onQuickButtonClicked?: AnyFunction;
 };
 
-function Conversation(props: Props) {
+function Conversation({
+  title,
+  subtitle,
+  senderPlaceHolder,
+  showCloseButton,
+  disabledInput,
+  autofocus,
+  className,
+  sendMessage,
+  toggleChat,
+  profileAvatar,
+  titleAvatar,
+  onQuickButtonClicked
+}: Props) {
   return (
-    <div className={`rcw-conversation-container ${props.className}`}>
+    <div className={cn('rcw-conversation-container', className)}>
       <Header
-        title={props.title}
-        subtitle={props.subtitle}
-        toggleChat={props.toggleChat}
-        showCloseButton={props.showCloseButton}
-        titleAvatar={props.titleAvatar}
+        title={title}
+        subtitle={subtitle}
+        toggleChat={toggleChat}
+        showCloseButton={showCloseButton}
+        titleAvatar={titleAvatar}
       />
-      <Messages profileAvatar={props.profileAvatar} />
-      <QuickButtons onQuickButtonClicked={props.onQuickButtonClicked} />
+      <Messages profileAvatar={profileAvatar} />
+      <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
       <Sender
-        sendMessage={props.sendMessage}
-        placeholder={props.senderPlaceHolder}
-        disabledInput={props.disabledInput}
-        autofocus={props.autofocus}
+        sendMessage={sendMessage}
+        placeholder={senderPlaceHolder}
+        disabledInput={disabledInput}
+        autofocus={autofocus}
       />
     </div>
   );

@@ -14,6 +14,7 @@ export function createNewMessage(text: string, sender: string): MessageI {
     component: Message,
     text,
     sender,
+    timestamp: new Date(),
     showAvatar: sender === MESSAGE_SENDER.RESPONSE
   };
 }
@@ -26,6 +27,7 @@ export function createLinkSnippet(link: { title: string, link: string, target: s
     link: link.link,
     target: link.target || '_blank',
     sender: MESSAGE_SENDER.RESPONSE,
+    timestamp: new Date(),
     showAvatar: true
   };
 }
@@ -36,6 +38,7 @@ export function createComponentMessage(component: ElementType, props: any, showA
     component,
     props,
     sender: MESSAGE_SENDER.RESPONSE,
+    timestamp: new Date(),
     showAvatar
   };
 }

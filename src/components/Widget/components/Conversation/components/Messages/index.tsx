@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { hideAvatar } from '../../../../../..//store/actions';
 import { scrollToBottom } from '../../../../../../utils/messages';
 import { Message, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
 
 import Loader from './components/Loader';
 import './styles.scss';
 
-function Messages(props) {
+type Props = {
+  profileAvatar?: string;
+}
+
+function Messages({ profileAvatar }: Props) {
   const messages = useSelector((state: GlobalState) => state.messages.messages);
   const typing = useSelector((state: GlobalState) => state.behavior.messageLoader);
   const dispatch = useDispatch();
 
-  const { profileAvatar } = props;
-  
-  let $message: HTMLDivElement | null;
-
-  // useEffect(() => scrollToBottom($message), [messages]);
+  const messageRef = useRef(null);
+  useEffect(() => scrollToBottom(messageRef.current), [messages]);
 
   const getComponentToRender = (message: Message | Link | CustomCompMessage) => {
     const ComponentToRender = message.component;
@@ -36,9 +36,9 @@ function Messages(props) {
   // }
 
   return (
-    <div id="messages" className="rcw-messages-container" ref={msg => $message = msg}>
-      {messages?.map((message, index) =>
-        <div className="rcw-message" key={index}>
+    <div id="messages" className="rcw-messages-container" ref={messageRef}>
+      {messages?.map(message =>
+        <div className="rcw-message" key={message.timestamp.toString()}>
           {profileAvatar &&
             message.showAvatar &&
             <img src={profileAvatar} className="rcw-avatar" alt="profile" />

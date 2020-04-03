@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import Badge from './components/Badge';
@@ -15,12 +15,12 @@ type Props = {
 }
 
 function Launcher({ toggle, badge }: Props) {
-  const chatOpened = useSelector((state: GlobalState) => state.behavior.showChat);
+  const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
 
   return (
-    <button type="button" className={chatOpened ? 'rcw-launcher rcw-hide-sm' : 'rcw-launcher'} onClick={toggle}>
+    <button type="button" className={showChat ? 'rcw-launcher rcw-hide-sm' : 'rcw-launcher'} onClick={toggle}>
       <Badge badge={badge} />
-      {chatOpened ?
+      {showChat ?
         <img src={close} className="rcw-close-launcher" alt="" /> :
         <img src={openLauncher} className="rcw-open-launcher" alt="" />
       }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { format } from 'date-fns';
 import markdownIt from 'markdown-it';
 import markdownItSup from 'markdown-it-sup';
 import markdownItSanitizer from 'markdown-it-sanitizer';
@@ -21,6 +22,7 @@ function Message({ message }: Props) {
   return (
     <div className={`rcw-${message.sender}`}>
       <div className="rcw-message-text" dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
+      <span className="rcw-timestamp">{format(message.timestamp, 'hh:mm')}</span>
     </div>
   );
 }
