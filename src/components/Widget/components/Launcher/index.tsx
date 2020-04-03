@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
+import cn from 'classnames';
 
 import Badge from './components/Badge';
 import { GlobalState } from '../../../../store/types';
@@ -10,7 +11,7 @@ const openLauncher = require('../../../../../assets/launcher_button.svg') as str
 const close = require('../../../../../assets/clear-button.svg') as string;
 
 type Props = {
-  toggle: () => {},
+  toggle: () => void,
   badge: number
 }
 
@@ -18,7 +19,7 @@ function Launcher({ toggle, badge }: Props) {
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
 
   return (
-    <button type="button" className={showChat ? 'rcw-launcher rcw-hide-sm' : 'rcw-launcher'} onClick={toggle}>
+    <button type="button" className={cn('rcw-launcher', { 'rcw-hide-sm': showChat })} onClick={toggle}>
       <Badge badge={badge} />
       {showChat ?
         <img src={close} className="rcw-close-launcher" alt="" /> :
