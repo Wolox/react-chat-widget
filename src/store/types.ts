@@ -6,6 +6,7 @@ type BaseMessage = {
   sender: string;
   showAvatar: boolean;
   timestamp: Date;
+  customId?: string;
   props?: any;
 }
 
@@ -24,6 +25,12 @@ export interface Link extends BaseMessage {
   link: string;
   target: string;
 };
+
+export interface LinkParams {
+  link: string;
+  title: string;
+  target?: string;
+}
 
 export interface CustomCompMessage extends BaseMessage {
   props: any;

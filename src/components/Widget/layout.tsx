@@ -24,6 +24,7 @@ type Props = {
   badge: number;
   autofocus: boolean;
   customLauncher?: AnyFunction;
+  onTextInputChange?: (event: any) => void;
 }
 
 function WidgetLayout({
@@ -39,7 +40,8 @@ function WidgetLayout({
   fullScreenMode,
   badge,
   autofocus,
-  customLauncher
+  customLauncher,
+  onTextInputChange
 }: Props) {
   const { dissableInput, showChat } = useSelector((state: GlobalState) => ({
     showChat: state.behavior.showChat,
@@ -61,6 +63,7 @@ function WidgetLayout({
         titleAvatar={titleAvatar}
         className={showChat ? 'active' : 'hidden'}
         onQuickButtonClicked={onQuickButtonClicked}
+        onTextInputChange={onTextInputChange}
       />
       {customLauncher ?
         customLauncher(onToggleConversation) :

@@ -23,6 +23,7 @@ type Props = {
   profileAvatar?: string;
   titleAvatar?: string;
   onQuickButtonClicked?: AnyFunction;
+  onTextInputChange?: (event: any) => void;
 };
 
 function Conversation({
@@ -37,7 +38,8 @@ function Conversation({
   toggleChat,
   profileAvatar,
   titleAvatar,
-  onQuickButtonClicked
+  onQuickButtonClicked,
+  onTextInputChange
 }: Props) {
   return (
     <div className={cn('rcw-conversation-container', className)}>
@@ -55,6 +57,7 @@ function Conversation({
         placeholder={senderPlaceHolder}
         disabledInput={disabledInput}
         autofocus={autofocus}
+        onTextInputChange={onTextInputChange}
       />
     </div>
   );

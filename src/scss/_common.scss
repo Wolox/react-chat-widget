@@ -6,7 +6,10 @@
   text-align: left;
 }
 
+// Full screen mixins
+
 @mixin widget-container-fs {
+  height: 100vh;
   margin: 0;
   max-width: none;
   width: 100%;

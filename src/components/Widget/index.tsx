@@ -19,6 +19,7 @@ type Props = {
   customLauncher?: AnyFunction;
   handleNewUserMessage: AnyFunction;
   handleQuickButtonClicked: AnyFunction;
+  handleTextInputChange?: (event: any) => void;
 }
 
 function Widget({
@@ -33,7 +34,8 @@ function Widget({
   autofocus,
   customLauncher,
   handleNewUserMessage,
-  handleQuickButtonClicked
+  handleQuickButtonClicked,
+  handleTextInputChange
 }: Props) {
   const dispatch = useDispatch();
 
@@ -71,6 +73,7 @@ function Widget({
       badge={badge}
       autofocus={autofocus}
       customLauncher={customLauncher}
+      onTextInputChange={handleTextInputChange}
     />
   );
 }

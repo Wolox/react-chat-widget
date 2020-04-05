@@ -10,7 +10,8 @@ import {
   ADD_NEW_LINK_SNIPPET,
   ADD_COMPONENT_MESSAGE,
   DROP_MESSAGES,
-  HIDE_AVATAR
+  HIDE_AVATAR,
+  DELETE_MESSAGES
 } from '../actions/types';
 
 const initialState = {
@@ -33,7 +34,12 @@ const messagesReducer = {
   [DROP_MESSAGES]: () => ({ messages: [] }),
 
   [HIDE_AVATAR]: (state: MessagesState, { index }) =>
-    state.messages[index].showAvatar = false
+    state.messages[index].showAvatar = false,
+
+  [DELETE_MESSAGES]: (state: MessagesState, { count, id }) => {
+    if (id) return { messages: state.messages.filter(message => message.customId !== id) }
+    return { messages: state.messages.splice(state.messages.length - 1, count) }
+  }
 }
 
 export default (state = initialState, action: MessagesActions) => createReducer(messagesReducer, state, action);

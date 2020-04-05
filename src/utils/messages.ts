@@ -1,6 +1,6 @@
 import { ElementType } from 'react';
 
-import { Message as MessageI, Link, CustomCompMessage } from '../store/types';
+import { Message as MessageI, Link, CustomCompMessage, LinkParams } from '../store/types';
 
 import Message from '../components/Widget/components/Conversation/components/Messages/components/Message';
 import Snippet from '../components/Widget/components/Conversation/components/Messages/components/Snippet';
@@ -8,18 +8,19 @@ import QuickButton from '../components/Widget/components/Conversation/components
 
 import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '../constants';
 
-export function createNewMessage(text: string, sender: string): MessageI {
+export function createNewMessage(text: string, sender: string, id?: string): MessageI {
   return {
     type: MESSAGES_TYPES.TEXT,
     component: Message,
     text,
     sender,
     timestamp: new Date(),
-    showAvatar: sender === MESSAGE_SENDER.RESPONSE
+    showAvatar: sender === MESSAGE_SENDER.RESPONSE,
+    customId: id
   };
 }
 
-export function createLinkSnippet(link: { title: string, link: string, target: string }) : Link {
+export function createLinkSnippet(link: LinkParams, id?: string) : Link {
   return {
     type: MESSAGES_TYPES.SNIPPET.LINK,
     component: Snippet,
@@ -28,18 +29,20 @@ export function createLinkSnippet(link: { title: string, link: string, target: s
     target: link.target || '_blank',
     sender: MESSAGE_SENDER.RESPONSE,
     timestamp: new Date(),
-    showAvatar: true
+    showAvatar: true,
+    customId: id
   };
 }
 
-export function createComponentMessage(component: ElementType, props: any, showAvatar: boolean): CustomCompMessage {
+export function createComponentMessage(component: ElementType, props: any, showAvatar: boolean, id?: string): CustomCompMessage {
   return {
     type: MESSAGES_TYPES.CUSTOM_COMPONENT,
     component,
     props,
     sender: MESSAGE_SENDER.RESPONSE,
     timestamp: new Date(),
-    showAvatar
+    showAvatar,
+    customId: id
   };
 }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { format } from 'date-fns';
 
 import { scrollToBottom } from '../../../../../../utils/messages';
 import { Message, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
@@ -37,8 +38,8 @@ function Messages({ profileAvatar }: Props) {
 
   return (
     <div id="messages" className="rcw-messages-container" ref={messageRef}>
-      {messages?.map(message =>
-        <div className="rcw-message" key={message.timestamp.toString()}>
+      {messages?.map((message, index) =>
+        <div className="rcw-message" key={`${index}-${format(message.timestamp, 'hh:mm')}`}>
           {profileAvatar &&
             message.showAvatar &&
             <img src={profileAvatar} className="rcw-avatar" alt="profile" />

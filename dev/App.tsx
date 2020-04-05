@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader } from '../index';
+import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet } from '../index';
 
 export default class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
+    addLinkSnippet({ link: 'https://google.com', title: 'Google' });
   }
 
   handleNewUserMessage = (newMessage: any) => {

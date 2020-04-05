@@ -1,5 +1,5 @@
-@import 'variables.scss';
-@import 'common.scss';
+@import 'variables/colors';
+@import 'common';
 
 .rcw-snippet {
   @include message-bubble($grey-2);

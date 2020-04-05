@@ -12,9 +12,10 @@ type Props = {
   disabledInput: boolean;
   autofocus: boolean;
   sendMessage: () => void;
+  onTextInputChange?: (event: any) => void;
 }
 
-function Sender({ sendMessage, placeholder, disabledInput, autofocus }: Props) {
+function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange }: Props) {
 
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef(null);
@@ -32,6 +33,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus }: Props) {
         disabled={disabledInput}
         autoFocus={autofocus}
         autoComplete="off"
+        onChange={onTextInputChange}
       />
       <button type="submit" className="rcw-send">
         <img src={send} className="rcw-send-icon" alt="send" />

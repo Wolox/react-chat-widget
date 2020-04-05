@@ -20,6 +20,7 @@ type Props = {
   launcher?: AnyFunction;
   handleNewUserMessage: AnyFunction;
   handleQuickButtonClicked: AnyFunction;
+  handleTextInputChange?: (event: any) => void;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -34,7 +35,8 @@ function ConnectedWidget({
   profileAvatar,
   launcher,
   handleNewUserMessage,
-  handleQuickButtonClicked
+  handleQuickButtonClicked,
+  handleTextInputChange
 }: Props) {
   return (
     <Provider store={store}>
@@ -51,6 +53,7 @@ function ConnectedWidget({
         badge={badge}
         autofocus={autofocus}
         customLauncher={launcher}
+        handleTextInputChange={handleTextInputChange}
       />
     </Provider>
   );
