@@ -6,6 +6,7 @@ type BaseMessage = {
   sender: string;
   showAvatar: boolean;
   timestamp: Date;
+  unread: boolean;
   customId?: string;
   props?: any;
 }
@@ -44,6 +45,7 @@ export interface BehaviorState {
 
 export interface MessagesState {
   messages: Array<Message | Link | CustomCompMessage>;
+  badgeCount: number;
 }
 
 export interface QuickButtonsState {

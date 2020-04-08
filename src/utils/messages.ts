@@ -16,7 +16,8 @@ export function createNewMessage(text: string, sender: string, id?: string): Mes
     sender,
     timestamp: new Date(),
     showAvatar: sender === MESSAGE_SENDER.RESPONSE,
-    customId: id
+    customId: id,
+    unread: sender === MESSAGE_SENDER.RESPONSE
   };
 }
 
@@ -30,7 +31,8 @@ export function createLinkSnippet(link: LinkParams, id?: string) : Link {
     sender: MESSAGE_SENDER.RESPONSE,
     timestamp: new Date(),
     showAvatar: true,
-    customId: id
+    customId: id,
+    unread: true
   };
 }
 
@@ -42,7 +44,8 @@ export function createComponentMessage(component: ElementType, props: any, showA
     sender: MESSAGE_SENDER.RESPONSE,
     timestamp: new Date(),
     showAvatar,
-    customId: id
+    customId: id,
+    unread: true
   };
 }
 

@@ -11,35 +11,42 @@ import {
   ADD_COMPONENT_MESSAGE,
   DROP_MESSAGES,
   HIDE_AVATAR,
-  DELETE_MESSAGES
+  DELETE_MESSAGES,
+  MARK_ALL_READ,
+  SET_BADGE_COUNT
 } from '../actions/types';
 
 const initialState = {
-  messages: []
+  messages: [],
+  badgeCount: 0
 };
 
 const messagesReducer = {
   [ADD_NEW_USER_MESSAGE]: (state: MessagesState, { text }) =>
-    ({ messages: [...state.messages, createNewMessage(text, MESSAGE_SENDER.CLIENT)] }),
+    ({ ...state, messages: [...state.messages, createNewMessage(text, MESSAGE_SENDER.CLIENT)] }),
 
-  [ADD_NEW_RESPONSE_MESSAGE]: (state: MessagesState, { text }) =>
-    ({ messages: [...state.messages, createNewMessage(text, MESSAGE_SENDER.RESPONSE)] }),
+  [ADD_NEW_RESPONSE_MESSAGE]: (state: MessagesState, { text }) => 
+    ({ ...state, messages: [...state.messages, createNewMessage(text, MESSAGE_SENDER.RESPONSE)], badgeCount: state.badgeCount + 1 }),
 
   [ADD_NEW_LINK_SNIPPET]: (state: MessagesState, { link }) =>
-    ({ messages: [...state.messages, createLinkSnippet(link)] }),
+    ({ ...state, messages: [...state.messages, createLinkSnippet(link)] }),
 
   [ADD_COMPONENT_MESSAGE]: (state: MessagesState, { component, props, showAvatar }) =>
-    ({ messages: [...state.messages, createComponentMessage(component, props, showAvatar)] }),
+    ({ ...state, messages: [...state.messages, createComponentMessage(component, props, showAvatar)] }),
 
-  [DROP_MESSAGES]: () => ({ messages: [] }),
+  [DROP_MESSAGES]: (state: MessagesState) => ({ ...state, messages: [] }),
 
-  [HIDE_AVATAR]: (state: MessagesState, { index }) =>
-    state.messages[index].showAvatar = false,
+  [HIDE_AVATAR]: (state: MessagesState, { index }) => state.messages[index].showAvatar = false,
 
   [DELETE_MESSAGES]: (state: MessagesState, { count, id }) => {
-    if (id) return { messages: state.messages.filter(message => message.customId !== id) }
-    return { messages: state.messages.splice(state.messages.length - 1, count) }
-  }
+    if (id) return { ...state, messages: state.messages.filter(message => message.customId !== id) }
+    return { ...state, messages: state.messages.splice(state.messages.length - 1, count) }
+  },
+
+  [SET_BADGE_COUNT]: (state: MessagesState, { count }) => ({ ...state, badgeCount: count }),
+
+  [MARK_ALL_READ]: (state: MessagesState) =>
+    ({ ...state, messages: state.messages.map(message => ({ ...message, unread: false})), badgeCount: 0})
 }
 
 export default (state = initialState, action: MessagesActions) => createReducer(messagesReducer, state, action);

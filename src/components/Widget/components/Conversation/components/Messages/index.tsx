@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 
 import { scrollToBottom } from '../../../../../../utils/messages';
 import { Message, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
+import { setBadgeCount, markAllMessagesRead } from '@actions';
 
 import Loader from './components/Loader';
 import './styles.scss';
@@ -13,13 +14,22 @@ type Props = {
 }
 
 function Messages({ profileAvatar }: Props) {
-  const messages = useSelector((state: GlobalState) => state.messages.messages);
-  const typing = useSelector((state: GlobalState) => state.behavior.messageLoader);
   const dispatch = useDispatch();
+  const { messages, typing, showChat, badgeCount } = useSelector((state: GlobalState) => ({
+    messages: state.messages.messages,
+    badgeCount: state.messages.badgeCount,
+    typing: state.behavior.messageLoader,
+    showChat: state.behavior.showChat
+  }));
 
   const messageRef = useRef(null);
-  useEffect(() => scrollToBottom(messageRef.current), [messages]);
-
+  useEffect(() => {
+    console.log(showChat)
+    scrollToBottom(messageRef.current);
+    if (showChat && badgeCount) dispatch(markAllMessagesRead());
+    else dispatch(setBadgeCount(messages.filter((message) => message.unread).length));
+  }, [messages]);
+    
   const getComponentToRender = (message: Message | Link | CustomCompMessage) => {
     const ComponentToRender = message.component;
     if (message.type === 'component') {

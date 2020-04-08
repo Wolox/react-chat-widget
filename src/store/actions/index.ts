@@ -82,3 +82,16 @@ export function deleteMessages(count: number, id?: string): actionsTypes.Message
     id
   }
 }
+
+export function setBadgeCount(count: number): actionsTypes.SetBadgeCount {
+  return {
+    type: actionsTypes.SET_BADGE_COUNT,
+    count
+  }
+}
+
+export function markAllMessagesRead(): actionsTypes.MarkAllMessagesRead {
+  return {
+    type: actionsTypes.MARK_ALL_READ
+  }
+}

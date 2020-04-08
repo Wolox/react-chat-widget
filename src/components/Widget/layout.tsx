@@ -38,7 +38,6 @@ function WidgetLayout({
   profileAvatar,
   showCloseButton,
   fullScreenMode,
-  badge,
   autofocus,
   customLauncher,
   onTextInputChange
@@ -68,10 +67,7 @@ function WidgetLayout({
       {customLauncher ?
         customLauncher(onToggleConversation) :
         !fullScreenMode &&
-        <Launcher
-          toggle={onToggleConversation}
-          badge={badge}
-        />
+        <Launcher toggle={onToggleConversation} />
       }
     </div>
   );
