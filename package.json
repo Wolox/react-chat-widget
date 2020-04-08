@@ -75,7 +75,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "peerDependencies": {
-    "react": "^16.3.1"
+    "react": "^16.13.1"
   },
   "jest": {
     "verbose": true,
