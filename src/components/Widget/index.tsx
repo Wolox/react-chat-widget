@@ -20,6 +20,10 @@ type Props = {
   handleNewUserMessage: AnyFunction;
   handleQuickButtonClicked: AnyFunction;
   handleTextInputChange?: (event: any) => void;
+  chatId: string;
+  launcherOpenLabel: string;
+  launcherCloseLabel: string;
+  sendButtonAlt: string;
 }
 
 function Widget({
@@ -35,7 +39,11 @@ function Widget({
   customLauncher,
   handleNewUserMessage,
   handleQuickButtonClicked,
-  handleTextInputChange
+  handleTextInputChange,
+  chatId,
+  launcherOpenLabel,
+  launcherCloseLabel,
+  sendButtonAlt
 }: Props) {
   const dispatch = useDispatch();
 
@@ -74,6 +82,10 @@ function Widget({
       autofocus={autofocus}
       customLauncher={customLauncher}
       onTextInputChange={handleTextInputChange}
+      chatId={chatId}
+      launcherOpenLabel={launcherOpenLabel}
+      launcherCloseLabel={launcherCloseLabel}
+      sendButtonAlt={sendButtonAlt}
     />
   );
 }

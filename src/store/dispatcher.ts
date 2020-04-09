@@ -47,3 +47,11 @@ export function setQuickButtons(buttons: Array<{ label: string, value: string | 
 export function deleteMessages(count: number, id?: string) {
   store.dispatch(actions.deleteMessages(count, id));
 }
+
+export function markAllAsRead() {
+  store.dispatch(actions.markAllMessagesRead());
+}
+
+export function setBadgeCount(count: number) {
+  store.dispatch(actions.setBadgeCount(count));
+}

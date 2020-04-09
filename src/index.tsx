@@ -21,6 +21,10 @@ type Props = {
   handleNewUserMessage: AnyFunction;
   handleQuickButtonClicked: AnyFunction;
   handleTextInputChange?: (event: any) => void;
+  chatId?: string;
+  launcherOpenLabel?: string,
+  launcherCloseLabel?: string,
+  sendButtonAlt?: string
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -36,7 +40,11 @@ function ConnectedWidget({
   launcher,
   handleNewUserMessage,
   handleQuickButtonClicked,
-  handleTextInputChange
+  handleTextInputChange,
+  chatId,
+  launcherOpenLabel,
+  launcherCloseLabel,
+  sendButtonAlt
 }: Props) {
   return (
     <Provider store={store}>
@@ -54,6 +62,10 @@ function ConnectedWidget({
         autofocus={autofocus}
         customLauncher={launcher}
         handleTextInputChange={handleTextInputChange}
+        chatId={chatId}
+        launcherOpenLabel={launcherOpenLabel}
+        launcherCloseLabel={launcherCloseLabel}
+        sendButtonAlt={sendButtonAlt}
       />
     </Provider>
   );
@@ -66,7 +78,11 @@ const defaultProps = {
   showCloseButton: true,
   fullScreenMode: false,
   badge: 0,
-  autofocus: true
+  autofocus: true,
+  chatId: 'rcw-chat-container',
+  launcherOpenLabel: 'Open chat',
+  launcherCloseLabel: 'Close chat',
+  sendButtonAlt: 'Send'
 };
 ConnectedWidget.defaultProps = defaultProps;
 

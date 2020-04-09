@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { format } from 'date-fns';
+import format from 'date-fns/format';
 
 import { scrollToBottom } from '../../../../../../utils/messages';
 import { Message, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
@@ -24,11 +24,10 @@ function Messages({ profileAvatar }: Props) {
 
   const messageRef = useRef(null);
   useEffect(() => {
-    console.log(showChat)
     scrollToBottom(messageRef.current);
     if (showChat && badgeCount) dispatch(markAllMessagesRead());
     else dispatch(setBadgeCount(messages.filter((message) => message.unread).length));
-  }, [messages]);
+  }, [messages, badgeCount]);
     
   const getComponentToRender = (message: Message | Link | CustomCompMessage) => {
     const ComponentToRender = message.component;

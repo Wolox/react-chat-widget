@@ -24,6 +24,7 @@ type Props = {
   titleAvatar?: string;
   onQuickButtonClicked?: AnyFunction;
   onTextInputChange?: (event: any) => void;
+  sendButtonAlt: string;
 };
 
 function Conversation({
@@ -39,10 +40,11 @@ function Conversation({
   profileAvatar,
   titleAvatar,
   onQuickButtonClicked,
-  onTextInputChange
+  onTextInputChange,
+  sendButtonAlt
 }: Props) {
   return (
-    <div className={cn('rcw-conversation-container', className)}>
+    <div className={cn('rcw-conversation-container', className)} aria-live="polite">
       <Header
         title={title}
         subtitle={subtitle}
@@ -58,6 +60,7 @@ function Conversation({
         disabledInput={disabledInput}
         autofocus={autofocus}
         onTextInputChange={onTextInputChange}
+        buttonAlt={sendButtonAlt}
       />
     </div>
   );

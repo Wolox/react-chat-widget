@@ -25,6 +25,10 @@ type Props = {
   autofocus: boolean;
   customLauncher?: AnyFunction;
   onTextInputChange?: (event: any) => void;
+  chatId: string;
+  launcherOpenLabel: string;
+  launcherCloseLabel: string;
+  sendButtonAlt: string;
 }
 
 function WidgetLayout({
@@ -40,7 +44,11 @@ function WidgetLayout({
   fullScreenMode,
   autofocus,
   customLauncher,
-  onTextInputChange
+  onTextInputChange,
+  chatId,
+  launcherOpenLabel,
+  launcherCloseLabel,
+  sendButtonAlt
 }: Props) {
   const { dissableInput, showChat } = useSelector((state: GlobalState) => ({
     showChat: state.behavior.showChat,
@@ -63,11 +71,17 @@ function WidgetLayout({
         className={showChat ? 'active' : 'hidden'}
         onQuickButtonClicked={onQuickButtonClicked}
         onTextInputChange={onTextInputChange}
+        sendButtonAlt={sendButtonAlt}
       />
       {customLauncher ?
         customLauncher(onToggleConversation) :
         !fullScreenMode &&
-        <Launcher toggle={onToggleConversation} />
+        <Launcher
+          toggle={onToggleConversation}
+          chatId={chatId}
+          openLabel={launcherOpenLabel}
+          closeLabel={launcherCloseLabel}
+        />
       }
     </div>
   );

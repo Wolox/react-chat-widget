@@ -38,10 +38,13 @@ const messagesReducer = {
 
   [HIDE_AVATAR]: (state: MessagesState, { index }) => state.messages[index].showAvatar = false,
 
-  [DELETE_MESSAGES]: (state: MessagesState, { count, id }) => {
-    if (id) return { ...state, messages: state.messages.filter(message => message.customId !== id) }
-    return { ...state, messages: state.messages.splice(state.messages.length - 1, count) }
-  },
+  [DELETE_MESSAGES]: (state: MessagesState, { count, id }) =>
+    ({
+      ...state,
+      messages: id ?
+        state.messages.filter(message => message.customId !== id) :
+        state.messages.splice(state.messages.length - 1, count)
+    }),
 
   [SET_BADGE_COUNT]: (state: MessagesState, { count }) => ({ ...state, badgeCount: count }),
 

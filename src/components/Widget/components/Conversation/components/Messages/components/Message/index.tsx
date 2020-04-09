@@ -1,5 +1,5 @@
 import React from 'react';
-import { format } from 'date-fns';
+import format from 'date-fns/format';
 import markdownIt from 'markdown-it';
 import markdownItSup from 'markdown-it-sup';
 import markdownItSanitizer from 'markdown-it-sanitizer';

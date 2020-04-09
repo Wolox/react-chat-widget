@@ -7,6 +7,10 @@
   height: 45px;
   padding: 5px;
   border-radius: 0 0 10px 10px;
+
+  &.expand {
+    height: 55px;
+  }
 }
 
 .rcw-new-message {
@@ -15,9 +19,14 @@
   background-color: $grey-2;
   height: 30px;
   padding-left: 15px;
+  resize: none;
 
   &:focus {
     outline: none;
+  }
+
+  &.expand {
+    height: 40px;
   }
 }
 

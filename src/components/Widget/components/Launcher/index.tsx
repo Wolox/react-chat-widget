@@ -12,26 +12,30 @@ const openLauncher = require('../../../../../assets/launcher_button.svg') as str
 const close = require('../../../../../assets/clear-button.svg') as string;
 
 type Props = {
-  toggle: () => void
+  toggle: () => void;
+  chatId: string;
+  openLabel: string;
+  closeLabel: string;
 }
 
-function Launcher({ toggle }: Props) {
+function Launcher({ toggle, chatId, openLabel, closeLabel }: Props) {
   const dispatch = useDispatch();
   const { showChat, badgeCount } = useSelector((state: GlobalState) => ({
     showChat: state.behavior.showChat,
     badgeCount: state.messages.badgeCount
   }));
+
   const toggleChat = () => {
     toggle();
     if (!showChat) dispatch(setBadgeCount(0));
   }
 
   return (
-    <button type="button" className={cn('rcw-launcher', { 'rcw-hide-sm': showChat })} onClick={toggleChat}>
+    <button type="button" className={cn('rcw-launcher', { 'rcw-hide-sm': showChat })} onClick={toggleChat} aria-controls={chatId}>
       {!showChat && <Badge badge={badgeCount} />}
       {showChat ?
-        <img src={close} className="rcw-close-launcher" alt="" /> :
-        <img src={openLauncher} className="rcw-open-launcher" alt="" />
+        <img src={close} className="rcw-close-launcher" alt={openLabel} /> :
+        <img src={openLauncher} className="rcw-open-launcher" alt={closeLabel} />
       }
     </button>
   );
