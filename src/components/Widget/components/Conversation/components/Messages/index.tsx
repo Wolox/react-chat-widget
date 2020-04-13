@@ -10,10 +10,11 @@ import Loader from './components/Loader';
 import './styles.scss';
 
 type Props = {
+  showTimeStamp: boolean,
   profileAvatar?: string;
 }
 
-function Messages({ profileAvatar }: Props) {
+function Messages({ profileAvatar, showTimeStamp }: Props) {
   const dispatch = useDispatch();
   const { messages, typing, showChat, badgeCount } = useSelector((state: GlobalState) => ({
     messages: state.messages.messages,
@@ -24,6 +25,7 @@ function Messages({ profileAvatar }: Props) {
 
   const messageRef = useRef(null);
   useEffect(() => {
+    // @ts-ignore
     scrollToBottom(messageRef.current);
     if (showChat && badgeCount) dispatch(markAllMessagesRead());
     else dispatch(setBadgeCount(messages.filter((message) => message.unread).length));
@@ -34,7 +36,7 @@ function Messages({ profileAvatar }: Props) {
     if (message.type === 'component') {
       return <ComponentToRender {...message.props} />;
     }
-    return <ComponentToRender message={message} />;
+    return <ComponentToRender message={message} showTimeStamp={showTimeStamp} />;
   };
 
   // TODO: Fix this function or change to move the avatar to last message from response

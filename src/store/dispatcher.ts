@@ -4,24 +4,24 @@ import store from '.';
 import * as actions from './actions';
 import { LinkParams } from './types';
 
-export function addUserMessage(text: string) {
-  store.dispatch(actions.addUserMessage(text));
+export function addUserMessage(text: string, id?: string) {
+  store.dispatch(actions.addUserMessage(text, id));
 }
 
-export function addResponseMessage(text: string) {
-  store.dispatch(actions.addResponseMessage(text));
+export function addResponseMessage(text: string, id?: string) {
+  store.dispatch(actions.addResponseMessage(text, id));
 }
 
-export function addLinkSnippet(link: LinkParams) {
-  store.dispatch(actions.addLinkSnippet(link));
+export function addLinkSnippet(link: LinkParams, id?: string) {
+  store.dispatch(actions.addLinkSnippet(link, id));
 }
 
 export function toggleMsgLoader() {
   store.dispatch(actions.toggleMsgLoader());
 }
 
-export function renderCustomComponent(component: ElementType, props: any, showAvatar = false) {
-  store.dispatch(actions.renderCustomComponent(component, props, showAvatar));
+export function renderCustomComponent(component: ElementType, props: any, showAvatar = false, id?: string) {
+  store.dispatch(actions.renderCustomComponent(component, props, showAvatar, id));
 }
 
 export function toggleWidget() {

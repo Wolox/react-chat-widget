@@ -27,11 +27,13 @@ export interface ToggleInputDisabled {
 export interface AddUserMessage {
   type: typeof ADD_NEW_USER_MESSAGE;
   text: string;
+  id?: string;
 }
 
 export interface AddResponseMessage {
   type: typeof ADD_NEW_RESPONSE_MESSAGE;
   text: string;
+  id?: string;
 }
 
 export interface ToggleMsgLoader {
@@ -41,6 +43,7 @@ export interface ToggleMsgLoader {
 export interface AddLinkSnippet {
   type: typeof ADD_NEW_LINK_SNIPPET;
   link: LinkParams;
+  id?: string;
 }
 
 export interface RenderCustomComponent {
@@ -48,6 +51,7 @@ export interface RenderCustomComponent {
   component: ElementType;
   props: any;
   showAvatar: boolean;
+  id?: string;
 }
 
 export interface DropMessages {

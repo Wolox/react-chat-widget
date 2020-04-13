@@ -22,17 +22,17 @@ const initialState = {
 };
 
 const messagesReducer = {
-  [ADD_NEW_USER_MESSAGE]: (state: MessagesState, { text }) =>
-    ({ ...state, messages: [...state.messages, createNewMessage(text, MESSAGE_SENDER.CLIENT)] }),
+  [ADD_NEW_USER_MESSAGE]: (state: MessagesState, { text, id }) =>
+    ({ ...state, messages: [...state.messages, createNewMessage(text, MESSAGE_SENDER.CLIENT, id)] }),
 
-  [ADD_NEW_RESPONSE_MESSAGE]: (state: MessagesState, { text }) => 
-    ({ ...state, messages: [...state.messages, createNewMessage(text, MESSAGE_SENDER.RESPONSE)], badgeCount: state.badgeCount + 1 }),
+  [ADD_NEW_RESPONSE_MESSAGE]: (state: MessagesState, { text, id }) => 
+    ({ ...state, messages: [...state.messages, createNewMessage(text, MESSAGE_SENDER.RESPONSE, id)], badgeCount: state.badgeCount + 1 }),
 
-  [ADD_NEW_LINK_SNIPPET]: (state: MessagesState, { link }) =>
-    ({ ...state, messages: [...state.messages, createLinkSnippet(link)] }),
+  [ADD_NEW_LINK_SNIPPET]: (state: MessagesState, { link, id }) =>
+    ({ ...state, messages: [...state.messages, createLinkSnippet(link, id)] }),
 
-  [ADD_COMPONENT_MESSAGE]: (state: MessagesState, { component, props, showAvatar }) =>
-    ({ ...state, messages: [...state.messages, createComponentMessage(component, props, showAvatar)] }),
+  [ADD_COMPONENT_MESSAGE]: (state: MessagesState, { component, props, showAvatar, id }) =>
+    ({ ...state, messages: [...state.messages, createComponentMessage(component, props, showAvatar, id)] }),
 
   [DROP_MESSAGES]: (state: MessagesState) => ({ ...state, messages: [] }),
 

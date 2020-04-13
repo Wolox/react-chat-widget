@@ -33,7 +33,6 @@ export default class App extends Component {
         senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}
         handleQuickButtonClicked={this.handleQuickButtonClicked}
-        badge={1}
       />
     );
   }

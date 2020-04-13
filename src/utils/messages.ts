@@ -59,15 +59,8 @@ export function createQuickButton(button: { label: string, value: string | numbe
 
 // TODO: Clean functions and window use for SSR
 
-/**
- * Easing Functions
- * @param {*} t timestamp
- * @param {*} b begining
- * @param {*} c change
- * @param {*} d duration
- */
-function sinEaseOut(t, b, c, d) {
-  return c * ((t = t / d - 1) * t * t + 1) + b;
+function sinEaseOut(timestamp: any, begining: any, change: any, duration: any) {
+  return change * ((timestamp = timestamp / duration - 1) * timestamp * timestamp + 1) + begining;
 }
 
 /**
@@ -76,29 +69,27 @@ function sinEaseOut(t, b, c, d) {
  * @param {*} scrollStart
  * @param {*} scroll scroll distance
  */
-function scrollWithSlowMotion(target, scrollStart, scroll: number) {
-  const raf = window.webkitRequestAnimationFrame || window.requestAnimationFrame
-  let start = 0
+function scrollWithSlowMotion(target: any, scrollStart: any, scroll: number) {
+  const raf = window?.requestAnimationFrame;
+  let start = 0;
   const step = (timestamp) => {
     if (!start) {
-      start = timestamp
+      start = timestamp;
     }
-    let stepScroll = sinEaseOut(timestamp - start, 0, scroll, MESSAGE_BOX_SCROLL_DURATION)
-    let total = scrollStart + stepScroll
+    let stepScroll = sinEaseOut(timestamp - start, 0, scroll, MESSAGE_BOX_SCROLL_DURATION);
+    let total = scrollStart + stepScroll;
     target.scrollTop = total;
     if (total < scrollStart + scroll) {
-      raf(step)
+      raf(step);
     }
   }
-  raf(step)
+  raf(step);
 }
 
-export function scrollToBottom(messagesDiv) {
+export function scrollToBottom(messagesDiv: HTMLDivElement) {
   if (!messagesDiv) return;
   const screenHeight = messagesDiv.clientHeight;
   const scrollTop = messagesDiv.scrollTop;
-
-  const scrollOffset = messagesDiv.scrollHeight - (scrollTop + screenHeight)
-
-  scrollOffset && scrollWithSlowMotion(messagesDiv, scrollTop, scrollOffset);
+  const scrollOffset = messagesDiv.scrollHeight - (scrollTop + screenHeight);
+  if (scrollOffset) scrollWithSlowMotion(messagesDiv, scrollTop, scrollOffset);
 }

@@ -8,23 +8,23 @@ import store from  './store';
 import { AnyFunction } from './utils/types';
 
 type Props = {
+  handleNewUserMessage: AnyFunction;
+  handleQuickButtonClicked: AnyFunction;
   title?: string;
   titleAvatar?: string;
   subtitle?: string;
   senderPlaceHolder?: string;
   showCloseButton?: boolean;
   fullScreenMode?: boolean;
-  badge?: number;
   autofocus?: boolean;
   profileAvatar?: string;
   launcher?: AnyFunction;
-  handleNewUserMessage: AnyFunction;
-  handleQuickButtonClicked: AnyFunction;
   handleTextInputChange?: (event: any) => void;
   chatId?: string;
   launcherOpenLabel?: string,
   launcherCloseLabel?: string,
-  sendButtonAlt?: string
+  sendButtonAlt?: string;
+  showTimeStamp?: boolean;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -34,7 +34,6 @@ function ConnectedWidget({
   senderPlaceHolder,
   showCloseButton,
   fullScreenMode,
-  badge,
   autofocus,
   profileAvatar,
   launcher,
@@ -44,7 +43,8 @@ function ConnectedWidget({
   chatId,
   launcherOpenLabel,
   launcherCloseLabel,
-  sendButtonAlt
+  sendButtonAlt,
+  showTimeStamp
 }: Props) {
   return (
     <Provider store={store}>
@@ -58,7 +58,6 @@ function ConnectedWidget({
         profileAvatar={profileAvatar}
         showCloseButton={showCloseButton}
         fullScreenMode={fullScreenMode}
-        badge={badge}
         autofocus={autofocus}
         customLauncher={launcher}
         handleTextInputChange={handleTextInputChange}
@@ -66,6 +65,7 @@ function ConnectedWidget({
         launcherOpenLabel={launcherOpenLabel}
         launcherCloseLabel={launcherCloseLabel}
         sendButtonAlt={sendButtonAlt}
+        showTimeStamp={showTimeStamp}
       />
     </Provider>
   );
@@ -77,12 +77,12 @@ const defaultProps = {
   senderPlaceHolder: 'Type a message...',
   showCloseButton: true,
   fullScreenMode: false,
-  badge: 0,
   autofocus: true,
   chatId: 'rcw-chat-container',
   launcherOpenLabel: 'Open chat',
   launcherCloseLabel: 'Close chat',
-  sendButtonAlt: 'Send'
+  sendButtonAlt: 'Send',
+  showTimeStamp: true
 };
 ConnectedWidget.defaultProps = defaultProps;
 
