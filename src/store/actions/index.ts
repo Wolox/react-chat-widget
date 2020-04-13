@@ -3,19 +3,19 @@ import { ElementType } from 'react';
 import * as actionsTypes from './types';
 import { LinkParams } from '../types';
 
-export function toggleChat(): actionsTypes.BehaviorActions {
+export function toggleChat(): actionsTypes.ToggleChat {
   return {
     type: actionsTypes.TOGGLE_CHAT
   };
 }
 
-export function toggleInputDisabled(): actionsTypes.BehaviorActions {
+export function toggleInputDisabled(): actionsTypes.ToggleInputDisabled {
   return {
     type: actionsTypes.TOGGLE_INPUT_DISABLED
   };
 }
 
-export function addUserMessage(text: string, id?: string): actionsTypes.MessagesActions {
+export function addUserMessage(text: string, id?: string): actionsTypes.AddUserMessage {
   return {
     type: actionsTypes.ADD_NEW_USER_MESSAGE,
     text,
@@ -23,7 +23,7 @@ export function addUserMessage(text: string, id?: string): actionsTypes.Messages
   };
 }
 
-export function addResponseMessage(text: string, id?: string): actionsTypes.MessagesActions {
+export function addResponseMessage(text: string, id?: string): actionsTypes.AddResponseMessage {
   return {
     type: actionsTypes.ADD_NEW_RESPONSE_MESSAGE,
     text,
@@ -31,13 +31,13 @@ export function addResponseMessage(text: string, id?: string): actionsTypes.Mess
   };
 }
 
-export function toggleMsgLoader(): actionsTypes.BehaviorActions {
+export function toggleMsgLoader(): actionsTypes.ToggleMsgLoader {
   return {
     type: actionsTypes.TOGGLE_MESSAGE_LOADER
   }
 }
 
-export function addLinkSnippet(link: LinkParams, id?: string): actionsTypes.MessagesActions {
+export function addLinkSnippet(link: LinkParams, id?: string): actionsTypes.AddLinkSnippet {
   return {
     type: actionsTypes.ADD_NEW_LINK_SNIPPET,
     link,
@@ -50,7 +50,7 @@ export function renderCustomComponent(
   props: any,
   showAvatar: boolean,
   id?: string
-): actionsTypes.MessagesActions {
+): actionsTypes.RenderCustomComponent {
   return {
     type: actionsTypes.ADD_COMPONENT_MESSAGE,
     component,
@@ -60,27 +60,27 @@ export function renderCustomComponent(
   };
 }
 
-export function dropMessages(): actionsTypes.MessagesActions {
+export function dropMessages(): actionsTypes.DropMessages {
   return {
     type: actionsTypes.DROP_MESSAGES
   };
 }
 
-export function hideAvatar(index: number): actionsTypes.MessagesActions {
+export function hideAvatar(index: number): actionsTypes.HideAvatar {
   return {
     type: actionsTypes.HIDE_AVATAR,
     index
   };
 }
 
-export function setQuickButtons(buttons: Array<{ label: string, value: string | number }>): actionsTypes.QuickButtonsActions {
+export function setQuickButtons(buttons: Array<{ label: string, value: string | number }>): actionsTypes.SetQuickButtons {
   return {
     type: actionsTypes.SET_QUICK_BUTTONS,
     buttons
   }
 }
 
-export function deleteMessages(count: number, id?: string): actionsTypes.MessagesActions {
+export function deleteMessages(count: number, id?: string): actionsTypes.DeleteMessages {
   return {
     type: actionsTypes.DELETE_MESSAGES,
     count,

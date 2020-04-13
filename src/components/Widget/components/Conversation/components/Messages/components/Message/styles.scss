@@ -29,6 +29,7 @@
 .rcw-response {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 
   .rcw-message-text {
     @include message-bubble($grey-2);
