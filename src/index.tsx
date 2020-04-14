@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 
 import Widget from './components/Widget';
@@ -8,18 +8,23 @@ import store from  './store';
 import { AnyFunction } from './utils/types';
 
 type Props = {
+  handleNewUserMessage: AnyFunction;
+  handleQuickButtonClicked: AnyFunction;
   title?: string;
   titleAvatar?: string;
   subtitle?: string;
   senderPlaceHolder?: string;
   showCloseButton?: boolean;
   fullScreenMode?: boolean;
-  badge?: number;
   autofocus?: boolean;
   profileAvatar?: string;
   launcher?: AnyFunction;
-  handleNewUserMessage: AnyFunction;
-  handleQuickButtonClicked: AnyFunction;
+  handleTextInputChange?: (event: any) => void;
+  chatId?: string;
+  launcherOpenLabel?: string,
+  launcherCloseLabel?: string,
+  sendButtonAlt?: string;
+  showTimeStamp?: boolean;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -29,12 +34,17 @@ function ConnectedWidget({
   senderPlaceHolder,
   showCloseButton,
   fullScreenMode,
-  badge,
   autofocus,
   profileAvatar,
   launcher,
   handleNewUserMessage,
-  handleQuickButtonClicked
+  handleQuickButtonClicked,
+  handleTextInputChange,
+  chatId,
+  launcherOpenLabel,
+  launcherCloseLabel,
+  sendButtonAlt,
+  showTimeStamp
 }: Props) {
   return (
     <Provider store={store}>
@@ -48,9 +58,14 @@ function ConnectedWidget({
         profileAvatar={profileAvatar}
         showCloseButton={showCloseButton}
         fullScreenMode={fullScreenMode}
-        badge={badge}
         autofocus={autofocus}
         customLauncher={launcher}
+        handleTextInputChange={handleTextInputChange}
+        chatId={chatId}
+        launcherOpenLabel={launcherOpenLabel}
+        launcherCloseLabel={launcherCloseLabel}
+        sendButtonAlt={sendButtonAlt}
+        showTimeStamp={showTimeStamp}
       />
     </Provider>
   );
@@ -62,8 +77,12 @@ const defaultProps = {
   senderPlaceHolder: 'Type a message...',
   showCloseButton: true,
   fullScreenMode: false,
-  badge: 0,
-  autofocus: true
+  autofocus: true,
+  chatId: 'rcw-chat-container',
+  launcherOpenLabel: 'Open chat',
+  launcherCloseLabel: 'Close chat',
+  sendButtonAlt: 'Send',
+  showTimeStamp: true
 };
 ConnectedWidget.defaultProps = defaultProps;
 

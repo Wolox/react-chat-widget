@@ -1,76 +1,102 @@
 import { ElementType } from 'react';
 
-import * as actions from './types';
-import { Link, QuickButton } from '../types';
+import * as actionsTypes from './types';
+import { LinkParams } from '../types';
 
-export function toggleChat(): actions.BehaviorActions {
+export function toggleChat(): actionsTypes.ToggleChat {
   return {
-    type: actions.TOGGLE_CHAT
+    type: actionsTypes.TOGGLE_CHAT
   };
 }
 
-export function toggleInputDisabled(): actions.BehaviorActions {
+export function toggleInputDisabled(): actionsTypes.ToggleInputDisabled {
   return {
-    type: actions.TOGGLE_INPUT_DISABLED
+    type: actionsTypes.TOGGLE_INPUT_DISABLED
   };
 }
 
-export function addUserMessage(text: string): actions.MessagesActions {
+export function addUserMessage(text: string, id?: string): actionsTypes.AddUserMessage {
   return {
-    type: actions.ADD_NEW_USER_MESSAGE,
-    text
+    type: actionsTypes.ADD_NEW_USER_MESSAGE,
+    text,
+    id
   };
 }
 
-export function addResponseMessage(text: string): actions.MessagesActions {
+export function addResponseMessage(text: string, id?: string): actionsTypes.AddResponseMessage {
   return {
-    type: actions.ADD_NEW_RESPONSE_MESSAGE,
-    text
+    type: actionsTypes.ADD_NEW_RESPONSE_MESSAGE,
+    text,
+    id
   };
 }
 
-export function toggleMsgLoader(): actions.BehaviorActions {
+export function toggleMsgLoader(): actionsTypes.ToggleMsgLoader {
   return {
-    type: actions.TOGGLE_MESSAGE_LOADER
+    type: actionsTypes.TOGGLE_MESSAGE_LOADER
   }
 }
 
-export function addLinkSnippet(link: Link): actions.MessagesActions {
+export function addLinkSnippet(link: LinkParams, id?: string): actionsTypes.AddLinkSnippet {
   return {
-    type: actions.ADD_NEW_LINK_SNIPPET,
-    link
+    type: actionsTypes.ADD_NEW_LINK_SNIPPET,
+    link,
+    id
   };
 }
 
 export function renderCustomComponent(
   component: ElementType,
   props: any,
-  showAvatar: boolean
-): actions.MessagesActions {
+  showAvatar: boolean,
+  id?: string
+): actionsTypes.RenderCustomComponent {
   return {
-    type: actions.ADD_COMPONENT_MESSAGE,
+    type: actionsTypes.ADD_COMPONENT_MESSAGE,
     component,
     props,
-    showAvatar
+    showAvatar,
+    id
   };
 }
 
-export function dropMessages(): actions.MessagesActions {
+export function dropMessages(): actionsTypes.DropMessages {
   return {
-    type: actions.DROP_MESSAGES
+    type: actionsTypes.DROP_MESSAGES
   };
 }
 
-export function hideAvatar(index: number): actions.MessagesActions {
+export function hideAvatar(index: number): actionsTypes.HideAvatar {
   return {
-    type: actions.HIDE_AVATAR,
+    type: actionsTypes.HIDE_AVATAR,
     index
   };
 }
 
-export function setQuickButtons(buttons: Array<QuickButton>): actions.QuickButtonsActions {
+export function setQuickButtons(buttons: Array<{ label: string, value: string | number }>): actionsTypes.SetQuickButtons {
   return {
-    type: actions.SET_QUICK_BUTTONS,
+    type: actionsTypes.SET_QUICK_BUTTONS,
     buttons
+  }
+}
+
+export function deleteMessages(count: number, id?: string): actionsTypes.DeleteMessages {
+  return {
+    type: actionsTypes.DELETE_MESSAGES,
+    count,
+    id
+  }
+}
+
+export function setBadgeCount(count: number): actionsTypes.SetBadgeCount {
+  return {
+    type: actionsTypes.SET_BADGE_COUNT,
+    count
+  }
+}
+
+export function markAllMessagesRead(): actionsTypes.MarkAllMessagesRead {
+  return {
+    type: actionsTypes.MARK_ALL_READ
   }
 }

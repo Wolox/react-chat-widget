@@ -23,6 +23,9 @@ type Props = {
   profileAvatar?: string;
   titleAvatar?: string;
   onQuickButtonClicked?: AnyFunction;
+  onTextInputChange?: (event: any) => void;
+  sendButtonAlt: string;
+  showTimeStamp: boolean;
 };
 
 function Conversation({
@@ -37,10 +40,13 @@ function Conversation({
   toggleChat,
   profileAvatar,
   titleAvatar,
-  onQuickButtonClicked
+  onQuickButtonClicked,
+  onTextInputChange,
+  sendButtonAlt,
+  showTimeStamp
 }: Props) {
   return (
-    <div className={cn('rcw-conversation-container', className)}>
+    <div className={cn('rcw-conversation-container', className)} aria-live="polite">
       <Header
         title={title}
         subtitle={subtitle}
@@ -48,13 +54,15 @@ function Conversation({
         showCloseButton={showCloseButton}
         titleAvatar={titleAvatar}
       />
-      <Messages profileAvatar={profileAvatar} />
+      <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
       <Sender
         sendMessage={sendMessage}
         placeholder={senderPlaceHolder}
         disabledInput={disabledInput}
         autofocus={autofocus}
+        onTextInputChange={onTextInputChange}
+        buttonAlt={sendButtonAlt}
       />
     </div>
   );

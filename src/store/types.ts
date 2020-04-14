@@ -6,6 +6,8 @@ type BaseMessage = {
   sender: string;
   showAvatar: boolean;
   timestamp: Date;
+  unread: boolean;
+  customId?: string;
   props?: any;
 }
 
@@ -25,6 +27,12 @@ export interface Link extends BaseMessage {
   target: string;
 };
 
+export interface LinkParams {
+  link: string;
+  title: string;
+  target?: string;
+}
+
 export interface CustomCompMessage extends BaseMessage {
   props: any;
 }
@@ -36,11 +44,12 @@ export interface BehaviorState {
 };
 
 export interface MessagesState {
-  messages: Array<Message | Link | CustomCompMessage>;
+  messages: (Message | Link | CustomCompMessage)[];
+  badgeCount: number;
 }
 
 export interface QuickButtonsState {
-  quickButtons: Array<QuickButton>;
+  quickButtons: QuickButton[];
 }
 
 export interface GlobalState {

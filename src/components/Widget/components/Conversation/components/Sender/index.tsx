@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { GlobalState } from 'src/store/types';
@@ -11,11 +11,12 @@ type Props = {
   placeholder: string;
   disabledInput: boolean;
   autofocus: boolean;
-  sendMessage: () => void;
+  sendMessage: (event: any) => void;
+  buttonAlt: string;
+  onTextInputChange?: (event: any) => void;
 }
 
-function Sender({ sendMessage, placeholder, disabledInput, autofocus }: Props) {
-
+function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt }: Props) {
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef(null);
   // @ts-ignore
@@ -32,9 +33,10 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus }: Props) {
         disabled={disabledInput}
         autoFocus={autofocus}
         autoComplete="off"
+        onChange={onTextInputChange}
       />
       <button type="submit" className="rcw-send">
-        <img src={send} className="rcw-send-icon" alt="send" />
+        <img src={send} className="rcw-send-icon" alt={buttonAlt} />
       </button>
     </form>
   );

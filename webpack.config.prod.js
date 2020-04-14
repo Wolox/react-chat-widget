@@ -9,7 +9,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: './index.js', // TODO: Change to TS
+  entry: './index.js',
   output: {
     path: path.join(__dirname, '/lib'),
     filename: 'index.js',
@@ -19,23 +19,24 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
   },
+  target: 'web',
   mode: 'production',
   module: {
     rules: [
       {
         test: /\.ts(x?)$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /dev/],
         use: ['babel-loader', 'ts-loader']
       },
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
-        loader: "source-map-loader"
+        loader: 'source-map-loader'
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
@@ -83,8 +84,16 @@ module.exports = {
     }),
   ],
   externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM'
+    react: {
+      commonjs: 'React',
+      commonjs2: 'react',
+      amd: 'react'
+    },
+    'react-dom': {
+      commonjs: 'ReactDOM',
+      commonjs2: 'react-dom',
+      amd: 'react-dom'
+    }
   },
   optimization: {
     minimizer: [

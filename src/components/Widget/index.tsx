@@ -14,11 +14,16 @@ type Props = {
   profileAvatar?: string;
   showCloseButton: boolean;
   fullScreenMode: boolean;
-  badge: number;
   autofocus: boolean;
   customLauncher?: AnyFunction;
   handleNewUserMessage: AnyFunction;
   handleQuickButtonClicked: AnyFunction;
+  handleTextInputChange?: (event: any) => void;
+  chatId: string;
+  launcherOpenLabel: string;
+  launcherCloseLabel: string;
+  sendButtonAlt: string;
+  showTimeStamp: boolean;
 }
 
 function Widget({
@@ -29,11 +34,16 @@ function Widget({
   profileAvatar,
   showCloseButton,
   fullScreenMode,
-  badge,
   autofocus,
   customLauncher,
   handleNewUserMessage,
-  handleQuickButtonClicked
+  handleQuickButtonClicked,
+  handleTextInputChange,
+  chatId,
+  launcherOpenLabel,
+  launcherCloseLabel,
+  sendButtonAlt,
+  showTimeStamp
 }: Props) {
   const dispatch = useDispatch();
 
@@ -68,9 +78,14 @@ function Widget({
       profileAvatar={profileAvatar}
       showCloseButton={showCloseButton}
       fullScreenMode={fullScreenMode}
-      badge={badge}
       autofocus={autofocus}
       customLauncher={customLauncher}
+      onTextInputChange={handleTextInputChange}
+      chatId={chatId}
+      launcherOpenLabel={launcherOpenLabel}
+      launcherCloseLabel={launcherCloseLabel}
+      sendButtonAlt={sendButtonAlt}
+      showTimeStamp={showTimeStamp}
     />
   );
 }

@@ -2,17 +2,17 @@
   -webkit-animation-delay: $delay;
   -webkit-animation-duration: $duration;
   -webkit-animation-name: $animation;
-  -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+  -webkit-animation-fill-mode: forwards; 
 
   -moz-animation-delay: $delay;
   -moz-animation-duration: $duration;
   -moz-animation-name: $animation;
-  -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+  -moz-animation-fill-mode: forwards; 
 
   animation-delay: $delay;
   animation-duration: $duration;
   animation-name: $animation;
-  animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+  animation-fill-mode: forwards; 
 }
 
 @mixin keyframes ($animation-name) {
