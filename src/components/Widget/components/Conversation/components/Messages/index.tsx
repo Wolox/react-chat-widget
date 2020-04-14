@@ -29,7 +29,7 @@ function Messages({ profileAvatar, showTimeStamp }: Props) {
     scrollToBottom(messageRef.current);
     if (showChat && badgeCount) dispatch(markAllMessagesRead());
     else dispatch(setBadgeCount(messages.filter((message) => message.unread).length));
-  }, [messages, badgeCount]);
+  }, [messages, badgeCount, showChat]);
     
   const getComponentToRender = (message: Message | Link | CustomCompMessage) => {
     const ComponentToRender = message.component;
