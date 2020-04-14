@@ -6,6 +6,7 @@
   "repository": "git@github.com:Wolox/react-chat-widget.git",
   "author": "Martín Callegari <martin.callegari@wolox.com.ar>",
   "license": "MIT",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "webpack --config ./webpack.config.prod.js",
