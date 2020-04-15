@@ -20,7 +20,8 @@ const WidgetLayout = ({
   titleAvatar,
   badge,
   fullScreenMode,
-  customLauncher
+  customLauncher,
+  onQuickButtonClicked
 }) => (
   <div
     className={
@@ -40,6 +41,7 @@ const WidgetLayout = ({
       autofocus={autofocus}
       titleAvatar={titleAvatar}
       className={showChat ? 'active' : 'hidden'}
+      onQuickButtonClicked={onQuickButtonClicked}
     />
     {customLauncher ?
       customLauncher(onToggleConversation) :
