@@ -17,7 +17,7 @@ type Props = {
   autofocus: boolean;
   customLauncher?: AnyFunction;
   handleNewUserMessage: AnyFunction;
-  handleQuickButtonClicked: AnyFunction;
+  handleQuickButtonClicked?: AnyFunction;
   handleTextInputChange?: (event: any) => void;
   chatId: string;
   launcherOpenLabel: string;
