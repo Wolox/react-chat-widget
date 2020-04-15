@@ -288,7 +288,7 @@ import { Wdiget } from 'react-chat-widget';
 ...
 
 function MyApp() {
-  getCustomLaucher = (handleToggle) =>
+  const getCustomLaucher = (handleToggle) =>
     <button onClick={handleToggle}>This is my launcher component!</button>
 
   return (
