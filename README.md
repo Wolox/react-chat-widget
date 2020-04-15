@@ -111,7 +111,7 @@ function App() {
     console.log(`New message incoming! ${newMessage}`);
     // Now send the message throught the backend API
     addResponseMessage(response);
-  }
+  };
 
   return (
     <div className="App">
