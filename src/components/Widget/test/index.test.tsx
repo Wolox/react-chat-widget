@@ -2,11 +2,17 @@ import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import assetMock from '@tests-mocks/fileMock';
+import assetMock from '../../../../mocks/fileMock';
+
 import Widget from '../index';
 import WidgetLayout from '../layout';
 
 configure({ adapter: new Adapter() });
+
+jest.mock('react-redux', () => ({
+  useSelector: jest.fn(),
+  useDispatch: jest.fn()
+}));
 
 describe('<Widget />', () => {
   const profile = assetMock;
@@ -19,13 +25,26 @@ describe('<Widget />', () => {
     },
     preventDefault() {}
   };
-  const dispatch = jest.fn();
+  const defaultProps = {
+    title: 'Welcome',
+    subtitle: 'This is your chat subtitle',
+    senderPlaceHolder: 'Type a message...',
+    showCloseButton: true,
+    fullScreenMode: false,
+    autofocus: true,
+    chatId: 'rcw-chat-container',
+    launcherOpenLabel: 'Open chat',
+    launcherCloseLabel: 'Close chat',
+    sendButtonAlt: 'Send',
+    showTimeStamp: true
+  };
 
-  const widgetComponent = shallow(
-    <Widget.WrappedComponent
+  // @ts-ignore
+  const widgetComponent = shallow<Widget>(
+    <Widget
+      {...defaultProps}
       handleNewUserMessage={handleUserMessage}
       profileAvatar={profile}
-      dispatch={dispatch}
     />
   );
 
@@ -35,7 +54,8 @@ describe('<Widget />', () => {
 
   it('should prevent events default behavior', () => {
     const spyPreventDefault = jest.spyOn(newMessageEvent, 'preventDefault');
-    widgetComponent.instance().handleMessageSubmit(newMessageEvent);
+    console.log(widgetComponent.props())
+    widgetComponent.props().onSendMessage(newMessageEvent);
     expect(spyPreventDefault).toHaveBeenCalled();
   });
 

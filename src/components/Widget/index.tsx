@@ -6,7 +6,7 @@ import { AnyFunction } from '../../utils/types';
 
 import WidgetLayout from './layout';
 
-type Props = {
+export type Props = {
   title: string;
   titleAvatar?: string;
   subtitle: string;
