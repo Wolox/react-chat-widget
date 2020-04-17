@@ -7,7 +7,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'dev/main.js'),
+  entry: {
+    main: path.resolve(__dirname, 'dev/main.tsx'),
+    vendor: ['react', 'react-dom']
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -21,14 +24,24 @@ module.exports = {
     hot: true
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.tsx', '.ts', '.js']
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts(x?)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: ['babel-loader', 'ts-loader']
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
@@ -66,12 +79,15 @@ module.exports = {
       }
     ]
   },
-  devtool: 'eval',
+  devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './dev/index.html'
+    }),
+    new webpack.ProvidePlugin({
+      'React': 'react'
     })
   ],
   performance: {

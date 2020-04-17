@@ -1,0 +1,70 @@
+@mixin animation ($delay, $duration, $animation) {
+  -webkit-animation-delay: $delay;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-name: $animation;
+  -webkit-animation-fill-mode: forwards; 
+
+  -moz-animation-delay: $delay;
+  -moz-animation-duration: $duration;
+  -moz-animation-name: $animation;
+  -moz-animation-fill-mode: forwards; 
+
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $animation;
+  animation-fill-mode: forwards; 
+}
+
+@mixin keyframes ($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@include keyframes(rotation-lr) {
+  from  {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@include keyframes(rotation-rl) {
+  from  {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@include keyframes(slide-in) {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@include keyframes(slide-out) {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}

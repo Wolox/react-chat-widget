@@ -17,11 +17,22 @@ module.exports = {
     libraryTarget: 'umd'
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.tsx', '.ts', '.js']
   },
+  target: 'web',
   mode: 'production',
   module: {
     rules: [
+      {
+        test: /\.ts(x?)$/,
+        exclude: [/node_modules/, /dev/],
+        use: ['babel-loader', 'ts-loader']
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader'
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -72,6 +83,18 @@ module.exports = {
       chunkFileName: '[id].css'
     }),
   ],
+  externals: {
+    react: {
+      commonjs: 'React',
+      commonjs2: 'react',
+      amd: 'react'
+    },
+    'react-dom': {
+      commonjs: 'ReactDOM',
+      commonjs2: 'react-dom',
+      amd: 'react-dom'
+    }
+  },
   optimization: {
     minimizer: [
       new UglifyJsPlugin({

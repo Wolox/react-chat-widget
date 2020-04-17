@@ -1,0 +1,59 @@
+@mixin message-bubble($color) {
+  background-color: $color;
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 215px;
+  text-align: left;
+}
+
+// Full screen mixins
+
+@mixin widget-container-fs {
+  height: 100vh;
+  margin: 0;
+  max-width: none;
+  width: 100%;
+}
+
+@mixin header-fs {
+  border-radius: 0;
+  flex-shrink: 0;
+  position: relative;
+}
+
+@mixin title-fs {
+  padding: 0 0 15px 0;
+}
+
+@mixin close-button-fs {
+  background-color: $turqois-1;
+  border: 0;
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  width: 40px;
+}
+
+@mixin close-fs {
+  width: 20px;
+  height: 20px;
+}
+
+@mixin messages-container-fs {
+  height: 100%;
+  max-height: none;
+}
+
+@mixin conversation-container-fs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@mixin launcher-fs {
+  bottom: 0;
+  margin: 20px;
+  position: fixed;
+  right: 0;
+}
