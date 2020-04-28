@@ -52,8 +52,19 @@ export interface QuickButtonsState {
   quickButtons: QuickButton[];
 }
 
+export interface ImageState {
+  src: string;
+  width: number;
+  height: number;
+}
+
+export interface FullscreenPreviewState extends ImageState {
+  visible?: boolean;
+};
+
 export interface GlobalState {
   messages: MessagesState;
   behavior: BehaviorState;
   quickButtons: QuickButtonsState;
+  preview: FullscreenPreviewState;
 }

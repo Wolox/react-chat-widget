@@ -1,7 +1,7 @@
 import { ElementType } from 'react';
 
 import * as actionsTypes from './types';
-import { LinkParams } from '../types';
+import { LinkParams, ImageState } from '../types';
 
 export function toggleChat(): actionsTypes.ToggleChat {
   return {
@@ -99,4 +99,17 @@ export function markAllMessagesRead(): actionsTypes.MarkAllMessagesRead {
   return {
     type: actionsTypes.MARK_ALL_READ
   }
+}
+
+export function openFullscreenPreview(payload: ImageState): actionsTypes.FullscreenPreviewActions {
+  return {
+    type: actionsTypes.OPEN_FULLSCREEN_PREVIEW,
+    payload
+  };
+}
+
+export function closeFullscreenPreview(): actionsTypes.FullscreenPreviewActions {
+  return {
+    type: actionsTypes.CLOSE_FULLSCREEN_PREVIEW
+  };
 }

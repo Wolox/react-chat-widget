@@ -2,7 +2,7 @@ import { ElementType } from 'react';
 
 import store from '.';
 import * as actions from './actions';
-import { LinkParams } from './types';
+import { LinkParams, ImageState } from './types';
 
 export function addUserMessage(text: string, id?: string) {
   store.dispatch(actions.addUserMessage(text, id));
@@ -54,4 +54,13 @@ export function markAllAsRead() {
 
 export function setBadgeCount(count: number) {
   store.dispatch(actions.setBadgeCount(count));
+}
+
+export function openFullscreenPreview(payload: ImageState) {
+  console.log('payload', payload)
+  store.dispatch(actions.openFullscreenPreview(payload));
+}
+
+export function closeFullscreenPreview() {
+  store.dispatch(actions.closeFullscreenPreview());
 }
