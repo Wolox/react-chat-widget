@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from 'react';
+import { useState, useReducer } from 'react';
 
 type Layout = {
   width?: number;
@@ -118,7 +118,6 @@ const usePreview = () => {
 
   const onResizePageZoom = ():void => {
     if (state.zoom) {
-      // full height
       initFileSize(fileSize.width, fileSize.height)
     }
   };
