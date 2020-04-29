@@ -7,7 +7,7 @@ type Layout = {
 
 interface STATE {
   layout: Layout;
-  zoom: boolean
+  zoom?: boolean
   direction: 'vertical' | 'horizontal'
 }
 
@@ -26,7 +26,12 @@ const usePreview = () => {
   const reducer = (state, action) => {
     switch (action.type) {
       case 'initLayout':
-        return { ...state, layout: action.layout, direction: action.direction, zoom: false };
+        return {
+          ...state,
+          layout: action.payload.layout,
+          direction: action.payload.direction,
+          zoom: false
+        };
       case 'zoomIn':
         return {
           ...state,
@@ -48,34 +53,29 @@ const usePreview = () => {
 
   const [state, dispatch] = useReducer(reducer, { ...initState });
 
-  useEffect(() => {
+  const initFileSize = (width: number, height: number):void => {
     const { innerWidth, innerHeight } = window;
     setWindowSize({ width: innerWidth, height: innerHeight });
-  }, []);
-
-  const initFileSize = (width: number, height: number) => {
     // default size
     setFileSize({ width, height });
-    // window size and img size rate
-    if(width < height) {
-      // vertical
-      dispatch({
-        type: 'initLayout',
-        layout: {
-          height: windowSize.height * 0.8
-        },
-        direction: 'vertical',
-      });
+    
+    const payload: STATE = { layout: {}, direction: 'horizontal' };
+
+    /**
+     * Calculate the display ratio of screen to picture
+     */
+    if(innerWidth / innerHeight <= width / height) {
+      payload.layout.width = innerWidth * 0.8
+      payload.direction = 'horizontal'
     } else {
-      // horizontal
-      dispatch({
-        type: 'initLayout',
-        layout: {
-          width: windowSize.width * 0.8,
-        },
-        direction: 'horizontal',
-      });
+      payload.layout.height = innerHeight * 0.8
+      payload.direction = 'vertical'
     }
+
+    dispatch({
+      type: 'initLayout',
+      payload
+    });
   };
 
   const getLayout = (step: number): Layout => {
@@ -99,7 +99,7 @@ const usePreview = () => {
     return state.layout.width > windowSize.width / 3
   }
 
-  const onZoomIn = () => {
+  const onZoomIn = ():void => {
     dispatch({
       type: 'zoomIn',
       layout: getLayout(STEP)
@@ -107,7 +107,7 @@ const usePreview = () => {
   };
 
 
-  const onZoomOut = () => {
+  const onZoomOut = ():void => {
     if (isMinSize()) {
       dispatch({
         type: 'zoomOut',
@@ -116,7 +116,7 @@ const usePreview = () => {
     }
   };
 
-  const onResizePageZoom = () => {
+  const onResizePageZoom = ():void => {
     if (state.zoom) {
       // full height
       initFileSize(fileSize.width, fileSize.height)

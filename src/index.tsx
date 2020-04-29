@@ -25,6 +25,7 @@ type Props = {
   launcherCloseLabel?: string,
   sendButtonAlt?: string;
   showTimeStamp?: boolean;
+  imagePreview?: boolean;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -44,7 +45,8 @@ function ConnectedWidget({
   launcherOpenLabel,
   launcherCloseLabel,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  imagePreview
 }: Props) {
   return (
     <Provider store={store}>
@@ -66,6 +68,7 @@ function ConnectedWidget({
         launcherCloseLabel={launcherCloseLabel}
         sendButtonAlt={sendButtonAlt}
         showTimeStamp={showTimeStamp}
+        imagePreview={imagePreview}
       />
     </Provider>
   );
@@ -82,7 +85,8 @@ const defaultProps = {
   launcherOpenLabel: 'Open chat',
   launcherCloseLabel: 'Close chat',
   sendButtonAlt: 'Send',
-  showTimeStamp: true
+  showTimeStamp: true,
+  imagePreview: false,
 };
 ConnectedWidget.defaultProps = defaultProps;
 

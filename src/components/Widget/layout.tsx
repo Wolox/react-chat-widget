@@ -30,6 +30,7 @@ type Props = {
   launcherCloseLabel: string;
   sendButtonAlt: string;
   showTimeStamp: boolean;
+  imagePreview: boolean;
 }
 
 function WidgetLayout({
@@ -50,7 +51,8 @@ function WidgetLayout({
   launcherOpenLabel,
   launcherCloseLabel,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  imagePreview
 }: Props) {
   const { dissableInput, showChat } = useSelector((state: GlobalState) => ({
     showChat: state.behavior.showChat,
@@ -86,7 +88,9 @@ function WidgetLayout({
           closeLabel={launcherCloseLabel}
         />
       }
-      <FullScreenPreview />
+      {
+        imagePreview && <FullScreenPreview />
+      }
     </div>
   );
 }

@@ -24,6 +24,7 @@ type Props = {
   launcherCloseLabel: string;
   sendButtonAlt: string;
   showTimeStamp: boolean;
+  imagePreview: boolean;
 }
 
 function Widget({
@@ -43,7 +44,8 @@ function Widget({
   launcherOpenLabel,
   launcherCloseLabel,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  imagePreview,
 }: Props) {
   const dispatch = useDispatch();
 
@@ -86,6 +88,7 @@ function Widget({
       launcherCloseLabel={launcherCloseLabel}
       sendButtonAlt={sendButtonAlt}
       showTimeStamp={showTimeStamp}
+      imagePreview={imagePreview}
     />
   );
 }

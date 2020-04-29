@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, ReactElement, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import usePreview from './usePreview';
@@ -42,7 +42,7 @@ export default function PdfFullScreen() {
     dispatch(closeFullscreenPreview())
   }
 
-  const childNode = (
+  const childNode:ReactNode = (
     <div className="fullscreen-container">
         <div className="fullscreen-container__shadow">
           <img {...state.layout} src={src} className="fullscreen-container__image" />
