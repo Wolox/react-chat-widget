@@ -86,7 +86,7 @@ function scrollWithSlowMotion(target: any, scrollStart: any, scroll: number) {
   raf(step);
 }
 
-export function scrollToBottom(messagesDiv: HTMLDivElement) {
+export function scrollToBottom(messagesDiv: HTMLDivElement | null) {
   if (!messagesDiv) return;
   const screenHeight = messagesDiv.clientHeight;
   const scrollTop = messagesDiv.scrollTop;

@@ -26,6 +26,7 @@ type Props = {
   sendButtonAlt?: string;
   showTimeStamp?: boolean;
   imagePreview?: boolean;
+  zoomStep?: number;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -46,7 +47,8 @@ function ConnectedWidget({
   launcherCloseLabel,
   sendButtonAlt,
   showTimeStamp,
-  imagePreview
+  imagePreview,
+  zoomStep,
 }: Props) {
   return (
     <Provider store={store}>
@@ -69,6 +71,7 @@ function ConnectedWidget({
         sendButtonAlt={sendButtonAlt}
         showTimeStamp={showTimeStamp}
         imagePreview={imagePreview}
+        zoomStep={zoomStep}
       />
     </Provider>
   );
@@ -87,6 +90,7 @@ const defaultProps = {
   sendButtonAlt: 'Send',
   showTimeStamp: true,
   imagePreview: false,
+  zoomStep: 80,
 };
 ConnectedWidget.defaultProps = defaultProps;
 

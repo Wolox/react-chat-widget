@@ -18,7 +18,7 @@ type Props = {
 function Message({ message, showTimeStamp }: Props) {
   const sanitizedHTML = markdownIt()
     .use(markdownItClass, {
-      img: ['message-img']
+      img: ['rcw-message-img']
     })
     .use(markdownItSup)
     .use(markdownItSanitizer)

@@ -5,19 +5,19 @@
 .rcw-conversation-container {
   border-radius: 10px;
   box-shadow: 0px 2px 10px 1px $grey-3;
-  
 
   &.active {
     opacity: 1;
     transform: translateY(0px);
-    transition: opacity 0.3s ease, transform 0.3s ease; 
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   &.hidden {
+    z-index: -1;
     pointer-events: none;
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease; 
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 }
 

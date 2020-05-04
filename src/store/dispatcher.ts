@@ -57,7 +57,6 @@ export function setBadgeCount(count: number) {
 }
 
 export function openFullscreenPreview(payload: ImageState) {
-  console.log('payload', payload)
   store.dispatch(actions.openFullscreenPreview(payload));
 }
 

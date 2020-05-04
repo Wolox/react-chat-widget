@@ -11,15 +11,13 @@ interface STATE {
   direction: 'vertical' | 'horizontal'
 }
 
-const STEP: number = 80;
-
 const initState: STATE = {
   layout: { width: 800 },
   zoom: false,
   direction: 'vertical'
 };
 
-const usePreview = () => {
+const usePreview = (zoomStep) => {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const [fileSize, setFileSize] = useState({ width: 0, height: 0 });
 
@@ -102,7 +100,7 @@ const usePreview = () => {
   const onZoomIn = ():void => {
     dispatch({
       type: 'zoomIn',
-      layout: getLayout(STEP)
+      layout: getLayout(zoomStep)
     });
   };
 
@@ -111,7 +109,7 @@ const usePreview = () => {
     if (isMinSize()) {
       dispatch({
         type: 'zoomOut',
-        layout: getLayout(-STEP)
+        layout: getLayout(-zoomStep)
       });
     }
   };

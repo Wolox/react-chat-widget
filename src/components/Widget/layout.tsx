@@ -1,9 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React,{ useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 
 import { GlobalState } from 'src/store/types';
 import { AnyFunction } from 'src/utils/types';
+import { openFullscreenPreview } from '@actions';
 
 import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
@@ -30,7 +31,8 @@ type Props = {
   launcherCloseLabel: string;
   sendButtonAlt: string;
   showTimeStamp: boolean;
-  imagePreview: boolean;
+  imagePreview?: boolean;
+  zoomStep?: number;
 }
 
 function WidgetLayout({
@@ -52,32 +54,88 @@ function WidgetLayout({
   launcherCloseLabel,
   sendButtonAlt,
   showTimeStamp,
-  imagePreview
+  imagePreview,
+  zoomStep,
 }: Props) {
+  const dispatch = useDispatch();
   const { dissableInput, showChat } = useSelector((state: GlobalState) => ({
     showChat: state.behavior.showChat,
     dissableInput: state.behavior.disabledInput
   }));
 
+  const messageRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if(showChat) {
+      messageRef.current = document.getElementById('messages') as HTMLDivElement;
+    }
+    return () => {
+      messageRef.current = null;
+    }
+  }, [showChat])
+  
+  const eventHandle = evt => {
+    if(evt.target && evt.target.className === 'rcw-message-img') {
+      const { src, alt, naturalWidth, naturalHeight } = (evt.target as HTMLImageElement);
+      const obj = {
+        src: src,
+        alt: alt,
+        width: naturalWidth,
+        height: naturalHeight,
+      };
+      dispatch(openFullscreenPreview(obj))
+    }
+  }
+
+  /**
+   * Previewer needs to prevent body scroll behavior when fullScreenMode is true
+   */
+  useEffect(() => {
+    const target = messageRef?.current;
+    if(imagePreview && showChat) {
+      target?.addEventListener('click', eventHandle, false);
+    }
+
+    return () => {
+      target?.removeEventListener('click', eventHandle);
+    }
+  }, [imagePreview, showChat]);
+
+  useEffect(() => {
+    if(fullScreenMode) {
+      document.body.setAttribute('style', "overflow: hidden")
+    } else {
+      document.body.setAttribute('style', "overflow: auto")
+    }
+  }, [fullScreenMode])
+
   return (
-    <div className={cn('rcw-widget-container', { 'rcw-full-screen': fullScreenMode })}>
-      <Conversation
-        title={title}
-        subtitle={subtitle}
-        sendMessage={onSendMessage}
-        senderPlaceHolder={senderPlaceHolder}
-        profileAvatar={profileAvatar}
-        toggleChat={onToggleConversation}
-        showCloseButton={showCloseButton}
-        disabledInput={dissableInput}
-        autofocus={autofocus}
-        titleAvatar={titleAvatar}
-        className={showChat ? 'active' : 'hidden'}
-        onQuickButtonClicked={onQuickButtonClicked}
-        onTextInputChange={onTextInputChange}
-        sendButtonAlt={sendButtonAlt}
-        showTimeStamp={showTimeStamp}
-      />
+    <div
+      className={cn('rcw-widget-container', {
+        'rcw-full-screen': fullScreenMode,
+        'rcw-previewer': imagePreview
+        })
+      }
+    >
+      {showChat &&
+        <Conversation
+          title={title}
+          subtitle={subtitle}
+          sendMessage={onSendMessage}
+          senderPlaceHolder={senderPlaceHolder}
+          profileAvatar={profileAvatar}
+          toggleChat={onToggleConversation}
+          showCloseButton={showCloseButton}
+          disabledInput={dissableInput}
+          autofocus={autofocus}
+          titleAvatar={titleAvatar}
+          className={showChat ? 'active' : 'hidden'}
+          onQuickButtonClicked={onQuickButtonClicked}
+          onTextInputChange={onTextInputChange}
+          sendButtonAlt={sendButtonAlt}
+          showTimeStamp={showTimeStamp}
+        />
+      }
       {customLauncher ?
         customLauncher(onToggleConversation) :
         !fullScreenMode &&
@@ -89,7 +147,7 @@ function WidgetLayout({
         />
       }
       {
-        imagePreview && <FullScreenPreview />
+        imagePreview && <FullScreenPreview fullScreenMode={fullScreenMode} zoomStep={zoomStep} />
       }
     </div>
   );

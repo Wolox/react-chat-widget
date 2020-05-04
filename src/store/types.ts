@@ -54,6 +54,7 @@ export interface QuickButtonsState {
 
 export interface ImageState {
   src: string;
+  alt?: string;
   width: number;
   height: number;
 }

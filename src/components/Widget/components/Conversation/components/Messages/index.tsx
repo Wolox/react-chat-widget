@@ -4,7 +4,7 @@ import format from 'date-fns/format';
 
 import { scrollToBottom } from '../../../../../../utils/messages';
 import { Message, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
-import { setBadgeCount, markAllMessagesRead, openFullscreenPreview } from '@actions';
+import { setBadgeCount, markAllMessagesRead } from '@actions';
 
 import Loader from './components/Loader';
 import './styles.scss';
@@ -23,7 +23,7 @@ function Messages({ profileAvatar, showTimeStamp }: Props) {
     showChat: state.behavior.showChat
   }));
 
-  const messageRef = useRef<HTMLDivElement>(null);
+  const messageRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     // @ts-ignore
     scrollToBottom(messageRef.current);
@@ -47,33 +47,6 @@ function Messages({ profileAvatar, showTimeStamp }: Props) {
   //   }
   // }
 
-  useEffect(() => {
-    const target = messageRef && messageRef.current;
-    const eventHandle = (evt) => {
-      if(evt.target && evt.target.className === 'message-img') {
-        const { src, naturalWidth, naturalHeight } = (evt.target as HTMLImageElement);
-        const obj = {
-          src: src,
-          width: naturalWidth,
-          height: naturalHeight,
-        };
-        dispatch(openFullscreenPreview(obj))
-      }
-    }
-
-    if(target) {
-      target.addEventListener('click', eventHandle, false)
-    }
-
-    return () => {
-      if (target) {
-        target.removeEventListener('click', eventHandle)
-      }
-    }
-  }, [messageRef])
-  
-
-
   return (
     <div id="messages" className="rcw-messages-container" ref={messageRef}>
       {messages?.map((message, index) =>
@@ -85,7 +58,6 @@ function Messages({ profileAvatar, showTimeStamp }: Props) {
           {getComponentToRender(message)}
         </div>
       )}
-
       <Loader typing={typing} />
     </div>
   );

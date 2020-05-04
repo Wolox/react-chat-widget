@@ -13,18 +13,24 @@ const minus = require('../../../../../assets/minus.svg') as string;
 const zoomIn = require('../../../../../assets/zoom-in.svg') as string;
 const zoomOut = require('../../../../../assets/zoom-out.svg') as string;
 
-export default function PdfFullScreen() {
+type Props = {
+  fullScreenMode?: boolean;
+  zoomStep?: number
+}
+
+export default function FullScreenPreview({ fullScreenMode, zoomStep }:Props) {
   const {
     state,
     initFileSize,
     onZoomIn,
     onZoomOut,
     onResizePageZoom
-  } = usePreview();
+  } = usePreview(zoomStep);
 
   const dispatch = useDispatch();
-  const { src, width, height, visible } = useSelector((state: GlobalState) => ({
+  const { src, alt, width, height, visible } = useSelector((state: GlobalState) => ({
     src: state.preview.src,
+    alt: state.preview.alt,
     width: state.preview.width,
     height: state.preview.height,
     visible: state.preview.visible
@@ -36,6 +42,21 @@ export default function PdfFullScreen() {
     }
   }, [src])
 
+  /**
+   * Previewer needs to prevent body scroll behavior,
+   * Except fullScreenMode is true
+   */
+  useEffect(() => {
+    if(fullScreenMode) {
+      return;
+    }
+    if(visible) {
+      document.body.setAttribute('style', "overflow: hidden")
+    } else {
+      document.body.setAttribute('style', "overflow: auto")
+    }
+  }, [visible])
+
   const pDom = usePortal()
 
   const onClosePreview = () => {
@@ -43,44 +64,43 @@ export default function PdfFullScreen() {
   }
 
   const childNode: ReactNode = (
-    <div className="fullscreen-container">
-        <div className="fullscreen-container__shadow">
-          <img {...state.layout} src={src} className="fullscreen-container__image" />
+    <div className="rcw-previewer-container">
+        <div className="rcw-previewer-veil">
+          <img {...state.layout} src={src} className="rcw-previewer-image" alt={alt} />
         </div>
         <button
-          className="fullscreen-container__button fullscreen-container__button--close"
+          className="rcw-previewer-button rcw-previewer-close-button"
           onClick={onClosePreview}
         >
-          <img src={close} className="fullscreen-container__icon" />
+          <img src={close} className="rcw-previewer-icon" />
         </button>
-        <div className="fullscreen-container__tool-container">
+        <div className="rcw-previewer-tools">
           <button
-            className="fullscreen-container__button"
+            className="rcw-previewer-button"
             onClick={onResizePageZoom}
           >
-            <img src={state.zoom ? zoomOut : zoomIn} className="fullscreen-container__icon" />
+            <img
+              src={state.zoom ? zoomOut : zoomIn}
+              className="rcw-previewer-icon"
+              alt="reset zoom"
+            />
           </button>
 
           <button
-            className="fullscreen-container__button"
+            className="rcw-previewer-button"
             onClick={onZoomIn}
           >
-            <img src={plus} className="fullscreen-container__icon" />
+            <img src={plus} className="rcw-previewer-icon" alt="zoom in"/>
           </button>
           <button
-            className="fullscreen-container__button"
+            className="rcw-previewer-button"
             onClick={onZoomOut}
           >
-            <img src={minus} className="fullscreen-container__icon" />
+            <img src={minus} className="rcw-previewer-icon" alt="zoom out"/>
           </button>
         </div>
       </div>
   )
 
-  if(visible) {
-    return (
-      ReactDOM.createPortal(childNode, pDom)
-    );
-  }
-  return null
+  return visible ? ReactDOM.createPortal(childNode, pDom) : null;
 }

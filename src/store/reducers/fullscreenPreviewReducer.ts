@@ -9,6 +9,7 @@ import {
 
 const initialState = {
   src: '',
+  alt: '',
   width: 0,
   height: 0,
   visible: false
