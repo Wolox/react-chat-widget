@@ -238,7 +238,7 @@ As of v3.0, messages now have an optional ID that can be added on creation.If yo
     - component: Component to be render,
     - props: props the component needs,
     - showAvatar: boolean, default value: false; the component will be rendered with the avatar like the messages
-  - Method to render a custom component inse the messages container. With this method, you can add whatever component you need the widget to have.
+  - Method to render a custom component inside the messages container. With this method, you can add whatever component you need the widget to have.
 
 - **setQuickButtons**
   - params:
@@ -283,12 +283,12 @@ You can use a custom component for the Launcher if you need one that's not the d
 
 ```js
 import React from 'react';
-import { Wdiget } from 'react-chat-widget';
+import { Widget } from 'react-chat-widget';
 
 ...
 
 function MyApp() {
-  const getCustomLaucher = (handleToggle) =>
+  const getCustomLauncher = (handleToggle) =>
     <button onClick={handleToggle}>This is my launcher component!</button>
 
   return (
