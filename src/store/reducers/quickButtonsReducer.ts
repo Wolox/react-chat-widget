@@ -8,8 +8,8 @@ const initialState = {
 };
 
 const quickButtonsReducer = {
-  [SET_QUICK_BUTTONS]: (state: QuickButtonsState, { buttons }) =>
-    ({ quickButtons: [...state.quickButtons, ...buttons.map((button: QuickButton) => createQuickButton(button))] })
+  [SET_QUICK_BUTTONS]: (_: QuickButtonsState, { buttons }) =>
+    ({ quickButtons: [...buttons.map((button: QuickButton) => createQuickButton(button))] })
 }
 
 export default (state = initialState, action: QuickButtonsActions) => createReducer(quickButtonsReducer, state, action);
