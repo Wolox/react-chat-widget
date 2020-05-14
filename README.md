@@ -189,7 +189,7 @@ export default App;
 #### Styles
 
 To change the styles you need the widget to have, simply override the CSS classes wrapping them within the containers and add your own style to them! All classes are prefixed with `rcw-` so they don't override your other classes in case you are not hasing them. 
-To verride, you can do, for expample:
+To override, you can do, for expample:
 
 ```css
 .rcw-conversation-container > .rcw-header {
