@@ -58,9 +58,10 @@ function WidgetLayout({
   zoomStep,
 }: Props) {
   const dispatch = useDispatch();
-  const { dissableInput, showChat } = useSelector((state: GlobalState) => ({
+  const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
     showChat: state.behavior.showChat,
-    dissableInput: state.behavior.disabledInput
+    dissableInput: state.behavior.disabledInput,
+    visible: state.preview.visible,
   }));
 
   const messageRef = useRef<HTMLDivElement | null>(null);
@@ -102,12 +103,8 @@ function WidgetLayout({
   }, [imagePreview, showChat]);
 
   useEffect(() => {
-    if(fullScreenMode) {
-      document.body.setAttribute('style', "overflow: hidden")
-    } else {
-      document.body.setAttribute('style', "overflow: auto")
-    }
-  }, [fullScreenMode])
+    document.body.setAttribute('style', `overflow: ${visible || fullScreenMode ? 'hidden' : 'auto'}`)
+  }, [fullScreenMode, visible])
 
   return (
     <div

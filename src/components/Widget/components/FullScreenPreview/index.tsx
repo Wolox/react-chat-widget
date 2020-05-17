@@ -42,21 +42,6 @@ export default function FullScreenPreview({ fullScreenMode, zoomStep }:Props) {
     }
   }, [src])
 
-  /**
-   * Previewer needs to prevent body scroll behavior,
-   * Except fullScreenMode is true
-   */
-  useEffect(() => {
-    if(fullScreenMode) {
-      return;
-    }
-    if(visible) {
-      document.body.setAttribute('style', "overflow: hidden")
-    } else {
-      document.body.setAttribute('style', "overflow: auto")
-    }
-  }, [visible])
-
   const pDom = usePortal()
 
   const onClosePreview = () => {
