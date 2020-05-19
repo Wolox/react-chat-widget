@@ -185,6 +185,7 @@ export default App;
 |**launcherCloseLabel**|string|NO|'Close chat'|Alt value for the laucher when open|
 |**sendButtonAlt**|string|NO|'Send'|Send button alt for a11y purposes|
 |**handleTextInputChange**|(event) => any|NO| |Prop that triggers on input change|
+|**handleSubmit**|(event) => any|NO| |Prop that triggers when a message is submitted, used for custom validation|
 
 #### Styles
 

@@ -25,6 +25,7 @@ type Props = {
   launcherCloseLabel?: string,
   sendButtonAlt?: string;
   showTimeStamp?: boolean;
+  handleSubmit?: AnyFunction;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -44,7 +45,8 @@ function ConnectedWidget({
   launcherOpenLabel,
   launcherCloseLabel,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  handleSubmit
 }: Props) {
   return (
     <Provider store={store}>
@@ -66,6 +68,7 @@ function ConnectedWidget({
         launcherCloseLabel={launcherCloseLabel}
         sendButtonAlt={sendButtonAlt}
         showTimeStamp={showTimeStamp}
+        handleSubmit={handleSubmit}
       />
     </Provider>
   );
