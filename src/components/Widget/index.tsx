@@ -24,6 +24,7 @@ type Props = {
   launcherCloseLabel: string;
   sendButtonAlt: string;
   showTimeStamp: boolean;
+  handleSubmit?: AnyFunction;
 }
 
 function Widget({
@@ -43,7 +44,8 @@ function Widget({
   launcherOpenLabel,
   launcherCloseLabel,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  handleSubmit
 }: Props) {
   const dispatch = useDispatch();
 
@@ -54,11 +56,16 @@ function Widget({
   const handleMessageSubmit = (event) => {
     event.preventDefault();
     const userInput = event.target.message.value;
-    if (userInput.trim()) {
+    
+    if (!userInput.trim()) {      
+      return;      
+    }
+
+    if(typeof handleSubmit === 'function' && handleSubmit(userInput)) {
       dispatch(addUserMessage(userInput));
       handleNewUserMessage(userInput);
-    }
-    event.target.message.value = '';
+      event.target.message.value = '';
+    }    
   }
 
   const onQuickButtonClicked = (event, value) => {

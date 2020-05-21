@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet } from '../index';
+import { addUserMessage } from '..';
 
 export default class App extends Component {
   componentDidMount() {
@@ -25,6 +26,14 @@ export default class App extends Component {
     setQuickButtons([]);
   }
 
+  handleSubmit = (msgText: string) => {
+    if(msgText.length < 80) {
+      addUserMessage("Uh oh, please write a bit more.");
+      return false;
+    }
+    return true;
+  }
+
   render() {
     return (
       <Widget
@@ -33,6 +42,7 @@ export default class App extends Component {
         senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}
         handleQuickButtonClicked={this.handleQuickButtonClicked}
+        handleSubmit={this.handleSubmit}
       />
     );
   }
