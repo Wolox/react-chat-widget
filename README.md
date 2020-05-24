@@ -128,8 +128,8 @@ export default App;
 4- Customize the widget to match your app design! You can add both props to manage the title of the widget and the avatar it will use. Of course, feel free to change the styles the widget will have in the CSS
 
 ```js
-import React from 'react';
-import { Widget, addResponseMessage, addLinkSnippet, addUserMessage } from 'react-chat-widget';
+import React, { useEffect } from 'react';
+import { Widget, addResponseMessage } from 'react-chat-widget';
 
 import 'react-chat-widget/lib/styles.css';
 
@@ -145,7 +145,6 @@ function App() {
     // Now send the message throught the backend API
   };
 
-  render() {
     return (
       <div className="App">
         <Widget
@@ -156,10 +155,10 @@ function App() {
         />
       </div>
     );
-  } 
 }
 
 export default App;
+
 ```
 
 ## API
