@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState, ElementRef, ImgHTMLAttributes, MouseEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import format from 'date-fns/format';
 
@@ -23,7 +23,7 @@ function Messages({ profileAvatar, showTimeStamp }: Props) {
     showChat: state.behavior.showChat
   }));
 
-  const messageRef = useRef(null);
+  const messageRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     // @ts-ignore
     scrollToBottom(messageRef.current);

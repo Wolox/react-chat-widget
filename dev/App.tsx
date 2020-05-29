@@ -7,6 +7,8 @@ export default class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
     addLinkSnippet({ link: 'https://google.com', title: 'Google' });
+    addResponseMessage('![](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)');
+    addResponseMessage('![vertical](https://d2sofvawe08yqg.cloudfront.net/reintroducing-react/hero2x?1556470143)');
   }
 
   handleNewUserMessage = (newMessage: any) => {
@@ -36,14 +38,18 @@ export default class App extends Component {
 
   render() {
     return (
-      <Widget
-        title="Bienvenido"
-        subtitle="Asistente virtual"
-        senderPlaceHolder="Escribe aquí ..."
-        handleNewUserMessage={this.handleNewUserMessage}
-        handleQuickButtonClicked={this.handleQuickButtonClicked}
-        handleSubmit={this.handleSubmit}
-      />
+      <div>
+        <button style={{position: 'absolute', right: 40, bottom: 150}}>test</button>
+        <Widget
+          title="Bienvenido"
+          subtitle="Asistente virtual"
+          senderPlaceHolder="Escribe aquí ..."
+          handleNewUserMessage={this.handleNewUserMessage}
+          handleQuickButtonClicked={this.handleQuickButtonClicked}
+          imagePreview
+          handleSubmit={this.handleSubmit}
+        />
+      </div>
     );
   }
 }

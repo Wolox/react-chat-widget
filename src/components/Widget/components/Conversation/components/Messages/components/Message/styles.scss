@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   margin-left: auto;
-  
+
   .rcw-message-text {
     @include message-bubble($turqois-2);
   }
@@ -38,9 +38,13 @@
 
 /* For markdown elements created with default styles */
 .rcw-message-text {
-
   p {
     margin: 0;
+  }
+
+  img {
+    width: 100%;
+    object-fit: contain;
   }
 }
 

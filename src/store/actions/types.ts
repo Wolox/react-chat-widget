@@ -1,6 +1,6 @@
 import { ElementType } from 'react';
 
-import { LinkParams } from '../types';
+import { LinkParams, FullscreenPreviewState } from '../types';
 
 export const TOGGLE_CHAT = 'BEHAVIOR/TOGGLE_CHAT';
 export const TOGGLE_INPUT_DISABLED = 'BEHAVIOR/TOGGLE_INPUT_DISABLED';
@@ -15,6 +15,8 @@ export const HIDE_AVATAR = 'MESSAGES/HIDE_AVATAR';
 export const DELETE_MESSAGES = 'MESSAGES/DELETE_MESSAGES';
 export const MARK_ALL_READ = 'MESSAGES/MARK_ALL_READ';
 export const SET_QUICK_BUTTONS = 'SET_QUICK_BUTTONS';
+export const OPEN_FULLSCREEN_PREVIEW = 'FULLSCREEN/OPEN_PREVIEW';
+export const CLOSE_FULLSCREEN_PREVIEW = 'FULLSCREEN/CLOSE_PREVIEW';
 
 export interface ToggleChat {
   type: typeof TOGGLE_CHAT;
@@ -89,3 +91,14 @@ export type MessagesActions = AddUserMessage | AddResponseMessage | AddLinkSnipp
                               | DropMessages | HideAvatar | DeleteMessages | MarkAllMessagesRead | SetBadgeCount;
 
 export type QuickButtonsActions = SetQuickButtons;
+
+export interface openFullscreenPreview {
+  type: typeof OPEN_FULLSCREEN_PREVIEW;
+  payload: FullscreenPreviewState
+}
+
+export interface closeFullscreenPreview {
+  type: typeof CLOSE_FULLSCREEN_PREVIEW;
+}
+
+export type FullscreenPreviewActions = openFullscreenPreview | closeFullscreenPreview;
