@@ -65,11 +65,10 @@ function Widget({
       return;      
     }
 
-    if(typeof handleSubmit === 'function' && handleSubmit(userInput)) {
-      dispatch(addUserMessage(userInput));
-      handleNewUserMessage(userInput);
-      event.target.message.value = '';
-    }    
+    handleSubmit?.(userInput)
+    dispatch(addUserMessage(userInput));
+    handleNewUserMessage(userInput);
+    event.target.message.value = '';
   }
 
   const onQuickButtonClicked = (event, value) => {
