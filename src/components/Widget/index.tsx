@@ -65,7 +65,7 @@ function Widget({
       return;      
     }
 
-    handleSubmit?.(userInput)
+    handleSubmit?.(userInput);
     dispatch(addUserMessage(userInput));
     handleNewUserMessage(userInput);
     event.target.message.value = '';
