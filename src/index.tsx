@@ -28,9 +28,7 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
-  startRecording: AnyFunction;
-  stopRecording: AnyFunction;
-  handleStream:AnyFunction;
+  handleStream: AnyFunction;
   isRecording: boolean;
 } & typeof defaultProps;
 
@@ -55,8 +53,6 @@ function ConnectedWidget({
   imagePreview,
   zoomStep,
   handleSubmit,
-  startRecording,
-  stopRecording,
   handleStream,
   isRecording
 }: Props) {
@@ -83,8 +79,6 @@ function ConnectedWidget({
         imagePreview={imagePreview}
         zoomStep={zoomStep}
         handleSubmit={handleSubmit}
-        startRecording={startRecording}
-        stopRecording={stopRecording}
         handleStream={handleStream}
         isRecording={isRecording}
       />

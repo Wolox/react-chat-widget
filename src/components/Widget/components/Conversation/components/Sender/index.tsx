@@ -10,8 +10,6 @@ const micRed = require('../../../../../../../assets/mic-red.svg') as string;
 import './style.scss';
 
 type Props = {
-  startRecording: () => void;
-  stopRecording: () => void;
   placeholder: string;
   disabledInput: boolean;
   autofocus: boolean;
@@ -22,7 +20,7 @@ type Props = {
   handleStream: () => void;
 }
 
-function Sender({ startRecording, stopRecording, isRecording, handleStream, sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt }: Props) {
+function Sender({ isRecording, handleStream, sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt }: Props) {
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef(null);
   let mic = isRecording ? micRed : micBlack;

@@ -19,8 +19,6 @@ type Props = {
   autofocus: boolean;
   className: string;
   sendMessage: AnyFunction;
-  startRecording: AnyFunction;
-  stopRecording: AnyFunction;
   toggleChat: AnyFunction;
   profileAvatar?: string;
   titleAvatar?: string;
@@ -41,8 +39,6 @@ function Conversation({
   autofocus,
   className,
   sendMessage,
-  startRecording,
-  stopRecording,
   toggleChat,
   profileAvatar,
   titleAvatar,
@@ -65,8 +61,6 @@ function Conversation({
       <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
       <Sender
-        startRecording={startRecording}
-        stopRecording={stopRecording}
         handleStream={handleStream}
         isRecording={isRecording}
         sendMessage={sendMessage}

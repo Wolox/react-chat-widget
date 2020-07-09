@@ -27,8 +27,6 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
-  startRecording: AnyFunction;
-  stopRecording: AnyFunction;
   handleStream: AnyFunction;
   isRecording: boolean;
 }
@@ -54,8 +52,6 @@ function Widget({
   imagePreview,
   zoomStep,
   handleSubmit,
-  startRecording,
-  stopRecording,
   handleStream,
   isRecording
 }: Props) {
@@ -88,8 +84,6 @@ function Widget({
     <WidgetLayout
       onToggleConversation={toggleConversation}
       onSendMessage={handleMessageSubmit}
-      startRecording={startRecording}
-      stopRecording={stopRecording}
       onQuickButtonClicked={onQuickButtonClicked}
       title={title}
       titleAvatar={titleAvatar}

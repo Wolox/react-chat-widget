@@ -33,8 +33,6 @@ type Props = {
   showTimeStamp: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
-  startRecording: AnyFunction;
-  stopRecording: AnyFunction;
   handleStream: AnyFunction;
   isRecording: boolean;
 }
@@ -59,8 +57,6 @@ function WidgetLayout({
   sendButtonAlt,
   showTimeStamp,
   imagePreview,
-  startRecording,
-  stopRecording,
   handleStream,
   isRecording,
   zoomStep,
@@ -127,8 +123,6 @@ function WidgetLayout({
           title={title}
           subtitle={subtitle}
           sendMessage={onSendMessage}
-          startRecording={startRecording}
-          stopRecording={stopRecording}
           senderPlaceHolder={senderPlaceHolder}
           profileAvatar={profileAvatar}
           toggleChat={onToggleConversation}
