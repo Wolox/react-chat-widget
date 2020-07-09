@@ -19,6 +19,8 @@ type Props = {
   autofocus: boolean;
   className: string;
   sendMessage: AnyFunction;
+  startRecording: AnyFunction;
+  stopRecording: AnyFunction;
   toggleChat: AnyFunction;
   profileAvatar?: string;
   titleAvatar?: string;
@@ -26,6 +28,8 @@ type Props = {
   onTextInputChange?: (event: any) => void;
   sendButtonAlt: string;
   showTimeStamp: boolean;
+  isRecording: boolean;
+  handleStream: AnyFunction;
 };
 
 function Conversation({
@@ -37,13 +41,17 @@ function Conversation({
   autofocus,
   className,
   sendMessage,
+  startRecording,
+  stopRecording,
   toggleChat,
   profileAvatar,
   titleAvatar,
   onQuickButtonClicked,
   onTextInputChange,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  isRecording,
+  handleStream
 }: Props) {
   return (
     <div className={cn('rcw-conversation-container', className)} aria-live="polite">
@@ -57,6 +65,10 @@ function Conversation({
       <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
       <Sender
+        startRecording={startRecording}
+        stopRecording={stopRecording}
+        handleStream={handleStream}
+        isRecording={isRecording}
         sendMessage={sendMessage}
         placeholder={senderPlaceHolder}
         disabledInput={disabledInput}

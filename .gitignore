@@ -6,8 +6,5 @@ yarn-error.log
 # OSX
 .DS_Store
 
-# Build files
-lib
-
 # Test files
 coverage

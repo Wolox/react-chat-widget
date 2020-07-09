@@ -1,4 +1,4 @@
-import React,{ useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 
@@ -33,6 +33,10 @@ type Props = {
   showTimeStamp: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
+  startRecording: AnyFunction;
+  stopRecording: AnyFunction;
+  handleStream: AnyFunction;
+  isRecording: boolean;
 }
 
 function WidgetLayout({
@@ -55,6 +59,10 @@ function WidgetLayout({
   sendButtonAlt,
   showTimeStamp,
   imagePreview,
+  startRecording,
+  stopRecording,
+  handleStream,
+  isRecording,
   zoomStep,
 }: Props) {
   const dispatch = useDispatch();
@@ -67,16 +75,16 @@ function WidgetLayout({
   const messageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if(showChat) {
+    if (showChat) {
       messageRef.current = document.getElementById('messages') as HTMLDivElement;
     }
     return () => {
       messageRef.current = null;
     }
   }, [showChat])
-  
+
   const eventHandle = evt => {
-    if(evt.target && evt.target.className === 'rcw-message-img') {
+    if (evt.target && evt.target.className === 'rcw-message-img') {
       const { src, alt, naturalWidth, naturalHeight } = (evt.target as HTMLImageElement);
       const obj = {
         src: src,
@@ -93,7 +101,7 @@ function WidgetLayout({
    */
   useEffect(() => {
     const target = messageRef?.current;
-    if(imagePreview && showChat) {
+    if (imagePreview && showChat) {
       target?.addEventListener('click', eventHandle, false);
     }
 
@@ -111,7 +119,7 @@ function WidgetLayout({
       className={cn('rcw-widget-container', {
         'rcw-full-screen': fullScreenMode,
         'rcw-previewer': imagePreview
-        })
+      })
       }
     >
       {showChat &&
@@ -119,6 +127,8 @@ function WidgetLayout({
           title={title}
           subtitle={subtitle}
           sendMessage={onSendMessage}
+          startRecording={startRecording}
+          stopRecording={stopRecording}
           senderPlaceHolder={senderPlaceHolder}
           profileAvatar={profileAvatar}
           toggleChat={onToggleConversation}
@@ -131,6 +141,8 @@ function WidgetLayout({
           onTextInputChange={onTextInputChange}
           sendButtonAlt={sendButtonAlt}
           showTimeStamp={showTimeStamp}
+          handleStream={handleStream}
+          isRecording={isRecording}
         />
       }
       {customLauncher ?

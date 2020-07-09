@@ -27,6 +27,10 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
+  startRecording: AnyFunction;
+  stopRecording: AnyFunction;
+  handleStream: AnyFunction;
+  isRecording: boolean;
 }
 
 function Widget({
@@ -49,7 +53,11 @@ function Widget({
   showTimeStamp,
   imagePreview,
   zoomStep,
-  handleSubmit
+  handleSubmit,
+  startRecording,
+  stopRecording,
+  handleStream,
+  isRecording
 }: Props) {
   const dispatch = useDispatch();
 
@@ -60,9 +68,9 @@ function Widget({
   const handleMessageSubmit = (event) => {
     event.preventDefault();
     const userInput = event.target.message.value;
-    
-    if (!userInput.trim()) {      
-      return;      
+
+    if (!userInput.trim()) {
+      return;
     }
 
     handleSubmit?.(userInput);
@@ -80,6 +88,8 @@ function Widget({
     <WidgetLayout
       onToggleConversation={toggleConversation}
       onSendMessage={handleMessageSubmit}
+      startRecording={startRecording}
+      stopRecording={stopRecording}
       onQuickButtonClicked={onQuickButtonClicked}
       title={title}
       titleAvatar={titleAvatar}
@@ -98,6 +108,8 @@ function Widget({
       showTimeStamp={showTimeStamp}
       imagePreview={imagePreview}
       zoomStep={zoomStep}
+      handleStream={handleStream}
+      isRecording={isRecording}
     />
   );
 }
