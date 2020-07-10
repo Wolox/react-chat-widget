@@ -30,6 +30,7 @@ type Props = {
   handleSubmit?: AnyFunction;
   handleStream: AnyFunction;
   isRecording: boolean;
+  inputMessage: string;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -54,7 +55,8 @@ function ConnectedWidget({
   zoomStep,
   handleSubmit,
   handleStream,
-  isRecording
+  isRecording,
+  inputMessage
 }: Props) {
   return (
     <Provider store={store}>
@@ -81,6 +83,7 @@ function ConnectedWidget({
         handleSubmit={handleSubmit}
         handleStream={handleStream}
         isRecording={isRecording}
+        inputMessage={inputMessage}
       />
     </Provider>
   );

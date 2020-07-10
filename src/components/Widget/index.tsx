@@ -29,6 +29,7 @@ type Props = {
   handleSubmit?: AnyFunction;
   handleStream: AnyFunction;
   isRecording: boolean;
+  inputMessage: string;
 }
 
 function Widget({
@@ -53,7 +54,8 @@ function Widget({
   zoomStep,
   handleSubmit,
   handleStream,
-  isRecording
+  isRecording,
+  inputMessage
 }: Props) {
   const dispatch = useDispatch();
 
@@ -104,6 +106,7 @@ function Widget({
       zoomStep={zoomStep}
       handleStream={handleStream}
       isRecording={isRecording}
+      inputMessage={inputMessage}
     />
   );
 }

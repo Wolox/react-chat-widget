@@ -18,21 +18,31 @@ type Props = {
   onTextInputChange?: (event: any) => void;
   isRecording: boolean;
   handleStream: () => void;
+  inputMessage: string;
 }
 
-function Sender({ isRecording, handleStream, sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt }: Props) {
+function Sender({ isRecording, handleStream, sendMessage, placeholder, disabledInput, autofocus, inputMessage, onTextInputChange, buttonAlt }: Props) {
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef(null);
   let mic = isRecording ? micRed : micBlack;
   // @ts-ignore
   useEffect(() => { if (showChat) inputRef.current?.focus(); }, [showChat]);
-  debugger
+  const [message, setMessage] = useState(inputMessage);
   useEffect(() => {
     mic = isRecording ? micRed : micBlack;
   }, [isRecording])
 
+  useEffect(() => {
+    setMessage(inputMessage)
+  }, [inputMessage])
+
+  const handleSubmission = e => {
+    sendMessage(e)
+    setMessage('')
+  }
+
   return (
-    <form className="rcw-sender" onSubmit={sendMessage}>
+    <form className="rcw-sender" onSubmit={handleSubmission}>
       <input
         type="text"
         className="rcw-new-message"
@@ -42,7 +52,8 @@ function Sender({ isRecording, handleStream, sendMessage, placeholder, disabledI
         disabled={disabledInput}
         autoFocus={autofocus}
         autoComplete="off"
-        onChange={onTextInputChange}
+        defaultValue={message}
+        onChange={e => setMessage(e.target.value)}
       />
       <button type="button" className="rcw-send" onClick={handleStream}>
         <img src={mic} className="rcw-send-icon" alt={buttonAlt} />

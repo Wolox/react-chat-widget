@@ -28,6 +28,7 @@ type Props = {
   showTimeStamp: boolean;
   isRecording: boolean;
   handleStream: AnyFunction;
+  inputMessage: string;
 };
 
 function Conversation({
@@ -47,7 +48,8 @@ function Conversation({
   sendButtonAlt,
   showTimeStamp,
   isRecording,
-  handleStream
+  handleStream,
+  inputMessage
 }: Props) {
   return (
     <div className={cn('rcw-conversation-container', className)} aria-live="polite">
@@ -69,6 +71,7 @@ function Conversation({
         autofocus={autofocus}
         onTextInputChange={onTextInputChange}
         buttonAlt={sendButtonAlt}
+        inputMessage={inputMessage}
       />
     </div>
   );

@@ -35,6 +35,7 @@ type Props = {
   zoomStep?: number;
   handleStream: AnyFunction;
   isRecording: boolean;
+  inputMessage: string;
 }
 
 function WidgetLayout({
@@ -60,6 +61,7 @@ function WidgetLayout({
   handleStream,
   isRecording,
   zoomStep,
+  inputMessage,
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -120,6 +122,7 @@ function WidgetLayout({
     >
       {showChat &&
         <Conversation
+          inputMessage={inputMessage}
           title={title}
           subtitle={subtitle}
           sendMessage={onSendMessage}
