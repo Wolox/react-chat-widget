@@ -1,4 +1,4 @@
-import React,{ useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 
@@ -33,6 +33,9 @@ type Props = {
   showTimeStamp: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
+  handleStream: AnyFunction;
+  isRecording: boolean;
+  inputMessage: string;
 }
 
 function WidgetLayout({
@@ -55,7 +58,10 @@ function WidgetLayout({
   sendButtonAlt,
   showTimeStamp,
   imagePreview,
+  handleStream,
+  isRecording,
   zoomStep,
+  inputMessage,
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -67,16 +73,16 @@ function WidgetLayout({
   const messageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if(showChat) {
+    if (showChat) {
       messageRef.current = document.getElementById('messages') as HTMLDivElement;
     }
     return () => {
       messageRef.current = null;
     }
   }, [showChat])
-  
+
   const eventHandle = evt => {
-    if(evt.target && evt.target.className === 'rcw-message-img') {
+    if (evt.target && evt.target.className === 'rcw-message-img') {
       const { src, alt, naturalWidth, naturalHeight } = (evt.target as HTMLImageElement);
       const obj = {
         src: src,
@@ -93,7 +99,7 @@ function WidgetLayout({
    */
   useEffect(() => {
     const target = messageRef?.current;
-    if(imagePreview && showChat) {
+    if (imagePreview && showChat) {
       target?.addEventListener('click', eventHandle, false);
     }
 
@@ -111,11 +117,12 @@ function WidgetLayout({
       className={cn('rcw-widget-container', {
         'rcw-full-screen': fullScreenMode,
         'rcw-previewer': imagePreview
-        })
+      })
       }
     >
       {showChat &&
         <Conversation
+          inputMessage={inputMessage}
           title={title}
           subtitle={subtitle}
           sendMessage={onSendMessage}
@@ -131,6 +138,8 @@ function WidgetLayout({
           onTextInputChange={onTextInputChange}
           sendButtonAlt={sendButtonAlt}
           showTimeStamp={showTimeStamp}
+          handleStream={handleStream}
+          isRecording={isRecording}
         />
       }
       {customLauncher ?
