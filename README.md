@@ -79,7 +79,7 @@ import 'react-chat-widget/lib/styles.css';
 function App() {
   const handleNewUserMessage = (newMessage) => {
     console.log(`New message incoming! ${newMessage}`);
-    // Now send the message throught the backend API
+    // Now send the message through the backend API
   };
 
   return (
@@ -109,7 +109,7 @@ function App() {
 
   const handleNewUserMessage = (newMessage) => {
     console.log(`New message incoming! ${newMessage}`);
-    // Now send the message throught the backend API
+    // Now send the message through the backend API
     addResponseMessage(response);
   };
 
@@ -142,7 +142,7 @@ function App() {
 
   const handleNewUserMessage = (newMessage) => {
     console.log(`New message incoming! ${newMessage}`);
-    // Now send the message throught the backend API
+    // Now send the message through the backend API
   };
 
     return (
