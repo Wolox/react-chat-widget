@@ -21,6 +21,7 @@ type Props = {
   launcher?: AnyFunction;
   handleTextInputChange?: (event: any) => void;
   chatId?: string;
+  handleToggle?: AnyFunction;
   launcherOpenLabel?: string,
   launcherCloseLabel?: string,
   sendButtonAlt?: string;
@@ -44,6 +45,7 @@ function ConnectedWidget({
   handleQuickButtonClicked,
   handleTextInputChange,
   chatId,
+  handleToggle,
   launcherOpenLabel,
   launcherCloseLabel,
   sendButtonAlt,
@@ -68,6 +70,7 @@ function ConnectedWidget({
         customLauncher={launcher}
         handleTextInputChange={handleTextInputChange}
         chatId={chatId}
+        handleToggle={handleToggle}
         launcherOpenLabel={launcherOpenLabel}
         launcherCloseLabel={launcherCloseLabel}
         sendButtonAlt={sendButtonAlt}

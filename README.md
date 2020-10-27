@@ -180,6 +180,7 @@ export default App;
 |**handleQuickButtonClicked**|(...args: any[]) => any|NO||Function to handle the user clicking a quick button, will receive the 'value' when clicked.|
 |**showTimeStamp**|boolean|NO|true|Show time stamp on messages|
 |**chatId**|string|NO|'rcw-chat-container'|Chat container id for a11y|
+|**handleToggle**|(...args: any[]) => any|NO|'rcw-chat-container'|Function to handle when the widget is toggled, will receive the toggle status|
 |**launcherOpenLabel**|string|NO|'Open chat'|Alt value for the laucher when closed|
 |**launcherCloseLabel**|string|NO|'Close chat'|Alt value for the laucher when open|
 |**sendButtonAlt**|string|NO|'Send'|Send button alt for a11y purposes|
