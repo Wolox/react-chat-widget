@@ -185,6 +185,10 @@ export default App;
 |**sendButtonAlt**|string|NO|'Send'|Send button alt for a11y purposes|
 |**handleTextInputChange**|(event) => any|NO| |Prop that triggers on input change|
 |**handleSubmit**|(event) => any|NO| |Prop that triggers when a message is submitted, used for custom validation|
+|**minLength**|int|NO| |Specifies the minimum amount of characters that must be entered to post|0
+|**maxLength**|int|NO| |Specifies the maximum amount of characters that must be entered to post|100000
+|**showCounter**|boolean|NO| |Show the character counter|false
+|**counterSytle**|'counter' or 'countdown'|NO| |Have the counter count up or down|'counter'
 
 #### Styles
 

@@ -1,6 +1,6 @@
 {
   "name": "react-chat-widget",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Chat web widget for React apps",
   "main": "lib/index.js",
   "repository": "git@github.com:Wolox/react-chat-widget.git",

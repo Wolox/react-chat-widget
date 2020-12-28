@@ -33,6 +33,10 @@ type Props = {
   showTimeStamp: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
+  minLength: number;
+  maxLength: number;
+  showCounter: boolean;  
+  counterStyle: 'counter' | 'countdown';
 }
 
 function WidgetLayout({
@@ -56,6 +60,10 @@ function WidgetLayout({
   showTimeStamp,
   imagePreview,
   zoomStep,
+  minLength,
+  maxLength,
+  showCounter,
+  counterStyle
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -131,6 +139,10 @@ function WidgetLayout({
           onTextInputChange={onTextInputChange}
           sendButtonAlt={sendButtonAlt}
           showTimeStamp={showTimeStamp}
+          minLength={minLength}
+          maxLength={maxLength}
+          showCounter={showCounter}
+          counterStyle={counterStyle}
         />
       }
       {customLauncher ?

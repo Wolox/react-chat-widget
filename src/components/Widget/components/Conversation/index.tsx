@@ -26,6 +26,10 @@ type Props = {
   onTextInputChange?: (event: any) => void;
   sendButtonAlt: string;
   showTimeStamp: boolean;
+  minLength: number;
+  maxLength: number;
+  showCounter: boolean;  
+  counterStyle: 'counter' | 'countdown';
 };
 
 function Conversation({
@@ -43,7 +47,11 @@ function Conversation({
   onQuickButtonClicked,
   onTextInputChange,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  minLength,
+  maxLength,
+  showCounter,
+  counterStyle
 }: Props) {
   return (
     <div className={cn('rcw-conversation-container', className)} aria-live="polite">
@@ -63,6 +71,10 @@ function Conversation({
         autofocus={autofocus}
         onTextInputChange={onTextInputChange}
         buttonAlt={sendButtonAlt}
+        minLength={minLength}
+        maxLength={maxLength}
+        showCounter={showCounter}
+        counterStyle={counterStyle}
       />
     </div>
   );

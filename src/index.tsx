@@ -28,6 +28,10 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
+  minLength?: number;
+  maxLength?: number;
+  showCounter?: boolean;
+  counterStyle?: 'counter' | 'countdown';
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -50,9 +54,13 @@ function ConnectedWidget({
   showTimeStamp,
   imagePreview,
   zoomStep,
-  handleSubmit
+  handleSubmit,
+  minLength,
+  maxLength,
+  showCounter,
+  counterStyle
 }: Props) {
-  return (
+  return (    
     <Provider store={store}>
       <Widget
         title={title}
@@ -75,6 +83,10 @@ function ConnectedWidget({
         imagePreview={imagePreview}
         zoomStep={zoomStep}
         handleSubmit={handleSubmit}
+        minLength={minLength}
+        maxLength={maxLength}
+        showCounter={showCounter}
+        counterStyle={counterStyle}
       />
     </Provider>
   );
@@ -94,6 +106,10 @@ const defaultProps = {
   showTimeStamp: true,
   imagePreview: false,
   zoomStep: 80,
+  minLength: 0,
+  maxLength: 100000,
+  showCounter: false,  
+  counterStyle: 'counter'
 };
 ConnectedWidget.defaultProps = defaultProps;
 

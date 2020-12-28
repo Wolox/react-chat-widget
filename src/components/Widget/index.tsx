@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 
 import { toggleChat, addUserMessage } from '../../store/actions';
 import { AnyFunction } from '../../utils/types';
-
 import WidgetLayout from './layout';
 
 type Props = {
@@ -27,6 +26,10 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
+  minLength: number;
+  maxLength: number;
+  showCounter: boolean;  
+  counterStyle: 'counter' | 'countdown';
 }
 
 function Widget({
@@ -49,8 +52,13 @@ function Widget({
   showTimeStamp,
   imagePreview,
   zoomStep,
-  handleSubmit
+  handleSubmit,
+  minLength,
+  maxLength,
+  showCounter,
+  counterStyle
 }: Props) {
+  
   const dispatch = useDispatch();
 
   const toggleConversation = () => {
@@ -65,10 +73,21 @@ function Widget({
       return;      
     }
 
-    handleSubmit?.(userInput);
-    dispatch(addUserMessage(userInput));
-    handleNewUserMessage(userInput);
-    event.target.message.value = '';
+    if(userInput.length < minLength || userInput.length > maxLength)
+      return;
+
+    if(handleSubmit && typeof handleSubmit === 'function') {
+      var handledSubmit = handleSubmit(userInput);
+      if(typeof handledSubmit === "boolean" && handledSubmit) {
+        dispatch(addUserMessage(userInput));
+        handleNewUserMessage(userInput);
+        event.target.message.value = '';
+      }
+    } else {
+      dispatch(addUserMessage(userInput));
+      handleNewUserMessage(userInput);
+      event.target.message.value = '';
+    }
   }
 
   const onQuickButtonClicked = (event, value) => {
@@ -98,8 +117,13 @@ function Widget({
       showTimeStamp={showTimeStamp}
       imagePreview={imagePreview}
       zoomStep={zoomStep}
+      minLength={minLength}
+      maxLength={maxLength}
+      showCounter={showCounter}
+      counterStyle={counterStyle}
     />
   );
 }
 
 export default Widget;
+
