@@ -63,3 +63,24 @@ export function openFullscreenPreview(payload: ImageState) {
 export function closeFullscreenPreview() {
   store.dispatch(actions.closeFullscreenPreview());
 }
+
+export function setMinLength(count: number) {
+  store.dispatch(actions.setMinLength(count));
+}
+
+export function setMaxLength(count: number) {
+  store.dispatch(actions.setMaxLength(count));
+}
+
+export function showCounter(boo: boolean) {  
+  store.dispatch(actions.showCounter(boo));
+}
+
+export function setCounterStyle(style: string) {
+  store.dispatch(actions.setCounterStyle(style));
+}
+
+export function setMsgLength(count: number) {
+  store.dispatch(actions.setMsgLength(count));
+}
+

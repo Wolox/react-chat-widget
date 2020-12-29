@@ -113,3 +113,38 @@ export function closeFullscreenPreview(): actionsTypes.FullscreenPreviewActions 
     type: actionsTypes.CLOSE_FULLSCREEN_PREVIEW
   };
 }
+
+export function setMinLength(count: number): actionsTypes.SetMinLength {
+  return {
+    type: actionsTypes.SET_MIN_LENGTH,
+    count
+  };
+}
+
+export function setMaxLength(count: number): actionsTypes.SetMaxLength {
+  return {
+    type: actionsTypes.SET_MAX_LENGTH,
+    count
+  };
+}
+
+export function showCounter(boo: boolean): actionsTypes.ShowCounter {  
+  return {
+    type: actionsTypes.SHOW_COUNTER,
+    boo
+  };
+}
+
+export function setCounterStyle(style: string): actionsTypes.SetCounterStyle {
+  return {
+    type: actionsTypes.SET_COUNTER_STYLE,
+    style
+  };
+}
+
+export function setMsgLength(count: number): actionsTypes.SetMsgLength {
+  return {
+    type: actionsTypes.SET_MSG_LENGTH,
+    count
+  };
+}

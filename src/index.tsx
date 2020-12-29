@@ -31,7 +31,7 @@ type Props = {
   minLength?: number;
   maxLength?: number;
   showCounter?: boolean;
-  counterStyle?: 'counter' | 'countdown';
+  counterStyle?: 'counter' | 'min' | 'max';
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -85,7 +85,7 @@ function ConnectedWidget({
         handleSubmit={handleSubmit}
         minLength={minLength}
         maxLength={maxLength}
-        showCounter={showCounter}
+        showcounter={showCounter}
         counterStyle={counterStyle}
       />
     </Provider>

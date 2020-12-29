@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet } from '../index';
+import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet, setMaxLength, setMinLength, showCounter } from '../index';
 import { addUserMessage } from '..';
 
 export default class App extends Component {
@@ -20,6 +20,10 @@ export default class App extends Component {
         addResponseMessage(newMessage);
       }
     }, 2000);
+
+    //showCounter(true);
+    setMinLength(50);
+    //setMaxLength(200);
   }
 
   handleQuickButtonClicked = (e: any) => {
@@ -50,12 +54,13 @@ export default class App extends Component {
           handleNewUserMessage={this.handleNewUserMessage}
           handleQuickButtonClicked={this.handleQuickButtonClicked}
           imagePreview
-          handleSubmit={this.handleSubmit}
+          // handleSubmit={this.handleSubmit}
           handleTextInputChange={this.handleTextInputChange}
-          minLength={80}
+          
+          minLength={20}
           maxLength={100}
-          showCounter={true}
-          counterStyle='countdown' // 'countdown' | 'counter'
+          showCounter={true}          
+          counterStyle='min' // 'counter' | 'min' | 'max'
         />
       </div>
     );

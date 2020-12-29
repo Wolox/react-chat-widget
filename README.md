@@ -188,7 +188,7 @@ export default App;
 |**minLength**|int|NO|0|Specifies the minimum amount of characters that must be entered to post|
 |**maxLength**|int|NO|100000|Specifies the maximum amount of characters that must be entered to post|
 |**showCounter**|boolean|NO|false|Show the character counter|
-|**counterSytle**|'counter' or 'countdown'|NO|'counter'|Have the counter count up or down|
+|**counterSytle**|'counter' or 'min' or 'max'|NO|'counter'|Have the counter count up or down based on the minLength/maxLength value|
 
 #### Styles
 
@@ -278,6 +278,29 @@ You can also control certain actions of the widget:
   - params:
     - count: number
   - As of v3.0, the `badge` prop is being changed to be managed from within the Widget. This method is manually set the badge number.
+
+- **setMinLength**
+  - params:
+    - count: number
+  - As of v3.0.6, this method will specify the minimum number of chars that need to be entered to post.
+
+- **setMaxLength**
+  - params:
+    - count: number
+  - As of v3.0.6, this method will specify the maximum number of chars that can be entered to post.
+
+- **showCounter**
+  - params:
+    - boo: boolean
+  - As of v3.0, hides/shows the counter.
+
+- **setCounterStyle**
+  - params:
+    - style: 'counter', 'min', 'max'
+  - As of v3.0.6, shows a calculation of chars.  
+    - 'counter': displays amount of chars
+    - 'min': displays amount of chars remaining to reach the minLength
+    - 'max': displays the amount of chars as compared to the maxLength
 
 #### Widget components
 

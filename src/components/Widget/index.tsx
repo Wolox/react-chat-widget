@@ -1,7 +1,8 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { GlobalState } from 'src/store/types';
 
-import { toggleChat, addUserMessage } from '../../store/actions';
+import { toggleChat, addUserMessage, setCounterStyle, setMinLength, setMaxLength, showCounter, setMsgLength } from '../../store/actions';
 import { AnyFunction } from '../../utils/types';
 import WidgetLayout from './layout';
 
@@ -28,8 +29,8 @@ type Props = {
   handleSubmit?: AnyFunction;
   minLength: number;
   maxLength: number;
-  showCounter: boolean;  
-  counterStyle: 'counter' | 'countdown';
+  showcounter: boolean;  
+  counterStyle: 'counter' | 'min' | 'max';
 }
 
 function Widget({
@@ -55,11 +56,20 @@ function Widget({
   handleSubmit,
   minLength,
   maxLength,
-  showCounter,
+  showcounter,
   counterStyle
 }: Props) {
-  
+
+  const minlength = useSelector((state: GlobalState) => state.behavior.minLength);
+  const maxlength = useSelector((state: GlobalState) => state.behavior.maxLength);
   const dispatch = useDispatch();
+  
+  useEffect(() => { 
+    dispatch(setMinLength(minLength));
+    dispatch(setMaxLength(maxLength));    
+    dispatch(showCounter(showcounter));
+    dispatch(setCounterStyle(counterStyle));  
+  }, [minLength, maxLength, showcounter, counterStyle]);
 
   const toggleConversation = () => {
     dispatch(toggleChat());
@@ -73,7 +83,7 @@ function Widget({
       return;      
     }
 
-    if(userInput.length < minLength || userInput.length > maxLength)
+    if(userInput.length < minlength || userInput.length > maxlength)
       return;
 
     if(handleSubmit && typeof handleSubmit === 'function') {
@@ -82,13 +92,25 @@ function Widget({
         dispatch(addUserMessage(userInput));
         handleNewUserMessage(userInput);
         event.target.message.value = '';
+        dispatch(setMsgLength(0));
       }
     } else {
       dispatch(addUserMessage(userInput));
       handleNewUserMessage(userInput);
       event.target.message.value = '';
+      dispatch(setMsgLength(0));
     }
+    
   }
+
+  /*
+  const handleNewUserMessageResponse = (response) => {
+    if(response) {
+      if(response.minLength) setMinLength(response.minLength);
+      if(response.maxLength) setMaxLength(response.maxLength);
+      if(response.showCounter) setShowCounter(response.showCounter);
+    }      
+  }*/
 
   const onQuickButtonClicked = (event, value) => {
     event.preventDefault();
@@ -117,10 +139,6 @@ function Widget({
       showTimeStamp={showTimeStamp}
       imagePreview={imagePreview}
       zoomStep={zoomStep}
-      minLength={minLength}
-      maxLength={maxLength}
-      showCounter={showCounter}
-      counterStyle={counterStyle}
     />
   );
 }

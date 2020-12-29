@@ -4,27 +4,37 @@ import { GlobalState } from 'src/store/types';
 
 import './style.scss';
 
-type Props = {
-    length: number;
-    minLength: number;
-    maxLength: number;
-    counterStyle: 'counter' | 'countdown'
-}
-
-function Counter({ length, minLength, maxLength, counterStyle }: Props) {  
+function Counter() {  
+    const minlength = useSelector((state: GlobalState) => state.behavior.minLength);
+    const maxlength = useSelector((state: GlobalState) => state.behavior.maxLength);
+    const counterstyle = useSelector((state: GlobalState) => state.behavior.counterStyle);
+    const length = useSelector((state: GlobalState) => state.behavior.msgLength);
 
     let classname = "rcw-chars";
     let output = length;
 
-    if(length < minLength || length > maxLength)
-        classname = "rcw-chars rcw-chars-invalid"
+    if(length < minlength || length > maxlength)
+        classname = "rcw-chars rcw-chars-invalid";
 
-    if(counterStyle === 'countdown') {
-        output = minLength - length > 0 ? minLength - length : 0
+    if(counterstyle === 'min') {
+        output = minlength - length > 0 ? minlength - length : 0;
+    }
+
+    if(counterstyle === 'max') {
+        output = maxlength - length;
     }
 
     return (    
-        <div className={classname}>{(counterStyle === 'counter' && output) || (counterStyle === 'countdown' && output > 0 && output)}</div>
+        <div className={classname}>
+            {
+                length !== 0 && 
+                (
+                    (counterstyle === 'counter' && output) || 
+                    (counterstyle === 'min' && output > 0 && output) || 
+                    (counterstyle === 'max' && output)
+                )
+            }
+        </div>
     );
 }
 
