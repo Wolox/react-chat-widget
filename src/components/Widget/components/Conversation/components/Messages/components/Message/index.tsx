@@ -23,7 +23,9 @@ function Message({ message, showTimeStamp }: Props) {
     .use(markdownItSup)
     .use(markdownItSanitizer)
     .use(markdownItLinkAttributes, { attrs: { target: '_blank', rel: 'noopener' } })
-    .render(message.text);
+    .render(message.text.replace(/\n/gi, '\n\n'));
+
+  
 
   return (
     <div className={`rcw-${message.sender}`}>

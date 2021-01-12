@@ -75,6 +75,7 @@ function ConnectedWidget({
         imagePreview={imagePreview}
         zoomStep={zoomStep}
         handleSubmit={handleSubmit}
+        textArea
       />
     </Provider>
   );
