@@ -20,7 +20,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef(null);
   // @ts-ignore
-  useEffect(() => { if (showChat) inputRef.current?.focus(); }, [showChat]);
+  useEffect(() => { if (showChat && autofocus) inputRef.current?.focus(); }, [showChat]);
 
   return (
     <form className="rcw-sender" onSubmit={sendMessage}>
