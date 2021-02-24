@@ -5,7 +5,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -59,7 +59,9 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname, 'src/scss/')]
+              sassOptions: {
+                includePaths: [path.resolve(__dirname,'src/scss')]
+              }
             }
           }
         ]
@@ -80,7 +82,7 @@ module.exports = {
      */
     new MiniCssExtractPlugin({
       filename: 'styles.css',
-      chunkFileName: '[id].css'
+      chunkFilename: '[id].css'
     }),
   ],
   externals: {
@@ -96,8 +98,9 @@ module.exports = {
     }
   },
   optimization: {
+    minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
+      new TerserPlugin({
         cache: true,
         parallel: true
       }),
