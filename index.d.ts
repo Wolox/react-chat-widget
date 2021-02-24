@@ -32,4 +32,9 @@ export function deleteMessages(count: number, id: string): void;
 export function markAllAsRead(): void;
 export function setBadgeCount(count: number): void;
 
+export function setMinLength(count: number): void;
+export function setMaxLength(count: number): void;
+export function showCounter(boo: boolean): void;
+export function setCounterStyle(style: string): void;
+
 export as namespace ReactChatWidget;

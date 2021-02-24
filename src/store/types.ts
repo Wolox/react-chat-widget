@@ -41,6 +41,11 @@ export interface BehaviorState {
   showChat: boolean;
   disabledInput: boolean;
   messageLoader: boolean;
+  minLength: number;
+  maxLength: number;
+  showCounter: boolean;
+  counterStyle: string;
+  msgLength: number;
 };
 
 export interface MessagesState {

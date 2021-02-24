@@ -17,6 +17,11 @@ export const MARK_ALL_READ = 'MESSAGES/MARK_ALL_READ';
 export const SET_QUICK_BUTTONS = 'SET_QUICK_BUTTONS';
 export const OPEN_FULLSCREEN_PREVIEW = 'FULLSCREEN/OPEN_PREVIEW';
 export const CLOSE_FULLSCREEN_PREVIEW = 'FULLSCREEN/CLOSE_PREVIEW';
+export const SET_MIN_LENGTH = "BEHAVIOR/SET_MIN_LENGTH";
+export const SET_MAX_LENGTH = "BEHAVIOR/SET_MAX_LENGTH";
+export const SHOW_COUNTER = "BEHAVIOR/SHOW_COUNTER";
+export const SET_COUNTER_STYLE = "BEHAVIOR/SET_COUNTER_STYLE";
+export const SET_MSG_LENGTH = "BEHAVIOR/SET_MSG_LENGTH";
 
 export interface ToggleChat {
   type: typeof TOGGLE_CHAT;
@@ -85,7 +90,32 @@ export interface MarkAllMessagesRead {
   type: typeof MARK_ALL_READ;
 }
 
-export type BehaviorActions = ToggleChat | ToggleInputDisabled | ToggleMsgLoader;
+export interface SetMinLength {
+  type: typeof SET_MIN_LENGTH;
+  count: number;
+}
+
+export interface SetMaxLength {
+  type: typeof SET_MAX_LENGTH;
+  count: number;
+}
+
+export interface ShowCounter {
+  type: typeof SHOW_COUNTER;
+  boo: boolean
+}
+
+export interface SetCounterStyle {
+  type: typeof SET_COUNTER_STYLE;
+  style: string;
+}
+
+export interface SetMsgLength {
+  type: typeof SET_MSG_LENGTH;
+  count: number;
+}
+
+export type BehaviorActions = ToggleChat | ToggleInputDisabled | ToggleMsgLoader | SetMinLength | SetMaxLength | ShowCounter | SetCounterStyle | SetMsgLength;
 
 export type MessagesActions = AddUserMessage | AddResponseMessage | AddLinkSnippet | RenderCustomComponent
                               | DropMessages | HideAvatar | DeleteMessages | MarkAllMessagesRead | SetBadgeCount;

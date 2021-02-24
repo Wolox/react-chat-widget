@@ -55,7 +55,7 @@ function WidgetLayout({
   sendButtonAlt,
   showTimeStamp,
   imagePreview,
-  zoomStep,
+  zoomStep
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({

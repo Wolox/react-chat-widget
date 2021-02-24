@@ -1,0 +1,10 @@
+@import 'variables/colors';
+
+.rcw-chars {
+    color: $grey-0;
+    margin: 0 5px;
+
+    &.rcw-chars-invalid {
+        color: $red;
+    }
+}

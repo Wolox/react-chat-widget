@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { GlobalState } from 'src/store/types';
 
-import { toggleChat, addUserMessage } from '../../store/actions';
+import { toggleChat, addUserMessage, setCounterStyle, setMinLength, setMaxLength, showCounter, setMsgLength } from '../../store/actions';
 import { AnyFunction } from '../../utils/types';
-
 import WidgetLayout from './layout';
 
 type Props = {
@@ -27,6 +27,10 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
+  minLength: number;
+  maxLength: number;
+  showcounter: boolean;  
+  counterStyle: 'counter' | 'min' | 'max';
 }
 
 function Widget({
@@ -49,9 +53,23 @@ function Widget({
   showTimeStamp,
   imagePreview,
   zoomStep,
-  handleSubmit
+  handleSubmit,
+  minLength,
+  maxLength,
+  showcounter,
+  counterStyle
 }: Props) {
+
+  const minlength = useSelector((state: GlobalState) => state.behavior.minLength);
+  const maxlength = useSelector((state: GlobalState) => state.behavior.maxLength);
   const dispatch = useDispatch();
+  
+  useEffect(() => { 
+    dispatch(setMinLength(minLength));
+    dispatch(setMaxLength(maxLength));    
+    dispatch(showCounter(showcounter));
+    dispatch(setCounterStyle(counterStyle));  
+  }, [minLength, maxLength, showcounter, counterStyle]);
 
   const toggleConversation = () => {
     dispatch(toggleChat());
@@ -65,11 +83,34 @@ function Widget({
       return;      
     }
 
-    handleSubmit?.(userInput);
-    dispatch(addUserMessage(userInput));
-    handleNewUserMessage(userInput);
-    event.target.message.value = '';
+    if(userInput.length < minlength || userInput.length > maxlength)
+      return;
+
+    if(handleSubmit && typeof handleSubmit === 'function') {
+      var handledSubmit = handleSubmit(userInput);
+      if(typeof handledSubmit === "boolean" && handledSubmit) {
+        dispatch(addUserMessage(userInput));
+        handleNewUserMessage(userInput);
+        event.target.message.value = '';
+        dispatch(setMsgLength(0));
+      }
+    } else {
+      dispatch(addUserMessage(userInput));
+      handleNewUserMessage(userInput);
+      event.target.message.value = '';
+      dispatch(setMsgLength(0));
+    }
+    
   }
+
+  /*
+  const handleNewUserMessageResponse = (response) => {
+    if(response) {
+      if(response.minLength) setMinLength(response.minLength);
+      if(response.maxLength) setMaxLength(response.maxLength);
+      if(response.showCounter) setShowCounter(response.showCounter);
+    }      
+  }*/
 
   const onQuickButtonClicked = (event, value) => {
     event.preventDefault();
@@ -103,3 +144,4 @@ function Widget({
 }
 
 export default Widget;
+

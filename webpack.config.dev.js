@@ -44,7 +44,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/,
         exclude: /node_modules/,
         use: [
           {
@@ -68,7 +68,9 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname,'src/scss')]
+              sassOptions: {
+                includePaths: [path.resolve(__dirname,'src/scss')]
+              }
             }
           }
         ]

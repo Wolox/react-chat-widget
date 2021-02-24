@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet } from '../index';
+import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet, setMaxLength, setMinLength, showCounter } from '../index';
 import { addUserMessage } from '..';
 
 export default class App extends Component {
@@ -15,22 +14,30 @@ export default class App extends Component {
     toggleMsgLoader();
     setTimeout(() => {
       toggleMsgLoader();
-      if (newMessage === 'fruits') {
+      if (newMessage.indexOf('fruits') > -1) {
         setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' } ]);
       } else {
         addResponseMessage(newMessage);
       }
     }, 2000);
+
+    //showCounter(true);
+    setMinLength(50);
+    //setMaxLength(200);
   }
 
   handleQuickButtonClicked = (e: any) => {
-    addResponseMessage('Selected ' + e);
+    addResponseMessage('You selected ' + e);
     setQuickButtons([]);
+  }
+
+  handleTextInputChange = (e: any) => {
+    // console.log(e.target.value);
   }
 
   handleSubmit = (msgText: string) => {
     if(msgText.length < 80) {
-      addUserMessage("Uh oh, please write a bit more.");
+      addResponseMessage("Uh oh, please write a bit more.");
       return false;
     }
     return true;
@@ -47,7 +54,13 @@ export default class App extends Component {
           handleNewUserMessage={this.handleNewUserMessage}
           handleQuickButtonClicked={this.handleQuickButtonClicked}
           imagePreview
-          handleSubmit={this.handleSubmit}
+          // handleSubmit={this.handleSubmit}
+          handleTextInputChange={this.handleTextInputChange}
+          
+          minLength={20}
+          maxLength={100}
+          showCounter={true}          
+          counterStyle='min' // 'counter' | 'min' | 'max'
         />
       </div>
     );

@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux';
 import { GlobalState } from 'src/store/types';
+import Counter from '../Counter';
+import { setMsgLength } from '../../../../../../store/actions';
 
 const send = require('../../../../../../../assets/send_button.svg') as string;
 
@@ -17,8 +18,11 @@ type Props = {
 }
 
 function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt }: Props) {
-  const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
+  const showChat = useSelector((state: GlobalState) => state.behavior.showChat);  
+  const showcount = useSelector((state: GlobalState) => state.behavior.showCounter);
+  const dispatch = useDispatch();
   const inputRef = useRef(null);
+
   // @ts-ignore
   useEffect(() => { if (showChat && autofocus) inputRef.current?.focus(); }, [showChat]);
 
@@ -33,8 +37,12 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
         disabled={disabledInput}
         autoFocus={autofocus}
         autoComplete="off"
-        onChange={onTextInputChange}
+        onChange={(e) => { dispatch(setMsgLength(e.target.value.length)); if(onTextInputChange) onTextInputChange(e);}}
       />
+      {
+        showcount && inputRef.current &&
+          <Counter />
+      }      
       <button type="submit" className="rcw-send">
         <img src={send} className="rcw-send-icon" alt={buttonAlt} />
       </button>
