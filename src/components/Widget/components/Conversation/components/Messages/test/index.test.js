@@ -1,4 +1,3 @@
-import React from 'react';
 import { List } from 'immutable';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

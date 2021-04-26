@@ -1,7 +1,6 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { GlobalState, QuickButton } from 'src/store/types';
+import { GlobalState, QuickButtonTypes } from 'src/store/types';
 import { AnyFunction } from 'src/utils/types';
 
 import './style.scss';
@@ -13,7 +12,7 @@ type Props = {
 function QuickButtons({ onQuickButtonClicked }: Props) {
   const buttons = useSelector((state: GlobalState) => state.quickButtons.quickButtons);
 
-  const getComponentToRender = (button: QuickButton) => {
+  const getComponentToRender = (button: QuickButtonTypes) => {
     const ComponentToRender = button.component;
     return (
       <ComponentToRender
