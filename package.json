@@ -34,7 +34,7 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
-    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.8.3",
     "@toycode/markdown-it-class": "^1.2.3",
     "@types/classnames": "^2.2.10",
