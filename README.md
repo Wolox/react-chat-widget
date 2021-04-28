@@ -4,28 +4,6 @@
 
 [![FEArmy](./assets/FEA_open_source_sm.png)](https://github.com/orgs/Wolox/teams/front-end-army/members)
 
-## Sponsors
-
-<div>
-    <br/>
-    <p align="center">
-        <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">
-            <img src="https://i.imgur.com/oU7XYkk.png">
-        </a>
-    </p>
-    <br>
-    <div>
-        <p align="center">
-            A scalable <a href="https://getstream.io/chat/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Chat API/Server</a> written in Go
-        </p>
-    </div>
-    <div>
-        <p align="center">
-            <a href="https://getstream.io/chat/get_started/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">API Tour</a> | <a href="https://github.com/getstream/stream-sdks?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">SDKs</a> | <a href="https://getstream.io/chat/docs/?utm_source=github&utm_medium=react-chat-widget&utm_campaign=sponsorship" target="_blank">Docs</a>
-        </p>
-    </div>
-</div>
-
 ## Features
 
 - Plain text message UI
