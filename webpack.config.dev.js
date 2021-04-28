@@ -11,10 +11,6 @@ module.exports = {
     main: path.resolve(__dirname, 'dev/main.tsx'),
     vendor: ['react', 'react-dom']
   },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-  },
   target: 'web',
   mode: 'development',
   devServer: {
