@@ -4,7 +4,7 @@ import format from 'date-fns/format';
 
 import { scrollToBottom } from '../../../../../../utils/messages';
 import { MessageTypes, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
-import { setBadgeCount, markAllMessagesRead } from '@actions';
+import { setBadgeCount, markAllMessagesRead } from '../../../../../../store/actions';
 
 import Loader from './components/Loader';
 import './styles.scss';

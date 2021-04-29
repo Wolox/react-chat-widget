@@ -1,6 +1,7 @@
 {
   "presets": [
     ["@babel/preset-env", {
+      "modules": false,
       "targets": {
         "browsers": ["last 2 versions", "safari >= 7"]
       }
@@ -12,19 +13,6 @@
   ],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    ["module-resolver", {
-      "root": ["./src"],
-      "alias": {
-        "@config": "./src/config",
-        "@constants": "./src/constants.js",
-        "@assets": "./assets",
-        "@tests-mocks": "./mocks",
-        "@actions": "./src/store/actions",
-        "@utils": "./src/utils",
-        "@messagesComponents": "./src/components/Widget/components/Conversation/components/Messages/components",
-        "@quickButtonsComponents": "./src/components/Widget/components/Conversation/components/QuickButtons/components"
-      }
-    }]
+    "@babel/plugin-proposal-object-rest-spread"
   ]
 }
