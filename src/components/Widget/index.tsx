@@ -28,6 +28,7 @@ type Props = {
   zoomStep?: number;
   handleSubmit?: AnyFunction;
   textArea?: boolean;
+  InputComponent:any;
 }
 
 function Widget({
@@ -51,7 +52,8 @@ function Widget({
   imagePreview,
   zoomStep,
   handleSubmit,
-  textArea
+  textArea,
+  InputComponent
 }: Props) {
   const dispatch = useDispatch();
 
@@ -101,6 +103,7 @@ function Widget({
       imagePreview={imagePreview}
       zoomStep={zoomStep}
       textArea
+      InputComponent
     />
   );
 }
