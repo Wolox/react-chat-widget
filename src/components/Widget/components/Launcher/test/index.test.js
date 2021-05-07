@@ -1,18 +1,29 @@
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { configure, mount } from 'enzyme';
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 import Launcher from '../index';
 import Badge from '../components/Badge';
 
 configure({ adapter: new Adapter() });
+const mockStore =  configureMockStore()
 
 describe('<Launcher />', () => {
-  const createMessageComponent = ({ toggle, chatOpened, badge = 0 }) =>
-    shallow(<Launcher.WrappedComponent
-      toggle={toggle}
-      chatOpened={chatOpened}
-      badge={badge}
-    />);
+  const createMessageComponent = ({ toggle, chatOpened, badge = 0 }) => {
+    const store = mockStore({
+      behavior: { showChat: chatOpened },
+      messages: { badgeCount: badge }
+    });
+
+    return mount(
+      <Provider store={store}>
+        <Launcher
+          toggle={toggle}
+        />
+      </Provider>
+    );
+  }
 
   it('should call toggle prop when clicked', () => {
     const toggle = jest.fn();
