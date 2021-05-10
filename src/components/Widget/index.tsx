@@ -22,6 +22,8 @@ type Props = {
   chatId: string;
   launcherOpenLabel: string;
   launcherCloseLabel: string;
+  launcherOpenImg: string;
+  launcherCloseImg: string;
   sendButtonAlt: string;
   showTimeStamp: boolean;
   imagePreview?: boolean;
@@ -45,6 +47,8 @@ function Widget({
   chatId,
   launcherOpenLabel,
   launcherCloseLabel,
+  launcherCloseImg,
+  launcherOpenImg,
   sendButtonAlt,
   showTimeStamp,
   imagePreview,
@@ -94,6 +98,8 @@ function Widget({
       chatId={chatId}
       launcherOpenLabel={launcherOpenLabel}
       launcherCloseLabel={launcherCloseLabel}
+      launcherCloseImg={launcherCloseImg}
+      launcherOpenImg={launcherOpenImg}
       sendButtonAlt={sendButtonAlt}
       showTimeStamp={showTimeStamp}
       imagePreview={imagePreview}

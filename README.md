@@ -182,6 +182,8 @@ export default App;
 |**chatId**|string|NO|'rcw-chat-container'|Chat container id for a11y|
 |**launcherOpenLabel**|string|NO|'Open chat'|Alt value for the laucher when closed|
 |**launcherCloseLabel**|string|NO|'Close chat'|Alt value for the laucher when open|
+|**launcherOpenImg**|string|NO|''|local or remote image url, if not provided it will show default image|
+|**launcherCloseImg**|string|NO|''|local or remote image url, if not provided it will show default image|
 |**sendButtonAlt**|string|NO|'Send'|Send button alt for a11y purposes|
 |**handleTextInputChange**|(event) => any|NO| |Prop that triggers on input change|
 |**handleSubmit**|(event) => any|NO| |Prop that triggers when a message is submitted, used for custom validation|
