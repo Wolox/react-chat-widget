@@ -1,12 +1,15 @@
 @import 'variables/colors';
 
 .rcw-sender {
-  align-items: center;
-  display: flex;
+  align-items: flex-end;
   background-color: $grey-2;
-  height: 45px;
-  padding: 5px;
   border-radius: 0 0 10px 10px;
+  display: flex;
+  height: max-content;
+  max-height: 95px;
+  min-height: 45px;
+  overflow: hidden;
+  padding: 10px;
 
   &.expand {
     height: 55px;
@@ -14,12 +17,12 @@
 }
 
 .rcw-new-message {
-  width: 100%;
+  background-color: $white;
   border: 0;
-  background-color: $grey-2;
-  height: 30px;
-  padding-left: 15px;
+  border-radius: 5px;
+  padding: 10px 5px;
   resize: none;
+  width: calc(100% - 45px);
 
   &:focus {
     outline: none;
@@ -30,6 +33,22 @@
   }
 }
 
+.rcw-input {
+  display: block;
+  height: 100%;
+  max-height: 75px;
+  overflow-y: auto;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &[placeholder]:empty::before {
+    content: attr(placeholder);
+    color: $grey-0; 
+  }
+}
+
 .rcw-send {
   background: $grey-2;
   border: 0;
@@ -37,6 +56,11 @@
   .rcw-send-icon {
     height: 25px;
   }
+}
+
+.rcw-message-disable {
+  background-color: $grey-2;
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 800px)  {

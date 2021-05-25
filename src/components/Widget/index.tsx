@@ -65,10 +65,7 @@ function Widget({
     handleToggle ? handleToggle(isWidgetOpened()) : null;
   }
 
-  const handleMessageSubmit = (event) => {
-    event.preventDefault();
-    const userInput = event.target.message.value;
-    
+  const handleMessageSubmit = (userInput) => {
     if (!userInput.trim()) {      
       return;      
     }
@@ -76,7 +73,6 @@ function Widget({
     handleSubmit?.(userInput);
     dispatch(addUserMessage(userInput));
     handleNewUserMessage(userInput);
-    event.target.message.value = '';
   }
 
   const onQuickButtonClicked = (event, value) => {
