@@ -30,10 +30,10 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.13.16",
+    "@babel/core": "^7.14.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
-    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-env": "^7.14.1",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.8.3",
     "@toycode/markdown-it-class": "^1.2.3",
@@ -44,6 +44,7 @@
     "@types/react-dom": "^16.9.5",
     "@types/react-redux": "^7.1.7",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "autoprefixer": "^8.2.0",
     "babel-jest": "^19.0.0",
     "babel-loader": "^8.2.2",
@@ -51,7 +52,7 @@
     "caniuse-lite": "^1.0.30001219",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.2.4",
-    "enzyme": "^3.3.0",
+    "enzyme": "^3.11.0",
     "eslint": "^6.8.0",
     "eslint-config-wolox": "^4.0.0",
     "eslint-loader": "^3.0.3",
@@ -62,7 +63,7 @@
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^5.3.1",
     "husky": "^4.2.3",
-    "jest": "^25.1.0",
+    "jest": "^25.5.4",
     "mini-css-extract-plugin": "^1.5.1",
     "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
@@ -73,6 +74,7 @@
     "prettier-eslint": "^9.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "redux-mock-store": "^1.5.4",
     "sass-loader": "^11.0.1",
     "source-map-loader": "^2.0.1",
     "style-loader": "^2.0.0",
@@ -92,7 +94,8 @@
   "jest": {
     "verbose": true,
     "transform": {
-      "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.tsx?$": "ts-jest",
+      "^.+\\.(js|jsx)$": "babel-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
