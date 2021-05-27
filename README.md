@@ -158,8 +158,11 @@ export default App;
 |**handleQuickButtonClicked**|(...args: any[]) => any|NO||Function to handle the user clicking a quick button, will receive the 'value' when clicked.|
 |**showTimeStamp**|boolean|NO|true|Show time stamp on messages|
 |**chatId**|string|NO|'rcw-chat-container'|Chat container id for a11y|
+|**handleToggle**|(...args: any[]) => any|NO|'rcw-chat-container'|Function to handle when the widget is toggled, will receive the toggle status|
 |**launcherOpenLabel**|string|NO|'Open chat'|Alt value for the laucher when closed|
 |**launcherCloseLabel**|string|NO|'Close chat'|Alt value for the laucher when open|
+|**launcherOpenImg**|string|NO|''|local or remote image url, if not provided it will show default image|
+|**launcherCloseImg**|string|NO|''|local or remote image url, if not provided it will show default image|
 |**sendButtonAlt**|string|NO|'Send'|Send button alt for a11y purposes|
 |**handleTextInputChange**|(event) => any|NO| |Prop that triggers on input change|
 |**handleSubmit**|(event) => any|NO| |Prop that triggers when a message is submitted, used for custom validation|

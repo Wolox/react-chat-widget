@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import { toggleChat, addUserMessage } from '../../store/actions';
+import { isWidgetOpened } from '../../store/dispatcher';
 import { AnyFunction } from '../../utils/types';
 
 import WidgetLayout from './layout';
@@ -19,8 +20,11 @@ type Props = {
   handleQuickButtonClicked?: AnyFunction;
   handleTextInputChange?: (event: any) => void;
   chatId: string;
+  handleToggle?: AnyFunction;
   launcherOpenLabel: string;
   launcherCloseLabel: string;
+  launcherOpenImg: string;
+  launcherCloseImg: string;
   sendButtonAlt: string;
   showTimeStamp: boolean;
   imagePreview?: boolean;
@@ -42,8 +46,11 @@ function Widget({
   handleQuickButtonClicked,
   handleTextInputChange,
   chatId,
+  handleToggle,
   launcherOpenLabel,
   launcherCloseLabel,
+  launcherCloseImg,
+  launcherOpenImg,
   sendButtonAlt,
   showTimeStamp,
   imagePreview,
@@ -54,6 +61,7 @@ function Widget({
 
   const toggleConversation = () => {
     dispatch(toggleChat());
+    handleToggle ? handleToggle(isWidgetOpened()) : null;
   }
 
   const handleMessageSubmit = (event) => {
@@ -93,6 +101,8 @@ function Widget({
       chatId={chatId}
       launcherOpenLabel={launcherOpenLabel}
       launcherCloseLabel={launcherCloseLabel}
+      launcherCloseImg={launcherCloseImg}
+      launcherOpenImg={launcherOpenImg}
       sendButtonAlt={sendButtonAlt}
       showTimeStamp={showTimeStamp}
       imagePreview={imagePreview}
