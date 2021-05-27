@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState, ElementRef, ImgHTMLAttributes, MouseEvent } from 'react';
+import { useEffect, useRef, useState, ElementRef, ImgHTMLAttributes, MouseEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import format from 'date-fns/format';
 
 import { scrollToBottom } from '../../../../../../utils/messages';
-import { Message, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
-import { setBadgeCount, markAllMessagesRead } from '@actions';
+import { MessageTypes, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
+import { setBadgeCount, markAllMessagesRead } from '../../../../../../store/actions';
 
 import Loader from './components/Loader';
 import './styles.scss';
@@ -31,7 +31,7 @@ function Messages({ profileAvatar, showTimeStamp }: Props) {
     else dispatch(setBadgeCount(messages.filter((message) => message.unread).length));
   }, [messages, badgeCount, showChat]);
     
-  const getComponentToRender = (message: Message | Link | CustomCompMessage) => {
+  const getComponentToRender = (message: MessageTypes | Link | CustomCompMessage) => {
     const ComponentToRender = message.component;
     if (message.type === 'component') {
       return <ComponentToRender {...message.props} />;

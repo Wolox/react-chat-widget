@@ -1,8 +1,7 @@
-import React from 'react';
 import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
-import { createNewMessage } from '@utils/messages';
+import { createNewMessage } from '../../../../../../../../../utils/messages';
 import Message from '../index';
 
 configure({ adapter: new Adapter() });

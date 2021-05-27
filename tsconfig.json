@@ -12,7 +12,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es6",
-    "jsx": "react",
+    "jsx": "react-jsxdev",
     "allowJs": true,
     "lib": [
       "dom",

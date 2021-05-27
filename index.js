@@ -12,7 +12,7 @@ import {
   setQuickButtons,
   deleteMessages,
   markAllAsRead,
-  setBadgeCount,
+  setBadgeCount
 } from './src/store/dispatcher';
 
 export {

@@ -1,6 +1,8 @@
 {   
   "extends": "wolox",
   "rules": {
-    "import/order": "off"
+    "import/order": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   }
 }

@@ -1,10 +1,10 @@
-import React,{ useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 
 import { GlobalState } from 'src/store/types';
 import { AnyFunction } from 'src/utils/types';
-import { openFullscreenPreview } from '@actions';
+import { openFullscreenPreview } from '../../store/actions';
 
 import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
