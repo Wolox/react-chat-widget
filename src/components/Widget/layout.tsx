@@ -35,6 +35,7 @@ type Props = {
   showTimeStamp: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
+  maxLength: number;
 }
 
 function WidgetLayout({
@@ -60,6 +61,7 @@ function WidgetLayout({
   showTimeStamp,
   imagePreview,
   zoomStep,
+  maxLength,
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -136,6 +138,7 @@ function WidgetLayout({
           onTextInputChange={onTextInputChange}
           sendButtonAlt={sendButtonAlt}
           showTimeStamp={showTimeStamp}
+          maxLength={maxLength}
         />
       }
       {customLauncher ?
