@@ -10,6 +10,7 @@
   min-height: 45px;
   overflow: hidden;
   padding: 10px;
+  position: relative;
 
   &.expand {
     height: 55px;
@@ -37,7 +38,7 @@
   display: block;
   height: 100%;
   line-height: 20px;
-  max-height: 75px;
+  max-height: 78px;
   overflow-y: auto;
   user-select: text;
   white-space: pre-wrap;
@@ -53,9 +54,10 @@
   }
 }
 
-.rcw-send {
+.rcw-send, .rcw-picker-btn {
   background: $grey-2;
   border: 0;
+  cursor: pointer;
 
   .rcw-send-icon {
     height: 25px;

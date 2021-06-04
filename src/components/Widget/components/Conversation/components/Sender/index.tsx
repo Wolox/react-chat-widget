@@ -1,12 +1,12 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, forwardRef, useImperativeHandle } from 'react';
 import { useSelector } from 'react-redux';
-import EmojiPicker from './components/EmojiPicker'
 import cn from 'classnames';
 
 import { GlobalState } from 'src/store/types';
 
 import { getCaretIndex, isFirefox, updateCaret, insertNodeAtCaret, getSelection } from '../../../../../../utils/contentEditable'
 const send = require('../../../../../../../assets/send_button.svg') as string;
+const emoji = require('../../../../../../../assets/icon-smiley.svg') as string;
 const brRegex = /<br>/g;
 
 import './style.scss';
@@ -17,17 +17,27 @@ type Props = {
   autofocus: boolean;
   sendMessage: (event: any) => void;
   buttonAlt: string;
+  onPressEmoji: () => void;
+  onChangeSize: (event: any) => void;
   onTextInputChange?: (event: any) => void;
 }
 
-function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt }: Props) {
+function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt, onPressEmoji, onChangeSize }: Props, ref) {
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef<HTMLDivElement>(null!);
+  const refContainer = useRef<HTMLDivElement>(null);
   const [enter, setEnter]= useState(false)
   const [firefox, setFirefox] = useState(false);
+  const [height, setHeight] = useState(0)
   // @ts-ignore
   useEffect(() => { if (showChat && autofocus) inputRef.current?.focus(); }, [showChat]);
   useEffect(() => { setFirefox(isFirefox())}, [])
+
+  useImperativeHandle(ref, () => {
+    return {
+      onSelectEmoji: handlerOnSelectEmoji,
+    };
+  });
 
   const handlerOnChange = (event) => {
     onTextInputChange && onTextInputChange(event)
@@ -68,6 +78,16 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
     }
   }
 
+  // TODO use a context for checkSize and toggle picker
+  const checkSize = () => {
+    const senderEl = refContainer.current
+    if(senderEl && height !== senderEl.clientHeight) {
+      const {clientHeight} = senderEl;
+      setHeight(clientHeight)
+      onChangeSize(clientHeight ? clientHeight -1 : 0)
+    }
+  }
+
   const handlerOnKeyUp = (event) => {
     const el = inputRef.current;
     if(!el) return true;
@@ -81,6 +101,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
         el.innerHTML = el.innerHTML.replace(brRegex, '')
       }
     }
+    checkSize()
   }
 
   const handlerOnKeyDown= (event) => {
@@ -88,7 +109,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
     
     if( event.key === 'Backspace' && el){
       const caretPosition = getCaretIndex(inputRef.current)
-      const character = el?.innerHTML.charAt(caretPosition - 1)
+      const character = el.innerHTML.charAt(caretPosition - 1)
       if(character === "\n") {
         event.preventDefault();
         event.stopPropagation()
@@ -98,9 +119,16 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
     }
   }
 
+  const handlerPressEmoji = () => {
+    onPressEmoji();
+    checkSize();
+  }
+
   return (
-    <div className="rcw-sender">
-      <EmojiPicker onSelectEmoji={handlerOnSelectEmoji}/>
+    <div ref={refContainer} className="rcw-sender">
+      <button className='rcw-picker-btn' type="submit" onClick={handlerPressEmoji}>
+        <img src={emoji} className="rcw-picker-icon" alt="" />
+      </button>
       <div className={cn('rcw-new-message', {
           'rcw-message-disable': disabledInput,
         })
@@ -126,4 +154,4 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
   );
 }
 
-export default Sender;
+export default forwardRef(Sender);
