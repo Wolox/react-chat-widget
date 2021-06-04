@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import EmojiPicker from './components/EmojiPicker'
 import cn from 'classnames';
@@ -41,7 +41,6 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
     }
   }
 
-
   const handlerOnSelectEmoji = (emoji) => {
     const el = inputRef.current;
     const { start, end } = getSelection(el)
@@ -83,7 +82,6 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
       }
     }
   }
-
 
   const handlerOnKeyDown= (event) => {
     const el = inputRef.current;

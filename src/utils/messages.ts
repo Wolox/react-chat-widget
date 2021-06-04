@@ -1,6 +1,6 @@
 import { ElementType } from 'react';
 
-import { Message as MessageI, Link, CustomCompMessage, LinkParams } from '../store/types';
+import { MessageTypes as MessageI, Link, CustomCompMessage, LinkParams } from '../store/types';
 
 import Message from '../components/Widget/components/Conversation/components/Messages/components/Message';
 import Snippet from '../components/Widget/components/Conversation/components/Messages/components/Snippet';
