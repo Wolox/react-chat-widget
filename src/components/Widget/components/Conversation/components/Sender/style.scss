@@ -36,8 +36,13 @@
 .rcw-input {
   display: block;
   height: 100%;
+  line-height: 20px;
   max-height: 75px;
   overflow-y: auto;
+  user-select: text;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
 
   &:focus-visible {
     outline: none;

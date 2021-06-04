@@ -21,6 +21,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "date-fns": "^2.11.1",
+    "emoji-mart": "^3.0.1",
     "markdown-it": "^8.4.1",
     "markdown-it-link-attributes": "^2.1.0",
     "markdown-it-sanitizer": "^0.4.3",

@@ -1,0 +1,42 @@
+@import 'variables/colors';
+@import "~emoji-mart/css/emoji-mart.css";
+
+.rcw-picker-container {
+  // position: relative;
+
+}
+
+.rcw-picker-btn { // Create mixin 
+  background: $grey-2;
+  border: 0;
+  cursor: pointer;
+
+  .rcw-piker-icon {
+    height: 25px;
+  }
+}
+
+// Library style 
+
+// .emoji-mart-category-list {
+//   display: flex;
+//   flex-wrap: wrap;
+//   list-style: none;
+//   background-color: transparent;
+// }
+
+// .emoji-mart-anchors {
+//   display: flex;
+// }
+
+// .emoji-mart .emoji-mart-light {
+//   width: 355px;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   height: 400px;
+// }
+
+.emoji-mart-preview {
+  display: none;
+}
