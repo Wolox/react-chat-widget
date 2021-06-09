@@ -35,6 +35,7 @@ type Props = {
   showTimeStamp: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
+  showBadge?: boolean;
 }
 
 function WidgetLayout({
@@ -60,6 +61,7 @@ function WidgetLayout({
   showTimeStamp,
   imagePreview,
   zoomStep,
+  showBadge
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -148,6 +150,7 @@ function WidgetLayout({
           closeLabel={launcherCloseLabel}
           closeImg={launcherCloseImg}
           openImg={launcherOpenImg}
+          showBadge={showBadge}
         />
       }
       {
