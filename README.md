@@ -166,6 +166,7 @@ export default App;
 |**sendButtonAlt**|string|NO|'Send'|Send button alt for a11y purposes|
 |**handleTextInputChange**|(event) => any|NO| |Prop that triggers on input change|
 |**handleSubmit**|(event) => any|NO| |Prop that triggers when a message is submitted, used for custom validation|
+|**resizable**|boolean|NO|false|Prop that allows to resize the widget by dragging it left border|
 
 #### Styles
 
