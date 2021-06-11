@@ -12,6 +12,7 @@ type Props = {
   subtitle: string;
   senderPlaceHolder: string;
   profileAvatar?: string;
+  profileClientAvatar?: string;
   showCloseButton: boolean;
   fullScreenMode: boolean;
   autofocus: boolean;
@@ -38,6 +39,7 @@ function Widget({
   subtitle,
   senderPlaceHolder,
   profileAvatar,
+  profileClientAvatar,
   showCloseButton,
   fullScreenMode,
   autofocus,
@@ -70,7 +72,7 @@ function Widget({
     }
 
     handleSubmit?.(userInput);
-    dispatch(addUserMessage(userInput));
+    dispatch(addUserMessage(userInput, !!profileClientAvatar));
     handleNewUserMessage(userInput);
   }
 
@@ -89,6 +91,7 @@ function Widget({
       subtitle={subtitle}
       senderPlaceHolder={senderPlaceHolder}
       profileAvatar={profileAvatar}
+      profileClientAvatar={profileClientAvatar}
       showCloseButton={showCloseButton}
       fullScreenMode={fullScreenMode}
       autofocus={autofocus}

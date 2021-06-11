@@ -5,6 +5,7 @@ import format from 'date-fns/format';
 import { scrollToBottom } from '../../../../../../utils/messages';
 import { MessageTypes, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
 import { setBadgeCount, markAllMessagesRead } from '../../../../../../store/actions';
+import { MESSAGE_SENDER } from '../../../../../../constants';
 
 import Loader from './components/Loader';
 import './styles.scss';
@@ -12,9 +13,10 @@ import './styles.scss';
 type Props = {
   showTimeStamp: boolean,
   profileAvatar?: string;
+  profileClientAvatar?: string;
 }
 
-function Messages({ profileAvatar, showTimeStamp }: Props) {
+function Messages({ profileAvatar, profileClientAvatar, showTimeStamp }: Props) {
   const dispatch = useDispatch();
   const { messages, typing, showChat, badgeCount } = useSelector((state: GlobalState) => ({
     messages: state.messages.messages,
@@ -47,13 +49,18 @@ function Messages({ profileAvatar, showTimeStamp }: Props) {
   //   }
   // }
 
+  const isClient = (sender) => sender === MESSAGE_SENDER.CLIENT;
+
   return (
     <div id="messages" className="rcw-messages-container" ref={messageRef}>
       {messages?.map((message, index) =>
-        <div className="rcw-message" key={`${index}-${format(message.timestamp, 'hh:mm')}`}>
-          {profileAvatar &&
+        <div className={`rcw-message ${isClient(message.sender) ? 'rcw-message-client' : ''}`} 
+          key={`${index}-${format(message.timestamp, 'hh:mm')}`}>
+          {(profileAvatar || (profileClientAvatar && isClient(message.sender))) &&
             message.showAvatar &&
-            <img src={profileAvatar} className="rcw-avatar" alt="profile" />
+            <img src={isClient(message.sender) ? profileClientAvatar : profileAvatar} className={
+              `rcw-avatar ${isClient(message.sender) ? 'rcw-avatar-client' : ''}`
+            } alt="profile" />
           }
           {getComponentToRender(message)}
         </div>

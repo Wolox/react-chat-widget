@@ -8,14 +8,19 @@ import QuickButton from '../components/Widget/components/Conversation/components
 
 import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '../constants';
 
-export function createNewMessage(text: string, sender: string, id?: string): MessageI {
+export function createNewMessage(
+  text: string,
+  sender: string,
+  showClientAvatar: boolean,
+  id?: string,
+): MessageI {
   return {
     type: MESSAGES_TYPES.TEXT,
     component: Message,
     text,
     sender,
     timestamp: new Date(),
-    showAvatar: sender === MESSAGE_SENDER.RESPONSE,
+    showAvatar: sender === MESSAGE_SENDER.RESPONSE || showClientAvatar,
     customId: id,
     unread: sender === MESSAGE_SENDER.RESPONSE
   };

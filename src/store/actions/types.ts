@@ -29,6 +29,7 @@ export interface ToggleInputDisabled {
 export interface AddUserMessage {
   type: typeof ADD_NEW_USER_MESSAGE;
   text: string;
+  showClientAvatar: boolean;
   id?: string;
 }
 
