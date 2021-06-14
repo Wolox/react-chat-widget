@@ -72,7 +72,7 @@ function Widget({
     }
 
     handleSubmit?.(userInput);
-    dispatch(addUserMessage(userInput, !!profileClientAvatar));
+    dispatch(addUserMessage(userInput));
     handleNewUserMessage(userInput);
   }
 

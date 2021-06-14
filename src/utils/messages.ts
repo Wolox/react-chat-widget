@@ -11,7 +11,6 @@ import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '../
 export function createNewMessage(
   text: string,
   sender: string,
-  showClientAvatar: boolean,
   id?: string,
 ): MessageI {
   return {
@@ -20,7 +19,7 @@ export function createNewMessage(
     text,
     sender,
     timestamp: new Date(),
-    showAvatar: sender === MESSAGE_SENDER.RESPONSE || showClientAvatar,
+    showAvatar: true,
     customId: id,
     unread: sender === MESSAGE_SENDER.RESPONSE
   };
