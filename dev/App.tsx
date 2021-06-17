@@ -46,6 +46,7 @@ export default class App extends Component {
         handleQuickButtonClicked={this.handleQuickButtonClicked}
         imagePreview
         handleSubmit={this.handleSubmit}
+        emojis
       />
     );
   }

@@ -35,6 +35,7 @@ type Props = {
   showTimeStamp: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
+  emojis?: boolean
 }
 
 function WidgetLayout({
@@ -60,6 +61,7 @@ function WidgetLayout({
   showTimeStamp,
   imagePreview,
   zoomStep,
+  emojis
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -136,6 +138,7 @@ function WidgetLayout({
           onTextInputChange={onTextInputChange}
           sendButtonAlt={sendButtonAlt}
           showTimeStamp={showTimeStamp}
+          emojis={emojis}
         />
       }
       {customLauncher ?

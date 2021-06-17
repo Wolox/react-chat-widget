@@ -31,6 +31,7 @@ type Props = {
   onTextInputChange?: (event: any) => void;
   sendButtonAlt: string;
   showTimeStamp: boolean;
+  emojis?: boolean;
 };
 
 function Conversation({
@@ -48,7 +49,8 @@ function Conversation({
   onQuickButtonClicked,
   onTextInputChange,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  emojis
 }: Props) {
   const [pickerOffset, setOffset] = useState(0)
   const senderRef = useRef<ISenderRef>(null!);
@@ -78,7 +80,7 @@ function Conversation({
       />
       <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      {pickerStatus && (<Picker 
+      {emojis && pickerStatus && (<Picker 
         style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }}
         onSelect={onSelectEmoji}
       />)}

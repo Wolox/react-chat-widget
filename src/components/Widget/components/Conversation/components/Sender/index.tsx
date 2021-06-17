@@ -61,7 +61,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
     } else {
       el.innerHTML = emoji.native
     }
-    updateCaret(el, start, emoji.native.length)
+    updateCaret(el, start, emoji.native.length + 1)
   }
 
   const handlerOnKeyPress = (event) => {
@@ -94,25 +94,25 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
     // Conditions need for firefox
     if(firefox && event.key === 'Backspace') {
       if(el.innerHTML.length === 1 && enter) {
-        el.innerHTML = ''
-        setEnter(false)
+        el.innerHTML = '';
+        setEnter(false);
       }
       else if(brRegex.test(el.innerHTML)){
-        el.innerHTML = el.innerHTML.replace(brRegex, '')
+        el.innerHTML = el.innerHTML.replace(brRegex, '');
       }
     }
-    checkSize()
+    checkSize();
   }
 
   const handlerOnKeyDown= (event) => {
     const el = inputRef.current;
     
     if( event.key === 'Backspace' && el){
-      const caretPosition = getCaretIndex(inputRef.current)
-      const character = el.innerHTML.charAt(caretPosition - 1)
+      const caretPosition = getCaretIndex(inputRef.current);
+      const character = el.innerHTML.charAt(caretPosition - 1);
       if(character === "\n") {
         event.preventDefault();
-        event.stopPropagation()
+        event.stopPropagation();
         el.innerHTML = (el.innerHTML.substring(0, caretPosition - 1) + el.innerHTML.substring(caretPosition))
         updateCaret(el, caretPosition, -1)
       }

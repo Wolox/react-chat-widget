@@ -166,6 +166,7 @@ export default App;
 |**sendButtonAlt**|string|NO|'Send'|Send button alt for a11y purposes|
 |**handleTextInputChange**|(event) => any|NO| |Prop that triggers on input change|
 |**handleSubmit**|(event) => any|NO| |Prop that triggers when a message is submitted, used for custom validation|
+|**emojis**|boolean|NO|false|enable emoji picker|
 
 #### Styles
 
