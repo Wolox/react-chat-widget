@@ -61,7 +61,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
     } else {
       el.innerHTML = emoji.native
     }
-    updateCaret(el, start, emoji.native.length + 1)
+    updateCaret(el, start, emoji.native.length)
   }
 
   const handlerOnKeyPress = (event) => {
