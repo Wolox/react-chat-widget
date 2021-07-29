@@ -31,6 +31,8 @@ type Props = {
   zoomStep?: number;
   handleSubmit?: AnyFunction;
   showBadge?: boolean;
+  resizable?: boolean;
+  emojis?: boolean;
 }
 
 function Widget({
@@ -57,7 +59,9 @@ function Widget({
   imagePreview,
   zoomStep,
   handleSubmit,
-  showBadge
+  showBadge,
+  resizable,
+  emojis
 }: Props) {
   const dispatch = useDispatch();
 
@@ -106,6 +110,8 @@ function Widget({
       imagePreview={imagePreview}
       zoomStep={zoomStep}
       showBadge={showBadge}
+      resizable={resizable}
+      emojis={emojis}
     />
   );
 }
