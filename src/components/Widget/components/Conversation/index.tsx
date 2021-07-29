@@ -1,3 +1,5 @@
+import { useRef, useState } from 'react';
+import { Picker } from 'emoji-mart';
 import cn from 'classnames';
 
 import Header from './components/Header';
@@ -8,6 +10,10 @@ import QuickButtons from './components/QuickButtons';
 import { AnyFunction } from '../../../../utils/types';
 
 import './style.scss';
+
+interface ISenderRef {
+  onSelectEmoji: (event: any) => void;
+}
 
 type Props = {
   title: string;
@@ -25,6 +31,7 @@ type Props = {
   onTextInputChange?: (event: any) => void;
   sendButtonAlt: string;
   showTimeStamp: boolean;
+  emojis?: boolean;
 };
 
 function Conversation({
@@ -42,8 +49,26 @@ function Conversation({
   onQuickButtonClicked,
   onTextInputChange,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  emojis
 }: Props) {
+  const [pickerOffset, setOffset] = useState(0)
+  const senderRef = useRef<ISenderRef>(null!);
+  const [pickerStatus, setPicket] = useState(false) 
+ 
+  const onSelectEmoji = (emoji) => {
+    senderRef.current?.onSelectEmoji(emoji)
+  }
+
+  const togglePicker = () => {
+    setPicket(prevPickerStatus => !prevPickerStatus)
+  }
+
+  const handlerSendMsn = (event) => {
+    sendMessage(event)
+    if(pickerStatus) setPicket(false)
+  }
+
   return (
     <div className={cn('rcw-conversation-container', className)} aria-live="polite">
       <Header
@@ -55,13 +80,20 @@ function Conversation({
       />
       <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
+      {emojis && pickerStatus && (<Picker 
+        style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }}
+        onSelect={onSelectEmoji}
+      />)}
       <Sender
-        sendMessage={sendMessage}
+        ref={senderRef}
+        sendMessage={handlerSendMsn}
         placeholder={senderPlaceHolder}
         disabledInput={disabledInput}
         autofocus={autofocus}
         onTextInputChange={onTextInputChange}
         buttonAlt={sendButtonAlt}
+        onPressEmoji={togglePicker}
+        onChangeSize={setOffset}
       />
     </div>
   );

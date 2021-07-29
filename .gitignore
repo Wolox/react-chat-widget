@@ -11,3 +11,6 @@ yarn-error.log
 
 # Test files
 coverage
+
+# vscode
+.vscode

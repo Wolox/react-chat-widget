@@ -30,6 +30,7 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
+  emojis?: boolean;
 }
 
 function Widget({
@@ -55,7 +56,8 @@ function Widget({
   showTimeStamp,
   imagePreview,
   zoomStep,
-  handleSubmit
+  handleSubmit,
+  emojis
 }: Props) {
   const dispatch = useDispatch();
 
@@ -103,6 +105,7 @@ function Widget({
       showTimeStamp={showTimeStamp}
       imagePreview={imagePreview}
       zoomStep={zoomStep}
+      emojis={emojis}
     />
   );
 }
