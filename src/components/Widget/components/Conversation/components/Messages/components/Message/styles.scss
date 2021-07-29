@@ -4,6 +4,7 @@
 .rcw-message {
   margin: 10px;
   display: flex;
+  white-space: pre-wrap;
   word-wrap: break-word;
 
   &-client {
@@ -23,6 +24,9 @@
 
   .rcw-message-text {
     @include message-bubble($turqois-2);
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
 
   .rcw-timestamp {

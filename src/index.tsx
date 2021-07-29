@@ -30,7 +30,10 @@ type Props = {
   showTimeStamp?: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
+  emojis?: boolean;
   handleSubmit?: AnyFunction;
+  showBadge?: boolean;
+  resizable?: boolean;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -57,7 +60,10 @@ function ConnectedWidget({
   showTimeStamp,
   imagePreview,
   zoomStep,
-  handleSubmit
+  handleSubmit,
+  showBadge,
+  resizable,
+  emojis
 }: Props) {
   return (
     <Provider store={store}>
@@ -86,6 +92,9 @@ function ConnectedWidget({
         imagePreview={imagePreview}
         zoomStep={zoomStep} 
         handleSubmit={handleSubmit}
+        showBadge={showBadge}
+        resizable={resizable}
+        emojis={emojis}
       />
     </Provider>
   );
@@ -107,6 +116,7 @@ const defaultProps = {
   showTimeStamp: true,
   imagePreview: false,
   zoomStep: 80,
+  showBadge: true,
 };
 ConnectedWidget.defaultProps = defaultProps;
 
