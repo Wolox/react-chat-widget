@@ -47,6 +47,7 @@ export default class App extends Component {
         imagePreview
         handleSubmit={this.handleSubmit}
         emojis
+        resizable
       />
     );
   }

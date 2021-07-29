@@ -35,6 +35,7 @@ type Props = {
   showTimeStamp: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
+  resizable?: boolean;
   emojis?: boolean
 }
 
@@ -61,6 +62,7 @@ function WidgetLayout({
   showTimeStamp,
   imagePreview,
   zoomStep,
+  resizable,
   emojis
 }: Props) {
   const dispatch = useDispatch();
@@ -138,6 +140,7 @@ function WidgetLayout({
           onTextInputChange={onTextInputChange}
           sendButtonAlt={sendButtonAlt}
           showTimeStamp={showTimeStamp}
+          resizable={resizable}
           emojis={emojis}
         />
       }
