@@ -35,6 +35,7 @@ type Props = {
   showTimeStamp: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
+  showBadge?: boolean;
   resizable?: boolean;
   emojis?: boolean
 }
@@ -62,6 +63,7 @@ function WidgetLayout({
   showTimeStamp,
   imagePreview,
   zoomStep,
+  showBadge,
   resizable,
   emojis
 }: Props) {
@@ -154,6 +156,7 @@ function WidgetLayout({
           closeLabel={launcherCloseLabel}
           closeImg={launcherCloseImg}
           openImg={launcherOpenImg}
+          showBadge={showBadge}
         />
       }
       {

@@ -30,6 +30,7 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
+  showBadge?: boolean;
   resizable?: boolean;
   emojis?: boolean;
 }
@@ -58,6 +59,7 @@ function Widget({
   imagePreview,
   zoomStep,
   handleSubmit,
+  showBadge,
   resizable,
   emojis
 }: Props) {
@@ -107,6 +109,7 @@ function Widget({
       showTimeStamp={showTimeStamp}
       imagePreview={imagePreview}
       zoomStep={zoomStep}
+      showBadge={showBadge}
       resizable={resizable}
       emojis={emojis}
     />

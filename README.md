@@ -168,6 +168,7 @@ export default App;
 |**handleSubmit**|(event) => any|NO| |Prop that triggers when a message is submitted, used for custom validation|
 |**resizable**|boolean|NO|false|Prop that allows to resize the widget by dragging it's left border|
 |**emojis**|boolean|NO|false|enable emoji picker|
+|**showBadge**|boolean|NO|true|Prop that allows to show or hide the unread message badge|
 
 #### Styles
 

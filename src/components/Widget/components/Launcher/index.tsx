@@ -17,9 +17,10 @@ type Props = {
   closeLabel: string;
   closeImg: string;
   openImg: string;
+  showBadge?: boolean;
 }
 
-function Launcher({ toggle, chatId, openImg, closeImg, openLabel, closeLabel }: Props) {
+function Launcher({ toggle, chatId, openImg, closeImg, openLabel, closeLabel, showBadge }: Props) {
   const dispatch = useDispatch();
   const { showChat, badgeCount } = useSelector((state: GlobalState) => ({
     showChat: state.behavior.showChat,
@@ -33,7 +34,7 @@ function Launcher({ toggle, chatId, openImg, closeImg, openLabel, closeLabel }: 
 
   return (
     <button type="button" className={cn('rcw-launcher', { 'rcw-hide-sm': showChat })} onClick={toggleChat} aria-controls={chatId}>
-      {!showChat && <Badge badge={badgeCount} />}
+      {!showChat && showBadge && <Badge badge={badgeCount} />}
       {showChat ?
         <img src={closeImg || close} className="rcw-close-launcher" alt={openLabel} /> :
         <img src={openImg || openLauncher} className="rcw-open-launcher" alt={closeLabel} />
