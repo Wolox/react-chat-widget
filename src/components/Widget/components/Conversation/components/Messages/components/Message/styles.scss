@@ -6,6 +6,10 @@
   display: flex;
   white-space: pre-wrap;
   word-wrap: break-word;
+
+  &-client {
+    flex-direction: row-reverse;
+  }
 }
 
 .rcw-timestamp {
@@ -57,4 +61,8 @@
   height: 40px;
   border-radius: 100%;
   margin-right: 10px;
+
+  &-client {
+    margin: 0 0 0 10px;
+  }
 }

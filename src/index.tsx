@@ -17,6 +17,7 @@ type Props = {
   fullScreenMode?: boolean;
   autofocus?: boolean;
   profileAvatar?: string;
+  profileClientAvatar?: string;
   launcher?: AnyFunction;
   handleTextInputChange?: (event: any) => void;
   chatId?: string;
@@ -44,6 +45,7 @@ function ConnectedWidget({
   fullScreenMode,
   autofocus,
   profileAvatar,
+  profileClientAvatar,
   launcher,
   handleNewUserMessage,
   handleQuickButtonClicked,
@@ -73,6 +75,7 @@ function ConnectedWidget({
         handleQuickButtonClicked={handleQuickButtonClicked}
         senderPlaceHolder={senderPlaceHolder}
         profileAvatar={profileAvatar}
+        profileClientAvatar={profileClientAvatar}
         showCloseButton={showCloseButton}
         fullScreenMode={fullScreenMode}
         autofocus={autofocus}

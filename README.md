@@ -150,6 +150,7 @@ export default App;
 |**subtitle**|string|NO|'This is your chat subtitle'|Subtitle of the widget|
 |**senderPlaceHolder**|string|NO|'Type a message...'|The placeholder of the message input|
 |**profileAvatar**|string|NO| |The profile image that will be set on the responses|
+|**profileClientAvatar**|string|NO| |The profile image that will be set on the client messages|
 |**titleAvatar**|string|NO| |The picture image that will be shown next to the chat title|
 |**showCloseButton**|boolean|NO|false|Show or hide the close button in full screen mode|
 |**fullScreenMode**|boolean|NO|false|Allow the use of full screen in full desktop mode|

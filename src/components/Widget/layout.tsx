@@ -21,6 +21,7 @@ type Props = {
   senderPlaceHolder: string;
   onQuickButtonClicked: AnyFunction;
   profileAvatar?: string;
+  profileClientAvatar?: string;
   showCloseButton: boolean;
   fullScreenMode: boolean;
   autofocus: boolean;
@@ -49,6 +50,7 @@ function WidgetLayout({
   senderPlaceHolder,
   onQuickButtonClicked,
   profileAvatar,
+  profileClientAvatar,
   showCloseButton,
   fullScreenMode,
   autofocus,
@@ -132,6 +134,7 @@ function WidgetLayout({
           sendMessage={onSendMessage}
           senderPlaceHolder={senderPlaceHolder}
           profileAvatar={profileAvatar}
+          profileClientAvatar={profileClientAvatar}
           toggleChat={onToggleConversation}
           showCloseButton={showCloseButton}
           disabledInput={dissableInput}

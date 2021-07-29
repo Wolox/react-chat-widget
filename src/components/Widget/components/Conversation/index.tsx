@@ -26,6 +26,7 @@ type Props = {
   sendMessage: AnyFunction;
   toggleChat: AnyFunction;
   profileAvatar?: string;
+  profileClientAvatar?: string;
   titleAvatar?: string;
   onQuickButtonClicked?: AnyFunction;
   onTextInputChange?: (event: any) => void;
@@ -46,6 +47,7 @@ function Conversation({
   sendMessage,
   toggleChat,
   profileAvatar,
+  profileClientAvatar,
   titleAvatar,
   onQuickButtonClicked,
   onTextInputChange,
@@ -112,7 +114,11 @@ function Conversation({
         showCloseButton={showCloseButton}
         titleAvatar={titleAvatar}
       />
-      <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
+      <Messages
+        profileAvatar={profileAvatar}
+        profileClientAvatar={profileClientAvatar}
+        showTimeStamp={showTimeStamp}
+      />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
       {emojis && pickerStatus && (<Picker 
         style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }}
