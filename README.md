@@ -115,7 +115,7 @@ import logo from './logo.svg';
 
 function App() {
   useEffect(() => {
-    addResponseMessage('Welcome to this awesome chat!');
+    addResponseMessage('Welcome to this **awesome** chat!');
   }, []);
 
   const handleNewUserMessage = (newMessage) => {
@@ -167,6 +167,7 @@ export default App;
 |**handleTextInputChange**|(event) => any|NO| |Prop that triggers on input change|
 |**handleSubmit**|(event) => any|NO| |Prop that triggers when a message is submitted, used for custom validation|
 |**resizable**|boolean|NO|false|Prop that allows to resize the widget by dragging it's left border|
+|**emojis**|boolean|NO|false|enable emoji picker|
 
 #### Styles
 
@@ -192,13 +193,13 @@ As of v3.0, messages now have an optional ID that can be added on creation.If yo
 
 - **addResponseMessage**
   - params:
-    - text: string
+    - text: string (supports markdown)
     - id: string (optional)
   - Method to add a new message written as a response to a user input.
 
 - **addUserMessage**
   - params: 
-    - text: string
+    - text: string (supports markdown)
     - id: string (optional)
   - This method will add a new message written as a user. Keep in mind it will not trigger the prop handleNewUserMessage()
 
