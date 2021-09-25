@@ -18,12 +18,12 @@
 
 #### npm
 ```bash
-npm install --save react-chat-widget
+npm install --save react-chat-widget-mic
 ```
 
 #### yarn
 ```bash
-yarn add react-chat-widget
+yarn add react-chat-widget-mic
 ```
 
 ## Usage
