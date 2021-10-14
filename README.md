@@ -197,12 +197,14 @@ As of v3.0, messages now have an optional ID that can be added on creation.If yo
   - params:
     - text: string (supports markdown)
     - id: string (optional)
+    - date: Date (optional)
   - Method to add a new message written as a response to a user input.
 
 - **addUserMessage**
   - params: 
     - text: string (supports markdown)
     - id: string (optional)
+    - date: Date (optional)
   - This method will add a new message written as a user. Keep in mind it will not trigger the prop handleNewUserMessage()
 
 - **addLinkSnippet**

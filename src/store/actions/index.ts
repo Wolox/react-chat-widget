@@ -15,19 +15,21 @@ export function toggleInputDisabled(): actionsTypes.ToggleInputDisabled {
   };
 }
 
-export function addUserMessage(text: string, id?: string): actionsTypes.AddUserMessage {
+export function addUserMessage(text: string, id?: string, date?: Date): actionsTypes.AddUserMessage {
   return {
     type: actionsTypes.ADD_NEW_USER_MESSAGE,
     text,
-    id
+    id,
+    date,
   };
 }
 
-export function addResponseMessage(text: string, id?: string): actionsTypes.AddResponseMessage {
+export function addResponseMessage(text: string, id?: string, date?: Date): actionsTypes.AddResponseMessage {
   return {
     type: actionsTypes.ADD_NEW_RESPONSE_MESSAGE,
     text,
-    id
+    id,
+    date,
   };
 }
 
