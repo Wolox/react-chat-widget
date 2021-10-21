@@ -11,8 +11,8 @@ import { MessageOrigin, MESSAGES_TYPES, MESSAGE_BOX_SCROLL_DURATION } from '../c
 export function createNewMessage(
   text: string,
   origin: MessageOrigin,
-  sender: string,
   id?: string,
+  sender?: string
 ): MessageI {
   return {
     type: MESSAGES_TYPES.TEXT,
@@ -23,6 +23,7 @@ export function createNewMessage(
     showAvatar: true,
     customId: id,
     unread: origin === MessageOrigin.response,
+    sender
   };
 }
 

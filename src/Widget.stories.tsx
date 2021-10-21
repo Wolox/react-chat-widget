@@ -1,6 +1,7 @@
 import React from "react";
 import { addResponseMessage, addUserMessage, setQuickButtons, toggleMsgLoader, Widget } from "./index";
 import { Meta } from '@storybook/react';
+import { addResponseMessageWithSender } from "./store/dispatcher";
 
 
 export default {
@@ -15,7 +16,7 @@ const handleNewUserMessage = (newMessage: any) => {
         if (newMessage === 'fruits') {
             setQuickButtons([{ label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' }]);
         } else {
-            addResponseMessage(newMessage);
+            addResponseMessageWithSender("Test Sender", newMessage);
         }
     }, 2000);
 }

@@ -1,5 +1,5 @@
-@import 'variables/colors';
-@import 'common';
+@import "variables/colors";
+@import "common";
 
 .rcw-message {
   margin: 10px;
@@ -12,7 +12,7 @@
   }
 }
 
-.rcw-timestamp {
+.rcw-status-line {
   font-size: 10px;
   margin-top: 5px;
 }
@@ -38,6 +38,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  .rcw-sender-line {
+    padding-left: 2em;
+  }
 
   .rcw-message-text {
     @include message-bubble($grey-2);

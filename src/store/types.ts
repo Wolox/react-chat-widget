@@ -10,6 +10,7 @@ export interface BaseMessage {
   unread: boolean;
   customId?: string;
   props?: any;
+  sender?: string;
 }
 
 export interface MessageTypes extends BaseMessage {
