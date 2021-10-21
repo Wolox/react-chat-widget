@@ -40,8 +40,9 @@ export default {
                     includePaths: [path.resolve(__dirname, 'src/scss/')]
                 }
             },
-            extract: true,
-            sourceMap: true
+            extract: "styles.css",
+            sourceMap: true,
+            minimize: true
         })
     ]
 };
