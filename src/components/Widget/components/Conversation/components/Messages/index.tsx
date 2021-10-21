@@ -1,7 +1,7 @@
 import format from 'date-fns/format';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { MESSAGE_SENDER } from '../../../../../../constants';
+import { MessageOrigin } from '../../../../../../constants';
 import { markAllMessagesRead, setBadgeCount } from '../../../../../../store/actions';
 import { CustomCompMessage, GlobalState, Link, MessageTypes } from '../../../../../../store/types';
 import { scrollToBottom } from '../../../../../../utils/messages';
@@ -49,18 +49,18 @@ function Messages({ profileAvatar, profileClientAvatar, showTimeStamp }: Props) 
   //   }
   // }
 
-  const isClient = (sender: string) => sender === MESSAGE_SENDER.CLIENT;
+  const isClient = (sender: MessageOrigin) => sender === MessageOrigin.client;
 
   return (
     <div id="messages" className="rcw-messages-container" ref={messageRef}>
       {messages?.map((message, index) =>
-        <div className={`rcw-message ${isClient(message.sender) ? 'rcw-message-client' : ''}`}
+        <div className={`rcw-message ${isClient(message.origin) ? 'rcw-message-client' : ''}`}
           key={`${index}-${format(message.timestamp, 'hh:mm')}`}>
-          {((profileAvatar && !isClient(message.sender)) || (profileClientAvatar && isClient(message.sender))) &&
+          {((profileAvatar && !isClient(message.origin)) || (profileClientAvatar && isClient(message.origin))) &&
             message.showAvatar &&
             <img
-              src={isClient(message.sender) ? profileClientAvatar : profileAvatar}
-              className={`rcw-avatar ${isClient(message.sender) ? 'rcw-avatar-client' : ''}`}
+              src={isClient(message.origin) ? profileClientAvatar : profileAvatar}
+              className={`rcw-avatar ${isClient(message.origin) ? 'rcw-avatar-client' : ''}`}
               alt="profile"
             />
           }

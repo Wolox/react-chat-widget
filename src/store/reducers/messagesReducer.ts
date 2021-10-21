@@ -1,5 +1,5 @@
 import React from 'react';
-import { MESSAGE_SENDER } from '../../constants';
+import { MessageOrigin } from '../../constants';
 import { createReducer } from '../../utils/createReducer';
 import { createComponentMessage, createLinkSnippet, createNewMessage } from '../../utils/messages';
 import {
@@ -52,10 +52,10 @@ interface SetBadgeCountProps {
 
 const messagesReducer = {
   [ADD_NEW_USER_MESSAGE]: (state: MessagesState, props: AddNewUserMessageProps) =>
-    ({ ...state, messages: [...state.messages, createNewMessage(props.text, MESSAGE_SENDER.CLIENT, props.id)] }),
+    ({ ...state, messages: [...state.messages, createNewMessage(props.text, MessageOrigin.client, props.id)] }),
 
   [ADD_NEW_RESPONSE_MESSAGE]: (state: MessagesState, props: AddNewResponseMessageProps) =>
-    ({ ...state, messages: [...state.messages, createNewMessage(props.text, MESSAGE_SENDER.RESPONSE, props.id)], badgeCount: state.badgeCount + 1 }),
+    ({ ...state, messages: [...state.messages, createNewMessage(props.text, MessageOrigin.response, props.id)], badgeCount: state.badgeCount + 1 }),
 
   [ADD_NEW_LINK_SNIPPET]: (state: MessagesState, props: AddNewLinkSnippetProps) =>
     ({ ...state, messages: [...state.messages, createLinkSnippet(props.link, props.id)] }),

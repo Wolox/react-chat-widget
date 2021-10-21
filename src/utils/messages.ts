@@ -6,10 +6,11 @@ import Message from '../components/Widget/components/Conversation/components/Mes
 import Snippet from '../components/Widget/components/Conversation/components/Messages/components/Snippet';
 import QuickButton from '../components/Widget/components/Conversation/components/QuickButtons/components/QuickButton';
 
-import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '../constants';
+import { MessageOrigin, MESSAGES_TYPES, MESSAGE_BOX_SCROLL_DURATION } from '../constants';
 
 export function createNewMessage(
   text: string,
+  origin: MessageOrigin,
   sender: string,
   id?: string,
 ): MessageI {
@@ -17,11 +18,11 @@ export function createNewMessage(
     type: MESSAGES_TYPES.TEXT,
     component: Message,
     text,
-    sender,
+    origin,
     timestamp: new Date(),
     showAvatar: true,
     customId: id,
-    unread: sender === MESSAGE_SENDER.RESPONSE
+    unread: origin === MessageOrigin.response,
   };
 }
 
@@ -32,7 +33,7 @@ export function createLinkSnippet(link: LinkParams, id?: string): Link {
     title: link.title,
     link: link.link,
     target: link.target || '_blank',
-    sender: MESSAGE_SENDER.RESPONSE,
+    origin: MessageOrigin.response,
     timestamp: new Date(),
     showAvatar: true,
     customId: id,
@@ -45,7 +46,7 @@ export function createComponentMessage(component: ElementType, props: any, showA
     type: MESSAGES_TYPES.CUSTOM_COMPONENT,
     component,
     props,
-    sender: MESSAGE_SENDER.RESPONSE,
+    origin: MessageOrigin.response,
     timestamp: new Date(),
     showAvatar,
     customId: id,

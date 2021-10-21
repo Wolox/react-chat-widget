@@ -1,6 +1,6 @@
-export const MESSAGE_SENDER = {
-  CLIENT: 'client',
-  RESPONSE: 'response'
+export enum MessageOrigin {
+  client = 'client',
+  response = 'response'
 };
 
 export const MESSAGES_TYPES = {

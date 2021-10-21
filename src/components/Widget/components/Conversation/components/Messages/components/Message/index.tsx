@@ -16,7 +16,7 @@ function Message({ message, showTimeStamp }: Props) {
     .render(message.text);
 
   return (
-    <div className={`rcw-${message.sender}`}>
+    <div className={`rcw-${message.origin}`}>
       <div className="rcw-message-text" dangerouslySetInnerHTML={{ __html: sanitizedHTML.replace(/\n$/, '') }} />
       {showTimeStamp && <span className="rcw-timestamp">{format(message.timestamp, 'hh:mm')}</span>}
     </div>
