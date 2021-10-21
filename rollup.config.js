@@ -28,7 +28,7 @@ export default {
         peerDepsExternal({ includeDependencies: true }),
         resolve(),
         commonjs(),
-        typescript({ useTsconfigDeclarationDir: true }),
+        typescript({ useTsconfigDeclarationDir: true, abortOnError: true, check: true, clean: true }),
         terser(),
         image(),
         json({
