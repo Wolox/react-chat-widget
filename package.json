@@ -2,13 +2,13 @@
   "name": "react-chat-widget",
   "version": "3.1.1",
   "description": "Chat web widget for React apps",
-  "main": "build/index.js",
-  "module": "build/index.es.js",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
   "repository": "git@github.com:Wolox/react-chat-widget.git",
   "author": "Martín Callegari <martin.callegari@wolox.com.ar>",
   "license": "MIT",
   "files": [
-    "build"
+    "lib"
   ],
   "scripts": {
     "build": "rollup -c",

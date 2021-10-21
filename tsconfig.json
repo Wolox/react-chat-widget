@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "declaration": true,
-        "declarationDir": "build",
+        "declarationDir": "lib",
         "module": "esnext",
         "target": "es5",
         "lib": [
@@ -21,7 +21,7 @@
     ],
     "exclude": [
         "node_modules",
-        "build",
+        "lib",
         "src/**/*.stories.tsx",
         "src/**/*.test.tsx"
     ]

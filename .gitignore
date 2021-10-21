@@ -7,8 +7,7 @@ yarn-error.log
 .DS_Store
 
 # Build files
-# lib
-build
+lib
 
 # Test files
 coverage
