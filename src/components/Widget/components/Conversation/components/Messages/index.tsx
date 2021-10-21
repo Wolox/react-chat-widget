@@ -14,9 +14,10 @@ type Props = {
   showTimeStamp: boolean,
   profileAvatar?: string;
   profileClientAvatar?: string;
+  timestampFormat?: string;
 }
 
-function Messages({ profileAvatar, profileClientAvatar, showTimeStamp }: Props) {
+function Messages({ profileAvatar, profileClientAvatar, showTimeStamp, timestampFormat }: Props) {
   const dispatch = useDispatch();
   const { messages, typing, showChat, badgeCount } = useSelector((state: GlobalState) => ({
     messages: state.messages.messages,
@@ -38,7 +39,7 @@ function Messages({ profileAvatar, profileClientAvatar, showTimeStamp }: Props) 
     if (message.type === 'component') {
       return <ComponentToRender {...message.props} />;
     }
-    return <ComponentToRender message={message} showTimeStamp={showTimeStamp} />;
+    return <ComponentToRender message={message} showTimeStamp={showTimeStamp} timestampFormat={timestampFormat} />;
   };
 
   // TODO: Fix this function or change to move the avatar to last message from response

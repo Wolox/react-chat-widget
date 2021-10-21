@@ -35,7 +35,8 @@ type Props = {
   zoomStep?: number;
   showBadge?: boolean;
   resizable?: boolean;
-  emojis?: boolean
+  emojis?: boolean;
+  timestampFormat?: string;
 }
 
 function WidgetLayout({
@@ -64,7 +65,8 @@ function WidgetLayout({
   zoomStep,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  timestampFormat
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -146,6 +148,7 @@ function WidgetLayout({
           showTimeStamp={showTimeStamp}
           resizable={resizable}
           emojis={emojis}
+          timestampFormat={timestampFormat}
         />}
       {customLauncher ? customLauncher(onToggleConversation) : !fullScreenMode &&
         <Launcher

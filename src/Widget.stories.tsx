@@ -44,5 +44,6 @@ export const Primary = () => <Widget
     handleSubmit={handleSubmit}
     emojis
     resizable
+    timestampFormat="HH:mm"
 />
 

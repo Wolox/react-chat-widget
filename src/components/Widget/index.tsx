@@ -35,6 +35,7 @@ type Props = {
   showBadge?: boolean;
   resizable?: boolean;
   emojis?: boolean;
+  timestampFormat?: string;
 }
 
 function Widget({
@@ -64,7 +65,8 @@ function Widget({
   handleSubmit,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  timestampFormat
 }: Props) {
   const dispatch = useDispatch();
 
@@ -117,6 +119,7 @@ function Widget({
       showBadge={showBadge}
       resizable={resizable}
       emojis={emojis}
+      timestampFormat={timestampFormat}
     />
   );
 }
