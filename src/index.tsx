@@ -2,6 +2,7 @@ import ConnectedWidget from './connectedWidget';
 import {
   addUserMessage,
   addResponseMessage,
+  addResponseMessageWithSender,
   addLinkSnippet,
   renderCustomComponent,
   toggleWidget,
@@ -19,6 +20,7 @@ export {
   ConnectedWidget as Widget,
   addUserMessage,
   addResponseMessage,
+  addResponseMessageWithSender,
   addLinkSnippet,
   renderCustomComponent,
   toggleWidget,
