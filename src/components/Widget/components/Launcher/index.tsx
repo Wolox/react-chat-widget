@@ -1,14 +1,12 @@
-import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
-
-import Badge from './components/Badge';
-import { GlobalState } from '../../../../store/types';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import close from '../../../../assets/clear-button.svg';
+import openLauncher from '../../../../assets/launcher_button.svg';
 import { setBadgeCount } from '../../../../store/actions';
-
+import { GlobalState } from '../../../../store/types';
+import Badge from './components/Badge';
 import './style.scss';
-
-const openLauncher = require('../../../../../assets/launcher_button.svg') as string;
-const close = require('../../../../../assets/clear-button.svg') as string;
 
 type Props = {
   toggle: () => void;

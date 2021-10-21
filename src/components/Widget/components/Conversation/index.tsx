@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { Picker } from 'emoji-mart';
+import { EmojiData, Picker } from 'emoji-mart';
 import cn from 'classnames';
 
 import Header from './components/Header';
@@ -10,6 +10,7 @@ import QuickButtons from './components/QuickButtons';
 import { AnyFunction } from '../../../../utils/types';
 
 import './style.scss';
+import React from 'react';
 
 interface ISenderRef {
   onSelectEmoji: (event: any) => void;
@@ -57,17 +58,18 @@ function Conversation({
   emojis
 }: Props) {
   const [containerDiv, setContainerDiv] = useState<HTMLElement | null>();
-  let startX, startWidth;
+  let startX: number;
+  let startWidth: number;
 
   useEffect(() => {
     const containerDiv = document.getElementById('rcw-conversation-container');
     setContainerDiv(containerDiv);
   }, []);
 
-  const initResize = (e) => {
+  const initResize = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (resizable) {
       startX = e.clientX;
-      if (document.defaultView && containerDiv){
+      if (document.defaultView && containerDiv) {
         startWidth = parseInt(document.defaultView.getComputedStyle(containerDiv).width);
         window.addEventListener('mousemove', resize, false);
         window.addEventListener('mouseup', stopResize, false);
@@ -75,36 +77,38 @@ function Conversation({
     }
   }
 
-  const resize = (e) => {
+  const resize = (e: MouseEvent) => {
     if (containerDiv) {
       containerDiv.style.width = (startWidth - e.clientX + startX) + 'px';
     }
   }
 
-  const stopResize = (e) => {
+  const stopResize = () => {
     window.removeEventListener('mousemove', resize, false);
     window.removeEventListener('mouseup', stopResize, false);
   }
-  
+
   const [pickerOffset, setOffset] = useState(0)
   const senderRef = useRef<ISenderRef>(null!);
-  const [pickerStatus, setPicket] = useState(false) 
- 
-  const onSelectEmoji = (emoji) => {
-    senderRef.current?.onSelectEmoji(emoji)
+  const [pickerStatus, setPicket] = useState(false)
+
+  const onSelectEmoji = (emoji: EmojiData) => {
+    senderRef.current?.onSelectEmoji(emoji);
   }
 
   const togglePicker = () => {
-    setPicket(prevPickerStatus => !prevPickerStatus)
+    setPicket(prevPickerStatus => !prevPickerStatus);
   }
 
-  const handlerSendMsn = (event) => {
+  const handlerSendMsn = (event: UIEvent) => {
     sendMessage(event)
-    if(pickerStatus) setPicket(false)
+    if (pickerStatus) {
+      setPicket(false);
+    }
   }
 
   return (
-    <div id="rcw-conversation-container" onMouseDown={initResize} 
+    <div id="rcw-conversation-container" onMouseDown={initResize}
       className={cn('rcw-conversation-container', className)} aria-live="polite">
       {resizable && <div className="rcw-conversation-resizer" />}
       <Header
@@ -120,7 +124,7 @@ function Conversation({
         showTimeStamp={showTimeStamp}
       />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      {emojis && pickerStatus && (<Picker 
+      {emojis && pickerStatus && (<Picker
         style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }}
         onSelect={onSelectEmoji}
       />)}

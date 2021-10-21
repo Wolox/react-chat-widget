@@ -1,14 +1,14 @@
-import { useEffect, useRef, useState, ElementRef, ImgHTMLAttributes, MouseEvent } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import format from 'date-fns/format';
-
-import { scrollToBottom } from '../../../../../../utils/messages';
-import { MessageTypes, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
-import { setBadgeCount, markAllMessagesRead } from '../../../../../../store/actions';
+import React, { useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { MESSAGE_SENDER } from '../../../../../../constants';
-
+import { markAllMessagesRead, setBadgeCount } from '../../../../../../store/actions';
+import { CustomCompMessage, GlobalState, Link, MessageTypes } from '../../../../../../store/types';
+import { scrollToBottom } from '../../../../../../utils/messages';
 import Loader from './components/Loader';
 import './styles.scss';
+
+
 
 type Props = {
   showTimeStamp: boolean,
@@ -32,7 +32,7 @@ function Messages({ profileAvatar, profileClientAvatar, showTimeStamp }: Props) 
     if (showChat && badgeCount) dispatch(markAllMessagesRead());
     else dispatch(setBadgeCount(messages.filter((message) => message.unread).length));
   }, [messages, badgeCount, showChat]);
-    
+
   const getComponentToRender = (message: MessageTypes | Link | CustomCompMessage) => {
     const ComponentToRender = message.component;
     if (message.type === 'component') {
@@ -49,18 +49,18 @@ function Messages({ profileAvatar, profileClientAvatar, showTimeStamp }: Props) 
   //   }
   // }
 
-  const isClient = (sender) => sender === MESSAGE_SENDER.CLIENT;
+  const isClient = (sender: string) => sender === MESSAGE_SENDER.CLIENT;
 
   return (
     <div id="messages" className="rcw-messages-container" ref={messageRef}>
       {messages?.map((message, index) =>
-        <div className={`rcw-message ${isClient(message.sender) ? 'rcw-message-client' : ''}`} 
+        <div className={`rcw-message ${isClient(message.sender) ? 'rcw-message-client' : ''}`}
           key={`${index}-${format(message.timestamp, 'hh:mm')}`}>
           {((profileAvatar && !isClient(message.sender)) || (profileClientAvatar && isClient(message.sender))) &&
-            message.showAvatar && 
-            <img 
-              src={isClient(message.sender) ? profileClientAvatar : profileAvatar} 
-              className={`rcw-avatar ${isClient(message.sender) ? 'rcw-avatar-client' : ''}`} 
+            message.showAvatar &&
+            <img
+              src={isClient(message.sender) ? profileClientAvatar : profileAvatar}
+              className={`rcw-avatar ${isClient(message.sender) ? 'rcw-avatar-client' : ''}`}
               alt="profile"
             />
           }

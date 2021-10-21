@@ -25,7 +25,7 @@ export function createNewMessage(
   };
 }
 
-export function createLinkSnippet(link: LinkParams, id?: string) : Link {
+export function createLinkSnippet(link: LinkParams, id?: string): Link {
   return {
     type: MESSAGES_TYPES.SNIPPET.LINK,
     component: Snippet,
@@ -76,7 +76,7 @@ function sinEaseOut(timestamp: any, begining: any, change: any, duration: any) {
 function scrollWithSlowMotion(target: any, scrollStart: any, scroll: number) {
   const raf = window?.requestAnimationFrame;
   let start = 0;
-  const step = (timestamp) => {
+  const step = (timestamp: number) => {
     if (!start) {
       start = timestamp;
     }

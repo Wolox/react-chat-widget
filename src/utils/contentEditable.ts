@@ -1,4 +1,4 @@
-export const getCaretIndex = (el) => {
+export const getCaretIndex = (el: HTMLElement) => {
   let position = 0;
   const selection = window.getSelection()!;
   if (selection.rangeCount !== 0) {
@@ -11,14 +11,14 @@ export const getCaretIndex = (el) => {
   return position;
 }
 
-export const getSelection = (el) => {
+export const getSelection = (el: HTMLElement) => {
   const range = window.getSelection()!.getRangeAt(0);
   const preSelectionRange = range.cloneRange();
   preSelectionRange.selectNodeContents(el);
   preSelectionRange.setEnd(range.startContainer, range.startOffset);
 
   const start = preSelectionRange.toString().length;
-  return { 
+  return {
     start: start,
     end: start + range.toString().length
   }
@@ -26,17 +26,17 @@ export const getSelection = (el) => {
 
 export const isFirefox = () => navigator.userAgent.search("Firefox") > 0;
 
-export const updateCaret = (el, caret, offset) => {
+export const updateCaret = (el: HTMLElement, caret: number, offset: number) => {
   const range = document.createRange();
   const selection = window.getSelection()!;
-  range.setStart(el.childNodes[0], caret+offset);
+  range.setStart(el.childNodes[0], caret + offset);
   range.collapse(true);
   selection.removeAllRanges();
   selection.addRange(range);
   el.focus();
 }
 
-export const insertNodeAtCaret = (el) => {
+export const insertNodeAtCaret = (el: HTMLElement) => {
   const position = getCaretIndex(el)
   let characterToEnter = '\n\n';
   let prevChar, char = '';
@@ -44,10 +44,10 @@ export const insertNodeAtCaret = (el) => {
     prevChar = el.innerHTML.charAt(position - 1);
     char = el.innerHTML.charAt(position);
     const newLines = el.innerHTML.match(/\n/g);
-    if(
-      prevChar === char || 
-      (prevChar === '\n' && char === '') || 
-      (isFirefox() && newLines?.length > 0)
+    if (
+      prevChar === char ||
+      (prevChar === '\n' && char === '') ||
+      (isFirefox() && (newLines?.length || 0) > 0)
     ) {
       characterToEnter = '\n';
     }

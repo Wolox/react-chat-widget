@@ -1,10 +1,11 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
-
-import { toggleChat, addUserMessage } from '../../store/actions';
+import { addUserMessage, toggleChat } from '../../store/actions';
 import { isWidgetOpened } from '../../store/dispatcher';
 import { AnyFunction } from '../../utils/types';
-
 import WidgetLayout from './layout';
+
+
 
 type Props = {
   title: string;
@@ -69,20 +70,21 @@ function Widget({
 
   const toggleConversation = () => {
     dispatch(toggleChat());
-    handleToggle ? handleToggle(isWidgetOpened()) : null;
+    if (handleToggle) {
+      handleToggle(isWidgetOpened());
+    }
   }
 
-  const handleMessageSubmit = (userInput) => {
-    if (!userInput.trim()) {      
-      return;      
+  const handleMessageSubmit = (userInput: string) => {
+    if (!userInput.trim()) {
+      return;
     }
-
     handleSubmit?.(userInput);
     dispatch(addUserMessage(userInput));
     handleNewUserMessage(userInput);
   }
 
-  const onQuickButtonClicked = (event, value) => {
+  const onQuickButtonClicked = (event: Event, value: string) => {
     event.preventDefault();
     handleQuickButtonClicked?.(value)
   }

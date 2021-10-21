@@ -1,9 +1,10 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
-
-import { GlobalState, QuickButtonTypes } from 'src/store/types';
-import { AnyFunction } from 'src/utils/types';
-
+import { GlobalState, QuickButtonTypes } from '../../../../../../store/types';
+import { AnyFunction } from '../../../../../../utils/types';
 import './style.scss';
+
+
 
 type Props = {
   onQuickButtonClicked?: AnyFunction;
@@ -31,7 +32,7 @@ function QuickButtons({ onQuickButtonClicked }: Props) {
           <li className="quick-list-button" key={`${button.label}-${index}`}>
             {getComponentToRender(button)}
           </li>
-          )
+        )
         }
       </ul>
     </div>

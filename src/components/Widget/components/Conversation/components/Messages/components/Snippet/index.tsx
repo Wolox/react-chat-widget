@@ -1,8 +1,9 @@
 import format from 'date-fns/format';
-
-import { Link } from 'src/store/types';
-
+import React from 'react';
+import { Link } from '../../../../../../../../store/types';
 import './styles.scss';
+
+
 
 type Props = {
   message: Link;

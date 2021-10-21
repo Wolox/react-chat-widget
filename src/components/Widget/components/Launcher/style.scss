@@ -1,6 +1,6 @@
-@import 'common';
-@import 'variables/colors';
-@import 'animation';
+@import "common";
+@import "variables/colors";
+@import "animation";
 
 .rcw-launcher {
   @include animation(0, 0.5s, slide-in);
@@ -28,7 +28,7 @@
   @include animation(0, 0.5s, rotation-lr);
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
   .rcw-launcher {
     @include launcher-fs;
   }
