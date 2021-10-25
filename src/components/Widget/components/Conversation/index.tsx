@@ -24,7 +24,7 @@ type Props = {
   disabledInput: boolean;
   autofocus: boolean;
   className: string;
-  sendMessage: AnyFunction;
+  sendMessage: (text: string) => void;
   toggleChat: AnyFunction;
   profileAvatar?: string;
   profileClientAvatar?: string;
@@ -102,8 +102,8 @@ function Conversation({
     setPicket(prevPickerStatus => !prevPickerStatus);
   }
 
-  const handlerSendMsn = (event: UIEvent) => {
-    sendMessage(event)
+  const handlerSendMsn = (text: string) => {
+    sendMessage(text);
     if (pickerStatus) {
       setPicket(false);
     }

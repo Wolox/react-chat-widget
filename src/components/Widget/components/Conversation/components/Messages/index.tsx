@@ -12,9 +12,9 @@ import './styles.scss';
 
 type Props = {
   showTimeStamp: boolean,
+  timestampFormat: string;
   profileAvatar?: string;
   profileClientAvatar?: string;
-  timestampFormat?: string;
 }
 
 function Messages({ profileAvatar, profileClientAvatar, showTimeStamp, timestampFormat }: Props) {

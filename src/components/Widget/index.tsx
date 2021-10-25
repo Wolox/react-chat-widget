@@ -78,7 +78,7 @@ function Widget({
   }
 
   const handleMessageSubmit = (userInput: string) => {
-    if (!userInput.trim()) {
+    if (!userInput?.trim()) {
       return;
     }
     handleSubmit?.(userInput);

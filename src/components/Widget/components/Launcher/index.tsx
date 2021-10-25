@@ -11,10 +11,10 @@ import './style.scss';
 type Props = {
   toggle: () => void;
   chatId: string;
-  openLabel: string;
-  closeLabel: string;
-  closeImg: string;
-  openImg: string;
+  openLabel?: string;
+  closeLabel?: string;
+  closeImg?: string;
+  openImg?: string;
   showBadge?: boolean;
 }
 

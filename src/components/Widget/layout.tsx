@@ -13,7 +13,7 @@ type Props = {
   title: string;
   titleAvatar?: string;
   subtitle: string;
-  onSendMessage: AnyFunction;
+  onSendMessage: (text: string) => void;
   onToggleConversation: AnyFunction;
   senderPlaceHolder: string;
   onQuickButtonClicked: AnyFunction;

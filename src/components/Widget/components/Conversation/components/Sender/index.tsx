@@ -19,7 +19,7 @@ type Props = {
   placeholder: string;
   disabledInput: boolean;
   autofocus: boolean;
-  sendMessage: (event: any) => void;
+  sendMessage: (text: string) => void;
   buttonAlt: string;
   onPressEmoji: () => void;
   onChangeSize: (event: any) => void;
