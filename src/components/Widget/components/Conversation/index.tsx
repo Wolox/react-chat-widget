@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, ReactElement } from 'react';
 import { Picker } from 'emoji-mart';
 import cn from 'classnames';
 
@@ -16,7 +16,7 @@ interface ISenderRef {
 }
 
 type Props = {
-  title: string;
+  title: string|ReactElement;
   subtitle: string;
   senderPlaceHolder: string;
   showCloseButton: boolean;

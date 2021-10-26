@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, ReactElement } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 
@@ -13,7 +13,7 @@ import FullScreenPreview from './components/FullScreenPreview';
 import './style.scss';
 
 type Props = {
-  title: string;
+  title: string|ReactElement;
   titleAvatar?: string;
   subtitle: string;
   onSendMessage: AnyFunction;
