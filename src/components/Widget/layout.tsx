@@ -6,7 +6,7 @@ import { GlobalState } from 'src/store/types';
 import { AnyFunction } from 'src/utils/types';
 import { openFullscreenPreview } from '../../store/actions';
 
-import Conversation from './components/Conversation';
+import Conversation, {EmojiSet} from './components/Conversation';
 import Launcher from './components/Launcher';
 import FullScreenPreview from './components/FullScreenPreview';
 
@@ -38,7 +38,8 @@ type Props = {
   zoomStep?: number;
   showBadge?: boolean;
   resizable?: boolean;
-  emojis?: boolean
+  emojis?: boolean;
+  emojiSet?: EmojiSet;
 }
 
 function WidgetLayout({
@@ -67,7 +68,8 @@ function WidgetLayout({
   zoomStep,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  emojiSet,
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -147,6 +149,7 @@ function WidgetLayout({
           showTimeStamp={showTimeStamp}
           resizable={resizable}
           emojis={emojis}
+          emojiSet={emojiSet}
         />
       }
       {customLauncher ?
