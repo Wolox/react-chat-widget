@@ -1,6 +1,6 @@
 {
   "name": "react-chat-widget",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "description": "Chat web widget for React apps",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
