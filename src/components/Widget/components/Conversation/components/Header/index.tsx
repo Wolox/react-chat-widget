@@ -1,5 +1,5 @@
-const close = require('../../../../../../../assets/clear-button.svg') as string;
-
+import React from 'react';
+import clearButton from '../../../../../../assets/clear-button.svg';
 import './style.scss';
 
 type Props = {
@@ -15,7 +15,7 @@ function Header({ title, subtitle, toggleChat, showCloseButton, titleAvatar }: P
     <div className="rcw-header">
       {showCloseButton &&
         <button className="rcw-close-button" onClick={toggleChat}>
-          <img src={close} className="rcw-close" alt="close" />
+          <img src={clearButton} className="rcw-close" alt="close" />
         </button>
       }
       <h4 className="rcw-title">

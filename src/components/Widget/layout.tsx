@@ -1,22 +1,19 @@
-import { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
-
-import { GlobalState } from 'src/store/types';
-import { AnyFunction } from 'src/utils/types';
+import React, { useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { openFullscreenPreview } from '../../store/actions';
-
+import { GlobalState } from '../../store/types';
+import { AnyFunction } from '../../utils/types';
 import Conversation from './components/Conversation';
-import Launcher from './components/Launcher';
 import FullScreenPreview from './components/FullScreenPreview';
-
+import Launcher from './components/Launcher';
 import './style.scss';
 
 type Props = {
   title: string;
   titleAvatar?: string;
   subtitle: string;
-  onSendMessage: AnyFunction;
+  onSendMessage: (text: string) => void;
   onToggleConversation: AnyFunction;
   senderPlaceHolder: string;
   onQuickButtonClicked: AnyFunction;
@@ -38,7 +35,8 @@ type Props = {
   zoomStep?: number;
   showBadge?: boolean;
   resizable?: boolean;
-  emojis?: boolean
+  emojis?: boolean;
+  timestampFormat?: string;
 }
 
 function WidgetLayout({
@@ -67,7 +65,8 @@ function WidgetLayout({
   zoomStep,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  timestampFormat
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -79,16 +78,17 @@ function WidgetLayout({
   const messageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if(showChat) {
+    if (showChat) {
       messageRef.current = document.getElementById('messages') as HTMLDivElement;
     }
     return () => {
       messageRef.current = null;
     }
   }, [showChat])
-  
-  const eventHandle = evt => {
-    if(evt.target && evt.target.className === 'rcw-message-img') {
+
+  const eventHandle = (evt: UIEvent) => {
+    const target = evt.target as HTMLElement;
+    if (target && target.className === 'rcw-message-img') {
       const { src, alt, naturalWidth, naturalHeight } = (evt.target as HTMLImageElement);
       const obj = {
         src: src,
@@ -105,12 +105,14 @@ function WidgetLayout({
    */
   useEffect(() => {
     const target = messageRef?.current;
-    if(imagePreview && showChat) {
-      target?.addEventListener('click', eventHandle, false);
+    if (target && imagePreview && showChat) {
+      target.addEventListener('click', eventHandle, false);
     }
 
     return () => {
-      target?.removeEventListener('click', eventHandle);
+      if (target) {
+        target.removeEventListener('click', eventHandle);
+      }
     }
   }, [imagePreview, showChat]);
 
@@ -124,8 +126,7 @@ function WidgetLayout({
         'rcw-full-screen': fullScreenMode,
         'rcw-previewer': imagePreview,
         'rcw-close-widget-container ': !showChat
-        })
-      }
+      })}
     >
       {showChat &&
         <Conversation
@@ -147,11 +148,9 @@ function WidgetLayout({
           showTimeStamp={showTimeStamp}
           resizable={resizable}
           emojis={emojis}
-        />
-      }
-      {customLauncher ?
-        customLauncher(onToggleConversation) :
-        !fullScreenMode &&
+          timestampFormat={timestampFormat}
+        />}
+      {customLauncher ? customLauncher(onToggleConversation) : !fullScreenMode &&
         <Launcher
           toggle={onToggleConversation}
           chatId={chatId}
@@ -160,8 +159,7 @@ function WidgetLayout({
           closeImg={launcherCloseImg}
           openImg={launcherOpenImg}
           showBadge={showBadge}
-        />
-      }
+        />}
       {
         imagePreview && <FullScreenPreview fullScreenMode={fullScreenMode} zoomStep={zoomStep} />
       }

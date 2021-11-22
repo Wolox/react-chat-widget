@@ -1,13 +1,20 @@
 import { createReducer } from '../../utils/createReducer';
-import { FullscreenPreviewState, ImageState  } from '../types';
-
 import {
-  OPEN_FULLSCREEN_PREVIEW,
   CLOSE_FULLSCREEN_PREVIEW,
-  FullscreenPreviewActions
+  FullscreenPreviewActions, OPEN_FULLSCREEN_PREVIEW
 } from '../actions/types';
+import { FullscreenPreviewState } from '../types';
 
-const initialState = {
+
+interface StateProps {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  visible: boolean;
+}
+
+const initialState: StateProps = {
   src: '',
   alt: '',
   width: 0,
@@ -16,12 +23,12 @@ const initialState = {
 };
 
 const fullscreenPreviewReducer = {
-  [OPEN_FULLSCREEN_PREVIEW]: (state: FullscreenPreviewState, { payload }) => {
-    const { src, width, height } = payload
+  [OPEN_FULLSCREEN_PREVIEW]: (state: FullscreenPreviewState, props: StateProps) => {
+    const { src, width, height } = props;
     return { ...state, src, width, height, visible: true }
   },
 
-  [CLOSE_FULLSCREEN_PREVIEW]: (state: FullscreenPreviewState) => ({ ...initialState }),
+  [CLOSE_FULLSCREEN_PREVIEW]: () => ({ ...initialState }),
 };
 
 export default (state: FullscreenPreviewState = initialState, action: FullscreenPreviewActions) => createReducer(fullscreenPreviewReducer, state, action);

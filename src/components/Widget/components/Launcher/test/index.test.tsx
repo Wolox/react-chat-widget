@@ -1,13 +1,13 @@
 import { configure, mount } from 'enzyme';
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-
-import Launcher from '../index';
+import Adapter from 'enzyme-adapter-react-16';
+import React from 'react';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
 import Badge from '../components/Badge';
+import Launcher from '../index';
 
 configure({ adapter: new Adapter() });
-const mockStore =  configureMockStore()
+const mockStore = configureMockStore()
 
 describe('<Launcher />', () => {
   const createMessageComponent = ({ toggle, chatOpened, badge = 0 }) => {
@@ -20,6 +20,8 @@ describe('<Launcher />', () => {
       <Provider store={store}>
         <Launcher
           toggle={toggle}
+          chatId='rcw-chat-container'
+          showBadge
         />
       </Provider>
     );

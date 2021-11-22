@@ -1,14 +1,16 @@
 import { ElementType } from 'react';
+import { MessageOrigin } from '../constants';
 
-type BaseMessage = {
+export interface BaseMessage {
   type: string;
   component: ElementType;
-  sender: string;
+  origin: MessageOrigin;
   showAvatar: boolean;
   timestamp: Date;
   unread: boolean;
   customId?: string;
   props?: any;
+  sender?: string;
 }
 
 export interface MessageTypes extends BaseMessage {

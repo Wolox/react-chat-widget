@@ -1,33 +1,29 @@
 import format from 'date-fns/format';
-import markdownIt from 'markdown-it';
-import markdownItSup from 'markdown-it-sup';
-import markdownItSanitizer from 'markdown-it-sanitizer';
-import markdownItClass from '@toycode/markdown-it-class';
-import markdownItLinkAttributes from 'markdown-it-link-attributes';
-
-import { MessageTypes } from 'src/store/types';
-
+import MarkdownIt from 'markdown-it';
+import React from 'react';
+import { MessageOrigin } from '../../../../../../../../constants';
+import { MessageTypes } from '../../../../../../../../store/types';
 import './styles.scss';
+
+
 
 type Props = {
   message: MessageTypes;
   showTimeStamp: boolean;
+  timestampFormat: string;
 }
 
-function Message({ message, showTimeStamp }: Props) {
-  const sanitizedHTML = markdownIt({ break: true })
-    .use(markdownItClass, {
-      img: ['rcw-message-img']
-    })
-    .use(markdownItSup)
-    .use(markdownItSanitizer)
-    .use(markdownItLinkAttributes, { attrs: { target: '_blank', rel: 'noopener' } })
+function Message({ message, showTimeStamp, timestampFormat }: Props) {
+  const sanitizedHTML = new MarkdownIt("default", { linkify: false })
     .render(message.text);
-
+  const isClient = (origin: MessageOrigin) => origin === MessageOrigin.client;
   return (
-    <div className={`rcw-${message.sender}`}>
-      <div className="rcw-message-text" dangerouslySetInnerHTML={{ __html: sanitizedHTML.replace(/\n$/,'') }} />
-      {showTimeStamp && <span className="rcw-timestamp">{format(message.timestamp, 'hh:mm')}</span>}
+    <div className={`rcw-${message.origin}`}>
+      <div className="rcw-message-text" dangerouslySetInnerHTML={{ __html: sanitizedHTML.replace(/\n$/, '') }} />
+      <div className="rcw-status-line">
+        {showTimeStamp && <span className="rcw-timestamp">{format(message.timestamp, timestampFormat)}</span>}
+        {message.sender && !isClient(message.origin) && <span className="rcw-sender-line">{message.sender}</span>}
+      </div>
     </div>
   );
 }

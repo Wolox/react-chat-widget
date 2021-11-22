@@ -36,6 +36,7 @@ export interface AddResponseMessage {
   type: typeof ADD_NEW_RESPONSE_MESSAGE;
   text: string;
   id?: string;
+  sender?: string;
 }
 
 export interface ToggleMsgLoader {
@@ -88,7 +89,7 @@ export interface MarkAllMessagesRead {
 export type BehaviorActions = ToggleChat | ToggleInputDisabled | ToggleMsgLoader;
 
 export type MessagesActions = AddUserMessage | AddResponseMessage | AddLinkSnippet | RenderCustomComponent
-                              | DropMessages | HideAvatar | DeleteMessages | MarkAllMessagesRead | SetBadgeCount;
+  | DropMessages | HideAvatar | DeleteMessages | MarkAllMessagesRead | SetBadgeCount;
 
 export type QuickButtonsActions = SetQuickButtons;
 

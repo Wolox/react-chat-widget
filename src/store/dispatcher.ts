@@ -12,6 +12,10 @@ export function addResponseMessage(text: string, id?: string) {
   store.dispatch(actions.addResponseMessage(text, id));
 }
 
+export function addResponseMessageWithSender(sender: string, text: string, id?: string) {
+  store.dispatch(actions.addResponseMessage(text, id, sender));
+}
+
 export function addLinkSnippet(link: LinkParams, id?: string) {
   store.dispatch(actions.addLinkSnippet(link, id));
 }

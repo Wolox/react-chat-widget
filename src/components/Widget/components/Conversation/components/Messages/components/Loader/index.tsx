@@ -1,6 +1,7 @@
 import cn from 'classnames';
-
+import React from 'react';
 import './styles.scss';
+
 
 type Props = {
   typing: boolean;

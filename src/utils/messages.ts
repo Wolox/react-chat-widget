@@ -6,33 +6,35 @@ import Message from '../components/Widget/components/Conversation/components/Mes
 import Snippet from '../components/Widget/components/Conversation/components/Messages/components/Snippet';
 import QuickButton from '../components/Widget/components/Conversation/components/QuickButtons/components/QuickButton';
 
-import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '../constants';
+import { MessageOrigin, MESSAGES_TYPES, MESSAGE_BOX_SCROLL_DURATION } from '../constants';
 
 export function createNewMessage(
   text: string,
-  sender: string,
+  origin: MessageOrigin,
   id?: string,
+  sender?: string
 ): MessageI {
   return {
     type: MESSAGES_TYPES.TEXT,
     component: Message,
     text,
-    sender,
+    origin,
     timestamp: new Date(),
     showAvatar: true,
     customId: id,
-    unread: sender === MESSAGE_SENDER.RESPONSE
+    unread: origin === MessageOrigin.response,
+    sender
   };
 }
 
-export function createLinkSnippet(link: LinkParams, id?: string) : Link {
+export function createLinkSnippet(link: LinkParams, id?: string): Link {
   return {
     type: MESSAGES_TYPES.SNIPPET.LINK,
     component: Snippet,
     title: link.title,
     link: link.link,
     target: link.target || '_blank',
-    sender: MESSAGE_SENDER.RESPONSE,
+    origin: MessageOrigin.response,
     timestamp: new Date(),
     showAvatar: true,
     customId: id,
@@ -45,7 +47,7 @@ export function createComponentMessage(component: ElementType, props: any, showA
     type: MESSAGES_TYPES.CUSTOM_COMPONENT,
     component,
     props,
-    sender: MESSAGE_SENDER.RESPONSE,
+    origin: MessageOrigin.response,
     timestamp: new Date(),
     showAvatar,
     customId: id,
@@ -76,7 +78,7 @@ function sinEaseOut(timestamp: any, begining: any, change: any, duration: any) {
 function scrollWithSlowMotion(target: any, scrollStart: any, scroll: number) {
   const raf = window?.requestAnimationFrame;
   let start = 0;
-  const step = (timestamp) => {
+  const step = (timestamp: number) => {
     if (!start) {
       start = timestamp;
     }
