@@ -1,3 +1,5 @@
+import 'react/jsx-runtime';
+
 import ConnectedWidget from './src';
 import {
   addUserMessage,
