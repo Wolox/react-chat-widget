@@ -16,7 +16,12 @@ module.exports = {
     clean: true
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      react: path.resolve(__dirname, './node_modules/react'),
+      'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+      'react/jsx-runtime': require.resolve('./node_modules/react/jsx-runtime')
+    }
   },
   target: 'web',
   mode: 'production',
@@ -76,17 +81,22 @@ module.exports = {
       filename: 'styles.css',
       chunkFilename: '[id].css'
     }),
+    new webpack.ProvidePlugin({
+      'react': 'React'
+    })
   ],
   externals: {
     react: {
-      commonjs: 'React',
+      root: 'React',
       commonjs2: 'react',
+      commonjs: 'react',
       amd: 'react'
     },
     'react-dom': {
-      commonjs: 'ReactDOM',
-      commonjs2: 'react-dom',
-      amd: 'react-dom'
+        root: 'ReactDOM',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom'
     }
   },
   optimization: {
