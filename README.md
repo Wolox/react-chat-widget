@@ -246,7 +246,7 @@ You can also control certain actions of the widget:
 - **toggleMsgLoader**
   - Toggles the message loader that shows as a "typing..." style.
 
-- **deleteMessages***
+- **deleteMessages**
   - params:
     - count: messages to delete counting from last to first
     - id: message id to delete
