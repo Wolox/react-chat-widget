@@ -1,3 +1,4 @@
+import {ReactElement} from 'react';
 import { useDispatch } from 'react-redux';
 
 import { toggleChat, addUserMessage } from '../../store/actions';
@@ -7,7 +8,7 @@ import { AnyFunction } from '../../utils/types';
 import WidgetLayout from './layout';
 
 type Props = {
-  title: string;
+  title: string|ReactElement;
   titleAvatar?: string;
   subtitle: string;
   senderPlaceHolder: string;

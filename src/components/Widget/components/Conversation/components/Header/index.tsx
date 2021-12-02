@@ -1,9 +1,11 @@
+import {ReactElement} from 'react';
+
 const close = require('../../../../../../../assets/clear-button.svg') as string;
 
 import './style.scss';
 
 type Props = {
-  title: string;
+  title: string|ReactElement;
   subtitle: string;
   toggleChat: () => void;
   showCloseButton: boolean;
