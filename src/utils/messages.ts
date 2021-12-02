@@ -12,13 +12,14 @@ export function createNewMessage(
   text: string,
   sender: string,
   id?: string,
+  date?: Date,
 ): MessageI {
   return {
     type: MESSAGES_TYPES.TEXT,
     component: Message,
     text,
     sender,
-    timestamp: new Date(),
+    timestamp: date ? date : new Date(),
     showAvatar: true,
     customId: id,
     unread: sender === MESSAGE_SENDER.RESPONSE
