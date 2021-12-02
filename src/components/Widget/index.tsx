@@ -5,6 +5,7 @@ import { isWidgetOpened } from '../../store/dispatcher';
 import { AnyFunction } from '../../utils/types';
 
 import WidgetLayout from './layout';
+import {EmojiSet} from "./components/Conversation";
 
 type Props = {
   title: string;
@@ -34,6 +35,7 @@ type Props = {
   showBadge?: boolean;
   resizable?: boolean;
   emojis?: boolean;
+  emojiSet?: EmojiSet;
 }
 
 function Widget({
@@ -63,7 +65,8 @@ function Widget({
   handleSubmit,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  emojiSet,
 }: Props) {
   const dispatch = useDispatch();
 
@@ -115,6 +118,7 @@ function Widget({
       showBadge={showBadge}
       resizable={resizable}
       emojis={emojis}
+      emojiSet={emojiSet}
     />
   );
 }

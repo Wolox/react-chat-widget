@@ -5,6 +5,7 @@ import Widget from './components/Widget';
 import store from  './store';
 
 import { AnyFunction } from './utils/types';
+import {EmojiSet} from "./components/Widget/components/Conversation";
 
 type Props = {
   handleNewUserMessage: AnyFunction;
@@ -31,6 +32,7 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   emojis?: boolean;
+  emojiSet?: EmojiSet;
   handleSubmit?: AnyFunction;
   showBadge?: boolean;
   resizable?: boolean;
@@ -63,7 +65,8 @@ function ConnectedWidget({
   handleSubmit,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  emojiSet,
 }: Props) {
   return (
     <Provider store={store}>
@@ -90,11 +93,12 @@ function ConnectedWidget({
         sendButtonAlt={sendButtonAlt}
         showTimeStamp={showTimeStamp}
         imagePreview={imagePreview}
-        zoomStep={zoomStep} 
+        zoomStep={zoomStep}
         handleSubmit={handleSubmit}
         showBadge={showBadge}
         resizable={resizable}
         emojis={emojis}
+        emojiSet={emojiSet}
       />
     </Provider>
   );

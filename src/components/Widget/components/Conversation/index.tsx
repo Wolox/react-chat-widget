@@ -15,6 +15,8 @@ interface ISenderRef {
   onSelectEmoji: (event: any) => void;
 }
 
+export type EmojiSet = 'apple' | 'google' | 'twitter' | 'facebook';
+
 type Props = {
   title: string;
   subtitle: string;
@@ -34,6 +36,7 @@ type Props = {
   showTimeStamp: boolean;
   resizable?: boolean;
   emojis?: boolean;
+  emojiSet?: EmojiSet;
 };
 
 function Conversation({
@@ -54,7 +57,8 @@ function Conversation({
   sendButtonAlt,
   showTimeStamp,
   resizable,
-  emojis
+  emojis,
+  emojiSet,
 }: Props) {
   const [containerDiv, setContainerDiv] = useState<HTMLElement | null>();
   let startX, startWidth;
@@ -85,11 +89,11 @@ function Conversation({
     window.removeEventListener('mousemove', resize, false);
     window.removeEventListener('mouseup', stopResize, false);
   }
-  
+
   const [pickerOffset, setOffset] = useState(0)
   const senderRef = useRef<ISenderRef>(null!);
-  const [pickerStatus, setPicket] = useState(false) 
- 
+  const [pickerStatus, setPicket] = useState(false)
+
   const onSelectEmoji = (emoji) => {
     senderRef.current?.onSelectEmoji(emoji)
   }
@@ -104,7 +108,7 @@ function Conversation({
   }
 
   return (
-    <div id="rcw-conversation-container" onMouseDown={initResize} 
+    <div id="rcw-conversation-container" onMouseDown={initResize}
       className={cn('rcw-conversation-container', className)} aria-live="polite">
       {resizable && <div className="rcw-conversation-resizer" />}
       <Header
@@ -120,9 +124,10 @@ function Conversation({
         showTimeStamp={showTimeStamp}
       />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      {emojis && pickerStatus && (<Picker 
+      {emojis && pickerStatus && (<Picker
         style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }}
         onSelect={onSelectEmoji}
+        set={emojiSet ?? undefined}
       />)}
       <Sender
         ref={senderRef}
