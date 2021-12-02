@@ -252,6 +252,10 @@ You can also control certain actions of the widget:
     - id: message id to delete
   - Delete messages that either have an id you previously set with the `addResponseMessage` or delete based on position or both of them. For example `deleteMessages(2, 'myId')` will delete the message that has the id `myId` and the previous message.
 
+- **dropMessages** 
+  - params: No params expected 
+  - Method to remove all messages that have been loaded in the widget.
+
 - **markAllAsRead**
   - Marks all response messages as read. The user messages doesn't have the read/unread property.
 
