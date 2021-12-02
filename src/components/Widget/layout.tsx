@@ -25,7 +25,7 @@ type Props = {
   showCloseButton: boolean;
   fullScreenMode: boolean;
   autofocus: boolean;
-  customLauncher?: AnyFunction;
+  customLauncher?: AnyFunction|null;
   onTextInputChange?: (event: any) => void;
   chatId: string;
   launcherOpenLabel: string;
@@ -86,7 +86,7 @@ function WidgetLayout({
       messageRef.current = null;
     }
   }, [showChat])
-  
+
   const eventHandle = evt => {
     if(evt.target && evt.target.className === 'rcw-message-img') {
       const { src, alt, naturalWidth, naturalHeight } = (evt.target as HTMLImageElement);
@@ -117,6 +117,21 @@ function WidgetLayout({
   useEffect(() => {
     document.body.setAttribute('style', `overflow: ${visible || fullScreenMode ? 'hidden' : 'auto'}`)
   }, [fullScreenMode, visible])
+
+  const renderLauncher = () => {
+    return (customLauncher ?
+      customLauncher(onToggleConversation) :
+      !fullScreenMode &&
+      <Launcher
+          toggle={onToggleConversation}
+          chatId={chatId}
+          openLabel={launcherOpenLabel}
+          closeLabel={launcherCloseLabel}
+          closeImg={launcherCloseImg}
+          openImg={launcherOpenImg}
+          showBadge={showBadge}
+      />)
+  };
 
   return (
     <div
@@ -149,19 +164,7 @@ function WidgetLayout({
           emojis={emojis}
         />
       }
-      {customLauncher ?
-        customLauncher(onToggleConversation) :
-        !fullScreenMode &&
-        <Launcher
-          toggle={onToggleConversation}
-          chatId={chatId}
-          openLabel={launcherOpenLabel}
-          closeLabel={launcherCloseLabel}
-          closeImg={launcherCloseImg}
-          openImg={launcherOpenImg}
-          showBadge={showBadge}
-        />
-      }
+      {customLauncher !== null && renderLauncher()}
       {
         imagePreview && <FullScreenPreview fullScreenMode={fullScreenMode} zoomStep={zoomStep} />
       }
