@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
-import './style.scss';
-import {useUploadFiles} from "./hooks";
+import React, { useEffect } from 'react';
+
+import { useUploadFiles } from './hooks';
 const send = require('../../../../../../../assets/clip.svg') as string;
+import './style.scss';
 
 type Props = {
   onClick: (e: any) => void;
