@@ -129,6 +129,9 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
       <button className='rcw-picker-btn' type="submit" onClick={handlerPressEmoji}>
         <img src={emoji} className="rcw-picker-icon" alt="" />
       </button>
+      <button className='rcw-picker-btn' type="submit" onClick={handlerPressEmoji}>
+        <img src={emoji} className="rcw-picker-icon" alt="" />
+      </button>
       <div className={cn('rcw-new-message', {
           'rcw-message-disable': disabledInput,
         })
@@ -137,7 +140,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
           spellCheck
           className="rcw-input"
           role="textbox"
-          contentEditable={!disabledInput} 
+          contentEditable={!disabledInput}
           ref={inputRef}
           placeholder={placeholder}
           onInput={handlerOnChange}
