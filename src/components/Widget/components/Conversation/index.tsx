@@ -34,6 +34,8 @@ type Props = {
   showTimeStamp: boolean;
   resizable?: boolean;
   emojis?: boolean;
+  isShowEmoji: boolean;
+  isShowFileUploader: boolean;
 };
 
 function Conversation({
@@ -54,7 +56,9 @@ function Conversation({
   sendButtonAlt,
   showTimeStamp,
   resizable,
-  emojis
+  emojis,
+  isShowFileUploader = false,
+  isShowEmoji = true,
 }: Props) {
   const [containerDiv, setContainerDiv] = useState<HTMLElement | null>();
   let startX, startWidth;
@@ -88,7 +92,7 @@ function Conversation({
   
   const [pickerOffset, setOffset] = useState(0)
   const senderRef = useRef<ISenderRef>(null!);
-  const [pickerStatus, setPicket] = useState(false) 
+  const [pickerStatus, setPicket] = useState(false)
  
   const onSelectEmoji = (emoji) => {
     senderRef.current?.onSelectEmoji(emoji)
@@ -104,7 +108,7 @@ function Conversation({
   }
 
   return (
-    <div id="rcw-conversation-container" onMouseDown={initResize} 
+    <div id="rcw-conversation-container" onMouseDown={initResize}
       className={cn('rcw-conversation-container', className)} aria-live="polite">
       {resizable && <div className="rcw-conversation-resizer" />}
       <Header
@@ -120,12 +124,14 @@ function Conversation({
         showTimeStamp={showTimeStamp}
       />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      {emojis && pickerStatus && (<Picker 
+      {emojis && pickerStatus && (<Picker
         style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }}
         onSelect={onSelectEmoji}
       />)}
       <Sender
         ref={senderRef}
+        isShowFileUploader={isShowFileUploader}
+        isShowEmoji={isShowEmoji}
         sendMessage={handlerSendMsn}
         placeholder={senderPlaceHolder}
         disabledInput={disabledInput}
