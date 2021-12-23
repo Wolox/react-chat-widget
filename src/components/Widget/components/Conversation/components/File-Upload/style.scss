@@ -1,0 +1,16 @@
+@import 'variables/colors';
+
+.image-upload {
+  width: 35px;
+  input {
+    display: none;
+    height: 24px;
+  }
+  img {
+    width: 15px;
+    left: 5px;
+    position: relative;
+  }
+}
+
+

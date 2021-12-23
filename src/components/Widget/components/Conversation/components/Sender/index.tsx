@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, forwardRef, useImperativeHandle } from 'react';
+import {useRef, useEffect, useState, forwardRef, useImperativeHandle, MouseEventHandler} from 'react';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
 
@@ -10,8 +10,11 @@ const emoji = require('../../../../../../../assets/icon-smiley.svg') as string;
 const brRegex = /<br>/g;
 
 import './style.scss';
+import { FileUpload } from '../File-Upload';
 
 type Props = {
+  isShowEmoji: boolean;
+  isShowFileUploader: boolean;
   placeholder: string;
   disabledInput: boolean;
   autofocus: boolean;
@@ -22,13 +25,16 @@ type Props = {
   onTextInputChange?: (event: any) => void;
 }
 
-function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt, onPressEmoji, onChangeSize }: Props, ref) {
+function Sender({
+  sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt,
+  onPressEmoji, onChangeSize, isShowEmoji, isShowFileUploader,
+}: Props, ref) {
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef<HTMLDivElement>(null!);
   const refContainer = useRef<HTMLDivElement>(null);
   const [enter, setEnter]= useState(false)
   const [firefox, setFirefox] = useState(false);
-  const [height, setHeight] = useState(0)
+  const [height, setHeight] = useState(0);
   // @ts-ignore
   useEffect(() => { if (showChat && autofocus) inputRef.current?.focus(); }, [showChat]);
   useEffect(() => { setFirefox(isFirefox())}, [])
@@ -123,15 +129,20 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
     onPressEmoji();
     checkSize();
   }
-
+  const handleFileInput = (files: { source: string }[] = []) => {
+    files.forEach((file) => sendMessage(`![vertical](${file.source})`));
+  };
+  
   return (
     <div ref={refContainer} className="rcw-sender">
-      <button className='rcw-picker-btn' type="submit" onClick={handlerPressEmoji}>
-        <img src={emoji} className="rcw-picker-icon" alt="" />
-      </button>
-      <button className='rcw-picker-btn' type="submit" onClick={handlerPressEmoji}>
-        <img src={emoji} className="rcw-picker-icon" alt="" />
-      </button>
+      {isShowEmoji && (
+        <button className='rcw-picker-btn' type="submit" onClick={handlerPressEmoji}>
+          <img src={emoji} className="rcw-picker-icon" alt="" />
+        </button>
+      )}
+      {isShowFileUploader && (
+        <FileUpload onClick={handleFileInput} />
+      )}
       <div className={cn('rcw-new-message', {
           'rcw-message-disable': disabledInput,
         })

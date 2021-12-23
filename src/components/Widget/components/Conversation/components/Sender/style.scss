@@ -50,7 +50,7 @@
 
   &[placeholder]:empty::before {
     content: attr(placeholder);
-    color: $grey-0; 
+    color: $grey-0;
   }
 }
 
