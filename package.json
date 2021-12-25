@@ -1,6 +1,6 @@
 {
-  "name": "react-chat-widget-lozyuk",
-  "version": "0.0.3",
+  "name": "react-chat-widget",
+  "version": "3.1.5",
   "description": "Chat web widget for React apps",
   "main": "lib/index.js",
   "repository": "git@github.com:Wolox/react-chat-widget.git",
@@ -74,7 +74,6 @@
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.1.0",
     "prettier-eslint": "^9.0.2",
-    "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "redux-mock-store": "^1.5.4",
     "sass-loader": "^11.0.1",
@@ -90,7 +89,6 @@
     "webpack-dev-server": "^3.11.2"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "jest": {
