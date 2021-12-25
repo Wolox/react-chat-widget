@@ -1,19 +1,29 @@
+import 'babel-polyfill';
 import { useCallback, useState } from 'react';
 
-const validateUploadFiles = (files: FileList | null): TFile[] => {
+const validateUploadFiles = async (files: FileList | null): Promise<TFile[]> => {
 	if (!files) {
 		return [];
 	}
-	return [...files].reduce<TFile[]>((acc, file) => {
+	const result: TFile[] = []
+	await [...files].reduce(async (promise, file) => {
+		await promise;
 		if (!file.type.includes('image')) {
-			return acc;
+			return;
 		}
-		acc.push({
-			source: URL.createObjectURL(file),
-			file,
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		return new Promise((resolve) => {
+			reader.onload = function () {
+				result.push({
+					source: reader.result as string,
+					file,
+				});
+				resolve();
+			};
 		});
-		return acc;
-	}, []);
+	}, Promise.resolve());
+	return result;
 };
 
 type TUseUploadFilesReturn = [
@@ -31,7 +41,10 @@ export const useUploadFiles = (): TUseUploadFilesReturn => {
 	const [files, setFiles] = useState<TFile[]>([]);
 	
 	const selectFilesWrapper = useCallback((event: { target: HTMLInputElement; }) => {
-		setFiles(validateUploadFiles(event.target.files));
+		(async () => {
+			const uploadFiles = await validateUploadFiles(event.target.files);
+			setFiles(uploadFiles);
+		})();
 	}, []);
 	const deleteFile = useCallback((index: number) => {
 		files.splice(index, 1);
