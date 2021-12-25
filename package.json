@@ -19,6 +19,7 @@
     "javascript"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
     "date-fns": "^2.11.1",
     "emoji-mart": "^3.0.1",
