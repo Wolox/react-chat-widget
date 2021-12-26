@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import 'idempotent-babel-polyfill';
 import { useCallback, useState } from 'react';
 
 const validateUploadFiles = async (files: FileList | null): Promise<TFile[]> => {
