@@ -34,6 +34,8 @@ type Props = {
   showBadge?: boolean;
   resizable?: boolean;
   emojis?: boolean;
+  isShowEmoji?: boolean;
+  isShowFileUploader?: boolean;
 }
 
 function Widget({
@@ -63,7 +65,9 @@ function Widget({
   handleSubmit,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  isShowFileUploader = true,
+  isShowEmoji = false,
 }: Props) {
   const dispatch = useDispatch();
 
@@ -73,10 +77,9 @@ function Widget({
   }
 
   const handleMessageSubmit = (userInput) => {
-    if (!userInput.trim()) {      
-      return;      
+    if (!userInput.trim()) {
+      return;
     }
-
     handleSubmit?.(userInput);
     dispatch(addUserMessage(userInput));
     handleNewUserMessage(userInput);
@@ -115,6 +118,8 @@ function Widget({
       showBadge={showBadge}
       resizable={resizable}
       emojis={emojis}
+      isShowFileUploader={isShowFileUploader}
+      isShowEmoji={isShowEmoji}
     />
   );
 }
