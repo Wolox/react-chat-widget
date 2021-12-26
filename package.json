@@ -1,6 +1,6 @@
 {
   "name": "react-chat-widget-lozyuk-custom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Chat web widget for React apps",
   "repository": "git@github.com:Wolox/react-chat-widget.git",
   "author": "Martín Callegari <martin.callegari@wolox.com.ar>",
