@@ -20,6 +20,7 @@ describe('<Launcher />', () => {
       <Provider store={store}>
         <Launcher
           toggle={toggle}
+          showBadge={badge > 0}
         />
       </Provider>
     );
