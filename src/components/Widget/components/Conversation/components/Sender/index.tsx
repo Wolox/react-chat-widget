@@ -49,6 +49,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
     const el = inputRef.current;
       if (el.innerHTML) {
         
+          // check to see if there is a handleSubmit function and validate the text if so
           const boo = handleSubmit?.(el.innerHTML);
           if (handleSubmit === undefined || boo) {
               sendMessage(el.innerText);      

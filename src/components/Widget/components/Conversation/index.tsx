@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import cn from 'classnames';
-
+import data from '@emoji-mart/data';
+import Picker from '@emoji-mart/react';
 import Header from './components/Header';
 import Messages from './components/Messages';
 import Sender from './components/Sender';
@@ -91,7 +92,8 @@ function Conversation({
   const senderRef = useRef<ISenderRef>(null!);
   const [pickerStatus, setPicket] = useState(false) 
  
-  const onSelectEmoji = (emoji) => {
+    const onSelectEmoji = (emoji) => {
+        console.log(emoji);
     senderRef.current?.onSelectEmoji(emoji)
   }
 
@@ -121,7 +123,7 @@ function Conversation({
         showTimeStamp={showTimeStamp}
       />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      
+      {emojis && pickerStatus && (<Picker data={data} onEmojiSelect={onSelectEmoji}/>)}
       <Sender
         ref={senderRef}
         sendMessage={handlerSendMsn}
