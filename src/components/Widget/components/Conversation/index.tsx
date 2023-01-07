@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from 'react';
-import { Picker } from 'emoji-mart';
 import cn from 'classnames';
 
 import Header from './components/Header';
@@ -33,7 +32,8 @@ type Props = {
   sendButtonAlt: string;
   showTimeStamp: boolean;
   resizable?: boolean;
-  emojis?: boolean;
+    emojis?: boolean;  
+  handleSubmit?: AnyFunction;
 };
 
 function Conversation({
@@ -54,7 +54,8 @@ function Conversation({
   sendButtonAlt,
   showTimeStamp,
   resizable,
-  emojis
+    emojis,
+  handleSubmit
 }: Props) {
   const [containerDiv, setContainerDiv] = useState<HTMLElement | null>();
   let startX, startWidth;
@@ -120,10 +121,7 @@ function Conversation({
         showTimeStamp={showTimeStamp}
       />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      {emojis && pickerStatus && (<Picker 
-        style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }}
-        onSelect={onSelectEmoji}
-      />)}
+      
       <Sender
         ref={senderRef}
         sendMessage={handlerSendMsn}
@@ -133,7 +131,8 @@ function Conversation({
         onTextInputChange={onTextInputChange}
         buttonAlt={sendButtonAlt}
         onPressEmoji={togglePicker}
-        onChangeSize={setOffset}
+              onChangeSize={setOffset}
+              handleSubmit={handleSubmit}
       />
     </div>
   );

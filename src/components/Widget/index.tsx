@@ -72,14 +72,14 @@ function Widget({
     handleToggle ? handleToggle(isWidgetOpened()) : null;
   }
 
-  const handleMessageSubmit = (userInput) => {
+    const handleMessageSubmit = (userInput) => {
     if (!userInput.trim()) {      
       return;      
     }
-
-    handleSubmit?.(userInput);
+  
     dispatch(addUserMessage(userInput));
     handleNewUserMessage(userInput);
+      
   }
 
   const onQuickButtonClicked = (event, value) => {
@@ -114,7 +114,8 @@ function Widget({
       zoomStep={zoomStep}
       showBadge={showBadge}
       resizable={resizable}
-      emojis={emojis}
+          emojis={emojis}
+      handleSubmit={handleSubmit}
     />
   );
 }
