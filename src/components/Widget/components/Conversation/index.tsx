@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
-import { Picker } from 'emoji-mart';
 import cn from 'classnames';
-
+import data from '@emoji-mart/data';
+import Picker from '@emoji-mart/react';
 import Header from './components/Header';
 import Messages from './components/Messages';
 import Sender from './components/Sender';
@@ -33,7 +33,8 @@ type Props = {
   sendButtonAlt: string;
   showTimeStamp: boolean;
   resizable?: boolean;
-  emojis?: boolean;
+    emojis?: boolean;  
+  handleSubmit?: AnyFunction;
 };
 
 function Conversation({
@@ -54,7 +55,8 @@ function Conversation({
   sendButtonAlt,
   showTimeStamp,
   resizable,
-  emojis
+    emojis,
+  handleSubmit
 }: Props) {
   const [containerDiv, setContainerDiv] = useState<HTMLElement | null>();
   let startX, startWidth;
@@ -90,7 +92,8 @@ function Conversation({
   const senderRef = useRef<ISenderRef>(null!);
   const [pickerStatus, setPicket] = useState(false) 
  
-  const onSelectEmoji = (emoji) => {
+    const onSelectEmoji = (emoji) => {
+        console.log(emoji);
     senderRef.current?.onSelectEmoji(emoji)
   }
 
@@ -120,10 +123,7 @@ function Conversation({
         showTimeStamp={showTimeStamp}
       />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      {emojis && pickerStatus && (<Picker 
-        style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }}
-        onSelect={onSelectEmoji}
-      />)}
+      {emojis && pickerStatus && (<Picker data={data} onEmojiSelect={onSelectEmoji}/>)}
       <Sender
         ref={senderRef}
         sendMessage={handlerSendMsn}
@@ -133,7 +133,8 @@ function Conversation({
         onTextInputChange={onTextInputChange}
         buttonAlt={sendButtonAlt}
         onPressEmoji={togglePicker}
-        onChangeSize={setOffset}
+              onChangeSize={setOffset}
+              handleSubmit={handleSubmit}
       />
     </div>
   );

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import cn from 'classnames';
 
 import { GlobalState } from 'src/store/types';
+import { AnyFunction } from '../../../../../../utils/types';
 
 import { getCaretIndex, isFirefox, updateCaret, insertNodeAtCaret, getSelection } from '../../../../../../utils/contentEditable'
 const send = require('../../../../../../../assets/send_button.svg') as string;
@@ -19,10 +20,11 @@ type Props = {
   buttonAlt: string;
   onPressEmoji: () => void;
   onChangeSize: (event: any) => void;
-  onTextInputChange?: (event: any) => void;
+    onTextInputChange?: (event: any) => void;  
+  handleSubmit?: AnyFunction;
 }
 
-function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt, onPressEmoji, onChangeSize }: Props, ref) {
+function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt, onPressEmoji, onChangeSize, handleSubmit }: Props, ref) {
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef<HTMLDivElement>(null!);
   const refContainer = useRef<HTMLDivElement>(null);
@@ -45,9 +47,14 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
 
   const handlerSendMessage = () => {
     const el = inputRef.current;
-    if(el.innerHTML) {
-      sendMessage(el.innerText);
-      el.innerHTML = ''
+      if (el.innerHTML) {
+        
+          // check to see if there is a handleSubmit function and validate the text if so
+          const boo = handleSubmit?.(el.innerHTML);
+          if (handleSubmit === undefined || boo) {
+              sendMessage(el.innerText);      
+              el.innerText = '';        
+          }      
     }
   }
 

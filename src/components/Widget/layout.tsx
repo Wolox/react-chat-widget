@@ -37,8 +37,9 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   showBadge?: boolean;
-  resizable?: boolean;
-  emojis?: boolean
+    resizable?: boolean;
+    emojis?: boolean;
+  handleSubmit?: AnyFunction;
 }
 
 function WidgetLayout({
@@ -67,7 +68,8 @@ function WidgetLayout({
   zoomStep,
   showBadge,
   resizable,
-  emojis
+    emojis,  
+  handleSubmit
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -146,7 +148,8 @@ function WidgetLayout({
           sendButtonAlt={sendButtonAlt}
           showTimeStamp={showTimeStamp}
           resizable={resizable}
-          emojis={emojis}
+              emojis={emojis}
+              handleSubmit={handleSubmit}
         />
       }
       {customLauncher ?
