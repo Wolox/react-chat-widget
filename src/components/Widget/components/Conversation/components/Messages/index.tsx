@@ -34,7 +34,7 @@ function Messages({ profileAvatar, profileClientAvatar, showTimeStamp }: Props) 
   }, [messages, badgeCount, showChat]);
     
   const getComponentToRender = (message: MessageTypes | Link | CustomCompMessage) => {
-    const ComponentToRender = message.component;
+    const ComponentToRender: any = message.component;
     if (message.type === 'component') {
       return <ComponentToRender {...message.props} />;
     }

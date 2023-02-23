@@ -13,7 +13,7 @@ function QuickButtons({ onQuickButtonClicked }: Props) {
   const buttons = useSelector((state: GlobalState) => state.quickButtons.quickButtons);
 
   const getComponentToRender = (button: QuickButtonTypes) => {
-    const ComponentToRender = button.component;
+    const ComponentToRender: any = button.component;
     return (
       <ComponentToRender
         onQuickButtonClicked={onQuickButtonClicked}

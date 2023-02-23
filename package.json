@@ -1,10 +1,13 @@
 {
-  "name": "react-chat-widget",
+  "name": "@telesqope/react-chat-widget",
   "version": "3.1.4",
   "description": "Chat web widget for React apps",
   "main": "lib/index.js",
   "repository": "git@github.com:Wolox/react-chat-widget.git",
   "author": "Martín Callegari <martin.callegari@wolox.com.ar>",
+  "contributors": [
+    "Telesqope <dev@telesqope.ai>"
+  ],
   "license": "MIT",
   "types": "./lib/index.d.ts",
   "scripts": {
@@ -66,7 +69,7 @@
     "husky": "^4.2.3",
     "jest": "^25.5.4",
     "mini-css-extract-plugin": "^1.5.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^8.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss": "^8.2.13",
     "postcss-loader": "^5.2.0",

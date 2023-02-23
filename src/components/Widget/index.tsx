@@ -77,7 +77,10 @@ function Widget({
       return;      
     }
 
-    handleSubmit?.(userInput);
+    if (handleSubmit?.(userInput) === false) {
+      return;
+    }
+
     dispatch(addUserMessage(userInput));
     handleNewUserMessage(userInput);
   }
