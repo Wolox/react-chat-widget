@@ -5,7 +5,7 @@
 .rcw-launcher {
   @include animation(0, 0.5s, slide-in);
   align-self: flex-end;
-  background-color: $turqois-1;
+  background-color: $primary-color;
   border: 0;
   border-radius: 50%;
   box-shadow: 0px 2px 10px 1px $grey-3;

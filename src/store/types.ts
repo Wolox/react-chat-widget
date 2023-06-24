@@ -1,8 +1,8 @@
-import { ElementType } from 'react';
+import { ComponentType, ElementType } from 'react';
 
 type BaseMessage = {
   type: string;
-  component: ElementType;
+  component: any;
   sender: string;
   showAvatar: boolean;
   timestamp: Date;
@@ -18,7 +18,7 @@ export interface MessageTypes extends BaseMessage {
 export type QuickButtonTypes = {
   label: string;
   value: string | number;
-  component: ElementType;
+  component: any
 };
 
 export interface Link extends BaseMessage {

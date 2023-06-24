@@ -120,10 +120,10 @@ function Conversation({
         showTimeStamp={showTimeStamp}
       />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      {emojis && pickerStatus && (<Picker 
+      {/* {emojis && pickerStatus && (<Picker 
         style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }}
         onSelect={onSelectEmoji}
-      />)}
+      />)} */}
       <Sender
         ref={senderRef}
         sendMessage={handlerSendMsn}

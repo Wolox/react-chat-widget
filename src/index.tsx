@@ -34,6 +34,8 @@ type Props = {
   handleSubmit?: AnyFunction;
   showBadge?: boolean;
   resizable?: boolean;
+  primaryColor: string;
+  secondaryColor: string;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -63,8 +65,12 @@ function ConnectedWidget({
   handleSubmit,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  primaryColor,
+  secondaryColor,
 }: Props) {
+  console.log({primaryColor});
+  
   return (
     <Provider store={store}>
       <Widget
@@ -95,6 +101,7 @@ function ConnectedWidget({
         showBadge={showBadge}
         resizable={resizable}
         emojis={emojis}
+        primaryColor={primaryColor}
       />
     </Provider>
   );

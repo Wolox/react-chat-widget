@@ -34,6 +34,7 @@ type Props = {
   showBadge?: boolean;
   resizable?: boolean;
   emojis?: boolean;
+  primaryColor?: string;
 }
 
 function Widget({
@@ -63,7 +64,8 @@ function Widget({
   handleSubmit,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  primaryColor,
 }: Props) {
   const dispatch = useDispatch();
 
@@ -115,6 +117,7 @@ function Widget({
       showBadge={showBadge}
       resizable={resizable}
       emojis={emojis}
+      primaryColor={primaryColor}
     />
   );
 }

@@ -3,14 +3,14 @@
 .quick-button {
   background: none;
   border-radius: 15px;
-  border: 2px solid $turqois-1;
+  border: 2px solid $primary-color;
   font-weight: bold;
   padding: 5px 10px;
   cursor: pointer;
   outline: 0;
 
   &:active {
-    background: $turqois-1;
+    background: $primary-color;
     color: $white;
   }
 }

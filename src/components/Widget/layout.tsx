@@ -38,7 +38,8 @@ type Props = {
   zoomStep?: number;
   showBadge?: boolean;
   resizable?: boolean;
-  emojis?: boolean
+  emojis?: boolean;
+  primaryColor?: string;
 }
 
 function WidgetLayout({
@@ -67,7 +68,8 @@ function WidgetLayout({
   zoomStep,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  primaryColor,
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -79,6 +81,8 @@ function WidgetLayout({
   const messageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    document.documentElement.style.setProperty('--primary-color', primaryColor || 'yellow');
+
     if(showChat) {
       messageRef.current = document.getElementById('messages') as HTMLDivElement;
     }
