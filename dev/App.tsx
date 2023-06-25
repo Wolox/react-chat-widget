@@ -45,8 +45,8 @@ export default class App extends Component {
         handleNewUserMessage={this.handleNewUserMessage}
         handleQuickButtonClicked={this.handleQuickButtonClicked}
         imagePreview
-        primaryColor='green'
-        secondaryColor='black'
+        primaryColor='grey'
+        secondaryColor='purple'
       />
     );
   }

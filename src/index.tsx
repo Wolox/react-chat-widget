@@ -69,7 +69,7 @@ function ConnectedWidget({
   primaryColor,
   secondaryColor,
 }: Props) {
-  console.log({primaryColor});
+  
   
   return (
     <Provider store={store}>
@@ -102,6 +102,7 @@ function ConnectedWidget({
         resizable={resizable}
         emojis={emojis}
         primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
       />
     </Provider>
   );

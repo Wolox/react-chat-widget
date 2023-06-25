@@ -1,6 +1,6 @@
 {
   "name": "@proteus-ai/react-chat-widget",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "React apps chat widget for Proteus Ai",
   "main": "lib/index.js",
   "repository": {

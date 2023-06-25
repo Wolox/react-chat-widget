@@ -167,7 +167,7 @@ export default App;
 |**resizable**|boolean|NO|false|Prop that allows to resize the widget by dragging it's left border|
 |**showBadge**|boolean|NO|true|Prop that allows to show or hide the unread message badge|
 |**primaryColor**|string|NO|true| Allows you specify a primary color for the header and chatwidget icon without writing css|
-|**secondaryColor**|string|NO|true||
+|**secondaryColor**|string|NO|true|for the users message bubble color|
 
 #### Styles
 

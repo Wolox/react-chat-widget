@@ -40,6 +40,7 @@ type Props = {
   resizable?: boolean;
   emojis?: boolean;
   primaryColor?: string;
+  secondaryColor?: string;
 }
 
 function WidgetLayout({
@@ -70,6 +71,7 @@ function WidgetLayout({
   resizable,
   emojis,
   primaryColor,
+  secondaryColor
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -81,7 +83,8 @@ function WidgetLayout({
   const messageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--primary-color', primaryColor || 'yellow');
+    document.documentElement.style.setProperty('--primary-color', primaryColor || 'purple');
+    document.documentElement.style.setProperty('--secondary-color', secondaryColor || 'indigo');
 
     if(showChat) {
       messageRef.current = document.getElementById('messages') as HTMLDivElement;

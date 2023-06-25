@@ -6,6 +6,7 @@
   display: flex;
   white-space: pre-wrap;
   word-wrap: break-word;
+  color: $black;
 
   &-client {
     flex-direction: row-reverse;
@@ -23,7 +24,7 @@
   margin-left: auto;
 
   .rcw-message-text {
-    @include message-bubble($turqois-2);
+    @include message-bubble($secondary-color);
 
     white-space: pre-wrap;
     word-wrap: break-word;

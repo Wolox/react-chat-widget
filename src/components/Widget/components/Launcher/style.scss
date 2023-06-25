@@ -20,10 +20,12 @@
 }
 
 .rcw-open-launcher {
+  display: inline !important;
   @include animation(0, 0.5s, rotation-rl);
 }
 
 .rcw-close-launcher {
+  display: inline !important;
   width: 20px;
   @include animation(0, 0.5s, rotation-lr);
 }

@@ -43,6 +43,7 @@
   user-select: text;
   white-space: pre-wrap;
   word-wrap: break-word;
+  color: $black;
 
   &:focus-visible {
     outline: none;
