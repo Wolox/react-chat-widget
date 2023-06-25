@@ -1,9 +1,6 @@
-# React Chat Widget
-[![circle-ci](https://img.shields.io/circleci/project/github/Wolox/react-chat-widget.svg)](https://circleci.com/gh/Wolox/react-chat-widget)
-[![npm](https://img.shields.io/npm/v/react-chat-widget.svg)](https://www.npmjs.com/package/react-chat-widget)
+# Proteus React Chat Widget
 
-[![FEArmy](./assets/FEA_open_source_sm.png)](https://github.com/orgs/Wolox/teams/front-end-army/members)
-
+A simplified version of [React chat widget by Wolox](https://www.npmjs.com/package/react-chat-widget)
 ## Features
 
 - Plain text message UI
@@ -17,12 +14,12 @@
 
 #### npm
 ```bash
-npm install --save react-chat-widget
+npm install --save @proteus-ai/react-chat-widget
 ```
 
 #### yarn
 ```bash
-yarn add react-chat-widget
+yarn add @proteus-ai/react-chat-widget
 ```
 
 ## Usage
@@ -31,9 +28,9 @@ yarn add react-chat-widget
 
 ```js
 import React from 'react';
-import { Widget } from 'react-chat-widget';
+import { Widget } from '@proteus-ai/react-chat-widget';
 
-import 'react-chat-widget/lib/styles.css';
+import '@proteus-ai/react-chat-widget/lib/styles.css';
 
 function App() {
   return (
@@ -50,9 +47,9 @@ export default App;
 
 ```js
 import React from 'react';
-import { Widget } from 'react-chat-widget';
+import { Widget } from '@proteus-ai/react-chat-widget';
 
-import 'react-chat-widget/lib/styles.css';
+import '@proteus-ai/react-chat-widget/lib/styles.css';
 
 function App() {
   const handleNewUserMessage = (newMessage) => {
@@ -76,9 +73,9 @@ export default App;
 
 ```js
 import React from 'react';
-import { Widget, addResponseMessage } from 'react-chat-widget';
+import { Widget, addResponseMessage } from '@proteus-ai/react-chat-widget';
 
-import 'react-chat-widget/lib/styles.css';
+import '@proteus-ai/react-chat-widget/lib/styles.css';
 
 function App() {
   useEffect(() => {
@@ -107,9 +104,9 @@ export default App;
 
 ```js
 import React, { useEffect } from 'react';
-import { Widget, addResponseMessage } from 'react-chat-widget';
+import { Widget, addResponseMessage } from '@proteus-ai/react-chat-widget';
 
-import 'react-chat-widget/lib/styles.css';
+import '@proteus-ai/react-chat-widget/lib/styles.css';
 
 import logo from './logo.svg';
 
@@ -168,8 +165,9 @@ export default App;
 |**handleTextInputChange**|(event) => any|NO| |Prop that triggers on input change|
 |**handleSubmit**|(event) => any|NO| |Prop that triggers when a message is submitted, used for custom validation|
 |**resizable**|boolean|NO|false|Prop that allows to resize the widget by dragging it's left border|
-|**emojis**|boolean|NO|false|enable emoji picker|
 |**showBadge**|boolean|NO|true|Prop that allows to show or hide the unread message badge|
+|**primaryColor**|string|NO|true| Allows you specify a primary color for the header and chatwidget icon without writing css|
+|**secondaryColor**|string|NO|true||
 
 #### Styles
 

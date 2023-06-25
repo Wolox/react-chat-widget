@@ -3,8 +3,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: './index.js',
@@ -13,7 +12,8 @@ module.exports = {
     filename: 'index.js',
     library: 'react-chat-widget',
     libraryTarget: 'umd',
-    clean: true
+    clean: true,
+    globalObject: 'this',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -100,12 +100,9 @@ module.exports = {
     }
   },
   optimization: {
+    minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true
-      }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+        new TerserPlugin(),
+    ],
   }
 };
