@@ -1,9 +1,9 @@
 @import 'variables/colors';
 
 .rcw-sender {
-  align-items: flex-end;
+  align-items: stretch;
   background-color: $grey-2;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px !important;
   display: flex;
   height: max-content;
   max-height: 95px;
@@ -11,6 +11,9 @@
   overflow: hidden;
   padding: 10px;
   position: relative;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
 
   &.expand {
     height: 55px;

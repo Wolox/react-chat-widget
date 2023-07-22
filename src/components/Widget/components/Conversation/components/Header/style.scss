@@ -5,7 +5,7 @@
 
   .rcw-header {
     background-color: $primary-color;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0 !important;
     color: $white;
     display: flex;
     flex-direction: column;
