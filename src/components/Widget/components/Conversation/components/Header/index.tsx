@@ -1,4 +1,4 @@
-const close = require('../../../../../../../assets/clear-button.svg') as string;
+const close = require('../../../../../../../assets/close.svg') as string;
 
 import './style.scss';
 

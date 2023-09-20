@@ -28,18 +28,10 @@ export default class App extends Component {
     setQuickButtons([]);
   }
 
-  // handleSubmit = (msgText: string) => {
-  //   if(msgText.length < 80) {
-  //     addUserMessage("Uh oh, please write a bit more.");
-  //     return false;
-  //   }
-  //   return true;
-  // }
-
   render() {
     return (
       <Widget
-        title="{Company name}"
+        title="Company name"
         subtitle="powered by Proteus"
         senderPlaceHolder="Ask a question ..."
         handleNewUserMessage={this.handleNewUserMessage}

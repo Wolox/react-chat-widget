@@ -26,7 +26,7 @@
 
 .rcw-close-launcher {
   display: inline !important;
-  width: 20px;
+  width: 50px;
   @include animation(0, 0.5s, rotation-lr);
   text-shadow: #FC0 5px 3px 10px;
 }
