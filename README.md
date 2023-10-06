@@ -289,6 +289,8 @@ function MyApp() {
 
 ## About
 
-This project is maintained by [Martín Callegari](https://github.com/mcallegari10) and it was written by [Wolox](http://www.wolox.com.ar).
+This is a personal fork to maintain compatibility with React 18 and beyond.
+
+This project was originally authored by [Martín Callegari](https://github.com/mcallegari10) and it was written by [Wolox](http://www.wolox.com.ar).
 
 ![Wolox](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)
