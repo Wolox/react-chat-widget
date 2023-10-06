@@ -1,6 +1,6 @@
 @import 'variables/colors';
 
-.loader {
+.rcw-loader {
   margin: 10px;
   display: none;
 
@@ -9,7 +9,7 @@
   }
 }
 
-.loader-container {
+.rcw-loader-container {
   background-color: $grey-2;
   border-radius: 10px;
   padding: 15px;
@@ -17,7 +17,7 @@
   text-align: left;
 }
 
-.loader-dots {
+.rcw-loader-dots {
   display: inline-block;
   height: 4px;
   width: 4px;

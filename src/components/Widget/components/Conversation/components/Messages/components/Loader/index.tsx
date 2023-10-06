@@ -8,11 +8,11 @@ type Props = {
 
 function Loader({ typing }: Props) {
   return (
-    <div className={cn('loader', { active: typing })}>
-      <div className="loader-container">
-        <span className="loader-dots"></span>
-        <span className="loader-dots"></span>
-        <span className="loader-dots"></span>
+    <div className={cn('rcw-loader', { active: typing })}>
+      <div className="rcw-loader-container">
+        <span className="rcw-loader-dots"></span>
+        <span className="rcw-loader-dots"></span>
+        <span className="rcw-loader-dots"></span>
       </div>
     </div>
   );
