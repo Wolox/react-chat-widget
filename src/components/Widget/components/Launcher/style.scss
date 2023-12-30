@@ -30,13 +30,3 @@
   @include animation(0, 0.5s, rotation-lr);
   text-shadow: #FC0 5px 3px 10px;
 }
-
-@media screen and (max-width: 800px){
-  .rcw-launcher {
-    @include launcher-fs;
-  }
-
-  .rcw-hide-sm {
-    display: none;
-  }
-}

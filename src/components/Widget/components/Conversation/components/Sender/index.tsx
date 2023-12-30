@@ -137,7 +137,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
           spellCheck
           className="rcw-input"
           role="textbox"
-          contentEditable={!disabledInput} 
+          contentEditable={!disabledInput}
           ref={inputRef}
           placeholder={placeholder}
           onInput={handlerOnChange}

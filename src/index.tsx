@@ -112,7 +112,7 @@ const defaultProps = {
   title: 'Welcome',
   subtitle: '',
   senderPlaceHolder: 'Type a message...',
-  showCloseButton: true,
+  showCloseButton: false,
   fullScreenMode: false,
   autofocus: true,
   chatId: 'rcw-chat-container',

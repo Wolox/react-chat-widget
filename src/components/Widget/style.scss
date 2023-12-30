@@ -17,8 +17,8 @@
 
 @media screen and (max-width: 800px) {
   .rcw-widget-container {
-    height: 100%;
     @include widget-container-fs;
+    margin: 20px;
   }
 }
 
